@@ -1,0 +1,57 @@
+\documentclass[10pt]{report}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{astrojournals}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
+\title{Tersis de doctorado\\
+\includegraphics[width=0.7\linewidth]{./Figures/tux-development}
+}
+
+\author{Jorge Alejandro Tarango Yong}
+
+\begin{document}
+\maketitle
+
+\include{portada}
+\tableofcontents
+\newpage
+\section*{Agradecimientos}
+
+Esta tesis se realiz\'o para obtener el t\'itulo de doctorado en 
+ciencias (Astronom\'ia). Deseo aprovechar esta secci\'on para hacer
+agradecimientos a personas y/o instituciones que me ayudaron para que 
+pueda completar este trabajo de manera exitosa.
+\newpage
+\section*{Resumen}
+  Abstract en espa\~nol
+
+\newpage
+\section*{Abstract}
+  Abstract written in english
+
+\newpage
+\chapter{Introducci\'on}
+\include{chapter1}
+\chapter{Marco Te\'orico}
+\include{chapter2}
+\chapter{Herramientas de Programaci\'on}
+\include{chapter3}
+\chapter{The Work}
+\include{chapter4}
+\chapter{Resultados obtenidos}
+\include{chapter5}
+\chapter{Conclusiones}
+\include{chapter6}
+
+\bibliographystyle{apj}
+\bibliography{orion_tesis}
+
+\end{document}

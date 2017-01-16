@@ -1,0 +1,5 @@
+# This file contains extensions which I want to be ignored by git #
+*.aux
+*.log
+*.toc
+*~

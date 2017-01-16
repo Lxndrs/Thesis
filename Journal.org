@@ -1,0 +1,59 @@
+RECORD OF THE THESIS PROGRESS
+
+* Monthly Tasks
+
+** December
+** November
+** October
+** September
+** August
+** July
+** June
+** May
+** April
+** March
+** February
+** January
+*** TODO Portada
+- [-] Contenido e la Portada
+  - [X] Texto
+  - [ ] Logos de la UNAM y del IRyA
+
+- [ ] Formato de la Portada
+  - [ ] Tama\~no correcto del texto 
+  - [ ] L\'ineas.
+*** Escribir el Prefacio de la tesis
+- [ ] Agradecimientos
+- [ ] Abstract (en ingl\'es y en espa\~nol)
+
+*** TODO Darle el formato general a la tesis.
+- [X] T\'itulos de cap\'itulos, secciones y ap\'endices en espa\~nol.
+- [-] Formato de p\'agina.
+
+
+* Monthly Journal
+
+** December
+** November
+** October
+** September
+** August
+** July
+** June
+** May
+** April
+** March
+** February
+** January
+
+- [2017-01-13 Fri] 
+  - Work schedule organized: 
+    - Move work folder to home.
+    - Create thesis journal.
+  - Start thesis Cover page.   
+
+- [2017-01-14 Sat]
+  - Install missing LaTeX packages to use babel spanish
+  - Convert thesis format to spanish
+  - Insert fancyhdr package and apply to document, but haven't been implemented properly yet.
+
