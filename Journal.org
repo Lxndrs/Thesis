@@ -44,6 +44,10 @@ RECORD OF THE THESIS PROGRESS
 ** April
 ** March
 ** February
+- [2017-02-02 Thu]
+  - Add some sections to Chapter 1
+  - Think in adjunting first paper to chapter 2
+
 ** January
 
 - [2017-01-13 Fri] 
@@ -57,3 +61,6 @@ RECORD OF THE THESIS PROGRESS
   - Convert thesis format to spanish
   - Insert fancyhdr package and apply to document, but haven't been implemented properly yet.
 
+-[2017-01-17 Tue]
+
+  - Yesterday's missing entry: Convert thesis folder into a github repository
