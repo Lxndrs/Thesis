@@ -1,20 +1,8 @@
 RECORD OF THE THESIS PROGRESS
 
-* Monthly Tasks
+* Tasks
 
-** December
-** November
-** October
-** September
-** August
-** July
-** June
-** May
-** April
-** March
-** February
-** January
-*** TODO Portada
+** TODO Portada
 - [-] Contenido e la Portada
   - [X] Texto
   - [ ] Logos de la UNAM y del IRyA
@@ -22,33 +10,62 @@ RECORD OF THE THESIS PROGRESS
 - [ ] Formato de la Portada
   - [ ] Tama\~no correcto del texto 
   - [ ] L\'ineas.
-*** Escribir el Prefacio de la tesis
+** TODO Escribir el Prefacio de la tesis
 - [ ] Agradecimientos
 - [ ] Abstract (en ingl\'es y en espa\~nol)
 
-*** TODO Darle el formato general a la tesis.
+** TODO Darle el formato general a la tesis.
 - [X] T\'itulos de cap\'itulos, secciones y ap\'endices en espa\~nol.
 - [-] Formato de p\'agina.
 
+** TODO Buscar ideas principales en notas de la maestría
+   - [ ] Choques
+   - [ ] Vientos Estelares
+   - [ ] Regiones HII
+   - [ ] Frentes de Ionización
+*** Choques
+*** Vientos Estelares
+*** Frentes de Ionización
+Situación: se trata de una fuente puntual
+que emite de forma radial fotones ionizantes y 
+que está rodeado de gas neutro.
+(e.g una estrella masiva rodeada de gas inicialmente neutro)
+    - N_ν (t): Tasa de fotones ionizantes.
+     Normalmente N_ν = N_*
+    - Propiedades del medio circundante (gas neutro):
+      - ρ = μ m_H
+      - v = 0
+    - Gas ionizado: 
+      - ρ = ρ(r,t)
+      - v = v(r,t)
+    - Llamamos X al grado de ionización del gas.
+    - Y la distancia donde se ubica la transición entre el gas neutro y el gas ionizado 
+      se denota como r_IF.
+El equilibrio de ionización se alcanza cuando la tasa de fotoionizaciones es igual a la de
+recombinaciones:
+$$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 
-* Monthly Journal
 
-** December
-** November
-** October
-** September
-** August
-** July
-** June
-** May
-** April
-** March
-** February
+*** Regiones HII 
+
+** TODO Write !!!!!!
+* Journal
+
+- [2017-05-08 Mon]
+  - Work in ``generic model section''
+  - Insert some figures
+
+- [2017-02-28 Tue]
+  - Update README.md
+    - Reorganize sections from chapters 1 & 2
+  - Search old notes to start writing
+
+- [2017-02-03 Fri]
+  - Updated README.md
+
 - [2017-02-02 Thu]
   - Add some sections to Chapter 1
   - Think in adjunting first paper to chapter 2
-
-** January
 
 - [2017-01-13 Fri] 
   - Work schedule organized: 
