@@ -72,16 +72,90 @@ $(x', y', z')$ queda como sigue:
 
 \begin{align}
   \left(
-  \begin{array}
+  \begin{array}{c}
     x' \\ y' \\ z'
   \end{array}
   \right) &=
   \left(
-  \begin{array}
+  \begin{array}{c}
     x\cos i - z\sin i \\ y' \\ z\cos i + x\sin i
   \end{array}
   \right)          
 \end{align}
+
+Por otro lado, la forma tridimensional del choque de proa viene dado por:
+
+\begin{align}
+  \left(
+  \begin{array}{c}
+    x \\ y \\ z
+  \end{array}
+  \right) &=
+            R(\theta)\left(
+            \begin{array}{c}
+              \cos\theta \\
+              \sin\theta\cos\phi \\
+              \sin\theta\sin\phi
+            \end{array}
+            \right)
+\end{align}
+La relaci\'on entre ambos sistemas de referencia se ilustra en la figura
+\ref{fig:reference}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/projection-pos}
+  \label{fig:reference}
+  \caption{Sistema de referencia del choque vs sistema de referencia del
+    plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del
+    cielo, mientras el eje $z'$ es paralelo a la línea de visión.
+    Solo la regi\'on del choque cuya tangente sea paralela a la l\'inea
+    de visión será visible por abrillantamiento al limbo.}
+\end{figure}
+
+\subsection{Vectores normal y tangente a la superficie}
+
+Si definimos los vectores $\hat{n}$ y $\hat{t}$, como los vectores
+normal y tangente a la superficie, respectivamente para $\phi$ constante.
+En el caso $\phi = 0$ (figura \ref{fig:unit-vec}), ambos vectores se encuentran
+en el plano $xy$ y es fácil mostrar que:
+
+\begin{align}
+  \hat{t}_0 =
+  \left(
+  \begin{array}{c}
+    -\cos\alpha \\
+    \sin\alpha \\
+    0
+  \end{array}
+  \right)
+  \quad \mathrm{y} \quad
+  \hat{n}_0 =
+  \left(
+  \begin{array}{c}
+    \sin\alpha \\
+    \cos\alpha \\
+    0
+  \end{array}
+  \right)
+\end{align}
+
+
+\begin{figure}
+  \includegraphics[width=0.8\linewidth]{./Figures/bowshock-unit-vectors}
+  \label{fig:unit-vec}
+  \caption{Vectores unitarios normal y tangente a la superficie $R(\theta)$
+    en un plano de azimuth $\phi$ constante.}
+\end{figure}
+
+
+\subsection{L\'inea tangente}
+
+Debido a que el choque es \'opticamente delgado y geom\'etricamente
+delgado, solo la regi\'on del choque cuya tangente sea paralela a la
+l\'inea de visi\'on ser\'a visible. Esto corresponde a una curva que
+denominamos \textit{l\'inea tangente}, que debe cumplir con la siguiente
+condicio\'on:
+
 
 
 \section{Cu\'adricas de Revoluci\'on}

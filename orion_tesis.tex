@@ -1,10 +1,47 @@
-\documentclass[10pt]{report}
-\usepackage{graphicx}
-\usepackage{natbib}
-\usepackage{astrojournals}
-\usepackage{amsmath}
+% Thesis format
+\documentclass[11pt]{book}
+
+%Select needed packages
+\usepackage[paperwidth=17cm, paperheight=22.5cm, bottom=2.5cm, right=2.5cm]{geometry}
+\usepackage{amssymb,amsmath,amsthm} 
 \usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[nottoc]{tocbibind}
+\usepackage[pdftex,
+            pdfauthor={NOMBRE DEL AUTOR},
+            pdftitle={TÍTULO DE LA TESIS},
+            pdfsubject={ÁREA DE LA TESIS},
+            pdfkeywords={PALABRAS CLAVE},
+            pdfproducer={Latex con hyperref},
+            pdfcreator={pdflatex}]{hyperref}
+
+\usepackage[varg]{newtxmath}
+\usepackage{newtxtext}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{fixltx2e}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{color}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=True, linkcolor=blue!50!black, citecolor=black,
+  urlcolor=blue!50!black}
+
+\usepackage{etoolbox}
+\robustify\bfseries
+\robustify\itshape
+
+
+%% Bold italic
+\newcommand\hmmax{0}            % we don't need heavy fonts
+\newcommand\bmmax{1}            % reduce use of math alphabets for bold
+\usepackage{bm}
+
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
@@ -12,7 +49,7 @@
 \fancyhead[L]{\leftmark}
 \fancyhead[R]{\rightmark}
 \title{Tesis de doctorado\\
-\includegraphics[width=0.7\linewidth]{./Figures/tux-development}
+\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
 }
 
 \author{Jorge Alejandro Tarango Yong}

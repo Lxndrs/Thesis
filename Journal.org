@@ -50,6 +50,14 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 
 ** TODO Write !!!!!!
 * Journal
+- [2017-05-17 Tue]
+  - Work in "Projection onto the plane of the sky section"
+  - Insert figures
+  - Small improvement in format
+
+-[2017-05-12 Fri]
+  - Work in ``Projection onto the plane of the sky section''
+  - Insert figures
 
 - [2017-05-08 Mon]
   - Work in ``generic model section''
