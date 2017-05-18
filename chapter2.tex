@@ -80,7 +80,8 @@ $(x', y', z')$ queda como sigue:
   \begin{array}{c}
     x\cos i - z\sin i \\ y' \\ z\cos i + x\sin i
   \end{array}
-  \right)          
+  \right)
+  \label{eq:rotation}
 \end{align}
 
 Por otro lado, la forma tridimensional del choque de proa viene dado por:
@@ -137,6 +138,39 @@ en el plano $xy$ y es fácil mostrar que:
     0
   \end{array}
   \right)
+  \label{eq:unit-vec}
+\end{align}
+
+Donde:
+\begin{align}
+  \tan\alpha = -\frac{dy}{dx} = \frac{1+\omega\tan\theta}{\tan\theta-\omega}
+\end{align}
+y:
+\begin{align}
+  \omega(\theta) = -\frac{1}{R}\frac{dR}{d\theta} 
+\end{align}
+
+Para otros valores de $\phi$, basta con hacer una rotación de las ecuaciones
+(\ref{eq:unit-vec}) alrededor del eje $x$. Para la conversión al sistema de
+referencia del plano del cielo se utiliza la ecuación (\ref{eq:rotation}):
+
+\begin{align}
+  \hat{n}' &= \frac{1}{\left(1 + \omega^2\right)^{1/2}} \\
+           & \times \left(
+             \begin{array}{c}
+               (\cos\theta+\omega\sin\theta)\cos i-(\sin\theta-\omega\cos\theta)\sin i\sin\phi\\
+               (\sin\theta-\omega\cos\theta)\cos\phi \\
+               (\cos\theta+\omega\sin\theta)\sin i+(\sin\theta-\omega\cos\theta)\sin\phi\cos i
+             \end{array}
+                    \right) \\
+    \hat{t}' &= \frac{1}{\left(1 + \omega^2\right)^{1/2}} \\
+           & \times \left(
+             \begin{array}{c}
+               -(\sin\theta-\omega\cos\theta)\cos i-(\cos\theta+\omega\sin\theta)\sin i\sin\phi\\
+               (\cos\theta+\omega\sin\theta)\cos\phi \\
+               -(\cos\theta+\omega\sin\theta)\sin i+(\sin\theta-\omega\cos\theta)\sin\phi\cos i
+             \end{array}
+             \right) 
 \end{align}
 
 
@@ -148,16 +182,25 @@ en el plano $xy$ y es fácil mostrar que:
 \end{figure}
 
 
-\subsection{L\'inea tangente}
+\subsection{Línea tangente}
 
 Debido a que el choque es \'opticamente delgado y geom\'etricamente
 delgado, solo la regi\'on del choque cuya tangente sea paralela a la
 l\'inea de visi\'on ser\'a visible. Esto corresponde a una curva que
 denominamos \textit{l\'inea tangente}, que debe cumplir con la siguiente
-condicio\'on:
+condición:
+
+\begin{align}
+  \hat{n}'\boldsymbol{\cdot} \hat{z}' = 0
+\end{align}
+
+Denotamos como $\phi_T$ al ángulo azimutal que cumple la condición anterior
+para una inclinación dada, en función del ángulo polar $\theta$:
+\begin{align}
+  \sin\phi_T = \tan i\tan\alpha = \tan i\frac{1+\omega\tan\theta}{\omega-\tan\theta}
+\end{align}
 
 
-
-\section{Cu\'adricas de Revoluci\'on}
+\section{Cuádricas de Revolución}
 
 Buscamos adjuntar el paper ``quadrics bowshock''
