@@ -198,9 +198,55 @@ Denotamos como $\phi_T$ al ángulo azimutal que cumple la condición anterior
 para una inclinación dada, en función del ángulo polar $\theta$:
 \begin{align}
   \sin\phi_T = \tan i\tan\alpha = \tan i\frac{1+\omega\tan\theta}{\omega-\tan\theta}
+  \label{eq:phi-tan}
 \end{align}
+De esta manera, la forma de la línea tangente del choque de proa, a la que llamamos
+\textit{forma proyectada} viene dada por:
 
+\begin{align}
+  \left(
+  \begin{array}{c}
+    x'_T \\
+    y'_T \\
+    z'_T
+  \end{array}
+  \right) =
+  R(\theta)\left(
+  \begin{array}{c}
+    \cos\theta\cos i - \sin\theta\sin\phi_t\sin i \\
+    \sin\theta\left(1-\sin^2\phi_T\right)^{1/2} \\
+    \cos\theta\sin i + \sin\theta\sin\phi_T\cos i
+  \end{array}
+  \right) \label{eq:proj-shape}
+\end{align}
+En el caso general, $z'_T$ no es una función lineal de $x'_t$ y $y'_T$, por lo que
+la línea tangente no se encuentra en un plano.
 
+La forma aparente $(x'_t, y'_T)$  de la línea tangente también puede escribirse
+en coordenadas polares $(R', \theta')$, donde:
+\begin{align}
+  R'(\theta) = \left(x'_t^2 + y'_T^2\right)^{1/2} & \mathrm{y} & \tan\theta' = \frac{y'_T}{x'_T}
+  \label{eq:polar}
+\end{align}
+Es de notar a su vez que la ecuación (\ref{phi-tan}) no tiene solución para valores
+arbitrarios de $\theta$ y de la inclinación, puesto que se requiere que
+$\left|\sin\phi_T\right| < 1$. Por tanto, la línea tangente solo existe para valores
+de $\theta$ tales que $\theta < \theta_0$ donde $\theta_0$ es el valor de $\theta$ en
+el eje de simetría de la línea tangente proyectada $(\theta'(\theta_0)) = 0$ y que se
+obtiene de la siguiente ecuación implícita:
+\begin{align}
+  \tan\theta_0 = \frac{|\tan i| + \omega(\theta_0)}{1 - \omega(\theta_0)|\tan i|}
+\end{align}
+Esto implica que si el choque de proa es suficientemente ``abierto''
+$(\alpha > \alpha_{min})$, entonces para inclinaciones tales que
+$|i| > 90^\circ - \alpha_{min}$ no existirá la línea tangente para ningún valor de $\theta$,
+es decir, el choque de proa se encontrará sufientemente ``de cara'' como para que ya no
+parezca un chouque de proa para el observador.
+
+\subsection{Radios característicos en el plano del cielo}
+
+En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios
+característicos $R'_0$ y $R'_{90}$
 \section{Cuádricas de Revolución}
 
 Buscamos adjuntar el paper ``quadrics bowshock''
