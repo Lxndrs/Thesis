@@ -1,32 +1,30 @@
 \section{Vientos Estelares}
 \section{Choques}
-\section{Frentes de Ionizaci\'on}
+\section{Frentes de Ionización}
 \section{Regiones HII}
-\section{Aproximación Hipers\'onica}
-\label{sec:hipersonica}
 \section{Modelo Genérico de los Choques de Proa}
 \label{sec:Modelo-generico}
 Para este trabajo consideramos en general dos modelos de
-interacci\'on  de vientos:
+interacción  de vientos:
 \begin{itemize}
-\item Una fuente localizada en el origen que emite un viento esf\'erico
-  que puede ser isotr\'opico o anisotr\'opico (figura
-  \ref{fig:isotropic-aniso}) no acelerado que interact\'ua con el viento
-  esf\'erico isotr\'opico de otra fuente que se encuentra a una distancia
+\item Una fuente localizada en el origen que emite un viento esférico
+  que puede ser isotrópico o anisotrópico (figura
+  \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento
+  esférico isotrópico de otra fuente que se encuentra a una distancia
   $D$ de la primera(figura \ref{fig:crw-esquema})
-\item Una fuente localizada en el origen que emite un viento esf\'erico
-  isotr\'opico no acelerado que interact\'ua con un viento plano paralelo
+\item Una fuente localizada en el origen que emite un viento esférico
+  isotrópico no acelerado que interactúa con un viento plano paralelo
   no acelerado y densidad constante (figura )
 \end{itemize}
-El sitema en su conjunto tiene simter\'ia cil\'indrica.
+El sitema en su conjunto tiene simtería cilíndrica.
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
   \label{fig:isotropic-aniso}
-  \caption{Representaci\'on esquem\'atica de vientos con diferentes
-    anisotrop\'ias:
-    Arriba izquierda: Viento isotr\'opico esf\érico. Arriba derecha: viento
-    isotr\'opico hemisf\'erico. Abajo: Vientos anisotr\'opicos donde el
-    par\'ametro $k$ indica el grado de anisotrop\'ia (ver secci\'on
+  \caption{Representación esquemática de vientos con diferentes
+    anisotropías:
+    Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento
+    isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el
+    parámetro $k$ indica el grado de anisotropía (ver sección
     \ref{sec:hipersonica})}
 \end{figure}
 \begin{figure}
@@ -34,15 +32,15 @@ El sitema en su conjunto tiene simter\'ia cil\'indrica.
   \label{fig:crw-esquema}
 \end{figure}
 
-\subsection{Radios ``Caracter\'isticos''}
+\subsection{Radios ``Característicos''}
 
 Las cantidades medibles que nos ayudan a caracterizar un choque de proa las
-llamamos ``Radios caracter\'isticos'' (ilustrados en la figura
+llamamos ``Radios característicos'' (ilustrados en la figura
 \ref{fig:char-radii}):
 \begin{itemize}
-\item Radio del choque en la direcci\'on del eje de simetr\'ia del sistema.
+\item Radio del choque en la dirección del eje de simetría del sistema.
   Denotado como $R_0$
-\item Radio en direcci\'on perpendicular al eje de simetr\'ia del sistema.
+\item Radio en dirección perpendicular al eje de simetría del sistema.
   Denotado como $R_{90}$
 \item Radio de curvatura en la ``nariz'' del choque de proa. Denotado
   como$ R_c$
@@ -51,13 +49,15 @@ llamamos ``Radios caracter\'isticos'' (ilustrados en la figura
 \begin{figure}
   \includegraphics[width=\linewidth]{./Figures/characteristic-radii}
   \label{fig:char-radii}
-  \caption{Representaci\'on esquem\'atica de los radios caracter\'isticos
+  \caption{Representación esquemática de los radios característicos
   de un choque de proa}
 \end{figure}
 
+\section{Aproximación Hipersónica}
+\label{sec:hipersonica}
 
 
-\section{Proyecci\'on en el Plano del Cielo}
+\section{Proyección en el Plano del Cielo}
 
 Para un choque de proa que es la vez geom\'etricamente delgado y
 \'opticamente delgado, \'unicamente se observa el borde de \'este por
@@ -236,6 +236,7 @@ el eje de simetría de la línea tangente proyectada $(\theta'(\theta_0)) = 0$ y
 obtiene de la siguiente ecuación implícita:
 \begin{align}
   \tan\theta_0 = \frac{|\tan i| + \omega(\theta_0)}{1 - \omega(\theta_0)|\tan i|}
+  \label{eq:th-0}
 \end{align}
 Esto implica que si el choque de proa es suficientemente ``abierto''
 $(\alpha > \alpha_{min})$, entonces para inclinaciones tales que
@@ -246,7 +247,93 @@ parezca un chouque de proa para el observador.
 \subsection{Radios característicos en el plano del cielo}
 
 En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios
-característicos $R'_0$ y $R'_{90}$
+característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente
+y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir
+$R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones
+(\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
+\begin{align}
+R'_0 = R(\theta_0)\cos(\theta_0 + i)
+\label{eq:R0p}
+\end{align}
+Donde $\theta_0$ es la solución de la ecuación (\ref{eq:th-0}), y
+\begin{align}
+  R'_{90} = R(\theta_{90})\sin\theta_{90}\left(1-\sin^2\phi_T(\theta_{90})\right)^{1/2}
+  \label{eq:R90p}
+\end{align}
+donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
+\begin{align}
+  \cot\theta_{90} = \frac{1 - \left(1+\omega(\theta_{90})^2\sin^22i\right)^{1/2}}
+  {2\omega(\theta_{90})\cos^2i}
+  \label{eq:th90}
+\end{align}
+
 \section{Cuádricas de Revolución}
+
+\newcommand\Sin{\ensuremath{\mathcal{S}}}
+\newcommand\Cos{\ensuremath{\mathcal{C}}}
+\newcommand\Cot{\ensuremath{\mathcal{T}}}
+
+
+En el caso general es difícil encontrar la forma aparente para un choque de
+proa siguiendo el formalismo desarrollado en la sección anterior, por lo que
+optamos por aproximar la forma éstos con una de las superficies más simples:
+las \textit{cuádricas de revolución}, que son superficies de revolución de
+las curvas cónicas. Dado el modelo general descrito en la sección
+\ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies
+cuádricas que utilizaremos en este trabajo:
+\begin{itemize}
+  \item El eje focal se encuentra alineado con el eje $x$
+  \item La posición del foco de la superficie cuádrica no necesariamente coincide
+    con la posición de la fuente
+  \item En el caso de las hipérbolas, solo tomamos una de las ramas de ésta.
+\end{itemize}
+Implementando dichas restricciones, utilizamos la representación paramétrica de
+las curvas cónicas en términos de un parámetro adimensional denotado con la letra
+$t$ de manera general:
+\begin{align}
+  x &= a\Cos(t) + x_0\\
+  y &= b\Sin(t) 
+\end{align}
+Donde:
+\begin{align}
+  \Cos(t) =\left\lbrace
+  \begin{array}{lr}
+    \cos{t} & \theta_c > 0\\
+    -\cosh{t} & \theta_c < 0        
+  \end{array}\right. \\
+  \Sin(t) = \left\lbrace
+  \begin{array}{lr}
+    \sin{t} & \theta_c > 0\\
+    \sinh{t}  & \theta_c < 0
+  \end{array} \right.
+\end{align}
+Donde $a$ y $b$ representan la longitud del semi-eje mayor y menor, respectivamente (Figura \ref{fig:conics}).
+$x_0 = R_0 - a$ representa la distancia entre el centro de la cónica y el origen. 
+$\theta_c$ es un parámetro que está relacionado con la excentricidad y que en este
+trabajo sustituye a ésta y que están relacionadas por la siguiente expresión:
+\begin{align}
+  \tan\theta_c = \pm\sqrt{\left|1-e^2\right|}
+\end{align}
+Tomamos el signo positivo cuando la cantidad dentro de las barras de valor absoluto es
+positiva y viceversa (Figura \ref{fig:conics-family}). 
+
+\begin{figure}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/ellipse_edited} &
+    \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
+  \end{tabular}
+  \label{fig:conics}
+  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola.
+  En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width = \linewidth]{conic1}
+  \label{fig:conics-family}
+  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_c$ varía desde
+    $\theta_c <0$ (hipérbolas) hasta $\theta_c > 0$ (elipses). Casos especiales son $\theta_c = 0$
+  (parábola) y $\theta_c = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
+\end{figure}
+
 
 Buscamos adjuntar el paper ``quadrics bowshock''
