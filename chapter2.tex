@@ -2,6 +2,14 @@
 \section{Choques}
 \section{Frentes de Ionización}
 \section{Regiones HII}
+Las regiones HII se forman cuando una estrella masiva, de tipo espectral
+O ó B temprana, ioniza el gas que se encuentra a su alrededor. El gas
+ionizado se encuentra en equilibrio térmico, a una temperatura del
+orden de $10^4~K$. El principal proceso de calentamiento es la
+radiación de la estrella central, mientras que el enfriamiento se da
+principalmente por la recombinación de líneas prohibidas y por emisión
+libre-libre.
+
 \section{Modelo Genérico de los Choques de Proa}
 \label{sec:Modelo-generico}
 Para este trabajo consideramos en general dos modelos de
@@ -33,7 +41,7 @@ El sitema en su conjunto tiene simtería cilíndrica.
 \end{figure}
 
 \subsection{Radios ``Característicos''}
-
+\label{sec:char-rad}
 Las cantidades medibles que nos ayudan a caracterizar un choque de proa las
 llamamos ``Radios característicos'' (ilustrados en la figura
 \ref{fig:char-radii}):
@@ -51,7 +59,15 @@ llamamos ``Radios característicos'' (ilustrados en la figura
   \label{fig:char-radii}
   \caption{Representación esquemática de los radios característicos
   de un choque de proa}
-\end{figure}
+\end{figure}.
+Para este trabajo resulta útil hacer una noramlización de los radios
+característicos u otros radios, para que las mediciones que obtengamos
+sean adimensionales. De esta forma, podemos hacer la normalización con
+la distancia $D$, o bien con $R_0$, dependiendo de qué tipo de
+normalización resulte más conveniente. En el primer caso expresamos
+explícitamente el cociente (e.g $\frac{R_0}{D}$, $\frac{R_c}{D}$,
+$\frac{R_{90}}{D}$), y en el segundo caso añadiremos una tilde al
+radio en cuestión (e.g $\tilde{R}_c$, $\tilde{R}_{90}$).
 
 \section{Aproximación Hipersónica}
 \label{sec:hipersonica}
@@ -308,14 +324,21 @@ Donde:
   \end{array} \right.
 \end{align}
 Donde $a$ y $b$ representan la longitud del semi-eje mayor y menor, respectivamente (Figura \ref{fig:conics}).
-$x_0 = R_0 - a$ representa la distancia entre el centro de la cónica y el origen. 
+$x_0 = R_0 \mp a$ representa la distancia entre el centro de la cónica y el origen. 
 $\theta_c$ es un parámetro que está relacionado con la excentricidad y que en este
 trabajo sustituye a ésta y que están relacionadas por la siguiente expresión:
 \begin{align}
   \tan\theta_c = \pm\sqrt{\left|1-e^2\right|}
 \end{align}
 Tomamos el signo positivo cuando la cantidad dentro de las barras de valor absoluto es
-positiva y viceversa (Figura \ref{fig:conics-family}). 
+positiva y viceversa (Figura \ref{fig:conics-family}). También podemos definirlo en
+términos de los parámetros de las cónicas:
+
+\begin{align}
+  \tan\theta_c = \frac{b}{a}
+\end{align}
+Siguiendo la convención de que el signo positivo corresponde a elipses, negativo a
+hipérbolas y cero para las parábolas.
 
 \begin{figure}
   \begin{tabular}{cc}
@@ -335,5 +358,27 @@ positiva y viceversa (Figura \ref{fig:conics-family}).
   (parábola) y $\theta_c = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
 \end{figure}
 
+\subsection{Radios Característicos}
+
+Para que las curvas cónicas den una buena aproximación a la forma de un choque de proa dado, necesitamos saber
+calcular los radios característicos para éstas. A partir de la descripción de estos en la sección
+\ref{sec:char-rad} podemos encontrar expresiones para cada uno de éstos en términos de los parámetros de las
+cónicas:
+
+\begin{align}
+  R_c &= \frac{b^2}{a} \\
+  R_{90} &= b\left[\pm\left(1 - \frac{(R_0 - a)^2}{a^2}\right)\right]^{1/2}
+\end{align}
+$R_0$ es independiente de los parámetros de las cónicas, por tanto, en
+esta sección nos será útil normalizar con este radio. De esta forma,
+podemos invertir las siguientes ecuaciones:
+
+\begin{align}
+  \tilde{a} &= \pm\frac{\tilde{R}_c}{2\tilde{R}_c - \tilde{R}_{90}^2} \\
+  \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\\
+  \tan\theta_c &= \pm\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}
+\end{align}
+Nótese que la cantidad $2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para
+distinguir el tipo de curva cónica que mejor ajusta a un choque de proa dado.
 
 Buscamos adjuntar el paper ``quadrics bowshock''
