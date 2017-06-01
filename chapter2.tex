@@ -74,6 +74,7 @@ radio en cuestión (e.g $\tilde{R}_c$, $\tilde{R}_{90}$).
 
 
 \section{Proyección en el Plano del Cielo}
+\label{sec:projection}
 
 Para un choque de proa que es la vez geom\'etricamente delgado y
 \'opticamente delgado, \'unicamente se observa el borde de \'este por
@@ -244,7 +245,7 @@ en coordenadas polares $(R', \theta')$, donde:
   R'(\theta) = \left(x'_t^2 + y'_T^2\right)^{1/2} & \mathrm{y} & \tan\theta' = \frac{y'_T}{x'_T}
   \label{eq:polar}
 \end{align}
-Es de notar a su vez que la ecuación (\ref{phi-tan}) no tiene solución para valores
+Es de notar a su vez que la ecuación (\ref{eq:phi-tan}) no tiene solución para valores
 arbitrarios de $\theta$ y de la inclinación, puesto que se requiere que
 $\left|\sin\phi_T\right| < 1$. Por tanto, la línea tangente solo existe para valores
 de $\theta$ tales que $\theta < \theta_0$ donde $\theta_0$ es el valor de $\theta$ en
@@ -321,10 +322,11 @@ Donde:
   \begin{array}{lr}
     \sin{t} & \theta_c > 0\\
     \sinh{t}  & \theta_c < 0
-  \end{array} \right.
+  \end{array} \right. \\
+  x_0 &= R_0 \mp a \label{eq:x0} 
 \end{align}
 Donde $a$ y $b$ representan la longitud del semi-eje mayor y menor, respectivamente (Figura \ref{fig:conics}).
-$x_0 = R_0 \mp a$ representa la distancia entre el centro de la cónica y el origen. 
+$x_0$ representa la distancia entre el centro de la cónica y el origen. 
 $\theta_c$ es un parámetro que está relacionado con la excentricidad y que en este
 trabajo sustituye a ésta y que están relacionadas por la siguiente expresión:
 \begin{align}
@@ -335,7 +337,7 @@ positiva y viceversa (Figura \ref{fig:conics-family}). También podemos definirl
 términos de los parámetros de las cónicas:
 
 \begin{align}
-  \tan\theta_c = \frac{b}{a}
+  \tan\theta_c = \pm \frac{b}{a} \label{eq:thc}
 \end{align}
 Siguiendo la convención de que el signo positivo corresponde a elipses, negativo a
 hipérbolas y cero para las parábolas.
@@ -351,7 +353,7 @@ hipérbolas y cero para las parábolas.
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width = \linewidth]{conic1}
+  \includegraphics[width = \linewidth]{./Figures/conic1}
   \label{fig:conics-family}
   \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_c$ varía desde
     $\theta_c <0$ (hipérbolas) hasta $\theta_c > 0$ (elipses). Casos especiales son $\theta_c = 0$
@@ -366,8 +368,8 @@ calcular los radios característicos para éstas. A partir de la descripción de
 cónicas:
 
 \begin{align}
-  R_c &= \frac{b^2}{a} \\
-  R_{90} &= b\left[\pm\left(1 - \frac{(R_0 - a)^2}{a^2}\right)\right]^{1/2}
+  R_c &= \frac{b^2}{a} \label{eq:R-curv-conic}\\
+  R_{90} &= b\left[\pm\left(1 - \frac{(R_0 - a)^2}{a^2}\right)\right]^{1/2} \label{eq:R90-conic}
 \end{align}
 $R_0$ es independiente de los parámetros de las cónicas, por tanto, en
 esta sección nos será útil normalizar con este radio. De esta forma,
@@ -378,7 +380,103 @@ podemos invertir las siguientes ecuaciones:
   \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\\
   \tan\theta_c &= \pm\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}
 \end{align}
-Nótese que la cantidad $2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para
+Nótese que la cantidad $T_c\equiv 2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para
 distinguir el tipo de curva cónica que mejor ajusta a un choque de proa dado.
+
+\subsection{Proyección en el plano del cielo}
+
+El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución,
+puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de
+proa.
+La forma tridimensional de las cuádricas de revolución viene dada por:
+
+\begin{align}
+  x &= a\Cos(t) - x_0 \\
+  y &= b\Sin(t)\cos\phi \\
+  z &= b\Sin(t)\sin\phi
+\end{align}
+
+Siguiendo el procedimiento mostrado en la sección \ref{sec:projection} calculamos el ángulo
+azimutal $\phi$ que cumple con el criterio de ser tangente al la línea de visión:
+
+\begin{align}
+  \sin\phi_T = \frac{b}{a}\tan i\Cot(t) 
+\end{align}
+Donde:
+\begin{align}
+  \Cot(t) = \left\lbrace
+  \begin{array}{lr}
+    \cot t & if~\theta_c > 0 \\
+    \coth t & if~\theta_c < 0 
+  \end{array}
+  \right.
+\end{align}
+
+Podemos movernos a otro sistema de referencia $(X, Y)$ centrado en el origen, donde
+$X = x - x_0$ y $Y =y$. En este sistema, utilizamos la ecuación (\ref{eq:rotation})
+para obtener la forma aperente de una cuádrica dada:
+
+\begin{align}
+  X'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i \pm b^2\sin^2 i\right)
+  \label{eq:x-prime-proj}\\
+  Y'_T &= b\Sin(t)\left(1 - \frac{b^2}{a^2}\tan^2 i\Cot^2(t)\right)^{1/2}
+  \label{eq:y-prime-proj}
+\end{align}
+
+Se espera que la forma proyectada de una cuádrica dada sea otra cuárica del mismo
+tipo, por lo que es posible escribir las ecuaciones (\ref{eq:x-prime-proj}) y
+(\ref{eq:y-prime-proj}) de la siguiente manera: 
+
+\begin{align}
+  X'_T &= a'\Cos(t') \\
+  Y'_T &= b'\Sin(t')
+\end{align}
+Donde:
+\begin{align}
+  a' &= \left(a^2\cos^2 i \pm \b^2\sin^2 i\right)^{1/2} \label{eq:a-prime}\\
+  b' &= b \label{eq:b-prime}\\
+  \Cos(t') &= \frac{a'\Cos(t)}{a\cos i} \\
+  \Sin(t') &= \left(1 - \Cos^2(t')\right)^{1/2}
+\end{align}
+
+También implica que para encontrar los radios característicos en el sistema de
+referencia del observador solamente tenemos que sustituir $a$ y $b$ por $a'$ y
+$b'$ en las ecuaciones (\ref{eq:x0}), (\ref{eq:R-curv-conic}), (\ref{eq:R90-conic})
+y (\ref{eq:thc}):
+
+\begin{align}
+  R'_0 &= \pm a' +x_0\cos i\\
+  R'_c &= \frac{b'^2}{a'}\\
+  \tan\theta'_c &= \frac{b'}{a'} \\
+  R'_{90} &= \left(2R'_c \mp \tan^2\theta'_c\right)^{1/2}
+\end{align}
+
+Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}),
+utlizando la definición $D' = D\cos i$ e introduciendo la función
+$f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos
+ecuaciones explícitas para los radios característicos en el sistema de referencia
+del plano del cielo en términos de la inclinación:
+
+\begin{align}
+  \frac{q'}{q} &= 1 \pm \tilde{R}_c\cot^2\theta_c\left(f(i;\theta_c) - 1\right) \\
+  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \\
+  \tan\theta'_c &= \frac{\tan\theta_c}{\cos if(i;\theta_c)} \\
+  \tilde{R}'_{90} &= \left(\frac{2\tilde{R}_cf(i;\theta_c) \mp
+                  \tan^2\theta_c\frac{q'}{q}}{q'/q}\right)^{1/2}\frac{\sec i}{f(i;\theta_c)}
+\end{align}
+
+Cuando $\tilde{R}'_{90}$ es medible, entonces es posible hacer diagramas de diagnóstico como
+el de la figura \ref{fig:diagnostic} para comparar con observaciones, independientemente de
+cualquier modelo de choques de proa.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc}
+  \label{fig:diagnostic}
+  \caption{Diagrama de diagnóstico $\tilde{R}'_{90}$ vs $\tilde{R}'_c$ para las cuádricas
+    de revolución. En la región sin sombrear se representan las superficies abiertas
+    (hiperboloides, $\theta_c <0$), mientras que la región más oscura representa  a
+    elipsoides prolatos  $(0 < \theta_c < 45^\circ)$ y la región poco sombreada a
+    elipsoides oblatos $(\theta_c > 45^\circ)$}
+\end{figure}
 
 Buscamos adjuntar el paper ``quadrics bowshock''
