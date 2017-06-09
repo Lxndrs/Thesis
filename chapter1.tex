@@ -19,9 +19,11 @@ de baja masa cuyo disco protoplanetario estaba siendo fotoevaporado por
 la estrella central \citep{churchwell:1987}. No fue sino hasta que se contó
 con observaciones de alta resolución con el Telescopio Espacial Hubble (HST)
 que se se pudo determinar la verdadera naturaleza de estos objetos
-\citep(ODell:1993) y la razón por la que se les denominó ``proplyds''
+\citep{ODell:1993} y la razón por la que se les denominó ``proplyds''
 (PROtoPLanetarY DiskS). A su vez se encontraron por primera vez arcos
 delgados y otras estructuras de gran interés.
+
+\subsection{¿Qué es un proplyd? Breve introducción}
 
 \subsection{Mecanismos de fotoevaporación \citep{Johnstone:1998}}
 
@@ -31,41 +33,55 @@ electromagnético. Según la masa de la estrella central, podemos tener dos
 clases de flujo radiativo: Dominado por el ultravioleta lejano (FUV,
 $h\nu < 13.6~eV$) o dominado por el ultravioleta extremo (EUV,
 $h\nu \geq 13.6~eV$). En general, el FUV se encarga de disociar moléculas
-y de calentar el gas  de la región de fotodisociación (PDR) hasta
+y de calentar el gas de la región de fotodisociación (PDR) hasta
 temperaturas de 100 - 1000 K, mientras que el EUV puede ionizar el gas y
 elevar su temperatura hasta $10^4~K$. El EUV no puede atravesar el frente
-de ionización pero el FUV sí.
+de ionización (IF) pero el FUV sí.
 
 En el caso de que el flujo sea dominado por el EUV, la presión térmica del
 flujo fotoevaporado es determinada por la fotoionización, la PDR producida
 por el FUV es delgada. El gas calentado por el FUV se mueve de manera
-subsónica hasta llegar al frente de ionización y la tasa de pérdida de masa
+subsónica hasta llegar al IF y la tasa de pérdida de masa
 depende de la tasa de ionización inducida por el EUV.
 
 Si el flujo está dominado por el FUV, la presión térmica depende del
 calentamiento por el FUV. El gas tibio se expande como un viento que empuja
-el frente de ionización lejos del disco. La tasa de pérdida de masa
-la determina la temperatura de la PDR, el flujo FUV y la opacidad del polvo
-a las longitudes de onda del FUV.
+el IF lejos del disco. La tasa de pérdida de masa la determina la temperatura
+de la PDR, el flujo FUV y la opacidad del polvo a las longitudes de onda del FUV.
 
 Inicialmente la forma del disco impone una geometría cilíndrica en el
 flujo fotoevaporado, pero eventualmente los gradiente de presión tornan
 esta geometría en esférica.
 
 Las ecuaciones de continuidad de la masa y el momento restringen la velocidad
-del flujo neutro antes de alcanzar el frente de ionización. Mas allá éste,
-la presión del gas hace que éste se expanda a velocidades del orden de una a
-dos veces la velocidad del sonido. Para el gas neutro dentro del frente de
-ionización hay dos posibles soluciones: si el gas neutro es supersónico
-entonces el frente de ionización será de baja densidad (Tipo R) con bajo
-contraste de densidad entre gas neutro y gas ionizado. O si el gas neutro
-es subsónico se formará un frente de ionización tipo D con un gran contraste
-de densidad entre el gas neutro y el gas ionizado. Sin embargo, sin importar
-qué tipo de radiación domina la fotoevaporación, el gas neutro permanece a
-velocidades subsónicas al llegar al frente de ionización, por lo que dicho
-frente será tipo D. 
+del flujo neutro antes de alcanzar el IF. Mas allá de éste, la presión del
+gas hace que éste se expanda a velocidades del orden de una a dos veces la
+velocidad del sonido. Para el gas neutro dentro del IF hay dos posibles
+soluciones: si el gas neutro es supersónico entonces el IF será de baja
+densidad (Tipo R) con bajo contraste de densidad entre gas neutro y
+gas ionizado. O si el gas neutro es subsónico se formará un IF tipo D con un
+gran contraste de densidad entre el gas neutro y el gas ionizado. Sin embargo,
+sin importar qué tipo de radiación domina la fotoevaporación, el gas neutro
+permanece a velocidades subsónicas al llegar al IF, por lo que dicho frente
+será tipo D. 
+En el caso de un flujo dominado por el EUV, el gas neutro permanece a
+velocidad subsónica, su velocidad decae como $v_I \prop r^{-2}$ y llega
+a $0.5~kms^{-1}$ al llegar al frente de ionización. Cundo el flujo es
+dominado por el FUV, el gas neutro se acelera hasta llegar a velocidades
+supersónicas, luego atraviesa un choque isotérmico que lo desacelera y
+llega al frente de ionizacion a $0.5~kms^{-1]$.
 
-%Explicación de ésto y añadir figuras
+  \begin{figure}
+    \begin{tabular}{cc}
+      \includegraphics[width=0.5\linewidth]{./Figures/Johnstone-2} &
+      \includegraphics[width=0.5\linewidth]{./Figures/Johnstone-3}
+    \end{tabular}
+    \label{fig:EUV-FUV-IF}
+    \caption{Representación esquemática de las regiones del flujo
+      fotoevaporado de un proplyd. Izquierda: Cuando el flujo es dominado
+    por el FUV. Derecha: Flujo dominado por EUV \citep{Johnstone:1998}}
+  \end{figure}
+  
 
 Sin importar el tipo de mecanismo de fotoevaporación dominante, el flujo
 fotoevaporado solo si la presión térmica supera a la gravedad de la
@@ -82,7 +98,8 @@ $M_* = 0.2~M_\odot$. Para el gas neutro la velocidad del sonido es de
 $a_I \sim 3~km~s^{-1}$ y para el gas ionizado es de $a_{II} \sim 10~km~s^{-1}$.
 Por tanto, el radio gravitacional para un flujo dominado por el EUV es de
 $r_{gII} \sim 2~AU$ y para un flujo dominado por el FUV es de
-$r_{gI} \sim 20~AU$.
+$r_{gI} \sim 20~AU$. El radio del frente de ionización escala como
+$r_{IF} \prop D^{2/3}$
 
 \subsection{Forma del frente de ionización \citep{Johnstone:1998}}
 
