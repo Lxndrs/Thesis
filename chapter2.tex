@@ -1,6 +1,11 @@
 \section{Vientos Estelares}
 \section{Choques}
 \section{Frentes de Ionización}
+Un frente de ionización es la interfaz entre un medio gaseoso neutro y uno
+ionizado. Ocurren cerca de fuentes de rediación ionizante, tales como
+estrellas masivas, tipo B temprana o tipo O. el frente de ionización puede
+tratarse como una discontinuidad en el medio gaseoso
+
 \section{Regiones HII}
 Las regiones HII se forman cuando una estrella masiva, de tipo espectral
 O ó B temprana, ioniza el gas que se encuentra a su alrededor. El gas
@@ -67,10 +72,48 @@ la distancia $D$, o bien con $R_0$, dependiendo de qué tipo de
 normalización resulte más conveniente. En el primer caso expresamos
 explícitamente el cociente (e.g $\frac{R_0}{D}$, $\frac{R_c}{D}$,
 $\frac{R_{90}}{D}$), y en el segundo caso añadiremos una tilde al
-radio en cuestión (e.g $\tilde{R}_c$, $\tilde{R}_{90}$).
+radio en cuestión (e.g $\tilde{R}_c$, $\tilde{R}_{90}$). 
 
-\section{Aproximación Hipersónica}
+\section{Interacción de dos vientos: Aproximación Hipersónica \citep{Canto:1996}}
 \label{sec:hipersonica}
+
+El problema de interacción de dos vientos es de gran interés en astrofísica, y
+ha sido estudiado en múltiples ocasiones, principalmente mediante simulaciones
+hidrodinámicas. Sin embargo, cuando se toman en cuenta diversos factores, incluídos
+conservación de masa, momento y momento angular, el problema puede resolverse de manera
+algebraica.
+\subsection{Cantidades conservadas en un flujo hipersónico de capa delgada}
+
+Consideramos dos flujos hipersónicos, no acelerados que forman una capa estacionaria delgada
+formada por dos choques radiativos separados por una discontinuidad de contacto. El sistema
+tiene geometría cilíndrica y los vientos no tienen velocidad azimutal. Bajo estos términos,
+describimos la posición de la capa delgada como $R(\theta)$, donde $R$ es el radio de la capa
+medido a partir de la posición del origen del viento con menor momento y $\theta$ es el ángulo
+polar. Si asumimos que el gas chocado está bien mezclado, entonces tiene una sola velocidad
+pos choque dada por:
+
+\begin{align}
+  \vec{v} = v_r \hat{r} + v_z \hat{z}
+\end{align}
+
+Donde el eje de simetría del sistema es paralelo a $\hat{z}$, y $\hat{r}$ es el radio cilíndrico.
+Definimos \dot{M}(\theta), \vec{\dot{\Pi}}(\theta) y \dot{J}(theta) como la tasa de pérdida de masa, la
+tasa de momento y la tasa de momento angular, respectivamente, de la capa delgada integradas
+desde $\theta=0$ hasta $\theta$. Éstas se calculan de la siguiente manera:
+
+\begin{align}
+  \vec{\dot{\Pi}}(\theta) &= \dot{\Pi}_r(\theta) \hat{r} + \dot{\Pi}_z(\theta) \hat{z} = \dot{M}\left(
+                      v_r \hat{r} + v_z\hat{z}\right) \\
+  \vec{\dot{J}}(\theta) &= \vec{R}(\theta) \times \vec{\dot{\Pi}}(\theta) 
+\end{align}
+Donde $\vec{R}(\theta)\equiv R(\theta)\sin\theta \hat{r} + R\cos\theta \hat{z}$. Resolviendo el producto
+cruz y tomando su magnitud encontramos que:
+
+\begin{align}
+  \dot{J}(\theta) &= \dot{M}(\theta)R(\theta)v_\theta \\
+  \mathrm{donde:} & v_\theta = v_r\cos\theta - v_z\sin\theta
+\end{align}
+
 
 
 \section{Proyección en el Plano del Cielo}
