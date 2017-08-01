@@ -31,7 +31,7 @@ interacción  de vientos:
 \end{itemize}
 El sitema en su conjunto tiene simtería cilíndrica.
 \begin{figure}
-  \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
+  \includegraphics[width=0.7\linewidth]{./Figures/anisotropic-arrows}
   \label{fig:isotropic-aniso}
   \caption{Representación esquemática de vientos con diferentes
     anisotropías:
@@ -43,6 +43,12 @@ El sitema en su conjunto tiene simtería cilíndrica.
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/bowshock-crw-variables}
   \label{fig:crw-esquema}
+  \caption{Representación esquemática del problema de interacción de dos vientos:
+    Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un
+    choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica
+    siendo el eje $z$ el eje de simetría. La forma del choque depende únicamente del ángulo
+    polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$,
+  que corresponde al ángulo polar medido a partir de la posición de la otra fuente.}
 \end{figure}
 
 \subsection{Radios ``Característicos''}
@@ -74,7 +80,7 @@ explícitamente el cociente (e.g $\frac{R_0}{D}$, $\frac{R_c}{D}$,
 $\frac{R_{90}}{D}$), y en el segundo caso añadiremos una tilde al
 radio en cuestión (e.g $\tilde{R}_c$, $\tilde{R}_{90}$). 
 
-\section{Interacción de dos vientos: Aproximación Hipersónica \citep{Canto:1996}}
+\section[Aproximación Hipersónica]{Interacción de dos vientos: Aproximación Hipersónica \citep{Canto:1996}}
 \label{sec:hipersonica}
 
 El problema de interacción de dos vientos es de gran interés en astrofísica, y
@@ -97,24 +103,87 @@ pos choque dada por:
 \end{align}
 
 Donde el eje de simetría del sistema es paralelo a $\hat{z}$, y $\hat{r}$ es el radio cilíndrico.
-Definimos \dot{M}(\theta), \vec{\dot{\Pi}}(\theta) y \dot{J}(theta) como la tasa de pérdida de masa, la
-tasa de momento y la tasa de momento angular, respectivamente, de la capa delgada integradas
-desde $\theta=0$ hasta $\theta$. Éstas se calculan de la siguiente manera:
+Definimos $\dot{M}(\theta)$, $\vec{\dot{\Pi}}(\theta)$ y $\dot{J}(\theta)$ como la tasa de pérdida
+de masa, la tasa de momento y la tasa de momento angular, respectivamente, de la capa delgada
+integradas desde $\theta=0$ hasta $\theta$. Éstas se calculan de la siguiente manera:
 
 \begin{align}
   \vec{\dot{\Pi}}(\theta) &= \dot{\Pi}_r(\theta) \hat{r} + \dot{\Pi}_z(\theta) \hat{z} = \dot{M}\left(
-                      v_r \hat{r} + v_z\hat{z}\right) \\
-  \vec{\dot{J}}(\theta) &= \vec{R}(\theta) \times \vec{\dot{\Pi}}(\theta) 
+                      v_r \hat{r} + v_z\hat{z}\right) \label{eq:dot-pi}\\
+  \vec{\dot{J}}(\theta) &= \vec{R}(\theta) \times \vec{\dot{\Pi}}(\theta)  \\
+  \dot{M}(\theta) &= \dot{M}_w(\theta) + \dot{M}_{w1} \label{eq:dot-M}
 \end{align}
 Donde $\vec{R}(\theta)\equiv R(\theta)\sin\theta \hat{r} + R\cos\theta \hat{z}$. Resolviendo el producto
 cruz y tomando su magnitud encontramos que:
 
 \begin{align}
-  \dot{J}(\theta) &= \dot{M}(\theta)R(\theta)v_\theta \\
-  \mathrm{donde:} & v_\theta = v_r\cos\theta - v_z\sin\theta
+  \dot{J}(\theta) &= \dot{M}(\theta)R(\theta)v_\theta \label{eq:dot-J}\\
+  \mathrm{donde:~} & v_\theta = v_r\cos\theta - v_z\sin\theta \label{eq:v-theta}
 \end{align}
 
+Por otro lado, al asumir estado estacionario, necesitamos que la tasa de pérdida de masa, la tasa de
+momento y la tasa de momento angular de la capa delgada sean iguales a aquellas inyectadas por los dos
+vientos. Entonces definimos estas cantidades como $\dot{M}_w$, $\dot{\Pi}_{wr}$, $\dot{\Pi}_{wz}$ y
+$\dot{J}_{w}$ para el viento con menor momento, y para el otro viento se utiliza la misma notación
+solo que utilizando el subíndice ``w1''. De esta forma tenemos que:
+\begin{align}
+  \dot{\Pi}_r(\theta)\hat{r} + \dot{\Pi}_z(\theta)\hat{z} &= \left[\dot{\Pi}_{wr}(\theta)+ \dot{\Pi}_{wr1}(\theta)
+                          \right]\hat{r} + \left[\dot{\Pi}_{wz}(\theta)+ \dot{\Pi}_{wz1}(\theta)\right]\hat{z}\label{eq:Pi-2} \\
+  \dot{J} &=\dot{J}_w(\theta) + \dot{J}_{w1}(\theta) \label{eq:J-2}\\
+  \dot{M}(\theta) &= \dot{M}_w(\theta) + \dot{M}_{w1}(\theta) \label{eq:M-2}
+\end{align}
 
+Combinando las ecuaciones (\ref{eq:dot-pi}), (\ref{eq:dot-J}), (\ref{eq:dot-M}), (\ref{eq:Pi-2}), (\ref{eq:J-2}) y (\ref{eq:M-2})
+encontramos que:
+
+\begin{align}
+  \dot{M}(\theta)\left[v_r \hat{r} + v_z\hat{z}\right] &= \left(\dot{\Pi}_{wr}(\theta) + \dot{\Pi}_{wr1}(\theta)\right)\hat{r} +
+                                                         \left(\dot{\Pi}_{wz}(\theta) + \dot{\Pi}_{wz1}(\theta)\right)\hat{z} \\
+  \dot{M}(\theta)v_\theta R(\theta) &= \dot{J}_w(\theta) + \dot(J)_{w1}(\theta)
+\end{align}
+Y finalmente combinando con la ecuación (\ref{eq:v-theta}) resolvemos para $R(\theta)$:
+\begin{align}
+  R(\theta) = \frac{\dot{J}_w(\theta) + \dot(J)_{w1}(\theta)}{\left(\dot{\Pi}_{wr}(\theta) + \dot{\Pi}_{wr1}(\theta)\right)\cos\theta
+  - \left(\dot{\Pi}_{wz}(\theta) + \dot{\Pi}_{wz1}(\theta)\right)\sin\theta}
+\end{align}
+
+\subsection{Problema de Interacción de Dos Vientos}
+
+Aplicamos el formalismo ya mencionado para la interacción de dos vientos radiales. El viento con menor momento
+se localiza en el origen, y su densidad a radio fijo varía con el ángulo polar como una ley de potencias
+(figura \ref{fig_isotropic-aniso}):
+\begin{align}
+  n(\theta) = n_0\cos^k\theta \label{eq:anisotropic-density}
+\end{align}
+Donde el índice $k$ indica el grado de anisotropía del viento ``interno''. Algunos casos particularmente interesantes
+son el viento para un proplyd \citep{HA:1998}, donde $(k=1/2)$ y el caso ``isotrópico'' \citep{Canto:1996} donde $k=0$.
+Por el momento restringimos al viento ``externo'' como isotrópico. El problema se muestra de manera esquemática en la
+figura \ref{fig:crw-esquema}.
+
+Utilizando la ecuación (\ref{eq:anisotropic-density}) encontramos que la tasa de pérdida de masa está dada por:
+
+\begin{align}
+  \dot{M}_w = \frac{M^0_w}{2\left(k+1\right)}\left(1 - \cos^{k+1}\theta\right)
+\end{align}
+Donde $M^0_w = 4\pi r^2_0v_w n_0 \bar{m}$ es la tasa de pérdida de masa integrada hasta $\theta = \pi$ para el caso
+isotrópico, $\bar{m}$  es la masa promedio de las partículas del viento y  $r_0$ es el radio del viento al cual
+se alcanza la velocidad terminal $v_w$. Para un proplyd consideramos que dicho radio es el del frente de ionización.
+
+Con esto, obtenemos las tasas de momento y momento angular:
+\begin{align}
+  \dot{\Pi}_{wz} &= \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right)\\
+  \dot{\Pi}_{wr} &= \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
+  \dot{J}_w &= 0
+\end{align}
+
+Donde la integral $I_k(\theta) = \int^\theta_0 \cos^k\theta \sin^2\theta~d\theta$ tiene solución analítica para $k=0$,
+es una integral elíptica de segundo tipo cuando $k=\frac{1}{2}$ y su solución es aun más compleja para el resto de los
+casos. Las tasa de momento angular para el viento interior es cero debido a que éste se mide respecto al origen, donde
+se localiza la fuente con menor momento. En este punto los vectores de posición y velocidad para un valor de $\theta$
+dado son paralelos.
+
+Para el viento exterior consideramos dos casos principales: un viento esférico e isotrópico y un viento
+plano -- paralelo de densidad y velocidad constante.
 
 \section{Proyección en el Plano del Cielo}
 \label{sec:projection}
