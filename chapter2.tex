@@ -128,7 +128,8 @@ $\dot{J}_{w}$ para el viento con menor momento, y para el otro viento se utiliza
 solo que utilizando el subíndice ``w1''. De esta forma tenemos que:
 \begin{align}
   \dot{\Pi}_r(\theta)\hat{r} + \dot{\Pi}_z(\theta)\hat{z} &= \left[\dot{\Pi}_{wr}(\theta)+ \dot{\Pi}_{wr1}(\theta)
-                          \right]\hat{r} + \left[\dot{\Pi}_{wz}(\theta)+ \dot{\Pi}_{wz1}(\theta)\right]\hat{z}\label{eq:Pi-2} \\
+                                                            \right]\hat{r} + \left[\dot{\Pi}_{wz}(\theta)+ \dot{\Pi}_{wz1}(\theta)\right]\hat{z}
+                                                            \label{eq:Pi-2} \\
   \dot{J} &=\dot{J}_w(\theta) + \dot{J}_{w1}(\theta) \label{eq:J-2}\\
   \dot{M}(\theta) &= \dot{M}_w(\theta) + \dot{M}_{w1}(\theta) \label{eq:M-2}
 \end{align}
@@ -147,11 +148,13 @@ Y finalmente combinando con la ecuación (\ref{eq:v-theta}) resolvemos para $R(\
   - \left(\dot{\Pi}_{wz}(\theta) + \dot{\Pi}_{wz1}(\theta)\right)\sin\theta}
 \end{align}
 
+
+
 \subsection{Problema de Interacción de Dos Vientos}
 
 Aplicamos el formalismo ya mencionado para la interacción de dos vientos radiales. El viento con menor momento
 se localiza en el origen, y su densidad a radio fijo varía con el ángulo polar como una ley de potencias
-(figura \ref{fig_isotropic-aniso}):
+(figura \ref{fig:isotropic-aniso}):
 \begin{align}
   n(\theta) = n_0\cos^k\theta \label{eq:anisotropic-density}
 \end{align}
@@ -163,17 +166,21 @@ figura \ref{fig:crw-esquema}.
 Utilizando la ecuación (\ref{eq:anisotropic-density}) encontramos que la tasa de pérdida de masa está dada por:
 
 \begin{align}
-  \dot{M}_w = \frac{M^0_w}{2\left(k+1\right)}\left(1 - \cos^{k+1}\theta\right)
+  \dot{M}_w = \int^\theta_0\int^{2\pi}_0\rho_w v_w~d\theta~d\phi =
+  \frac{M^0_w}{2\left(k+1\right)}\left(1 - \cos^{k+1}\theta\right)
 \end{align}
-Donde $M^0_w = 4\pi r^2_0v_w n_0 \bar{m}$ es la tasa de pérdida de masa integrada hasta $\theta = \pi$ para el caso
-isotrópico, $\bar{m}$  es la masa promedio de las partículas del viento y  $r_0$ es el radio del viento al cual
-se alcanza la velocidad terminal $v_w$. Para un proplyd consideramos que dicho radio es el del frente de ionización.
+Donde $v_w$ es la velocidad del viento inteno, $\rho_w = n\bar{m}$  es su densidad, $n$ se obtiene de la ecuación
+(\ref{eq:anisotropic-density}), $M^0_w = 4\pi r^2_0v_w n_0 \bar{m}$ es la tasa de pérdida de masa integrada hasta
+$\theta = \pi$ para el caso isotrópico, $\bar{m}$  es la masa promedio de las partículas del viento y
+$r_0$ es el radio del viento al cual se alcanza la velocidad terminal $v_w$. Para un proplyd consideramos que dicho
+radio es el del frente de ionización.
 
 Con esto, obtenemos las tasas de momento y momento angular:
 \begin{align}
-  \dot{\Pi}_{wz} &= \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right)\\
-  \dot{\Pi}_{wr} &= \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
-  \dot{J}_w &= 0
+  \dot{\Pi}_{wz} &= \int^\theta_0 v_w\cos\theta~d\dot{M}_w =
+                   \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right)\\
+  \dot{\Pi}_{wr} &= \int^\theta_0 v_w\sin\theta~d\dot{M}_w = \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
+  \dot{J}_w &= \int^\theta_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0
 \end{align}
 
 Donde la integral $I_k(\theta) = \int^\theta_0 \cos^k\theta \sin^2\theta~d\theta$ tiene solución analítica para $k=0$,
@@ -183,19 +190,42 @@ se localiza la fuente con menor momento. En este punto los vectores de posición
 dado son paralelos.
 
 Para el viento exterior consideramos dos casos principales: un viento esférico e isotrópico y un viento
-plano -- paralelo de densidad y velocidad constante.
+plano--paralelo de densidad y velocidad constante.
+
+\subsubsection{Interacción con un viento esférico isotrópico}
+
+En este caso tomamos como variable independiente al ángulo polar medido a partir de la posición de la fuente del viento
+externo, denotado por $\theta_1$. De esta forma las tasas de pérdida de masa, momento y momento angular quedan como sigue:
+
+\begin{align}
+  \dot{M}_{w1} &= \frac{M^0_{w1}}{2}\left(1 - \cos\theta_1\right)\\
+  \dot{\Pi}_{wz1} &= -\frac{v_{w1}\dot{M}^0_{w1}}{4}\sin^2\theta_1\\
+  \dot{\Pi}_{wr1} &= \frac{v_{w1}\dot{M}^0_{w1}}{4}\left(\theta_1 - \sin\theta_1\cos\theta_1\right)\\
+  \dot{J}_{w1} &= \int^{\theta_1}_0 R(\theta)v_{w1}\sin(\pi-\theta-\theta_1)~d\dot{M}_{w1} \label{eq:J1}
+\end{align}
+
+Utilizando la ley de los senos (ver figura \ref{fig:crw-esquema}), ecuación (\ref{eq:J1}) queda como sigue:
+
+\begin{align}
+  \dot{J}_{w1} &= Dv_{w1}\int^{\theta_1}_0 \sin\theta_1~d\dot{M}_{w1} =
+                 \frac{v_{w1}\dot{M}^0_{w1}}{4}\left(\theta_1 - \sin\theta_1\cos\theta_1\right) D
+\end{align}
+
+
+
+\subsubsection{Interacción con un viento plano--paralelo}
 
 \section{Proyección en el Plano del Cielo}
 \label{sec:projection}
 
-Para un choque de proa que es la vez geom\'etricamente delgado y
-\'opticamente delgado, \'unicamente se observa el borde de \'este por
-abrillantamiento al limbo, por lo tanto, sua orientaci\'on respecto a
-la l\'inea de visi\'on modifica su forma respecto a la forma real del
+Para un choque de proa que es la vez geométricamente delgado y
+ópticamente delgado, únicamente se observa el borde de éste por
+abrillantamiento al limbo, por lo tanto, su orientación respecto a
+la línea de visión modifica su forma respecto a la forma real del
 choque. Para ello, rotamos el sistema de referencia del choque de proa
-en coordenadas cartesianas, denotado por $(x, y, z)$, por un \'angulo
-que llamamos \textit{inclinaci\'on}, denotado por $i$, en el plano $xz$,
-de modo que la transformaci\'on entre el sistema de refencia del choque
+en coordenadas cartesianas, denotado por $(x, y, z)$, por un ángulo
+que llamamos \textit{inclinación}, denotado por $i$, en el plano $xz$,
+de modo que la transformación entre el sistema de refencia del choque
 y el sistema de referencia del plano del cielo, denotado por
 $(x', y', z')$ queda como sigue:
 
@@ -229,7 +259,7 @@ Por otro lado, la forma tridimensional del choque de proa viene dado por:
             \end{array}
             \right)
 \end{align}
-La relaci\'on entre ambos sistemas de referencia se ilustra en la figura
+La relación entre ambos sistemas de referencia se ilustra en la figura
 \ref{fig:reference}.
 
 \begin{figure}
@@ -313,10 +343,10 @@ referencia del plano del cielo se utiliza la ecuación (\ref{eq:rotation}):
 
 \subsection{Línea tangente}
 
-Debido a que el choque es \'opticamente delgado y geom\'etricamente
-delgado, solo la regi\'on del choque cuya tangente sea paralela a la
-l\'inea de visi\'on ser\'a visible. Esto corresponde a una curva que
-denominamos \textit{l\'inea tangente}, que debe cumplir con la siguiente
+Debido a que el choque es ópticamente delgado y geométricamente
+delgado, solo la región del choque cuya tangente sea paralela a la
+línea de visión seré visible. Esto corresponde a una curva que
+denominamos \textit{línea tangente}, que debe cumplir con la siguiente
 condición:
 
 \begin{align}
