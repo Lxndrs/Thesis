@@ -145,7 +145,7 @@ encontramos que:
 Y finalmente combinando con la ecuación (\ref{eq:v-theta}) resolvemos para $R(\theta)$:
 \begin{align}
   R(\theta) = \frac{\dot{J}_w(\theta) + \dot(J)_{w1}(\theta)}{\left(\dot{\Pi}_{wr}(\theta) + \dot{\Pi}_{wr1}(\theta)\right)\cos\theta
-  - \left(\dot{\Pi}_{wz}(\theta) + \dot{\Pi}_{wz1}(\theta)\right)\sin\theta}
+  - \left(\dot{\Pi}_{wz}(\theta) + \dot{\Pi}_{wz1}(\theta)\right)\sin\theta} \label{eq:R-wind}
 \end{align}
 
 
@@ -178,7 +178,7 @@ radio es el del frente de ionización.
 Con esto, obtenemos las tasas de momento y momento angular:
 \begin{align}
   \dot{\Pi}_{wz} &= \int^\theta_0 v_w\cos\theta~d\dot{M}_w =
-                   \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right)\\
+                   \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right) \label{eq:Pi-wz} \\
   \dot{\Pi}_{wr} &= \int^\theta_0 v_w\sin\theta~d\dot{M}_w = \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
   \dot{J}_w &= \int^\theta_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0
 \end{align}
@@ -208,9 +208,80 @@ Utilizando la ley de los senos (ver figura \ref{fig:crw-esquema}), ecuación (\r
 
 \begin{align}
   \dot{J}_{w1} &= Dv_{w1}\int^{\theta_1}_0 \sin\theta_1~d\dot{M}_{w1} =
-                 \frac{v_{w1}\dot{M}^0_{w1}}{4}\left(\theta_1 - \sin\theta_1\cos\theta_1\right) D
+                 \frac{v_{w1}\dot{M}^0_{w1}}{4}\left(\theta_1 - \sin\theta_1\cos\theta_1\right) D \label{eq:J1-iso}
 \end{align}
 
+Por otro lado, de la figura \ref{fig:crw-esquema}, podemos deducir la siguiente relación geométrica entre $R(\theta)$,
+$\theta$ y $\theta_1$:
+\begin{align}
+  \frac{R(\theta)}{D} &= \frac{\sin\theta_1}{\sin(\theta+\theta_1)} \label{eq:R-geometric}
+\end{align}
+
+Combinando las ecuaciones (\ref{eq:R-wind}), (\ref{eq:Pi-wz}) - (\ref{eq:J1-iso}) y (\ref{eq:R-geometric}) obtenemos una ecuación
+implícita que nos indica la dependencia de $\theta_1$ con $\theta$:
+
+\begin{align}
+  \theta_1\cot\theta_1 -1 = 2\beta I_k(\theta)\cot\theta - \frac{2\beta}{k+2}\left(1 - \cos^{k+2}\theta\right) \label{eq:th1-th} 
+\end{align}
+Donde $\beta = \frac{\dot{M}^0_w v_w}{\dot{M}^0_{w1}v_{w1}}$ es el cociente del momentos entre los vientos. Este parámetro, junto con el
+índice de anisotropía $k$ son los que determinan la forma del choque de proa. 
+
+En este caso, podemos determinar el radio característico $R_0$ a partir de la condición de que el choque es estacionario. En este caso,
+los momentos de los dos vientos son iguales en la posición del choque. Por tanto, utilizando la ecuación de momento en $\theta=0$
+obtenemos lo siguiente:
+
+\begin{align}
+  \rho_{ws} v^2_w &= \rho_{ws1} v^2_{w1}
+\end{align}
+Donde $\rho_{ws}$ y $\rho_{ws1}$ son las densidades de los dos vientos en la posición del choque. Por otro lado, como la tasa de pérdida
+de masa es constante para un ángulo $\theta$ dado, entonces podemos hacer lo siguiente:
+
+\begin{align}
+  \frac{\dot{M}^0_w}{4\pi R^2 v_w}v^2_w &= \frac{\dot{M}^0_{w1}}{4\pi\left(D-R\right)^2v_{w1}}v^2_{w1} \label{eq:momento-R0-uf}
+\end{align}
+En esta última ecuación hemos sustituído $\dot{M}^0_w = 4\pi R_0^2 v_w \rho_{ws}$ y \\
+$\dot{M}^0_{w1} = 4\pi \left(D - R_0\right)^2 v_{w1} \rho_{ws1}$ aprovechando que dichas cantidades deben conservarse.
+
+Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para $R_0$:
+
+\begin{align}
+  \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}}
+\end{align}
+
+
+Los radios característicos $R_{90}$ y $R_c$ pueden determinarse a partir de la ecuación (\ref{eq:th1-th}). El primero evaluando
+las ecuaciones (\ref{eq:R-geometric}) y (\ref{eq:th1-th}) en $\theta=\frac{\pi}{2}$ como sigue:
+
+\begin{align}
+  \frac{R_{90}}{D} &= \tan\theta_{1,90} \\
+  \theta_{1,90}\cot\theta_{1,90} -1 &=  - \frac{2\beta}{k+2} _
+\end{align}
+
+Donde $\theta_{1,90} = \theta_1\left(\frac{\pi}{2}\right)$. Introducimos un nuevo parámetro $\xi \equiv \frac{2}{k+2}$ de modo que
+combinando las dos ecuaciones anteriores obtenemos lo siguiente:
+
+\begin{align}
+  \frac{R_{90}}{D} = \tan\theta_{1,90} = \frac{\theta_{1,90}}{1-\xi\beta} \label{eq:r90-incomplete}
+\end{align}
+
+Hacemos una expansión en serie para el lado izquierdo de la ecuación y reducimos:
+
+\begin{align}
+  \theta^2_{1,90}\left(\right) = \left(1 + \frac{\theta^2_{1,90}}{15}\right) \simeq 3\beta\xi
+\end{align}
+Tomamos la solución a primer orden $\theta^_{1,90} = 3\beta\xi$,  sustituímos en el término entre paréntesis y resolvemos para
+$\theta_{1,90}$:
+
+\begin{align}
+  \theta_{1,90} = \left(\frac{3\xi\beta}{1+\frac{1}{5}\xi\beta}\right)^{1/2} \label{eq:th190}
+\end{align}
+
+Finalmente sustituímos (\ref{eq:th190}) en (\ref{eq:r90-incomplete}) para obtener $R_{90}$:
+\begin{align}
+  \frac{R_{90}}{D} &= \frac{\left(3\xi\beta\right)^{1/2}}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \\
+  \tilde{R}_{90} &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
+                   {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} 
+\end{align}
 
 
 \subsubsection{Interacción con un viento plano--paralelo}
