@@ -267,9 +267,9 @@ combinando las dos ecuaciones anteriores obtenemos lo siguiente:
 Hacemos una expansión en serie para el lado izquierdo de la ecuación y reducimos:
 
 \begin{align}
-  \theta^2_{1,90}\left(\right) = \left(1 + \frac{\theta^2_{1,90}}{15}\right) \simeq 3\beta\xi
+  \theta^2_{1,90}\left(1 + \frac{\theta^2_{1,90}}{15}\right) \simeq 3\beta\xi
 \end{align}
-Tomamos la solución a primer orden $\theta^_{1,90} = 3\beta\xi$,  sustituímos en el término entre paréntesis y resolvemos para
+Tomamos la solución a primer orden $\theta_{1,90} = 3\beta\xi$,  sustituímos en el término entre paréntesis y resolvemos para
 $\theta_{1,90}$:
 
 \begin{align}
@@ -281,6 +281,32 @@ Finalmente sustituímos (\ref{eq:th190}) en (\ref{eq:r90-incomplete}) para obten
   \frac{R_{90}}{D} &= \frac{\left(3\xi\beta\right)^{1/2}}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \\
   \tilde{R}_{90} &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
                    {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} 
+\end{align}
+
+Siendo que el choque de proa en nuestro modelo genérico es simétrico, entonces la forma $R(\theta)$ debe ser una función par,
+por tanto podemos hacer la siguiente expansión en serie:
+
+\begin{align}
+  R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 +\cdots +\cdots \right)
+\end{align}
+
+De esta forma el radio de curvatura para $\theta=0$ queda como sigue (ver apéndice ):
+
+\begin{align}
+  R_c = R_0\left(1 - 2\gamma\right)^{-1}
+\end{align}
+
+Para encontrar el coeficiente de segundo orden $\gamma$ hacemos una expansión en serie de las ecuaciones (\ref{eq:th1-th}) y
+(\ref{eq:R-geometric}) para ángulos pequeños, mostrando a continuación la expansión de cada término para al final hacer la
+reducción algebraica:
+
+\begin{align}
+  \cos^k\theta &\simeq \left(1 - \frac{\theta^2}{2}\right)^k \simeq \left(1 - \frac{k\theta^2}{2}\right) \\
+  \sin^2\theta &\simeq \theta^2\left(1 - \frac{\theta^2}{6}\right)^2 \simeq \theta^2\left(1 - \frac{\theta^2}{3}\right)\\
+  \implies \cos^k\theta\sin\theta &\simeq \theta^2 - \left(\frac{1}{3} + \frac{k}{2}\right) \\
+  \implies I_k(\theta) &\simeq \frac{\theta^3}{3}\left[1 - \frac{1}{10}\left(3k + 2\right)\theta^2\right] \\
+  \cot\theta &\simeq \theta^{-1}\left(1 - \frac{\theta^2}{3}\right) \\
+  \implies 2\beta I_k(\theta)\cot\theta &\simeq \frac{2}{3}\beta\theta^2\left[1 - \frac{1}{30}\left(9k + 16\right)\theta^2\right]
 \end{align}
 
 
