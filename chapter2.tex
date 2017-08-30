@@ -269,7 +269,7 @@ Hacemos una expansión en serie para el lado izquierdo de la ecuación y reducim
 \begin{align}
   \theta^2_{1,90}\left(1 + \frac{\theta^2_{1,90}}{15}\right) \simeq 3\beta\xi
 \end{align}
-Tomamos la solución a primer orden $\theta_{1,90} = 3\beta\xi$,  sustituímos en el término entre paréntesis y resolvemos para
+Tomamos la solución a primer orden $\theta_{1,90} = 3\beta\xi$,  sustituímos este valor en el término correctivo y resolvemos para
 $\theta_{1,90}$:
 
 \begin{align}
@@ -301,13 +301,58 @@ Para encontrar el coeficiente de segundo orden $\gamma$ hacemos una expansión e
 reducción algebraica:
 
 \begin{align}
+  \theta_1\cot\theta_1 -1 &\simeq -\frac{\theta^2_1}{3}\left(1 + \frac{\theta^2_1}{15}\right) \\
   \cos^k\theta &\simeq \left(1 - \frac{\theta^2}{2}\right)^k \simeq \left(1 - \frac{k\theta^2}{2}\right) \\
   \sin^2\theta &\simeq \theta^2\left(1 - \frac{\theta^2}{6}\right)^2 \simeq \theta^2\left(1 - \frac{\theta^2}{3}\right)\\
   \implies \cos^k\theta\sin\theta &\simeq \theta^2 - \left(\frac{1}{3} + \frac{k}{2}\right) \\
   \implies I_k(\theta) &\simeq \frac{\theta^3}{3}\left[1 - \frac{1}{10}\left(3k + 2\right)\theta^2\right] \\
   \cot\theta &\simeq \theta^{-1}\left(1 - \frac{\theta^2}{3}\right) \\
-  \implies 2\beta I_k(\theta)\cot\theta &\simeq \frac{2}{3}\beta\theta^2\left[1 - \frac{1}{30}\left(9k + 16\right)\theta^2\right]
+  \implies 2\beta I_k(\theta)\cot\theta &\simeq \frac{2}{3}\beta\theta^2\left[1 - \frac{1}{30}\left(9k + 16\right)\theta^2\right] \\
+  -\frac{2\beta}{k+2}\left(1 - \cos^{k+2}\theta\right) &\simeq \beta\theta^2\left[1 - \frac{1}{12}\left(3k+4\right)\right] \\
 \end{align}
+
+Sustituyendo las expansiones anteriores en (\ref{eq:th1-th}) obtenemos lo siguiente:
+\begin{align}
+  \theta^2_1\left(1 + \frac{\theta^2_1}{15}\right) \simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]
+  \label{eq:th1-th-approx}
+\end{align}
+
+La solución a primer orden (ignorando el término cuártico) es $\theta^2_ 1 \simeq \beta\theta^2$. Sustituímos esta solución en el
+término correctivo y resolvemos para $\theta^2_1$:
+
+\begin{align}
+  \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 + \frac{\beta\theta^2}{15}\right)^{-1} \\
+  \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 - \frac{\beta\theta^2}{15}\right) \\
+  \implies \theta^2_1 &\simeq \beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right) \\
+  \mathrm{Donde:\quad}C_{k\beta} &= \frac{1}{2}\left(A_k - \frac{\beta}{15}\right) \\
+  A_k &= \frac{1}{15} - \frac{3k}{20}
+\end{align}
+
+Utilizamos esta solución para $\theta_1$ en la ecuación (\ref{eq:R-geometric}), ignorando términos de orden superior al cuártico
+dentro de los corchetes:
+
+\begin{align}
+  \theta_1 &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2} \\
+  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + 2C_{k\beta}\theta^2\right)^{1/2}\right]
+  \simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right]\\ 
+  \sin\theta_1 &\simeq \theta_1\left(1 - \frac{\theta^2_1}{6}\right) \\
+  &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2}\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
+  &\simeq \beta^{1/2}\theta\left(1 + C_{k\beta}\theta^2\right)\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
+           &\simeq \beta^{1/2}\theta\left[\left(1 + C_{k\beta}\theta^2\right) - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)
+             \left(1 + C_{k\beta}\theta^2\right)}{6}\right]\\
+  \implies \sin\theta_1 &\simeq \beta^{1/2}\theta\left[1 + \left(C_{k\beta}- \frac{\beta}{6}\right)\theta^2\right] \\
+  \sin\left(\theta + \theta_1 \right) &\simeq \left(\theta + \theta_1\right)\left[1 - \frac{\left(\theta + \theta_1\right)^2}{6}\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right] \left[1 - \frac{\theta^2\left(1 + \beta^{1/2}
+             \left(1 + C_{k\beta}\theta^2\right)\right)^2}{6}\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2}\left(1+ C_{k\beta}\theta^2\right)\right]\left[1 - \frac{\theta^2}{6}\left(1 + \beta^{1/2}\right)^2
+             \left(1 + \frac{2\beta}{1 + \beta^{1/2}}C_{k\beta}\theta^2\right)\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2} - \frac{1}{6}\left(1+\beta^{1/2}\right)^3\theta^2 + \beta^{1/2}C_{k\beta}\theta^2\right] \\
+           &\simeq \theta\left(1 + \beta^{1/2}\right)\left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{1}{6}\left(1 + \beta^{1/2}\right)^2
+             \theta^2\right)\right]\\
+  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right]
+                         \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\right]^{-1}
+\end{align}
+
 
 
 \subsubsection{Interacción con un viento plano--paralelo}
