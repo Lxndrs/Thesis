@@ -1,0 +1,220 @@
+\appendix
+% \appendixpage
+% \addappheadtotoc
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\section{Derivación Matemática del Radio de Curvatura}
+\label{app:math-curvature radius}
+
+Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito.
+Su longitud de arco está dada por:
+
+\begin{align}
+  s(t) = \int^t_0 \left(\dot{x}^2 + \dot{y}^2\right)^{1/2}~dt' \label{eq:arc-length}
+\end{align}
+
+donde $\dot{x} \equiv \frac{dx}{dt}$ y $\dot{y} \equiv\frac{dy}{dt}$.
+
+Reparametrizamos la trayectoria $\vec{\sigma}(t)$ con la longitud de arco y diferenciando respecto a ésta obtenemos lo siguiente:
+
+\begin{align}
+  \frac{d\vec{\sigma}}{ds} = \frac{d\vec{\sigma}}{dt}\frac{1}{s(t)} \equiv \vec{T}(s)
+\end{align}
+
+Esta última expresión se logró diferenciando la ecuación (\ref{eq:arc-length}) y aplicando la regla de la cadena al diferenciar
+$\frac{d\vec{\sigma}}{ds}$. $\vec{T}(s)$ es el vector tangente a la trayectoria $\vec{\sigma}(s)$.
+
+La curvatura $\kappa$ se define como la magnitud de la derivada del vector tangente respecto a la longitud de arco, o bien, como la
+segunda derivada de la trayectoria $\vec{\sigma}(s)$:
+
+\begin{align}
+  \kappa \equiv \norm{\frac{d\vec{T}}{ds}} = \norm{\frac{d^2\vec{\sigma}}{ds^2}} 
+\end{align}
+
+El radio de curvatura se define como el radio de un círculo que ajusta localmente a la trayectoria, y se calcula como el inverso
+multiplicativo de la curvatura:
+
+\begin{align}
+  R_c = \frac{1}{\kappa}
+\end{align}
+
+De aquí en adelante utilizaré la siguiente notación para evitar que las ecuaciones se alarguen demasiado, facilitar al lector seguir
+el procedimiento y comprobar por sí mismo los pasos individuales de éste:
+
+\begin{align}
+  \vec{\sigma}'(t) &\equiv \frac{d\vec{\sigma}}{dt}  = \sigma'_x \hat{x} + \sigma'_y \hat{y}\\
+  \vec{\sigma}''(t)&\equiv \frac{d^2\vec{\sigma}}{dt^2} = \sigma''_x \hat{x} + \sigma''_y \hat{y}\\
+  \vec{\sigma}'(t)\cdot\vec{\sigma}''(t) &\equiv \frac{d\vec{\sigma}}{dt}\cdot \frac{d^2\vec{\sigma}}{dt^2}\\
+   &= \sigma'_x\sigma''_x + \sigma'_y\sigma''_y
+\end{align}
+
+
+Aplicando la regla de la cadena encontramos la siguiente expresión para la curvatura:
+
+\begin{align}
+  \kappa = \norm{\frac{\vec{\sigma}''(t)}{s^2(t)} - \frac{\vec{\sigma}'(t)}{s^4(t)}
+  \vec{\sigma}'(t)\cdot\vec{\sigma}''(t)} \label{eq:curvature}
+\end{align}
+
+Escribiendo las componentes de $\vec{\sigma}(t)$ en coordenadas polares, calculamos los factores que intervienen en la
+ecuación (\ref{eq:curvature}):
+
+\begin{align}
+  \vec{\sigma}(t) &= (R\cos t) \hat{x} + (R\sin t) \hat{y} \\
+  \vec{\sigma}'(t) &= (\dot{R}\cos t - R\sin t)\hat{x} + (\dot{R}\sin t + R\cos t) \hat{y} \\
+  \vec{\sigma}''(t) &= (\ddot{R}\cos t - 2\dot{R}\sin t - R\cos t) \hat{x} +(\ddot{R}\sin t + 2\dot{R}\cos t - R\sin t) \hat{y} \\
+  \implies s(t) &= \int^t_0 \left[\left(\dot{R}\cos t' - R\sin t'\right)^2 + \left(\dot{R}\sin t' + R\cos t'\right)^2\right]^{1/2}~dt'
+                  = \left(R^2 + \dot{R}^2\right)^{1/2}\\
+  \implies \vec{\sigma}'(t)\cdot\vec{\sigma}''(t) &= \dot{R}\ddot{R} + R\dot{R}
+\end{align}
+
+De esta forma, calculamos la curvatura como sigue:
+
+\begin{align}
+  \kappa &= \left[\left(\frac{\sigma''_x}{s^2} - \frac{\sigma'_x(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)}{s^4}\right)^2
+  + \left(\frac{\sigma''_y}{s^2} - \frac{\sigma'_y(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)}{s^4} \right)^2\right]^{1/2} \\
+   &= s^{-2}\left[\left(\sigma''_x(\sigma'^2_x + \sigma'^2_y) - \sigma'_x(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)\right)^2
+     + \left(\sigma''_y(\sigma'^2_x + \sigma'^2_y) - \sigma'_y(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)\right)^2 \right]^{1/2}\\
+   &= s^{-2}\left[\left(\sigma''_x\sigma'^2_y - \sigma'_x\sigma'_y\sigma''_y\right)^2 +
+     \left(\sigma''_y\sigma'^2_x - \sigma'_y\sigma'_x\sigma''_x\right)^2 \right]^{1/2}
+\end{align}
+
+
+
+\subsection{Radio de curvatura para un polinomio de grado $n$}
+\label{app:curvature-radius-poly}
+
+\section{Derivación paso a paso de los Radios Característicos en la aproximación
+  hipersónica del modelo de interacción de dos vientos}
+\label{app:dervation-radii}
+
+\subsection{$R_0$}
+Podemos determinar el radio característico $R_0$ a partir de la condición de que el choque es estacionario. En este caso,
+los momentos de los dos vientos son iguales en la posición del choque. Por tanto, utilizando la ecuación de momento en $\theta=0$
+obtenemos lo siguiente:
+
+\begin{align}
+  \rho_{ws} v^2_w &= \rho_{ws1} v^2_{w1}
+\end{align}
+Donde $\rho_{ws}$ y $\rho_{ws1}$ son las densidades de los dos vientos en la posición del choque. Por otro lado, como la tasa de pérdida
+de masa es constante para un ángulo $\theta$ dado, entonces podemos hacer lo siguiente:
+
+\begin{align}
+  \frac{\dot{M}^0_w}{4\pi R^2 v_w}v^2_w &= \frac{\dot{M}^0_{w1}}{4\pi\left(D-R\right)^2v_{w1}}v^2_{w1} \label{eq:momento-R0-uf}
+\end{align}
+En esta última ecuación hemos sustituído $\dot{M}^0_w = 4\pi R_0^2 v_w \rho_{ws}$ y \\
+$\dot{M}^0_{w1} = 4\pi \left(D - R_0\right)^2 v_{w1} \rho_{ws1}$ aprovechando que dichas cantidades deben conservarse.
+
+Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para $R_0$:
+
+\begin{align}
+  \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}}
+\end{align}
+
+\subsection{$\tilde{R}_{90}$}
+$R_{90}$ puede determinarse a partir de evaluar las ecuaciones (\ref{eq:R-geometric}) y (\ref{eq:th1-th}) en $\theta=\frac{\pi}{2}$
+como sigue:
+
+\begin{align}
+  \frac{R_{90}}{D} &= \tan\theta_{1,90} \\
+  \theta_{1,90}\cot\theta_{1,90} -1 &=  - \frac{2\beta}{k+2} _
+\end{align}
+
+Donde $\theta_{1,90} = \theta_1\left(\frac{\pi}{2}\right)$. Introducimos un nuevo parámetro $\xi \equiv \frac{2}{k+2}$ de modo que
+combinando las dos ecuaciones anteriores obtenemos lo siguiente:
+
+\begin{align}
+  \frac{R_{90}}{D} = \tan\theta_{1,90} = \frac{\theta_{1,90}}{1-\xi\beta} \label{eq:r90-incomplete}
+\end{align}
+
+Hacemos una expansión en serie para el lado izquierdo de la ecuación y reducimos:
+
+\begin{align}
+  \theta^2_{1,90}\left(1 + \frac{\theta^2_{1,90}}{15}\right) \simeq 3\beta\xi
+\end{align}
+Tomamos la solución a primer orden $\theta_{1,90} = 3\beta\xi$,  sustituímos este valor en el término correctivo y resolvemos para
+$\theta_{1,90}$:
+
+\begin{align}
+  \theta_{1,90} = \left(\frac{3\xi\beta}{1+\frac{1}{5}\xi\beta}\right)^{1/2} \label{eq:th190}
+\end{align}
+
+Finalmente sustituímos (\ref{eq:th190}) en (\ref{eq:r90-incomplete}) para obtener $R_{90}$:
+\begin{align}
+  \frac{R_{90}}{D} &= \frac{\left(3\xi\beta\right)^{1/2}}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \\
+  \tilde{R}_{90} &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
+                   {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} 
+\end{align}
+
+Siendo que el choque de proa en nuestro modelo genérico es simétrico, entonces la forma $R(\theta)$ debe ser una función par,
+por tanto podemos hacer la siguiente expansión en serie:
+
+\begin{align}
+  R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 +\cdots +\cdots \right)
+\end{align}
+
+De esta forma el radio de curvatura para $\theta=0$ queda como sigue (ver apéndice ):
+
+\begin{align}
+  \tilde{R}_c = \left(1 - 2\gamma\right)^{-1}
+\end{align}
+
+Para encontrar el coeficiente de segundo orden $\gamma$ hacemos una expansión en serie de las ecuaciones (\ref{eq:th1-th}) y
+(\ref{eq:R-geometric}) para ángulos pequeños, mostrando a continuación la expansión de cada término para al final hacer la
+reducción algebraica:
+
+\begin{align}
+  \theta_1\cot\theta_1 -1 &\simeq -\frac{\theta^2_1}{3}\left(1 + \frac{\theta^2_1}{15}\right) \\
+  \cos^k\theta &\simeq \left(1 - \frac{\theta^2}{2}\right)^k \simeq \left(1 - \frac{k\theta^2}{2}\right) \\
+  \sin^2\theta &\simeq \theta^2\left(1 - \frac{\theta^2}{6}\right)^2 \simeq \theta^2\left(1 - \frac{\theta^2}{3}\right)\\
+  \implies \cos^k\theta\sin\theta &\simeq \theta^2 - \left(\frac{1}{3} + \frac{k}{2}\right) \\
+  \implies I_k(\theta) &\simeq \frac{\theta^3}{3}\left[1 - \frac{1}{10}\left(3k + 2\right)\theta^2\right] \\
+  \cot\theta &\simeq \theta^{-1}\left(1 - \frac{\theta^2}{3}\right) \\
+  \implies 2\beta I_k(\theta)\cot\theta &\simeq \frac{2}{3}\beta\theta^2\left[1 - \frac{1}{30}\left(9k + 16\right)\theta^2\right] \\
+  -\frac{2\beta}{k+2}\left(1 - \cos^{k+2}\theta\right) &\simeq \beta\theta^2\left[1 - \frac{1}{12}\left(3k+4\right)\right] \\
+\end{align}
+
+Sustituyendo las expansiones anteriores en (\ref{eq:th1-th}) obtenemos lo siguiente:
+\begin{align}
+  \theta^2_1\left(1 + \frac{\theta^2_1}{15}\right) \simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]
+  \label{eq:th1-th-approx}
+\end{align}
+
+La solución a primer orden (ignorando el término cuártico) es $\theta^2_ 1 \simeq \beta\theta^2$. Sustituímos esta solución en el
+término correctivo y resolvemos para $\theta^2_1$:
+
+\begin{align}
+  \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 + \frac{\beta\theta^2}{15}\right)^{-1} \\
+  \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 - \frac{\beta\theta^2}{15}\right) \\
+  \implies \theta^2_1 &\simeq \beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right) \\
+  \mathrm{Donde:\quad}C_{k\beta} &= \frac{1}{2}\left(A_k - \frac{\beta}{15}\right) \\
+  A_k &= \frac{1}{15} - \frac{3k}{20}
+\end{align}
+
+Utilizamos esta solución para $\theta_1$ en la ecuación (\ref{eq:R-geometric}), ignorando términos de orden superior al cuártico
+dentro de los corchetes:
+
+\begin{align}
+  \theta_1 &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2} \\
+  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + 2C_{k\beta}\theta^2\right)^{1/2}\right]
+  \simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right]\\ 
+  \sin\theta_1 &\simeq \theta_1\left(1 - \frac{\theta^2_1}{6}\right) \\
+  &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2}\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
+  &\simeq \beta^{1/2}\theta\left(1 + C_{k\beta}\theta^2\right)\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
+           &\simeq \beta^{1/2}\theta\left[\left(1 + C_{k\beta}\theta^2\right) - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)
+             \left(1 + C_{k\beta}\theta^2\right)}{6}\right]\\
+  \implies \sin\theta_1 &\simeq \beta^{1/2}\theta\left[1 + \left(C_{k\beta}- \frac{\beta}{6}\right)\theta^2\right] \\
+  \sin\left(\theta + \theta_1 \right) &\simeq \left(\theta + \theta_1\right)\left[1 - \frac{\left(\theta + \theta_1\right)^2}{6}\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right] \left[1 - \frac{\theta^2\left(1 + \beta^{1/2}
+             \left(1 + C_{k\beta}\theta^2\right)\right)^2}{6}\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2}\left(1+ C_{k\beta}\theta^2\right)\right]\left[1 - \frac{\theta^2}{6}\left(1 + \beta^{1/2}\right)^2
+             \left(1 + \frac{2\beta}{1 + \beta^{1/2}}C_{k\beta}\theta^2\right)\right] \\
+           &\simeq \theta\left[1 + \beta^{1/2} - \frac{1}{6}\left(1+\beta^{1/2}\right)^3\theta^2 + \beta^{1/2}C_{k\beta}\theta^2\right] \\
+           &\simeq \theta\left(1 + \beta^{1/2}\right)\left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{1}{6}\left(1 + \beta^{1/2}\right)^2
+             \theta^2\right)\right]\\
+  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right]
+                         \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\right]^{-1} \\
+  &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right]
+    \left[1 - \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 - \beta^{1/2}\right)^2}{6}\right)\right] \\
+           &\simeq R_0\left[1 + \left(\right)\theta^2\right] \\
+  &\simeq R_0 \left[1 + \left(\right)\theta^2\right] 
+\end{align}
