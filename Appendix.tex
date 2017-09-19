@@ -6,18 +6,16 @@
 \label{app:math-curvature radius}
 
 Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito.
-Su longitud de arco está dada por:
+Sus derivadas se denotan como $\vec{\sigma}'(t)$ y $\vec{\sigma}''(t)$. Su longitud de arco está dada por:
 
 \begin{align}
-  s(t) = \int^t_0 \left(\dot{x}^2 + \dot{y}^2\right)^{1/2}~dt' \label{eq:arc-length}
+  s(t) = \int^t_0 \norm{\vec{\sigma}'(t')}~dt' \label{eq:arc-length}
 \end{align}
-
-donde $\dot{x} \equiv \frac{dx}{dt}$ y $\dot{y} \equiv\frac{dy}{dt}$.
 
 Reparametrizamos la trayectoria $\vec{\sigma}(t)$ con la longitud de arco y diferenciando respecto a ésta obtenemos lo siguiente:
 
 \begin{align}
-  \frac{d\vec{\sigma}}{ds} = \frac{d\vec{\sigma}}{dt}\frac{1}{s(t)} \equiv \vec{T}(s)
+  \frac{d\vec{\sigma}}{ds} = \frac{\vec{\sigma}'(t)}{\norm{\vec{\sigma}'(t)}} \equiv \vec{T}(s)
 \end{align}
 
 Esta última expresión se logró diferenciando la ecuación (\ref{eq:arc-length}) y aplicando la regla de la cadena al diferenciar
@@ -27,7 +25,7 @@ La curvatura $\kappa$ se define como la magnitud de la derivada del vector tange
 segunda derivada de la trayectoria $\vec{\sigma}(s)$:
 
 \begin{align}
-  \kappa \equiv \norm{\frac{d\vec{T}}{ds}} = \norm{\frac{d^2\vec{\sigma}}{ds^2}} 
+  \kappa \equiv \norm{\vec{T}'(s)} = \norm{\vec{\sigma}''(s)} 
 \end{align}
 
 El radio de curvatura se define como el radio de un círculo que ajusta localmente a la trayectoria, y se calcula como el inverso
@@ -37,48 +35,43 @@ multiplicativo de la curvatura:
   R_c = \frac{1}{\kappa}
 \end{align}
 
-De aquí en adelante utilizaré la siguiente notación para evitar que las ecuaciones se alarguen demasiado, facilitar al lector seguir
-el procedimiento y comprobar por sí mismo los pasos individuales de éste:
-
-\begin{align}
-  \vec{\sigma}'(t) &\equiv \frac{d\vec{\sigma}}{dt}  = \sigma'_x \hat{x} + \sigma'_y \hat{y}\\
-  \vec{\sigma}''(t)&\equiv \frac{d^2\vec{\sigma}}{dt^2} = \sigma''_x \hat{x} + \sigma''_y \hat{y}\\
-  \vec{\sigma}'(t)\cdot\vec{\sigma}''(t) &\equiv \frac{d\vec{\sigma}}{dt}\cdot \frac{d^2\vec{\sigma}}{dt^2}\\
-   &= \sigma'_x\sigma''_x + \sigma'_y\sigma''_y
-\end{align}
-
-
 Aplicando la regla de la cadena encontramos la siguiente expresión para la curvatura:
 
 \begin{align}
-  \kappa = \norm{\frac{\vec{\sigma}''(t)}{s^2(t)} - \frac{\vec{\sigma}'(t)}{s^4(t)}
+  \kappa = \norm{\frac{\vec{\sigma}''(t)}{\norm{\vec{\sigma}'(t)}^2} - \frac{\vec{\sigma}'(t)}{\norm{\vec{\sigma}'(t)}^4}
   \vec{\sigma}'(t)\cdot\vec{\sigma}''(t)} \label{eq:curvature}
 \end{align}
 
-Escribiendo las componentes de $\vec{\sigma}(t)$ en coordenadas polares, calculamos los factores que intervienen en la
+Escribimos las componentes de las derivadas de $\vec{\sigma}(t)$ para calcular los factores que intervienen en la
 ecuación (\ref{eq:curvature}):
 
-\begin{align}
-  \vec{\sigma}(t) &= (R\cos t) \hat{x} + (R\sin t) \hat{y} \\
-  \vec{\sigma}'(t) &= (\dot{R}\cos t - R\sin t)\hat{x} + (\dot{R}\sin t + R\cos t) \hat{y} \\
-  \vec{\sigma}''(t) &= (\ddot{R}\cos t - 2\dot{R}\sin t - R\cos t) \hat{x} +(\ddot{R}\sin t + 2\dot{R}\cos t - R\sin t) \hat{y} \\
-  \implies s(t) &= \int^t_0 \left[\left(\dot{R}\cos t' - R\sin t'\right)^2 + \left(\dot{R}\sin t' + R\cos t'\right)^2\right]^{1/2}~dt'
-                  = \left(R^2 + \dot{R}^2\right)^{1/2}\\
-  \implies \vec{\sigma}'(t)\cdot\vec{\sigma}''(t) &= \dot{R}\ddot{R} + R\dot{R}
+\begin{align} 
+  \vec{\sigma}'(t) &= \dot{x}\hat{x} + \dot{y} \hat{y} \\
+  \vec{\sigma}''(t) &= \ddot{x} \hat{x} +  \ddot{y} \hat{y} \\
+  \implies \vec{\sigma}'(t)\cdot\vec{\sigma}''(t) &= \dot{x}\ddot{x} + \dot{y}\ddot{y}
 \end{align}
 
 De esta forma, calculamos la curvatura como sigue:
 
 \begin{align}
-  \kappa &= \left[\left(\frac{\sigma''_x}{s^2} - \frac{\sigma'_x(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)}{s^4}\right)^2
-  + \left(\frac{\sigma''_y}{s^2} - \frac{\sigma'_y(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)}{s^4} \right)^2\right]^{1/2} \\
-   &= s^{-2}\left[\left(\sigma''_x(\sigma'^2_x + \sigma'^2_y) - \sigma'_x(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)\right)^2
-     + \left(\sigma''_y(\sigma'^2_x + \sigma'^2_y) - \sigma'_y(\sigma'_x\sigma''_x + \sigma'_y\sigma''_y)\right)^2 \right]^{1/2}\\
-   &= s^{-2}\left[\left(\sigma''_x\sigma'^2_y - \sigma'_x\sigma'_y\sigma''_y\right)^2 +
-     \left(\sigma''_y\sigma'^2_x - \sigma'_y\sigma'_x\sigma''_x\right)^2 \right]^{1/2}
+  \kappa &= \left[\left(\frac{\ddot{x}}{\norm{\vec{\sigma}'}^2} - \frac{\dot{x}(\dot{x}\ddot{x} + \dot{y}\ddot{y})}{\norm{\vec{\sigma}'}^4}\right)^2
+  + \left(\frac{\ddot{y}}{\norm{\vec{\sigma}'}^2} - \frac{\dot{y}(\dot{x}\ddot{x} + \dot{y}\ddot{y})}{\norm{\vec{\sigma}'}^4} 
+\right)^2\right]^{1/2} \\
+ \kappa  &= \norm{\vec{\sigma}'}^{-2}\left[\left(\ddot{x}(\dot{x}^2 + \dot{y}^2) - \dot{x}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2
+     + \left(\ddot{y}(\dot{x}^2 + \dot{y}^2) - \dot{y}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2 \right]^{1/2}\\
+ \kappa  &= \norm{\vec{\sigma}'}^{-2}\left[\left(\ddot{x}\dot{y}^2 - \dot{x}\dot{y}\ddot{y}\right)^2 +
+   \left(\ddot{y}\dot{x}^2 - \dot{y}\dot{x}\ddot{x}\right)^2 \right]^{1/2} \\
+ \kappa  &=\norm{\vec{\sigma}'}^{-3}\left[\ddot{x}^2\dot{y}^2 + \ddot{y}^2\dot{x}^2 - 2\ddot{x}\ddot{y}\dot{x}\dot{y}\right]^{1/2} \\
+\kappa &= \frac{\left|\ddot{x}\dot{y} - \ddot{y}\dot{x}\right|}{\left(\dot{x}^2+\dot{y}^2\right)^{3/2}} 
 \end{align}
 
+Utilizando coordenadas polares, la expresión para el radio de curvatura queda como sigue:
 
+\begin{align}
+R_c = R\frac{\left(1 + \omega^2\right)^{3/2}}{\left|1 + \omega^2 - \dot{\omega}\right|}
+\end{align}
+
+Donde $\omega \equiv \frac{1}{R}\frac{dR}{d\theta}$ (ver sección \ref{sec:projection})
 
 \subsection{Radio de curvatura para un polinomio de grado $n$}
 \label{app:curvature-radius-poly}
