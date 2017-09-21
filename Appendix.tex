@@ -68,13 +68,49 @@ De esta forma, calculamos la curvatura como sigue:
 Utilizando coordenadas polares, la expresión para el radio de curvatura queda como sigue:
 
 \begin{align}
-R_c = R\frac{\left(1 + \omega^2\right)^{3/2}}{\left|1 + \omega^2 - \dot{\omega}\right|}
+R_c = R\frac{\left(1 + \omega^2\right)^{3/2}}{\left|1 + \omega^2 - \dot{\omega}\right|}\label{eq:Rc-generic}
 \end{align}
 
 Donde $\omega \equiv \frac{1}{R}\frac{dR}{d\theta}$ (ver sección \ref{sec:projection})
 
-\subsection{Radio de curvatura para un polinomio de grado $n$}
+\subsection{Radio de curvatura para un polinomio de grado $2n$}
 \label{app:curvature-radius-poly}
+
+Dado que es de nuestro interés calcular el radio de curvatura del choque en el eje de simetría
+$(\theta=0)$, debido a que es analíticamente más fácil de calcular, y a su vez es medible
+observacionalmente ajustando un círculo a una serie de mediciones de la posición del choque (sección ).
+Entonces, hacemos una aproximación para la función $R(\theta)$ que nos da la forma del choque
+mediante un polinomio par de grado $2n$ de la siguiente forma:
+
+\begin{align}
+R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 + \cdots + \Gamma_n\theta^n\right)
+\end{align}
+
+De esta forma calculamos las derivadas de $R(\theta)$:
+
+\begin{align}
+  \dot{R}(\theta) &\simeq R_0\theta\left(2\gamma + 4\Gamma\theta^2 + \cdots + n\Gamma_n\theta^{n-2}\right) \\
+  \ddot{R}(\theta) &\simeq R_0\left(2\gamma + 12\Gamma\theta^2 + \cdots + n(n-1)\Gamma_n\theta^{n-2}\right)
+\end{align}
+
+Evaluando en $\theta = 0$ obtenemos los siguiente:
+
+\begin{align}
+  R(0) &= R_0 \\
+  \dot{R}(0) &= 0 \\
+  \ddot{R}(0) &= 2\gamma R_0 \\
+  \implies \omega(0) &= 0 \\
+  \dot{omega}(0) &\equiv \frac{\ddot{R}(0)}{R(0)} - \left(\frac{\dot{R}(0)}{R(0)}\right)^2 = 2\gamma
+\end{align}
+
+Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos el radio de curvatura en $\theta=0$:
+
+\begin{align}
+  R_c = \frac{R_0}{\left|1 - 2\gamma\right|}
+\end{align}
+
+Por esto en el apéndice \ref{app:dervation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
+el coeficiente de segundo orden en la expansión en serie de $R(\theta)$.
 
 \section{Derivación paso a paso de los Radios Característicos en la aproximación
   hipersónica del modelo de interacción de dos vientos}
@@ -109,7 +145,7 @@ como sigue:
 
 \begin{align}
   \frac{R_{90}}{D} &= \tan\theta_{1,90} \\
-  \theta_{1,90}\cot\theta_{1,90} -1 &=  - \frac{2\beta}{k+2} _
+  \theta_{1,90}\cot\theta_{1,90} -1 &=  - \frac{2\beta}{k+2}
 \end{align}
 
 Donde $\theta_{1,90} = \theta_1\left(\frac{\pi}{2}\right)$. Introducimos un nuevo parámetro $\xi \equiv \frac{2}{k+2}$ de modo que
@@ -145,7 +181,7 @@ por tanto podemos hacer la siguiente expansión en serie:
   R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 +\cdots +\cdots \right)
 \end{align}
 
-De esta forma el radio de curvatura para $\theta=0$ queda como sigue (ver apéndice ):
+De esta forma el radio de curvatura para $\theta=0$ queda como sigue (ver apéndice \ref{app:math-curvature radius}):
 
 \begin{align}
   \tilde{R}_c = \left(1 - 2\gamma\right)^{-1}
