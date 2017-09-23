@@ -110,7 +110,7 @@ Para el viento exterior consideramos dos casos principales: un viento esférico 
 plano--paralelo de densidad y velocidad constante.
 
 \subsection{Interacción con un viento esférico isotrópico}
-
+\label{sec:mod-isotropic}
 En este caso tomamos como variable independiente al ángulo polar medido a partir de la posición de la fuente del viento
 externo, denotado por $\theta_1$. De esta forma las tasas de pérdida de masa, momento y momento angular quedan como sigue:
 
@@ -158,15 +158,33 @@ Los radios característicos en este caso se muestran a continuación. El procedi
 
 \subsection{Interacción de un viento esférico isotrópico con un viento plano--paralelo}
 
-En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo quedan como sigue:
+En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo con velocidad $v_a$ y
+densidad uniforme $\rho_a$ quedan como sigue:
 
 \begin{align}
-  \dot{M}_{w1} &= \\
-  \dot{\Pi}_{wz1} &= - \\
+  \dot{M}_{w1} &= \pi \rho_a v_a R^2 \sin^2\theta\\
+  \dot{\Pi}_{wz1} &= - \pi\rho_a v^2_a R^2 \sin^2\theta\\
   \dot{\Pi}_{wr1} &= 0 \\
-  \dot{J}_{w1} &= 
+  \dot{J}_{w1} &= \int^r_0 r'v_a \sin\theta~d\dot{M}_{w1} = \frac{2}{3}\pi\rho_a v_a^2 R^3 \sin^3\theta 
 \end{align}
 
+Sustituyendo estas ecuaciones en () junto con () - () obtenemos lo siguiente:
 
 \begin{align}
+  R = \frac{\frac{2}{3}\pi\rho_a v_a R^3 \sin^3\theta}{\frac{\dot{M}^0_w v_w}{4}\left(\theta-\sin\theta\cos\theta\right)\cos\theta
+  - \left(\frac{\dot{M}^0_w v_w}{4}\sin^2\theta - \pi\rho_a v^2_a R^2 \sin^2\theta\right)\sin\theta}
 \end{align}
+
+La condición de equilibrio de presión en este caso nos lleva a que $\frac{\dot{M}^0_w v_w}{4\pi R^2_0} = \rho_a v^2_a$. Por tanto:
+
+\begin{align}
+  \tilde{R} = \frac{\frac{2}{3}\tilde{R}^3 \sin^3\theta}{\left(\theta-\sin\theta\cos\theta\right)\cos\theta
+  - \left(\frac{\sin^2\theta - \tilde{R}^2 \sin^2\theta\right)\sin\theta}
+\end{align}
+
+Resolviendo para $\tilde{R}$ encontramos que:
+
+\begin{align}
+  \tilde{R}^2 = \csc^2\theta\left(1 - \theta\cot\theta\right) \label{eq:R-Wilkin}
+\end{align}
+
