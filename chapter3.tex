@@ -175,7 +175,13 @@ Sustituyendo estas ecuaciones en () junto con () - () obtenemos lo siguiente:
   - \left(\frac{\dot{M}^0_w v_w}{4}\sin^2\theta - \pi\rho_a v^2_a R^2 \sin^2\theta\right)\sin\theta}
 \end{align}
 
-La condición de equilibrio de presión en este caso nos lleva a que $\frac{\dot{M}^0_w v_w}{4\pi R^2_0} = \rho_a v^2_a$. Por tanto:
+La condición de equilibrio de presión en este caso nos lleva a la siguiente relación:
+
+\begin{align}
+  \frac{\dot{M}^0_w v_w}{4\pi R^2_0} = \rho_a v^2_a \label{eq:Wilkin-stagnation}
+\end{align}
+
+Por tanto:
 
 \begin{align}
   \tilde{R} = \frac{\frac{2}{3}\tilde{R}^3 \sin^3\theta}{\left(\theta-\sin\theta\cos\theta\right)\cos\theta
@@ -185,6 +191,28 @@ La condición de equilibrio de presión en este caso nos lleva a que $\frac{\dot
 Resolviendo para $\tilde{R}$ encontramos que:
 
 \begin{align}
-  \tilde{R}^2 = \csc^2\theta\left(1 - \theta\cot\theta\right) \label{eq:R-Wilkin}
+  \tilde{R} = \left[\csc^2\theta\left(1 - \theta\cot\theta\right)\right]^{1/2} \label{eq:R-Wilkin}
 \end{align}
 
+\subsection{Radios Característicos}
+\label{sec:Wilkin-Char-Radii}
+
+En este caso los radios característicos se calculan de la siguiente manera:
+
+$R_0$ se obtiene directamente de la ecuación (\ref{eq:Wilkin-stagnation}) como
+\begin{align}
+  R_0 = \left(\frac{\dot{M}^0_w v_w}{4\pi \rho_a v^2_a}\right)^{1/2}
+\end{align}
+
+$R_{90}$ se calcula evaluando la ecuación (\ref{eq:R-Wilkin}) en $\theta=\frac{\pi}{2}$:
+
+\begin{align}
+  \tilde{R}_{90} = \sqrt{3}
+\end{align}
+
+Por último, el radio de curvatura se obtiene haciendo una expansión de la ecuación (\ref{eq:R-Wilkin}) y
+encontrando el coeficiente de segundo órden. El procedimiento detallado se muestra en el apéndice \ref{sec:Rc-Wilkin}:
+
+\begin{align}
+\tilde{R}_c = \frac{5}{3}
+\end{align}
