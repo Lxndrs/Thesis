@@ -2,6 +2,7 @@
 % \appendixpage
 % \addappheadtotoc
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\chapter{Appendix}
 \section{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature radius}
 
@@ -106,7 +107,7 @@ Evaluando en $\theta = 0$ obtenemos los siguiente:
 Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos el radio de curvatura en $\theta=0$:
 
 \begin{align}
-  R_c = \frac{R_0}{\left|1 - 2\gamma\right|}
+  R_c = \frac{R_0}{\left|1 - 2\gamma\right|}\label{eq:Rc-nose}
 \end{align}
 
 Por esto en el apéndice \ref{app:dervation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
@@ -256,14 +257,24 @@ Hacemos expansión Taylor hasta cuarto orden de cada uno de los términos de la 
 
 \begin{align}
   \csc^2\theta &\simeq \theta^{-2}\left(1 - \frac{\theta^2}{6} + \frac{\theta^4}{120}\right)^{-2} \simeq
-                 \theta^{-2}\left(1 + \frac{\theta^2}{3} - \frac{\theta^4}{10}\right) \\
-  \theta\cot\theta &\simeq 1 - \frac{\theta^2}{15}\left(1 + \frac{\theta^2}{15}\right) \\
-  \implies 1 -\theta\cot\theta &\simeq \frac{\theta^2}{15}\left(1 + \frac{\theta^2}{15}\right)
+                 \theta^{-2}\left(1 + \frac{\theta^2}{3} + \frac{\theta^4}{15}\right) \\
+  \theta\cot\theta &\simeq 1 - \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \frac{2\theta^4}{315}\right) \\
+  \implies 1 -\theta\cot\theta &\simeq \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \frac{2\theta^4}{315}\right)
 \end{align}
 
 Sustituímos en la ecuación (\ref{eq:R-Wilkin}):
 
 \begin{align}
-  \tilde{R}(\theta) \simeq \left[3\theta^{-2}\left(1 + \frac{\theta^2}{3}-\frac{\theta^4}{10}\right)\frac{\theta^2}{15}
+  \tilde{R}(\theta) &\simeq \left[3\theta^{-2}\left(1 + \frac{\theta^2}{3}-\frac{\theta^4}{10}\right)\frac{\theta^2}{15}
   \left(1 + \frac{\theta^2}{15}\right) \right]^{1/2} \\
+  \implies \tilde{R}(\theta) &\simeq \left[1 + \frac{2\theta^2}{5} + \frac{2\theta^4}{21}\right]^{1/2} \\
+  \implies \tilde{R}(\theta) &\simeq 1 + \frac{\theta^2}{5} + \frac{29\theta^4}{1050}
 \end{align}
+
+De esta forma mostramos que el coeficiente de segundo orden en este caso es $\gamma = \frac{1}{5}$. Por lo tanto,
+sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
+
+\begin{align}
+  R_c = \frac{5}{3}
+\end{align}
+
