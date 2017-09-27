@@ -68,7 +68,7 @@ Y finalmente combinando con la ecuación (\ref{eq:v-theta}) resolvemos para $R(\
 
 
 \section{Problema de Interacción de Dos Vientos}
-
+\label{sec:CRW-2-winds}
 Aplicamos el formalismo ya mencionado para la interacción de dos vientos radiales. El viento con menor momento
 se localiza en el origen, y su densidad a radio fijo varía con el ángulo polar como una ley de potencias
 (figura \ref{fig:isotropic-aniso}):
@@ -84,7 +84,7 @@ Utilizando la ecuación (\ref{eq:anisotropic-density}) encontramos que la tasa d
 
 \begin{align}
   \dot{M}_w = \int^\theta_0\int^{2\pi}_0\rho_w v_w~d\theta~d\phi =
-  \frac{M^0_w}{2\left(k+1\right)}\left(1 - \cos^{k+1}\theta\right)
+  \frac{M^0_w}{2\left(k+1\right)}\left(1 - \cos^{k+1}\theta\right) \label{eq:inner-dot-M}
 \end{align}
 Donde $v_w$ es la velocidad del viento inteno, $\rho_w = n\bar{m}$  es su densidad, $n$ se obtiene de la ecuación
 (\ref{eq:anisotropic-density}), $M^0_w = 4\pi r^2_0v_w n_0 \bar{m}$ es la tasa de pérdida de masa integrada hasta
@@ -97,7 +97,7 @@ Con esto, obtenemos las tasas de momento y momento angular:
   \dot{\Pi}_{wz} &= \int^\theta_0 v_w\cos\theta~d\dot{M}_w =
                    \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\left(1 - \cos^{k+2}\theta\right) \label{eq:Pi-wz} \\
   \dot{\Pi}_{wr} &= \int^\theta_0 v_w\sin\theta~d\dot{M}_w = \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
-  \dot{J}_w &= \int^\theta_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0
+  \dot{J}_w &= \int^\theta_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0 \label{eq:inner-dot-J}
 \end{align}
 
 Donde la integral $I_k(\theta) = \int^\theta_0 \cos^k\theta \sin^2\theta~d\theta$ tiene solución analítica para $k=0$,
@@ -144,15 +144,14 @@ Donde $\beta = \frac{\dot{M}^0_w v_w}{\dot{M}^0_{w1}v_{w1}}$ es el cociente del 
 índice de anisotropía $k$ son los que determinan la forma del choque de proa. 
 
 Los radios característicos en este caso se muestran a continuación. El procedimiento detallado se puede consultar en el apéndice
-\ref{app-derivation-radii}:
+\ref{app:derivation-radii}:
 
 \begin{align}
-  \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}} \\
+  \frac{R_0}{D} &= \frac{\beta^{1/2}}{1+\beta^{1/2}} \\
     \tilde{R}_{90} &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
-                     {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \\
-  \tilde{R}_c = \left(1 - 2\gamma\right)^{-1} \\
+                     {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \label{eq:CRW-R90}\\
+  \tilde{R}_c &= \left|1 - 2\gamma\right|^{-1} \label{eq:CRW-Rc}\\
   \mathrm{Donde:~} \gamma &= \frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1 + 2\beta^{1/2}}{6} 
-
 \end{align}
 
 
@@ -168,7 +167,8 @@ densidad uniforme $\rho_a$ quedan como sigue:
   \dot{J}_{w1} &= \int^r_0 r'v_a \sin\theta~d\dot{M}_{w1} = \frac{2}{3}\pi\rho_a v_a^2 R^3 \sin^3\theta 
 \end{align}
 
-Sustituyendo estas ecuaciones en () junto con () - () obtenemos lo siguiente:
+Sustituyendo estas ecuaciones en (\ref{eq:R-wind}) junto con (\ref{eq:inner-dot-M}) - (\ref{eq:inner-dot-J})
+para el caso isotrópico $(k=0)$ obtenemos lo siguiente:
 
 \begin{align}
   R = \frac{\frac{2}{3}\pi\rho_a v_a R^3 \sin^3\theta}{\frac{\dot{M}^0_w v_w}{4}\left(\theta-\sin\theta\cos\theta\right)\cos\theta
