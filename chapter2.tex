@@ -10,7 +10,7 @@ tratarse como una discontinuidad en el medio gaseoso
 Las regiones HII se forman cuando una estrella masiva, de tipo espectral
 O ó B temprana, ioniza el gas que se encuentra a su alrededor. El gas
 ionizado se encuentra en equilibrio térmico, a una temperatura del
-orden de $10^4~K$. El principal proceso de calentamiento es la
+orden de $10^4~\mathrm{K}$. El principal proceso de calentamiento es la
 radiación de la estrella central, mientras que el enfriamiento se da
 principalmente por la recombinación de líneas prohibidas y por emisión
 libre-libre.
@@ -62,7 +62,9 @@ llamamos ``Radios característicos'' (ilustrados en la figura
 \item Radio en dirección perpendicular al eje de simetría del sistema.
   Denotado como $R_{90}$
 \item Radio de curvatura en la ``nariz'' del choque de proa. Denotado
-  como$ R_c$
+  como $R_c$. En el apéndice \ref{app:math-curvature-radius} se muestra
+  el procedimiento para obtener este radio para una curva genérica continua
+  y derivable.
 \end{itemize}
 
 \begin{figure}
@@ -70,7 +72,7 @@ llamamos ``Radios característicos'' (ilustrados en la figura
   \label{fig:char-radii}
   \caption{Representación esquemática de los radios característicos
   de un choque de proa}
-\end{figure}.
+\end{figure}
 Para este trabajo resulta útil hacer una noramlización de los radios
 característicos u otros radios, para que las mediciones que obtengamos
 sean adimensionales. De esta forma, podemos hacer la normalización con
@@ -256,7 +258,7 @@ Es de notar a su vez que la ecuación (\ref{eq:phi-tan}) no tiene solución para
 arbitrarios de $\theta$ y de la inclinación, puesto que se requiere que
 $\left|\sin\phi_T\right| < 1$. Por tanto, la línea tangente solo existe para valores
 de $\theta$ tales que $\theta < \theta_0$ donde $\theta_0$ es el valor de $\theta$ en
-el eje de simetría de la línea tangente proyectada $(\theta'(\theta_0)) = 0$ y que se
+el eje de simetría de la línea tangente proyectada $(\theta'(\theta_0) = 0)$ y que se
 obtiene de la siguiente ecuación implícita:
 \begin{align}
   \tan\theta_0 = \frac{|\tan i| + \omega(\theta_0)}{1 - \omega(\theta_0)|\tan i|}
@@ -292,7 +294,7 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
 \end{align}
 
 \section{Cuádricas de Revolución}
-
+\label{sec:quadrics}
 \newcommand\Sin{\ensuremath{\mathcal{S}}}
 \newcommand\Cos{\ensuremath{\mathcal{C}}}
 \newcommand\Cot{\ensuremath{\mathcal{T}}}
@@ -313,19 +315,19 @@ cuádricas que utilizaremos en este trabajo:
 \end{itemize}
 Implementando dichas restricciones, utilizamos la representación paramétrica de
 las curvas cónicas en términos de un parámetro adimensional denotado con la letra
-$t$ de manera general:
+$t$:
 \begin{align}
   x &= a\Cos(t) + x_0\\
   y &= b\Sin(t) 
 \end{align}
 Donde:
 \begin{align}
-  \Cos(t) =\left\lbrace
+  \Cos(t) &=\left\lbrace
   \begin{array}{lr}
     \cos{t} & \theta_c > 0\\
     -\cosh{t} & \theta_c < 0        
   \end{array}\right. \\
-  \Sin(t) = \left\lbrace
+  \Sin(t) &= \left\lbrace
   \begin{array}{lr}
     \sin{t} & \theta_c > 0\\
     \sinh{t}  & \theta_c < 0
@@ -349,6 +351,12 @@ términos de los parámetros de las cónicas:
 Siguiendo la convención de que el signo positivo corresponde a elipses, negativo a
 hipérbolas y cero para las parábolas.
 
+La relación entre el parámetro $t$ y el ángulo polar $\theta$ está dado por:
+
+\begin{align}
+  \tan\theta = \frac{b\Sin(t)}{a\Cos(t)} + x_0} \label{eq:t-th-conversion}
+\end{align}
+
 \begin{figure}
   \begin{tabular}{cc}
     \includegraphics[width=0.5\linewidth]{./Figures/ellipse_edited} &
@@ -370,7 +378,7 @@ hipérbolas y cero para las parábolas.
 \subsection{Radios Característicos}
 \label{sec:conic-char-radii}
 Para que las curvas cónicas den una buena aproximación a la forma de un choque de proa dado, necesitamos saber
-calcular los radios característicos para éstas. A partir de la descripción de estos en la sección
+calcular los radios característicos para éstas. A partir de la descripción de éstos en la sección
 \ref{sec:char-rad} podemos encontrar expresiones para cada uno de éstos en términos de los parámetros de las
 cónicas:
 
@@ -383,8 +391,8 @@ esta sección nos será útil normalizar con este radio. De esta forma,
 podemos invertir las siguientes ecuaciones:
 
 \begin{align}
-  \tilde{a} &= \pm\frac{\tilde{R}_c}{2\tilde{R}_c - \tilde{R}_{90}^2} \\
-  \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\\
+  \tilde{a} &= \pm\frac{\tilde{R}_c}{2\tilde{R}_c - \tilde{R}_{90}^2} \label{eq:til-a}\\
+  \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\label{eq:til-b}\\
   \tan\theta_c &= \pm\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2} \label{eq:thc2}
 \end{align}
 Nótese que la cantidad $T_c\equiv 2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para
@@ -398,7 +406,7 @@ proa.
 La forma tridimensional de las cuádricas de revolución viene dada por:
 
 \begin{align}
-  x &= a\Cos(t) - x_0 \\
+  x &= a\Cos(t) + x_0 \\
   y &= b\Sin(t)\cos\phi \\
   z &= b\Sin(t)\sin\phi
 \end{align}
@@ -413,20 +421,19 @@ Donde:
 \begin{align}
   \Cot(t) = \left\lbrace
   \begin{array}{lr}
-    \cot t & if~\theta_c > 0 \\
-    \coth t & if~\theta_c < 0 
+    \cot t & \mathrm{si}~\theta_c > 0 \\
+    \coth t & \mathrm{si}~\theta_c < 0 
   \end{array}
   \right.
 \end{align}
 
-Podemos movernos a otro sistema de referencia $(X, Y)$ centrado en el origen, donde
-$X = x - x_0$ y $Y =y$. En este sistema, utilizamos la ecuación (\ref{eq:rotation})
+Ahora utilizamos la ecuación (\ref{eq:rotation})
 para obtener la forma aperente de una cuádrica dada:
 
 \begin{align}
-  X'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i \pm b^2\sin^2 i\right)
+  x'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i \pm b^2\sin^2 i\right) + x_0\cos i
   \label{eq:x-prime-proj}\\
-  Y'_T &= b\Sin(t)\left(1 - \frac{b^2}{a^2}\tan^2 i\Cot^2(t)\right)^{1/2}
+  y'_T &= b\Sin(t)\left(1 - \frac{b^2}{a^2}\tan^2 i\Cot^2(t)\right)^{1/2}
   \label{eq:y-prime-proj}
 \end{align}
 
@@ -435,26 +442,36 @@ tipo, por lo que es posible escribir las ecuaciones (\ref{eq:x-prime-proj}) y
 (\ref{eq:y-prime-proj}) de la siguiente manera: 
 
 \begin{align}
-  X'_T &= a'\Cos(t') \\
-  Y'_T &= b'\Sin(t')
+  x'_T &= a'\Cos(t') + x'_0 \label{eq:xtprime}\\
+  y'_T &= b'\Sin(t') \label{eq:ytprime}
 \end{align}
 Donde:
 \begin{align}
+  x'_0 &= x_0\cos i \\
   a' &= \left(a^2\cos^2 i \pm \b^2\sin^2 i\right)^{1/2} \label{eq:a-prime}\\
   b' &= b \label{eq:b-prime}\\
   \Cos(t') &= \frac{a'\Cos(t)}{a\cos i} \\
   \Sin(t') &= \left(1 - \Cos^2(t')\right)^{1/2}
 \end{align}
 
-También implica que para encontrar los radios característicos en el sistema de
-referencia del observador solamente tenemos que sustituir $a$ y $b$ por $a'$ y
-$b'$ en las ecuaciones (\ref{eq:x0}), (\ref{eq:R-curv-conic}), (\ref{eq:R90-conic})
-y (\ref{eq:thc}):
+Dos cantidades que nos van a ser de utilidad son los valores del parámetro $t$
+que denominaremos $t_0$ y $t_{90}$ y son tales que $t'(t_0) = 0$ y $t'(t_{90}) = \frac{\pi}{2}$
+o bien $y'_T(t_0) = 0$ y $x'_T(t_{90}) = 0$. De esta manera obtenemos las siguientes ecuaciones
+implícitas evaluando las ecuaciones (\ref{eq:x-prime-proj}) y(\ref{eq:y-prime-proj}) en $t=t_{90}$
+y $t=t_0$ respectivamente:
 
 \begin{align}
-  R'_0 &= \pm a' +x_0\cos i\\
+  \Cot(t_0) &= \frac{a}{b}\cot{i} = \frac{\cot{i}}{\left|\tan\theta_c\right|} \label{eq:t0}\\
+  \Cos(t_{90}) &= -\frac{ax_0\cos^2{i}}{a^2\cos^2{i}\pm b^2\sin^2{i}} \label{eq:t90}
+\end{align}
+
+Los radios característicos aparentes los podemos calcular a partir de las ecuaciones (\ref{eq:xtprime}) y
+(\ref{eq:ytprime}) como se hizo para los radios característicos en el sistema no primado:
+
+\begin{align}
+  R'_0 &= \pm a' + x'_0\\
   R'_c &= \frac{b'^2}{a'}\\
-  \tan\theta'_c &= \frac{b'}{a'} \\
+  \tan\theta'_c &= \pm\frac{b'}{a'} \\
   R'_{90} &= \left(2R'_c \mp \tan^2\theta'_c\right)^{1/2}
 \end{align}
 
@@ -466,10 +483,11 @@ del plano del cielo en términos de la inclinación:
 
 \begin{align}
   \frac{q'}{q} &= 1 \pm \tilde{R}_c\cot^2\theta_c\left(f(i;\theta_c) - 1\right) \\
-  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \\
-  \tan\theta'_c &= \frac{\tan\theta_c}{\cos if(i;\theta_c)} \\
+  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \label{eq:Rpc-quad}\\
+  \tan\theta'_c &= \frac{\tan\theta_c}{\cos if(i;\theta_c)} \label{eq:thcp-quad}\\
   \tilde{R}'_{90} &= \left(\frac{2\tilde{R}_cf(i;\theta_c) \mp
-                  \tan^2\theta_c\frac{q'}{q}}{q'/q}\right)^{1/2}\frac{\sec i}{f(i;\theta_c)}
+                    \tan^2\theta_c\frac{q'}{q}}{q'/q}\right)^{1/2}\frac{\sec i}{f(i;\theta_c)}
+                    \label{eq:Rp90-quad}
 \end{align}
 
 Cuando $\tilde{R}'_{90}$ es medible, entonces es posible hacer diagramas de diagnóstico como
