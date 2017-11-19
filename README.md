@@ -5,7 +5,8 @@ This is my PhD thesis called:
 a los Proplyds Clásicos de la Nebulosa de Orión"
 
 ## Chapter 1: Relevant astrophysical objects
-	- Runaway stars
+    - Molecular Clouds
+	- Runaway stars?
 	- Protoplanetary disks
 	- Proplyds.
 	- LL objects
@@ -23,13 +24,13 @@ a los Proplyds Clásicos de la Nebulosa de Orión"
 	  - Characteristic radii
 	- Projection onto the plane of the sky
 	- Quadrics of Revolution.
-	- Adjunt 1st paper.
+	- Adjunt 1st paper?
 	
 ## Chapter 3: Application to Orion Proplyds.
 	- Tracing Bow Shocks positions.
 	- Measuring Empirical parameters: Rc and R0
 	- Fit measurents into model.
-	- Adjunt 2nd paper.
+	- Adjunt 2nd paper?
 
 ## Chapter 4: Discussion and conclusions
 

@@ -50,6 +50,19 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 
 ** TODO Write !!!!!!
 * Journal
+- [2017-11-17 Sat]
+Long time I don't write anything here !!! =(
+- Hard Work in chapters 1, 2, 3 and 4
+   - Insert molecular clouds section: Short reference to Enrique and
+     Javier Work to put into conext the formation of OB associations like
+     Orion
+   - Moved CRW formalism of the two winds interaction into a separated chapter
+     (and virtully finished it!!)
+   - Good advances in chapter 4: apply the CRW model to real bowshocks and 
+     explain how to fit the shapes into quadrics for both head and tail
+
+- Insert appendix to show elemental subjects and hard math.
+ 
 - [2017-05-17 Tue]
   - Work in "Projection onto the plane of the sky section"
   - Insert figures
