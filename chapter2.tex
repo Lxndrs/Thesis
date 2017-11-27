@@ -4,7 +4,7 @@
 Un frente de ionización es la interfaz entre un medio gaseoso neutro y uno
 ionizado. Ocurren cerca de fuentes de rediación ionizante, tales como
 estrellas masivas, tipo B temprana o tipo O. el frente de ionización puede
-tratarse como una discontinuidad en el medio gaseoso
+tratarse como una discontinuidad en el medio gaseoso.
 
 \section{Regiones HII}
 \label{sec:HII}
@@ -16,7 +16,7 @@ radiación de la estrella central, mientras que el enfriamiento se da
 principalmente por la recombinación de líneas prohibidas y por emisión
 libre-libre.
 
-\section{Modelo Genérico de los Choques de Proa}
+\section[Modelo genérico]{Modelo Genérico de los Choques de Proa}
 \label{sec:Modelo-generico}
 Para este trabajo consideramos en general dos modelos de
 interacción  de vientos:
@@ -32,24 +32,23 @@ interacción  de vientos:
 \end{itemize}
 El sitema en su conjunto tiene simtería cilíndrica.
 \begin{figure}
-  \includegraphics[width=0.7\linewidth]{./Figures/anisotropic-arrows}
-  \label{fig:isotropic-aniso}
+  \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
   \caption{Representación esquemática de vientos con diferentes
     anisotropías:
     Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento
     isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el
-    parámetro $k$ indica el grado de anisotropía (ver sección
-    \ref{chap:hipersonica})}
+    parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica})}
+    \label{fig:isotropic-aniso}
 \end{figure}
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/bowshock-crw-variables}
-  \label{fig:crw-esquema}
   \caption{Representación esquemática del problema de interacción de dos vientos:
     Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un
     choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica
     siendo el eje $z$ el eje de simetría. La forma del choque depende únicamente del ángulo
     polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$,
-  que corresponde al ángulo polar medido a partir de la posición de la otra fuente.}
+    que corresponde al ángulo polar medido a partir de la posición de la otra fuente.}
+    \label{fig:crw-esquema}
 \end{figure}
 
 \subsection{Radios ``Característicos''}
@@ -69,10 +68,10 @@ llamamos ``Radios característicos'' (ilustrados en la figura
 \end{itemize}
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{./Figures/characteristic-radii}
-  \label{fig:char-radii}
+  \includegraphics[width=0.5\linewidth]{./Figures/characteristic-radii}
   \caption{Representación esquemática de los radios característicos
-  de un choque de proa}
+    de un choque de proa}
+    \label{fig:char-radii}
 \end{figure}
 Para este trabajo resulta útil hacer una noramlización de los radios
 característicos u otros radios, para que las mediciones que obtengamos
@@ -131,7 +130,7 @@ La relación entre ambos sistemas de referencia se ilustra en la figura
 \ref{fig:reference}.
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{./Figures/projection-pos}
+  \includegraphics[width=0.5\linewidth]{./Figures/projection-pos}
   \label{fig:reference}
   \caption{Sistema de referencia del choque vs sistema de referencia del
     plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del
@@ -202,10 +201,10 @@ referencia del plano del cielo se utiliza la ecuación (\ref{eq:rotation}):
 
 
 \begin{figure}
-  \includegraphics[width=0.8\linewidth]{./Figures/bowshock-unit-vectors}
-  \label{fig:unit-vec}
+  \includegraphics[width=0.6\linewidth]{./Figures/bowshock-unit-vectors}
   \caption{Vectores unitarios normal y tangente a la superficie $R(\theta)$
     en un plano de azimuth $\phi$ constante.}
+    \label{fig:unit-vec}
 \end{figure}
 
 
@@ -305,8 +304,7 @@ En el caso general es difícil encontrar la forma aparente para un choque de
 proa siguiendo el formalismo desarrollado en la sección anterior, por lo que
 optamos por aproximar la forma éstos con una de las superficies más simples:
 las \textit{cuádricas de revolución}, que son superficies de revolución de
-las curvas cónicas. Dado el modelo general descrito en la sección
-\ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies
+las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies
 cuádricas que utilizaremos en este trabajo:
 \begin{itemize}
   \item El eje focal se encuentra alineado con el eje $x$
@@ -360,28 +358,22 @@ La relación entre el parámetro $t$ y el ángulo polar $\theta$ está dado por:
 
 \begin{figure}
   \begin{tabular}{cc}
-    \includegraphics[width=0.5\linewidth]{./Figures/ellipse_edited} &
+    \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
     \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
   \end{tabular}
+  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
   \label{fig:conics}
-  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola.
-  En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width = \linewidth]{./Figures/conic1}
+  \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
+  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_c$ varía desde $\theta_c <0$ (hipérbolas) hasta $\theta_c > 0$ (elipses). Casos especiales son $\theta_c = 0$ (parábola) y $\theta_c = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
-  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_c$ varía desde
-    $\theta_c <0$ (hipérbolas) hasta $\theta_c > 0$ (elipses). Casos especiales son $\theta_c = 0$
-  (parábola) y $\theta_c = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
 \end{figure}
 
 \subsection{Radios Característicos}
 \label{sec:conic-char-radii}
-Para que las curvas cónicas den una buena aproximación a la forma de un choque de proa dado, necesitamos saber
-calcular los radios característicos para éstas. A partir de la descripción de éstos en la sección
-\ref{sec:char-rad} podemos encontrar expresiones para cada uno de éstos en términos de los parámetros de las
-cónicas:
+Para que las curvas cónicas den una buena aproximación a la forma de un choque de proa dado, necesitamos saber calcular los radios característicos para éstas. A partir de la descripción de éstos en la \S \ref{sec:char-rad} podemos encontrar expresiones para cada uno de éstos en términos de los parámetros de las cónicas:
 
 \begin{align}
   R_c &= \frac{b^2}{a} \label{eq:R-curv-conic}\\
@@ -396,15 +388,11 @@ podemos invertir las siguientes ecuaciones:
   \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\label{eq:til-b}\\
   \tan\theta_c &= \pm\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2} \label{eq:thc2}
 \end{align}
-Nótese que la cantidad $T_c\equiv 2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para
-distinguir el tipo de curva cónica que mejor ajusta a un choque de proa dado.
+Nótese que la cantidad $T_c\equiv 2\tilde{R}_c - \tilde{R}_{90}^2$ nos sirve como discriminante para distinguir el tipo de curva cónica que mejor ajusta a un choque de proa dado.
 
 \subsection{Proyección en el plano del cielo}
 
-El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución,
-puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de
-proa.
-La forma tridimensional de las cuádricas de revolución viene dada por:
+El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. La forma tridimensional de las cuádricas de revolución viene dada por:
 
 \begin{align}
   x &= a\Cos(t) + x_0 \\
@@ -412,8 +400,7 @@ La forma tridimensional de las cuádricas de revolución viene dada por:
   z &= b\Sin(t)\sin\phi
 \end{align}
 
-Siguiendo el procedimiento mostrado en la sección \ref{sec:projection} calculamos el ángulo
-azimutal $\phi$ que cumple con el criterio de ser tangente al la línea de visión:
+Siguiendo el procedimiento mostrado en la \S \ref{sec:projection} calculamos el ángulo azimutal $\phi$ que cumple con el criterio de ser tangente al la línea de visión:
 
 \begin{align}
   \sin\phi_T = \frac{b}{a}\tan i\Cot(t) 
@@ -428,8 +415,7 @@ Donde:
   \right.
 \end{align}
 
-Ahora utilizamos la ecuación (\ref{eq:rotation})
-para obtener la forma aperente de una cuádrica dada:
+Ahora utilizamos la ecuación (\ref{eq:rotation}) para obtener la forma aparente de una cuádrica dada:
 
 \begin{align}
   x'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i \pm b^2\sin^2 i\right) + x_0\cos i
@@ -438,9 +424,7 @@ para obtener la forma aperente de una cuádrica dada:
   \label{eq:y-prime-proj}
 \end{align}
 
-Se espera que la forma proyectada de una cuádrica dada sea otra cuárica del mismo
-tipo, por lo que es posible escribir las ecuaciones (\ref{eq:x-prime-proj}) y
-(\ref{eq:y-prime-proj}) de la siguiente manera: 
+Se espera que la forma proyectada de una cuádrica dada sea otra cuádrica del mismo tipo, por lo que es posible escribir las ecuaciones (\ref{eq:x-prime-proj}) y (\ref{eq:y-prime-proj}) de la siguiente manera: 
 
 \begin{align}
   x'_T &= a'\Cos(t') + x'_0 \label{eq:xtprime}\\
@@ -492,17 +476,12 @@ del plano del cielo en términos de la inclinación:
 \end{align}
 
 Cuando $\tilde{R}'_{90}$ es medible, entonces es posible hacer diagramas de diagnóstico como
-el de la figura \ref{fig:diagnostic} para comparar con observaciones, independientemente de
-cualquier modelo de choques de proa.
+el de la figura \ref{fig:diagnostic} para comparar con observaciones, independientemente de cualquier modelo de choques de proa.
 
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc}
+  \caption{Diagrama de diagnóstico $\tilde{R}'_{90}$ vs $\tilde{R}'_c$ para las cuádricas de revolución. En la región sin sombrear se representan las superficies abiertas (hiperboloides, $\theta_c <0$), mientras que la región más oscura representa a elipsoides prolatos  $(0 < \theta_c < 45^\circ)$ y la región poco sombreada a elipsoides oblatos $(\theta_c > 45^\circ)$}
   \label{fig:diagnostic}
-  \caption{Diagrama de diagnóstico $\tilde{R}'_{90}$ vs $\tilde{R}'_c$ para las cuádricas
-    de revolución. En la región sin sombrear se representan las superficies abiertas
-    (hiperboloides, $\theta_c <0$), mientras que la región más oscura representa  a
-    elipsoides prolatos  $(0 < \theta_c < 45^\circ)$ y la región poco sombreada a
-    elipsoides oblatos $(\theta_c > 45^\circ)$}
 \end{figure}
 
-Buscamos adjuntar el paper ``quadrics bowshock''
+%Buscamos adjuntar el paper ``quadrics bowshock''
