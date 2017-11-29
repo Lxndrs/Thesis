@@ -2,21 +2,21 @@ RECORD OF THE THESIS PROGRESS
 
 * Tasks
 
-** TODO Portada
-- [-] Contenido e la Portada
+** DONE Portada
+- [X] Contenido e la Portada
   - [X] Texto
-  - [ ] Logos de la UNAM y del IRyA
+  - [X] Logos de la UNAM y del IRyA
 
-- [ ] Formato de la Portada
-  - [ ] Tama\~no correcto del texto 
+- [-] Formato de la Portada
+  - [X] Tama\~no correcto del texto 
   - [ ] L\'ineas.
 ** TODO Escribir el Prefacio de la tesis
 - [ ] Agradecimientos
 - [ ] Abstract (en ingl\'es y en espa\~nol)
 
-** TODO Darle el formato general a la tesis.
+** DONE Darle el formato general a la tesis.
 - [X] T\'itulos de cap\'itulos, secciones y ap\'endices en espa\~nol.
-- [-] Formato de p\'agina.
+- [X] Formato de p\'agina.
 
 ** TODO Buscar ideas principales en notas de la maestría
    - [ ] Choques
@@ -49,7 +49,21 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 *** Regiones HII 
 
 ** TODO Write !!!!!!
+** TODO Truncar en dos líneas  ecuaciones largas y otras correcciones menores
+- [X] Sección 3.2.2 Reducir tamaño de font
+- [ ] Sección 4.2 Agregar o corregir ecuación
+- [X] Apéndice A cortar ecuación muy larga
+- [X] Corregir referencia en apéndice A.1
+- [X] Cortar ecuaciones muy largas en apéndice B.3
 * Journal
+-[2017-11-29 Wed]
+- Corrections to thesis format
+  - Portada
+  - Headers
+  - References
+  - Make the file compile in Computer desktop
+  - Split in two lines too long equations
+  - Put the chapter titles with the rest of the content instead of being in a separated page
 - [2017-11-17 Sat]
 Long time I don't write anything here !!! =(
 - Hard Work in chapters 1, 2, 3 and 4

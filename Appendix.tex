@@ -58,8 +58,10 @@ De esta forma, calculamos la curvatura como sigue:
   \kappa &= \left[\left(\frac{\ddot{x}}{\norm{\vec{\sigma}'}^2} - \frac{\dot{x}(\dot{x}\ddot{x} + \dot{y}\ddot{y})}{\norm{\vec{\sigma}'}^4}\right)^2
   + \left(\frac{\ddot{y}}{\norm{\vec{\sigma}'}^2} - \frac{\dot{y}(\dot{x}\ddot{x} + \dot{y}\ddot{y})}{\norm{\vec{\sigma}'}^4} 
 \right)^2\right]^{1/2} \\
- \kappa  &= \norm{\vec{\sigma}'}^{-2}\left[\left(\ddot{x}(\dot{x}^2 + \dot{y}^2) - \dot{x}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2
-     + \left(\ddot{y}(\dot{x}^2 + \dot{y}^2) - \dot{y}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2 \right]^{1/2}\\
+\begin{split}
+ \kappa  &= \norm{\vec{\sigma}'}^{-2}\left[\left(\ddot{x}(\dot{x}^2 + \dot{y}^2) - \dot{x}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2\\
+    & + \left(\ddot{y}(\dot{x}^2 + \dot{y}^2) - \dot{y}(\dot{x}\ddot{x} + \dot{y}\ddot{y})\right)^2 \right]^{1/2}
+\end{split}\\
  \kappa  &= \norm{\vec{\sigma}'}^{-2}\left[\left(\ddot{x}\dot{y}^2 - \dot{x}\dot{y}\ddot{y}\right)^2 +
    \left(\ddot{y}\dot{x}^2 - \dot{y}\dot{x}\ddot{x}\right)^2 \right]^{1/2} \\
  \kappa  &=\norm{\vec{\sigma}'}^{-3}\left[\ddot{x}^2\dot{y}^2 + \ddot{y}^2\dot{x}^2 - 2\ddot{x}\ddot{y}\dot{x}\dot{y}\right]^{1/2} \\
@@ -110,7 +112,7 @@ Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos el radio de curvatu
   R_c = \frac{R_0}{\left|1 - 2\gamma\right|}\label{eq:Rc-nose}
 \end{align}
 
-Por esto en el apéndice \ref{app:dervation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
+Por esto en el apéndice \ref{app:derivation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
 el coeficiente de segundo orden en la expansión en serie de $R(\theta)$.
 
 \chapter{Derivación paso a paso de los Radios Característicos en la aproximación
@@ -227,8 +229,7 @@ dentro de los corchetes:
 
 \begin{align}
   \theta_1 &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2} \\
-  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + 2C_{k\beta}\theta^2\right)^{1/2}\right]
-  \simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right]\\ 
+  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right]\\ 
   \sin\theta_1 &\simeq \theta_1\left(1 - \frac{\theta^2_1}{6}\right) \\
   &\simeq \beta^{1/2}\theta\left(1 + C_{k\beta}\theta^2\right)\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
   \implies \sin\theta_1 &\simeq \beta^{1/2}\theta\left[1 + \left(C_{k\beta}- \frac{\beta}{6}\right)\theta^2\right]
@@ -239,8 +240,10 @@ dentro de los corchetes:
              \left(1 + C_{k\beta}\theta^2\right)\right)^2}{6}\right] \\
            &\simeq \theta\left(1 + \beta^{1/2}\right)\left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{1}{6}\left(1 + \beta^{1/2}\right)^2
              \theta^2\right)\right]\\
-  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right]
-                         \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\right]^{-1} \\
+\begin{split}
+  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right] \\
+               & \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\right]^{-1} 
+\end{split}\\
   &\simeq R_0 \left[1 + \left(\frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1+2\beta^{1/2}}{6}\right)\theta^2\right] 
 \end{align}
 
@@ -273,4 +276,4 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 \end{align}
 
 \chapter{Coeficientes de los parámetros de la hipérbola para el ajuste de la cola}
-\includegraphics[width=0.5\linewidth]{./Figures/tux-development}
+\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
