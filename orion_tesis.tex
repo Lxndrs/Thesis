@@ -1,5 +1,5 @@
 % Thesis format
-\documentclass[11pt, astrojournals]{book}
+\documentclass[11pt]{report}
 
 %Select needed packages
 \usepackage[paperwidth=17cm, paperheight=22.5cm, bottom=2.5cm, right=2.5cm]{geometry}
@@ -17,8 +17,8 @@
             pdfproducer={Latex con hyperref},
             pdfcreator={pdflatex}]{hyperref}
 \usepackage{natbib}
-\usepackage[varg]{newtxmath}
-\usepackage{newtxtext}
+%\usepackage[varg]{newtxmath}
+%\usepackage{newtxtext}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{fixltx2e}
@@ -44,6 +44,7 @@
 \usepackage{bm}
 
 \usepackage{fancyhdr}
+\usepackage[fit]{truncate}
 \newcommand\thC{\(\theta^1\)\,Ori~C} %Theta 1 C. For further use in any chapter
 \title{Tesis de doctorado\\
 \includegraphics[width=0.1\linewidth]{./Figures/tux-development}
@@ -74,22 +75,23 @@ pueda completar este trabajo de manera exitosa.
 \newpage
 
   
-\chapter[Objetos Astrofísicos]{Objetos Astrofísicos Relevantes}
+
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\footnotesize \leftmark}
-\fancyhead[R]{\footnotesize \rightmark}
+\fancyhead[L]{\truncate{0.5\headwidth}{\footnotesize \leftmark}}
+\fancyhead[R]{\truncate{0.5\headwidth}{\footnotesize \rightmark}}
+\chapter{Objetos Astrofísicos Relevantes}
 \include{chapter1}
 \chapter{Marco Teórico}
 \include{chapter2}
 
-\chapter[Aproximación Hipersónica]{Interacción de dos vientos: Aproximación Hipersónica \citep{Canto:1996}}
+\chapter{Interacción de dos vientos: Aproximación Hipersónica \citep{Canto:1996}}
 \include{chapter3}
-\chapter[Forma Aparente]{Obtención de la Forma Aparente de los Choques en Modelo de Aproximación Hipersónica}
+\chapter{Obtención de la Forma Aparente de los Choques en Modelo de Aproximación Hipersónica}
 \include{chapter4}
-\chapter[Resultados 1]{Resultados obtenidos para los proplyds ``clásicos''}
+\chapter{Resultados obtenidos para los proplyds ``clásicos''}
 \include{chapter5}
-\chapter[Resultados 2]{Resultados obtenidos para otros objetos}
+\chapter{Resultados obtenidos para otros objetos}
 \include{chapter6}
 \chapter{Conclusiones}
 
