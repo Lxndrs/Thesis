@@ -56,6 +56,10 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [X] Corregir referencia en apéndice A.1
 - [X] Cortar ecuaciones muy largas en apéndice B.3
 * Journal
+-[2017-11-30 Thu]
+- Working in Appendix C
+  - Write something about
+  - Working in generating figures for Hyperbolic tail coefficents
 -[2017-11-29 Wed]
 - Corrections to thesis format
   - Portada

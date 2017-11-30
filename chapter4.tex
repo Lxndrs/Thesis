@@ -34,7 +34,7 @@ en función de los parámetros $\beta$ y $\xi$:
  cónica que ajusta mejor tanto la cabeza como la cola de cada solución a la forma de los choques de proa.
  
  \section{Ajustes a la cola}
-
+\label{sec:tail-fit}
  En el caso general del problema de capa delgada, el comportamiento de la cola tiende a ser hiperbólico, dado que
  el ángulo polar $\theta$ tiende a un valor asintótico denominado como $\theta_\infty$. Este ángulo es tal que
  $\theta_\infty + \theta_{1\infty} = \pi$ y se calcula resolviendo la siguiente ecuación explícita:
@@ -43,12 +43,7 @@ en función de los parámetros $\beta$ y $\xi$:
    
  \end{align}
 
- El ajuste a la hipérbola se logra ajustando tres parámetros fundamentales: $\theta_c = \theta_\infty - \pi$,
- la distancia entre la hipérbola y el centro de ésta a lo largo del eje focal $a_t$ y la distancia entre el origen
- y el centro de la hipérbola $x_{0,t}$. $a_t$ y $x_{0,t}$ se obtienen inicialmente con un ajuste numérico para una
- malla de valores de $\beta$ y $\xi$. Posteriormente hacemos tres ajustes anidados en tres niveles para determinar
- de manera analítica los parámetros de la hipérbola en función de $\beta$ y $\xi$. A continuación mostramos las
- funciones y los parámetros que mejor ajustan a la cola para cada solución a la forma de los choques de proa:
+ El ajuste a la hipérbola se logra ajustando tres parámetros fundamentales: $\theta_c = \theta_\infty - \pi$, la distancia entre la hipérbola y el centro de ésta a lo largo del eje focal $a_t$ y la distancia entre el origen y el centro de la hipérbola $x_{0,t}$. $a_t$ y $x_{0,t}$ se obtienen inicialmente con un ajuste numérico para una malla de valores de $\beta$ y $\xi$. Posteriormente hacemos tres ajustes anidados en tres niveles para determinar de manera analítica los parámetros de la hipérbola en función de $\beta$ y $\xi$. A continuación mostramos las funciones y los parámetros que mejor ajustan a la cola para cada solución a la forma de los choques de proa:
 
  \begin{align}
    x_{0,t} = 0.7\beta^{-0.55}\left[C_3\left(\log_{10}\beta\right)^3 + C_2\left(\log_{10}\beta\right)^2 +
