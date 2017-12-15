@@ -49,7 +49,7 @@ Donde $\alpha_{rec}$ es el \texit{coeficiente de recombinación}, y es una funci
 La tasa total de recombinaciones se obtiene integrando $\ensuremath{\mathcal{R}}$ en el volumen de la región $HII$, asumiendo que tanto la densidad de electrones como la tempertaura son constantes espacialmente. De esta manera la condición de balance de ionización queda como sigue:
 
 \begin{align}
-  \Nio_* = \frac{4\pi}{3} n^2_e \alpha'_{rec}(T)R^3_s
+  \Nio_* = \frac{4\pi}{3} n^2_e \alpha'_{rec}(T)R^3_s 
 \end{align}
 
 Donde $R_s$ es el \textit{radio de Strömgren}. Es importante notar que el coeficiente de recombinación primado es diferente del coeficiente no primado: el coeficiente de recombinación primado no toma en cuenta las recombinaciones al nivel $n = 1$ debido a que estas recombinaciones producen fotones de $E = 13.6\mathrm{~eV}$ que son capaces de ionizar el hidrógeno neutro.
@@ -60,7 +60,52 @@ Como la densidad de la nube original no cambia apreciablemente cuando el gas es 
   R_s = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^0_H)^2}\right]^{1/3} = 0.4\mathrm{~pc}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3}
 \end{align}
 
-%Las regiones HII se forman cuando una estrella masiva, de tipo espectral O ó B temprana, ioniza el gas que se encuentra a su alrededor. El gas ionizado se encuentra en equilibrio térmico, a una temperatura del orden de $10^4~\mathrm{K}$. El principal proceso de calentamiento es la radiación de la estrella central, mientras que el enfriamiento se da principalmente por la recombinación de líneas prohibidas y por emisión libre-libre.
+En la expresión numérica, se adopta un valor de $\Nio_*$ de $10^{49}\mathrm{s^{-1}}$, una temperatura de $10^4\mathrm{~K}$m que es la temperatura característica de una región $HII$ y con la que el coeficiente de recombinación $\alpha'_{rec}$ adopta un valor de $2.6\times 10^{-13}\mathrm{~cm^3~s^{-1}}$.
+
+Dentro de la región $HII$, la probabilidad por unidad de tiempo de ionizar un átomo de hidrógeno dado es mucho mayor a la probabilidad de una recombinación, por lo que el gas está casi completamente ionizado. Sin embargo, en los bordes de la región $HII$, la densidad de gas neutro aumenta debido a que en dicha región el flujo de fotones ionizantes ha sido atenuado por todo el gas ionizado más próximo a la estrella. La transición de gas ionizado a gas neutro tiene un grosor $\Delta r$ que corresponde al camino libre medio del gas neutro. Esto es:
+
+\begin{align}
+\Delta R = \frac{1}{\sigma_{\nu_1}n^0_H}  
+\end{align}
+
+Donde $\sigma_{\nu_1}$ es la sección recta de un átomo de hidrógeno en el estado base, evaluada en la longitud de onda del límite de Lymann. Utilizando $\sigma_{\nu_1} = 6.8\times 10^{-18}\mathrm{~cm^2}$ y $n^0_H = 2\times 10^{3}\mathrm{~cm^-3}$ obtenemos que $\Delta r = 7.4\times 10^{13}\mathrm{~cm} \sim 5\times 10^{-5}~R_s$, lo que muestra que las regiones $HII$ tienden a tener bordes bien delimitados.
+
+\subsection{Primera y Segunda expansión}
+
+Las esferas de Strömgren no son objetos estáticos, sino que se expanden con el tiempo. Este proceso ocurre en dos etapas: en la primera inicialmente no existe ninguna región $HII$ pero que la radiación ultravioleta de la estrella hace que se expanda rápidamente al disociar e ionizar el gas a su alrededor hasta alcanzar el radio de Strömgren. En la segunda expansión la diferencia de presiones entre el gas ionizado de la región $HII$, mucho mayor que la del gas neutro que lo rodea, provoca otra expansión más lenta que la primera hasta que haya equilibrio de presión. A continuación explicaremos el proceso más a detalle:
+
+Sea $F_*(t)$ el flujo de radiación ionizante que alcanza un radio $R$ al tiempo $t$. Al transcurrir un tiempo $dt$, el frente de ionización avanza una distancia $dR$ y llega a $n^0_{H_2}$ moléculas de hidrógeno por unidad de área. Se necesitan 3 fotones para ionizar completamente la molécula: uno para disociarla, con energía $E\geq 14.7\mathrm{~eV}$ y otros dos para ionizar cada uno de los átomos resultantes, con $E\geq13.6\mathrm{~eV}$. El número de fotones ionizantes atravezando el frente de ionización por unidad de área es $F_*~dt$. Entonces, como se producen dos ionizaciones por cada tres fotones, tenemos que:
+
+\begin{align}
+  \frac{F_* dt}{2 n_{H_2} dR} &= \frac{3}{2} \\
+  \implies \frac{dR}{dt} &= \frac{F_*}{3n_{H_2}} = \frac{2 F_*}{3 n^0_H}
+\end{align}
+
+Estamos asumiendo que el flujo tanto de fotones con energías de $E\geq 14.7\mathrm{~eV}$ y $E\geq 13.6\mathrm{~eV}$ es prácticamente el mismo.
+
+Ahora consideremos las recombinaciones: el número total de recombinaciones que llevan a niveles tales que $n \geq 2$ dentro de una esfera de radio $R$ es $\frac{4\pi}{3}\left(n^0_H\right)^2\alpha'_{rec}R^3$. Si el balance de ionización aun se mantiene, entonces el número de ionizaciones por unidad de tiempo es igual a la tasa de recombinaciones más los fotones que logran atravesar el frente de ionización por unidad de tiempo que es $4\pi R^2 F_*$. Entonces:
+
+\begin{align}
+  \Nio_* = 4\pi R^2 F_* + \frac{4\pi}{3}\left(n^0_H\right)^2\alpha'_{rec}R^3
+\end{align}
+
+Resolvemos para $F_*$ y encontramos que:
+
+\begin{align}
+  F_* &= \frac{\Nio_*}{4\pi R^2} - \frac{\left(n^0_H\right)^2\alpha'_{rec} R}{3} \\
+  \implies \frac{dR}{dt} &= \frac{\Nio_*}{6\pi n^0_H R^2} - \frac{2n^0_H \alpha'_{rec} R}{9} \label{eq:1-expansion-eq} 
+\end{align}
+
+Definimos los siguientes parámetros adimensionales $\lambda \equiv R/R_s$ y $\tau \equiv t/t_{rec}$, donde $t_{rec} = \frac{1}{n^0_H \alpha'_{rec}}$, y con esto la ecuación (\ref{eq:1-expansion-eq}) se escribe como sigue:
+
+\begin{align}
+  \frac{d\lambda}{d\tau} = \frac{2}{9}\left(\lambda^{-2} - \lambda\right)
+\end{align}
+
+
+\subsection{Flujos de Champaña}
+\subsection{Características de la emisión}
+% Las regiones HII se forman cuando una estrella masiva, de tipo espectral O ó B temprana, ioniza el gas que se encuentra a su alrededor. El gas ionizado se encuentra en equilibrio térmico, a una temperatura del orden de $10^4~\mathrm{K}$. El principal proceso de calentamiento es la radiación de la estrella central, mientras que el enfriamiento se da principalmente por la recombinación de líneas prohibidas y por emisión libre-libre.
 
 \section{Modelo Genérico de los Choques de Proa}
 \label{sec:Modelo-generico}
