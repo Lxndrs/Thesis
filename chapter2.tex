@@ -74,12 +74,19 @@ Donde $\sigma_{\nu_1}$ es la sección recta de un átomo de hidrógeno en el est
 
 Las esferas de Strömgren no son objetos estáticos, sino que se expanden con el tiempo. Este proceso ocurre en dos etapas: en la primera inicialmente no existe ninguna región $HII$ pero que la radiación ultravioleta de la estrella hace que se expanda rápidamente al disociar e ionizar el gas a su alrededor hasta alcanzar el radio de Strömgren. En la segunda expansión la diferencia de presiones entre el gas ionizado de la región $HII$, mucho mayor que la del gas neutro que lo rodea, provoca otra expansión más lenta que la primera hasta que haya equilibrio de presión. A continuación explicaremos el proceso más a detalle:
 
-Sea $F_*(t)$ el flujo de radiación ionizante que alcanza un radio $R$ al tiempo $t$. Al transcurrir un tiempo $dt$, el frente de ionización avanza una distancia $dR$ y llega a $n^0_{H_2}$ moléculas de hidrógeno por unidad de área. Se necesitan 3 fotones para ionizar completamente la molécula: uno para disociarla, con energía $E\geq 14.7\mathrm{~eV}$ y otros dos para ionizar cada uno de los átomos resultantes, con $E\geq13.6\mathrm{~eV}$. El número de fotones ionizantes atravezando el frente de ionización por unidad de área es $F_*~dt$. Entonces, como se producen dos ionizaciones por cada tres fotones, tenemos que:
+Sea $F_*(t)$ el flujo de radiación ionizante que alcanza un radio $R$ al tiempo $t$. Al transcurrir un tiempo $dt$, el frente de ionización avanza una distancia $dR$ y llega a $n^0_{H_2}$ moléculas de hidrógeno por unidad de área. Se necesitan 3 fotones para ionizar completamente la molécula: uno para disociarla, con energía $E\geq 14.7\mathrm{~eV}$ y otros dos para ionizar cada uno de los átomos resultantes, con $E\geq13.6\mathrm{~eV}$. El número de fotones ionizantes atravezando el frente de ionización por unidad de área es $F_*~dt$. Entonces, como se producen dos ionizaciones por cada tres fotones (Figura \ref{fig:ionization}), tenemos que:
 
 \begin{align}
   \frac{F_* dt}{2 n_{H_2} dR} &= \frac{3}{2} \\
   \implies \frac{dR}{dt} &= \frac{F_*}{3n_{H_2}} = \frac{2 F_*}{3 n^0_H}
 \end{align}
+
+\begin{figure}
+  \includegraphics[width=0.6\linewidth]{./Figures/ionization}
+  \caption{Representación de la primera expansión del frente de ionización de una región $HII$ con densidad numérica del hidrógeno $n^0_H$. De cada tres fotones ionizantes que cruzan el frente en R, uno disocia una molécula de hidrógeno y los otros dos ionizan los átomos resultantes \citep{Stahler:2004}}
+  \label{fig:ionization}
+\end{figure}
+
 
 Estamos asumiendo que el flujo tanto de fotones con energías de $E\geq 14.7\mathrm{~eV}$ y $E\geq 13.6\mathrm{~eV}$ es prácticamente el mismo.
 
@@ -119,7 +126,7 @@ La velocidad del sonido en el gas ionizado con temperatura de $\sim 10^4\mathrm{
 Con los valores típicos adoptados en esta sección obtenemos que:
 
 \begin{align}
-  \bar{v}_{IF}\simeq 135\mathrm{km~s^{-1}}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3}
+  \bar{v}_{IF}\simeq 135\mathrm{~km~s^{-1}}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3}
 \end{align}
 Dado que la velocidad media del IF es mucho mayor que la del sonido del gas ionizado, entonces es razonable asumir que la densidad del gas ionizado es igual a la del gas neutro dado que la densidad del gas no tiene tiempo de reajustarse después de ser ionizado. Sin embargo, la presión sí se vuelve mucho mayor en el gas ionizado que en el gas neutro, y este gas empieza a generar una segunda expansión más lenta que la primera, que provoca que la densidad del gas ionizado disminuya, hasta que llega a un equilibrio de presión con el gas neutro circundante.
 \subsection{Flujos de Champaña}
