@@ -1,40 +1,38 @@
 <<<<<<< HEAD
 # Thesis
 This is my PhD thesis called:
-"Estudio de la Interacción de Flujos Múltiples de Fuentes Astrofísicas Aplicada 
-a los Proplyds Clásicos de la Nebulosa de Orión"
+"Estudio de la Interacción de Flujos Múltiples de Fuentes Astrofísicas Aplicada a los Proplyds Clásicos de la Nebulosa de Orión"
 
 ## Chapter 1: Relevant astrophysical objects
     - Molecular Clouds
 	- Runaway stars?
 	- Protoplanetary disks
+	- HII regions
 	- Proplyds.
 	- LL objects
-	- Characteristics of Orion Nebula 
+	- Orion Nebula 
 	- Map of proplyds.
 
-## Chapter 2: Bow Shock shape model.
+## Chapter 2: Theoretical background.
 	- Stellar winds
 	- Shocks
-	- HII Regions.
 	- Ionization fronts
-	- Hypersonic approximation (CRW model)
-	  - Derivation of equations 
+## Chapter 3: Bow shocks model
 	- Generic shape.
-	  - Characteristic radii
+	- Characteristic radii
 	- Projection onto the plane of the sky
 	- Quadrics of Revolution.
-	- Adjunt 1st paper?
-	
-## Chapter 3: Application to Orion Proplyds.
+## Chapter 4: Hypersonic approximation (CRW model)
+	- True Shape
+	- Apparent Shape
+## Chapter 5: Application to Orion Proplyds.
 	- Tracing Bow Shocks positions.
 	- Measuring Empirical parameters: Rc and R0
 	- Fit measurents into model.
-	- Adjunt 2nd paper?
 
-## Chapter 4: Discussion and conclusions
+## Chapter 6: Discussion and conclusions
 
-## Chapter 5: Future Work.
+## Chapter 7: Future Work?
 =======
 bowshock-shape
 ==============
