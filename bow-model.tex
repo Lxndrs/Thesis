@@ -34,8 +34,8 @@ Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llam
 Un último parámetro es el ángulo asintótico de apertura de las alas, denotado como $\theta_\infty$. Sin embargo, esta medida solo aplica para choques cuyas alas son asintóticamente cónicas, y aún para éstos en la mayoría de los casos es dificil de medirlo debido a que el ángulo polar $\theta$ tiende al valor asintótico muy lentamente y además la emisión de las alas es bastante débil. Por otro lado, los radios característicos $(R_0, R_c, R_{90})$ son medibles observacionalmente en la mayoría de los casos. A partir de éstos, podemos determinar dos parámetros adimensionales llamados ``planitud'' y ``alatud''. El primero de éstos es una medida de qué tan plano es el choque de proa en la nariz o ``apex'', y lo denotamos con la letra griega $\Pi$, mientras que el segundo es una medida de qué tanto se abren las alas del choque de proa, y lo denotamos con la letra griega $\Lambda$. Ambos parámetros se definen a continuación:
 
 \begin{align}
-  \Pi \equiv \frac{R_c}{R_0} \\
-  \Lambda \equiv \frac{R_{90}}{R_0}
+  \Pi \equiv \frac{R_c}{R_0} \label{eq:planitude}\\
+  \Lambda \equiv \frac{R_{90}}{R_0} \label{eq:alatude}
 \end{align}
 
 \section{Proyección en el Plano del Cielo}
@@ -248,9 +248,9 @@ La forma polar del choque de proa $R(\theta)$ viene dada por:
 \end{align}
 El tipo de cónica lo podemos caracterizar mediante el parámetro $\Q$, donde:
 \begin{align}
-  \Q \equiv \sigma\frac{b^2}{a^2}
+  \Q \equiv \sigma\frac{b^2}{a^2} \label{eq:conic-parameter-a-b}
 \end{align}
-Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q =1$ y el paraboloide $\Q = 0$. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
+Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q = 1$ y el paraboloide $\Q = 0$. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
 \begin{align}
   \tan\theta_Q = \sigma \frac{b}{a} \label{eq:thc}
 \end{align}
@@ -269,22 +269,29 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
 
 \begin{figure}
   \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
-  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_c > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
+  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
 \end{figure}
 El set de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos sets de parámetros los calculamos a continuación:
-\begin{align}
+\begin{align} 
   R_c &= \frac{b^2}{a} = a|\Q|\label{eq:R-curv-conic}\\
-  R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic}
+  R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic} 
 \end{align}
+Combinando las ecuaciones (\ref{eq:planitude}, \ref{eq:alatude}, \ref{eq:x0}, \ref{eq:conic-parameter-a-b}, \ref{eq:R-curv-conic}, \ref{eq:R90-conic}), obtenemos lo siguiente:
 
-Combinando las ecuaciones (\ref{eq:x0})
 \begin{align}
-  \tilde{a} &= \pm\frac{\tilde{R}_c}{2\tilde{R}_c - \tilde{R}_{90}^2} \label{eq:til-a}\\
-  \tilde{b} &= \frac{\tilde{R}_c}{\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2}}\label{eq:til-b}\\
-  \tan\theta_c &= \pm\left|2\tilde{R}_c - \tilde{R}_{90}^2\right|^{1/2} \label{eq:thc2}
+  R_0 &= x_0 + \sigma a \\
+  \Pi &= \frac{a|\Q|}{x_0 + \sigma a} = \frac{a\Q}{\sigma\left(x_0 + \sigma a\right)} = \frac{a\Q}{\left(a + \sigma x_0\right)}\\
+  \Lambda &= \left(\Q\frac{a-\sigma x_0}{a + \sigma x_0}\right)^{1/2}
 \end{align}
 
+De aquí podemos escribir el parámetro de las cuádricas $\Q$ en términos de la planitud y la alatud:
+
+\begin{align}
+  \Q = 2\Pi - \lambda^2 \label{eq:quadric-parameter-pi-lambda}
+\end{align}
+
+Por tanto, el signo de $2\Pi - \lambda^2$ determina si una cuádrica es esferoidal o hiperboloidal. En la figura \ref{fig:conics-family} mostramos como, para planitud constante, podemos tener una familia de cónicas variando únicamente la alatud, y por consiguiente, el parámetro $\Q$.
 \subsection{Proyección en el plano del cielo}
 
 El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. La forma tridimensional de las cuádricas de revolución viene dada por:
