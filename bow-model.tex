@@ -38,6 +38,93 @@ Un último parámetro es el ángulo asintótico de apertura de las alas, denotad
   \Lambda \equiv \frac{R_{90}}{R_0} \label{eq:alatude}
 \end{align}
 
+\section{Cuádricas de Revolución}
+\label{sec:quadrics}
+\newcommand\Sin{\ensuremath{\mathcal{S}}}
+\newcommand\Cos{\ensuremath{\mathcal{C}}}
+\newcommand\Cot{\ensuremath{\mathcal{T}}}
+\newcommand\Q{\ensuremath{\mathcal{Q}}}
+\newcommand\f{\ensuremath{\mathcal{f}}}
+En el caso general es difícil encontrar la forma aparente para un choque de proa siguiendo el formalismo desarrollado en la sección anterior, por lo que optamos por aproximar la forma éstos con una de las superficies más simples: las \textit{cuádricas de revolución}, que son superficies de revolución de las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies cuádricas que utilizaremos en este trabajo:
+\begin{itemize}
+  \item El eje focal se encuentra alineado con el eje $x$
+  \item La posición del foco de la superficie cuádrica no necesariamente coincide con la posición de la fuente
+  \item En el caso de las hipérbolas, solo tomamos una de las ramas de ésta.
+\end{itemize}
+Implementando dichas restricciones, utilizamos la representación paramétrica de las curvas cónicas en términos de un parámetro adimensional denotado con la letra $t$:
+\begin{align}
+  x &= x_0 + \sigma a\Cos(t) \\
+  y &= b\Sin(t) 
+\end{align}
+Donde:
+\begin{align}
+  \Cos(t), \Sin(t) &=\left\lbrace
+  \begin{array}{lr}
+    \cos{t}, \sin t & \mathrm{elipses}\\
+    \cosh{t}, \sinh{t} & \mathrm{hipérbolas}       
+  \end{array}\right. \\
+  \sigma &= \left\lbrace
+  \begin{array}{lr}
+    +1 & \mathrm{elipses} \\
+    -1 & \mathrm{hipérbolas}
+  \end{array}\right. \\
+  x_0 &= R_0 -\sigma a \label{eq:x0} 
+\end{align}
+Donde $a$ y $b$ representan la longitud de los semi-ejes de la cónica en cuestión (Figura \ref{fig:conics}). $x_0$ representa la distancia entre el centro de la cónica y el origen. 
+
+La forma polar del choque de proa $R(\theta)$ viene dada por:
+
+\begin{align}
+  \tan\theta &= \frac{b\Sin(t)}{a\Cos(t) + x_0} \label{eq:t-th-conversion} \\
+  R &= \left(\left(a\Cos(t) + x_0\right)^2 + b^2\Sin^2(t)\right)^{1/2} 
+\end{align}
+El tipo de cónica lo podemos caracterizar mediante el parámetro $\Q$, donde:
+\begin{align}
+  \Q \equiv \sigma\frac{b^2}{a^2} \label{eq:conic-parameter-a-b}
+\end{align}
+Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q = 1$ y el paraboloide $\Q = 0$. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
+\begin{align}
+  \tan\theta_Q = \sigma \frac{b}{a} \label{eq:thc}
+\end{align}
+Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye a esta última en este trabajo) como se muestra a continuación:
+\begin{align}
+  \tan\theta_Q = \sigma\sqrt{\left|1-e^2\right|}
+\end{align}
+\begin{figure}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
+    \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
+  \end{tabular}
+  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
+  \label{fig:conics}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
+  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
+  \label{fig:conics-family}
+\end{figure}
+El set de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos sets de parámetros los calculamos a continuación:
+\begin{align} 
+  R_c &= \frac{b^2}{a} = a|\Q|\label{eq:R-curv-conic}\\
+  R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic} 
+\end{align}
+Combinando las ecuaciones (\ref{eq:planitude}, \ref{eq:alatude}, \ref{eq:x0}, \ref{eq:conic-parameter-a-b}, \ref{eq:R-curv-conic}, \ref{eq:R90-conic}), obtenemos lo siguiente:
+
+\begin{align}
+  R_0 &= x_0 + \sigma a \\
+  \Pi &= \frac{a|\Q|}{x_0 + \sigma a} = \frac{a\Q}{\sigma\left(x_0 + \sigma a\right)} = \frac{a\Q}{\left(a + \sigma x_0\right)}\\
+  \Lambda &= \left(\Q\frac{a-\sigma x_0}{a + \sigma x_0}\right)^{1/2}
+\end{align}
+
+De aquí podemos escribir el parámetro de las cuádricas $\Q$ en términos de la planitud y la alatud:
+
+\begin{align}
+  \Q = 2\Pi - \lambda^2 \label{eq:quadric-parameter-pi-lambda}
+\end{align}
+
+Por tanto, el signo de $2\Pi - \lambda^2$ determina si una cuádrica es esferoidal o hiperboloidal. En la figura \ref{fig:conics-family} mostramos como, para planitud constante, podemos tener una familia de cónicas variando únicamente la alatud, y por consiguiente, el parámetro $\Q$.
+
 \section{Proyección en el Plano del Cielo}
 \label{sec:projection}
 
@@ -206,141 +293,59 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
   \label{eq:th90}
 \end{align}
 
-\section{Cuádricas de Revolución}
-\label{sec:quadrics}
-\newcommand\Sin{\ensuremath{\mathcal{S}}}
-\newcommand\Cos{\ensuremath{\mathcal{C}}}
-\newcommand\Cot{\ensuremath{\mathcal{T}}}
-\newcommand\Q{\ensuremath{\mathcal{Q}}}
+\subsection{Aplicación a las Cuádricas de Revolución}
 
-En el caso general es difícil encontrar la forma aparente para un choque de proa siguiendo el formalismo desarrollado en la sección anterior, por lo que optamos por aproximar la forma éstos con una de las superficies más simples: las \textit{cuádricas de revolución}, que son superficies de revolución de las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies cuádricas que utilizaremos en este trabajo:
-\begin{itemize}
-  \item El eje focal se encuentra alineado con el eje $x$
-  \item La posición del foco de la superficie cuádrica no necesariamente coincide con la posición de la fuente
-  \item En el caso de las hipérbolas, solo tomamos una de las ramas de ésta.
-\end{itemize}
-Implementando dichas restricciones, utilizamos la representación paramétrica de las curvas cónicas en términos de un parámetro adimensional denotado con la letra $t$:
-\begin{align}
-  x &= x_0 + \sigma a\Cos(t) \\
-  y &= b\Sin(t) 
-\end{align}
-Donde:
-\begin{align}
-  \Cos(t), \Sin(t) &=\left\lbrace
-  \begin{array}{lr}
-    \cos{t}, \sin t & \mathrm{elipses}\\
-    \cosh{t}, \sinh{t} & \mathrm{hipérbolas}       
-  \end{array}\right. \\
-  \sigma &= \left\lbrace
-  \begin{array}{lr}
-    +1 & \mathrm{elipses} \\
-    -1 & \mathrm{hipérbolas}
-  \end{array}\right. \\
-  x_0 &= R_0 -\sigma a \label{eq:x0} 
-\end{align}
-Donde $a$ y $b$ representan la longitud de los semi-ejes de la cónica en cuestión (Figura \ref{fig:conics}). $x_0$ representa la distancia entre el centro de la cónica y el origen. 
-
-La forma polar del choque de proa $R(\theta)$ viene dada por:
+El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. Para esto es conveniente utilizar un sistema de referencia donde el origen se ubica en el centro de la sección cónica:
 
 \begin{align}
-  \tan\theta &= \frac{b\Sin(t)}{a\Cos(t) + x_0} \label{eq:t-th-conversion} \\
-  R &= \left(\left(a\Cos(t) + x_0\right)^2 + b^2\Sin^2(t)\right)^{1/2} 
+  (X, Y, Z) = (x-x_0, y, z)
 \end{align}
-El tipo de cónica lo podemos caracterizar mediante el parámetro $\Q$, donde:
-\begin{align}
-  \Q \equiv \sigma\frac{b^2}{a^2} \label{eq:conic-parameter-a-b}
-\end{align}
-Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q = 1$ y el paraboloide $\Q = 0$. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
-\begin{align}
-  \tan\theta_Q = \sigma \frac{b}{a} \label{eq:thc}
-\end{align}
-Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye a esta última en este trabajo) como se muestra a continuación:
-\begin{align}
-  \tan\theta_Q = \sigma\sqrt{\left|1-e^2\right|}
-\end{align}
-\begin{figure}
-  \begin{tabular}{cc}
-    \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
-    \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
-  \end{tabular}
-  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
-  \label{fig:conics}
-\end{figure}
 
-\begin{figure}
-  \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
-  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
-  \label{fig:conics-family}
-\end{figure}
-El set de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos sets de parámetros los calculamos a continuación:
-\begin{align} 
-  R_c &= \frac{b^2}{a} = a|\Q|\label{eq:R-curv-conic}\\
-  R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic} 
-\end{align}
-Combinando las ecuaciones (\ref{eq:planitude}, \ref{eq:alatude}, \ref{eq:x0}, \ref{eq:conic-parameter-a-b}, \ref{eq:R-curv-conic}, \ref{eq:R90-conic}), obtenemos lo siguiente:
+De esta manera, la forma de la cuádrica de revolución es:
 
 \begin{align}
-  R_0 &= x_0 + \sigma a \\
-  \Pi &= \frac{a|\Q|}{x_0 + \sigma a} = \frac{a\Q}{\sigma\left(x_0 + \sigma a\right)} = \frac{a\Q}{\left(a + \sigma x_0\right)}\\
-  \Lambda &= \left(\Q\frac{a-\sigma x_0}{a + \sigma x_0}\right)^{1/2}
+  X &= a\Cos(t) \\
+  Y &= b\Sin(t)\cos\phi \\
+  Z &= b\Sin(t)\sin\phi
 \end{align}
 
-De aquí podemos escribir el parámetro de las cuádricas $\Q$ en términos de la planitud y la alatud:
+Siguiendo el procedimiento mostrado en la \S \ref{sec:projection} calculamos el ángulo azimutal $\phi$ que cumple con el criterio de ser tangente a la línea de visión: 
 
 \begin{align}
-  \Q = 2\Pi - \lambda^2 \label{eq:quadric-parameter-pi-lambda}
-\end{align}
-
-Por tanto, el signo de $2\Pi - \lambda^2$ determina si una cuádrica es esferoidal o hiperboloidal. En la figura \ref{fig:conics-family} mostramos como, para planitud constante, podemos tener una familia de cónicas variando únicamente la alatud, y por consiguiente, el parámetro $\Q$.
-\subsection{Proyección en el plano del cielo}
-
-El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. La forma tridimensional de las cuádricas de revolución viene dada por:
-
-\begin{align}
-  x &= a\Cos(t) + x_0 \\
-  y &= b\Sin(t)\cos\phi \\
-  z &= b\Sin(t)\sin\phi
-\end{align}
-
-Siguiendo el procedimiento mostrado en la \S \ref{sec:projection} calculamos el ángulo azimutal $\phi$ que cumple con el criterio de ser tangente al la línea de visión:
-
-\begin{align}
-  \sin\phi_T = \frac{b}{a}\tan i\Cot(t) 
-\end{align}
-Donde:
-\begin{align}
-  \Cot(t) = \left\lbrace
-  \begin{array}{lr}
-    \cot t & \mathrm{si}~\theta_c > 0 \\
-    \coth t & \mathrm{si}~\theta_c < 0 
-  \end{array}
-  \right.
+  \sin\phi_T = \frac{b\Cos(t)}{a\Sin(t)}\tan i 
 \end{align}
 Ahora utilizamos la ecuación (\ref{eq:rotation}) para obtener la forma aparente de una cuádrica dada:
 \begin{align}
-  x'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i \pm b^2\sin^2 i\right) + x_0\cos i
+  X'_T &= \frac{\Cos(t)}{a\cos i}\left(a^2\cos^2 i + \sigma b^2\sin^2 i\right)
   \label{eq:x-prime-proj}\\
-  y'_T &= b\Sin(t)\left(1 - \frac{b^2}{a^2}\tan^2 i\Cot^2(t)\right)^{1/2}
+  Y'_T &= b\Sin(t)\left(1 - \frac{b^2\Cos^2(t)}{a^2\Sin^2(t)}\tan^2 i\right)^{1/2}
   \label{eq:y-prime-proj}
 \end{align}
-Se espera que la forma proyectada de una cuádrica dada sea otra cuádrica del mismo tipo, por lo que es posible escribir las ecuaciones (\ref{eq:x-prime-proj}) y (\ref{eq:y-prime-proj}) de la siguiente manera: 
+Podemos mostrar que la forma proyectada de una sección cónica (elipse o hipérbola), es de la misma clase que la sección cónica original. Si ese fuera el caso, entonces podemos escribir las ecuaciones (\ref{eq:x-prime-proj}, \ref{eq:y-prime-proj}) de la siguiente manera:
 \begin{align}
-  x'_T &= a'\Cos(t') + x'_0 \label{eq:xtprime}\\
-  y'_T &= b'\Sin(t') \label{eq:ytprime}
+  X'_T &= a'\Cos(t') \label{eq:xtprime}\\
+  Y'_T &= b'\Sin(t') \label{eq:ytprime}
 \end{align}
-Donde:
+
+Después de un poco de álgebra encontramos que nuestra suposición es consistente, con las siguientes equivalencias:
+
 \begin{align}
-  x'_0 &= x_0\cos i \\
-  a' &= \left(a^2\cos^2 i \pm \b^2\sin^2 i\right)^{1/2} \label{eq:a-prime}\\
-  b' &= b \label{eq:b-prime}\\
-  \Cos(t') &= \frac{a'\Cos(t)}{a\cos i} \\
-  \Sin(t') &= \left(1 - \Cos^2(t')\right)^{1/2}
+  a' &= a\cos i \f_{\Q, i} \\
+  b' &= b \\
+  Cos(t') &= \f_{\Q, i}
 \end{align}
-Dos cantidades que nos van a ser de utilidad son los valores del parámetro $t$ que denominaremos $t_0$ y $t_{90}$ y son tales que $t'(t_0) = 0$ y $t'(t_{90}) = \frac{\pi}{2}$ o bien $y'_T(t_0) = 0$ y $x'_T(t_{90}) = 0$. De esta manera obtenemos las siguientes ecuaciones implícitas evaluando las ecuaciones (\ref{eq:x-prime-proj}) y(\ref{eq:y-prime-proj}) en $t=t_{90}$ y $t=t_0$ respectivamente:
+
+Donde introducimos el factor de proyección de las cuádricas:
 \begin{align}
-  \Cot(t_0) &= \frac{a}{b}\cot{i} = \frac{\cot{i}}{\left|\tan\theta_c\right|} \label{eq:t0}\\
-  \Cos(t_{90}) &= -\frac{ax_0\cos^2{i}}{a^2\cos^2{i}\pm b^2\sin^2{i}} \label{eq:t90}
+  \f_{\Q, i} = \left(1 + \Q\tan^2i\right)^{1/2}
 \end{align}
+
+
+%Dos cantidades que nos van a ser de utilidad son los valores del parámetro $t$ que denominaremos $t_0$ y $t_{90}$ y son tales que $t'(t_0) = 0$ y $t'(t_{90}) = \frac{\pi}{2}$ o bien $y'_T(t_0) = 0$ y $x'_T(t_{90}) = 0$. De esta manera obtenemos las siguientes ecuaciones implícitas evaluando las ecuaciones (\ref{eq:x-prime-proj}) y(\ref{eq:y-prime-proj}) en $t=t_{90}$ y $t=t_0$ respectivamente:
+%\begin{align}
+%  \Cot(t_0) &= \frac{a}{b}\cot{i} = \frac{\cot{i}}{\left|\tan\theta_c\right|} %\label{eq:t0}\\
+%  \Cos(t_{90}) &= -\frac{ax_0\cos^2{i}}{a^2\cos^2{i}\pm b^2\sin^2{i}} \label{eq:t90}
+%\end{align}
 Los radios característicos aparentes los podemos calcular a partir de las ecuaciones (\ref{eq:xtprime}) y (\ref{eq:ytprime}) como se hizo para los radios característicos en el sistema no primado:
 \begin{align}
   R'_0 &= \pm a' + x'_0\\
