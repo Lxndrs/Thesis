@@ -44,7 +44,7 @@ Un último parámetro es el ángulo asintótico de apertura de las alas, denotad
 \newcommand\Cos{\ensuremath{\mathcal{C}}}
 \newcommand\Cot{\ensuremath{\mathcal{T}}}
 \newcommand\Q{\ensuremath{\mathcal{Q}}}
-\newcommand\f{\ensuremath{\mathcal{f}}}
+\newcommand\fQi{\ensuremath{f_{\scriptscriptstyle \Q, i}}}
 En el caso general es difícil encontrar la forma aparente para un choque de proa siguiendo el formalismo desarrollado en la sección anterior, por lo que optamos por aproximar la forma éstos con una de las superficies más simples: las \textit{cuádricas de revolución}, que son superficies de revolución de las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies cuádricas que utilizaremos en este trabajo:
 \begin{itemize}
   \item El eje focal se encuentra alineado con el eje $x$
@@ -112,8 +112,8 @@ El set de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras 
 Combinando las ecuaciones (\ref{eq:planitude}, \ref{eq:alatude}, \ref{eq:x0}, \ref{eq:conic-parameter-a-b}, \ref{eq:R-curv-conic}, \ref{eq:R90-conic}), obtenemos lo siguiente:
 
 \begin{align}
-  R_0 &= x_0 + \sigma a \\
-  \Pi &= \frac{a|\Q|}{x_0 + \sigma a} = \frac{a\Q}{\sigma\left(x_0 + \sigma a\right)} = \frac{a\Q}{\left(a + \sigma x_0\right)}\\
+  R_0 &= x_0 + \sigma a \label{eq:R0}\\
+  \Pi &= \frac{a|\Q|}{x_0 + \sigma a} = \frac{a\Q}{\sigma\left(x_0 + \sigma a\right)} = \frac{a\Q}{\left(a + \sigma x_0\right)}\label{eq:quadric-planitude}\\
   \Lambda &= \left(\Q\frac{a-\sigma x_0}{a + \sigma x_0}\right)^{1/2}
 \end{align}
 
@@ -273,7 +273,7 @@ Es de notar a su vez que la ecuación (\ref{eq:phi-tan}) no tiene solución para
 Esto implica que si el choque de proa es suficientemente ``abierto'' $(\alpha > \alpha_{min})$, entonces para inclinaciones tales que
 $|i| > 90^\circ - \alpha_{min}$ no existirá la línea tangente para ningún valor de $\theta$, es decir, el choque de proa se encontrará sufientemente ``de cara'' como para que ya no parezca un choque de proa para el observador.
 
-\subsection{Radios característicos en el plano del cielo}
+\subsection{Planiud y Alatud proyectadas: caso general}
 
 En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir
 $R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones (\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
@@ -330,14 +330,14 @@ Podemos mostrar que la forma proyectada de una sección cónica (elipse o hipér
 Después de un poco de álgebra encontramos que nuestra suposición es consistente, con las siguientes equivalencias:
 
 \begin{align}
-  a' &= a\cos i \f_{\Q, i} \\
-  b' &= b \\
-  Cos(t') &= \f_{\Q, i}
+  a' &= a\cos i \fQi \label{eq:a-prime}\\
+  b' &= b \label{eq:b-prime}\\
+  \Cos(t') &= \fQi
 \end{align}
 
 Donde introducimos el factor de proyección de las cuádricas:
 \begin{align}
-  \f_{\Q, i} = \left(1 + \Q\tan^2i\right)^{1/2}
+  \fQi = \left(1 + \Q\tan^2i\right)^{1/2}
 \end{align}
 
 
@@ -346,26 +346,49 @@ Donde introducimos el factor de proyección de las cuádricas:
 %  \Cot(t_0) &= \frac{a}{b}\cot{i} = \frac{\cot{i}}{\left|\tan\theta_c\right|} %\label{eq:t0}\\
 %  \Cos(t_{90}) &= -\frac{ax_0\cos^2{i}}{a^2\cos^2{i}\pm b^2\sin^2{i}} \label{eq:t90}
 %\end{align}
-Los radios característicos aparentes los podemos calcular a partir de las ecuaciones (\ref{eq:xtprime}) y (\ref{eq:ytprime}) como se hizo para los radios característicos en el sistema no primado:
+Como ya demostramos que la forma proyectada de la línea tangente de una superficie cúadrica es una sección cónica del mismo tipo, entonces podemos determinar la forma proyectada reutilizando las ecuaciones (\ref{eq:R0}-\ref{eq:quadric-parameter-pi-lambda}) sustituyendo las cantidades no primadas por sus equivalentes primados. De esta manera, utilizando las ecuaciones (\ref{eq:conic-parameter-a-b}, \ref{eq:a-prime}, \ref{eq:b-prime}) encontramos que el parámetro de las cuádricas para la forma proyectada es:
+
 \begin{align}
-  R'_0 &= \pm a' + x'_0\\
-  R'_c &= \frac{b'^2}{a'}\\
-  \tan\theta'_c &= \pm\frac{b'}{a'} \\
-  R'_{90} &= \left(2R'_c \mp \tan^2\theta'_c\right)^{1/2}
+  \Q' = \frac{\Q}{\fQi^2 \cos^2 i}\label{eq:Q-prime}
 \end{align}
-Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
+
+Ahora regresamos al sistema de referencia centrado en la estrella:
+
 \begin{align}
-  \frac{q'}{q} &= 1 \pm \tilde{R}_c\cot^2\theta_c\left(f(i;\theta_c) - 1\right) \\
-  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \label{eq:Rpc-quad}\\
-  \tan\theta'_c &= \frac{\tan\theta_c}{\cos if(i;\theta_c)} \label{eq:thcp-quad}\\
-  \tilde{R}'_{90} &= \left(\frac{2\tilde{R}_cf(i;\theta_c) \mp
-                    \tan^2\theta_c\frac{q'}{q}}{q'/q}\right)^{1/2}\frac{\sec i}{f(i;\theta_c)}
-  \label{eq:Rp90-quad}
+  (x'_T, y'_T) = (X'_T + x'_0, Y'_T)
 \end{align}
-Cuando $\tilde{R}'_{90}$ es medible, entonces es posible hacer diagramas de diagnóstico como
-el de la figura \ref{fig:diagnostic} para comparar con observaciones, independientemente de cualquier modelo de choques de proa.
-\begin{figure}
-  \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc}
-  \caption{Diagrama de diagnóstico $\tilde{R}'_{90}$ vs $\tilde{R}'_c$ para las cuádricas de revolución. En la región sin sombrear se representan las superficies abiertas (hiperboloides, $\theta_c <0$), mientras que la región más oscura representa a elipsoides prolatos  $(0 < \theta_c < 45^\circ)$ y la región poco sombreada a elipsoides oblatos $(\theta_c > 45^\circ)$}
-  \label{fig:diagnostic}
-\end{figure}
+
+donde el desplazamiento proyectado $x'_0$ es:
+
+\begin{align}
+  x'_0 = x_0\cos i
+\end{align}
+La proyección de la distancia al ápex viene dada por la versión primada de la ecuación (\ref{eq:R0}):
+\begin{align}
+  R'_0 &=  x'_0 + \sigma a'\\
+  \implies \frac{R'_0}{R_0} &= \cos i\left[1 + \frac{\Pi}{\Q}\left(1 - \fQi\right)\right]
+\end{align}
+
+Asimismo la planitud y la alatud proyectada pueden calcularse a partir de las ecuaciones (\ref{eq:quadric-planitude}, \ref{eq:quadric-parameter-pi-lambda}, \ref{eq:a-prime}, \ref{eq:Q-prime}):
+
+\begin{align}
+  \Pi' &= \frac{\Pi}{\left(R'_0/R_0\right)\fQi\cos i}\\
+  \Lambda' &= \left(2\Pi' - \Q'\right)^{1/2}
+\end{align}
+
+%Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
+%\begin{align}
+%  \frac{q'}{q} &= 1 \pm \tilde{R}_c\cot^2\theta_c\left(f(i;\theta_c) - 1\right) \\
+%  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \label{eq:Rpc-quad}\\
+%  \tan\theta'_c &= \frac{\tan\theta_c}{\cos if(i;\theta_c)} \label{eq:thcp-quad}\\
+%  \tilde{R}'_{90} &= \left(\frac{2\tilde{R}_cf(i;\theta_c) \mp
+%                    \tan^2\theta_c\frac{q'}{q}}{q'/q}\right)^{1/2}\frac{\sec %i}{f(i;\theta_c)}
+%  \label{eq:Rp90-quad}
+%\end{align}
+%Cuando $\tilde{R}'_{90}$ es medible, entonces es posible hacer diagramas de diagnóstico como
+%el de la figura \ref{fig:diagnostic} para comparar con observaciones, independientemente de cualquier modelo de choques de proa.
+%\begin{figure}
+%  \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc}
+%  \caption{Diagrama de diagnóstico $\tilde{R}'_{90}$ vs $\tilde{R}'_c$ para las cuádricas de revolución. En la región sin sombrear se representan las superficies abiertas (hiperboloides, $\theta_c <0$), mientras que la región más oscura representa a elipsoides prolatos  $(0 < \theta_c < 45^\circ)$ y la región poco sombreada a elipsoides oblatos $(\theta_c > 45^\circ)$}
+%  \label{fig:diagnostic}
+%\end{figure}
