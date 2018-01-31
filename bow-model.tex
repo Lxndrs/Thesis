@@ -12,8 +12,11 @@ El sitema en su conjunto tiene simetría cilíndrica.
     \label{fig:isotropic-aniso}
 \end{figure}
 \begin{figure}
-  \includegraphics[width=0.5\linewidth]{./Figures/bowshock-crw-variables}
-  \caption{Representación esquemática del problema de interacción de dos vientos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque depende únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente.}
+  \begin{tabular}{lr}
+    \includegraphics[width=0.45\linewidth]{./Figures/bowshock-crw-variables} &
+    \includegraphics[width=0.45\linewidth]{./Figures/wilkinoid}
+  \end{tabular}
+  \caption{Izquierda: Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, siguiendo la ecuación (\ref{eq:anisotropic-density}) del capítulo \ref{chap:hipersonica}, será un choque ``ancantoide''. Derecha: Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''}
     \label{fig:crw-esquema}
 \end{figure}
 
@@ -21,9 +24,9 @@ El sitema en su conjunto tiene simetría cilíndrica.
 \label{sec:char-rad}
 Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
 \begin{itemize}
-\item Radio del choque en la dirección del eje de simetría del sistema. Denotado como $R_0$
-\item Radio en dirección perpendicular al eje de simetría del sistema. Denotado como $R_{90}$
-\item Radio de curvatura en la ``nariz'' del choque de proa. Denotado como $R_c$. En el apéndice \ref{app:math-curvature-radius} se muestra el procedimiento para obtener este radio para una curva genérica continua y derivable.
+\item Radio del choque en la dirección del eje del ápex. Denotado como $R_0$
+\item Radio en dirección perpendicular al ápex. Denotado como $R_{90}$
+\item Radio de curvatura en el ápex. Denotado como $R_c$. En el apéndice \ref{app:math-curvature-radius} se muestra el procedimiento para obtener este radio para una curva genérica continua y derivable.
 \end{itemize}
 
 \begin{figure}
@@ -120,7 +123,7 @@ Combinando las ecuaciones (\ref{eq:planitude}, \ref{eq:alatude}, \ref{eq:x0}, \r
 De aquí podemos escribir el parámetro de las cuádricas $\Q$ en términos de la planitud y la alatud:
 
 \begin{align}
-  \Q = 2\Pi - \lambda^2 \label{eq:quadric-parameter-pi-lambda}
+  \Q = 2\Pi - \Lambda^2 \label{eq:quadric-parameter-pi-lambda}
 \end{align}
 
 Por tanto, el signo de $2\Pi - \lambda^2$ determina si una cuádrica es esferoidal o hiperboloidal. En la figura \ref{fig:conics-family} mostramos como, para planitud constante, podemos tener una familia de cónicas variando únicamente la alatud, y por consiguiente, el parámetro $\Q$.
@@ -332,7 +335,7 @@ Después de un poco de álgebra encontramos que nuestra suposición es consisten
 \begin{align}
   a' &= a\cos i \fQi \label{eq:a-prime}\\
   b' &= b \label{eq:b-prime}\\
-  \Cos(t') &= \fQi
+  \Cos(t') &= \fQi \Cos(t)
 \end{align}
 
 Donde introducimos el factor de proyección de las cuádricas:

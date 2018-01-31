@@ -86,14 +86,14 @@ Entonces, hacemos una aproximación para la función $R(\theta)$ que nos da la f
 mediante un polinomio par de grado $2n$ de la siguiente forma:
 
 \begin{align}
-R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 + \cdots + \Gamma_n\theta^n\right)
+R(\theta) \simeq R_0\left(1 + R_{\theta \theta, 0}\theta^2 + \mathcal{O}(\theta^4)\right)
 \end{align}
 
 De esta forma calculamos las derivadas de $R(\theta)$:
 
 \begin{align}
-  \dot{R}(\theta) &\simeq R_0\theta\left(2\gamma + 4\Gamma\theta^2 + \cdots + n\Gamma_n\theta^{n-2}\right) \\
-  \ddot{R}(\theta) &\simeq R_0\left(2\gamma + 12\Gamma\theta^2 + \cdots + n(n-1)\Gamma_n\theta^{n-2}\right)
+  \dot{R}(\theta) &\simeq R_0\theta\left(2R_{\theta \theta, 0} + \mathcal{O}(\theta^2)\right) \\
+  \ddot{R}(\theta) &\simeq R_0\left(2R_{\theta \theta, 0} + \mathcal{O}(\theta^2)\right)
 \end{align}
 
 Evaluando en $\theta = 0$ obtenemos los siguiente:
@@ -101,15 +101,15 @@ Evaluando en $\theta = 0$ obtenemos los siguiente:
 \begin{align}
   R(0) &= R_0 \\
   \dot{R}(0) &= 0 \\
-  \ddot{R}(0) &= 2\gamma R_0 \\
+  \ddot{R}(0) &= 2R_{\theta \theta, 0} R_0 \\
   \implies \omega(0) &= 0 \\
-  \dot{\omega}(0) &\equiv \frac{\ddot{R}(0)}{R(0)} - \left(\frac{\dot{R}(0)}{R(0)}\right)^2 = 2\gamma
+  \dot{\omega}(0) &\equiv \frac{\ddot{R}(0)}{R(0)} - \left(\frac{\dot{R}(0)}{R(0)}\right)^2 = 2R_{\theta \theta, 0}
 \end{align}
 
-Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos el radio de curvatura en $\theta=0$:
+Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos la planitud en el ápex:
 
 \begin{align}
-  R_c = \frac{R_0}{\left|1 - 2\gamma\right|}\label{eq:Rc-nose}
+  \Pi = \frac{1}{\left|1 - 2R_{\theta \theta, 0}\right|}\label{eq:Rc-nose}
 \end{align}
 
 Por esto en el apéndice \ref{app:derivation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
@@ -131,10 +131,10 @@ Donde $\rho_{ws}$ y $\rho_{ws1}$ son las densidades de los dos vientos en la pos
 de masa es constante para un ángulo $\theta$ dado, entonces podemos hacer lo siguiente:
 
 \begin{align}
-  \frac{\dot{M}^0_w}{4\pi R^2 v_w}v^2_w &= \frac{\dot{M}^0_{w1}}{4\pi\left(D-R\right)^2v_{w1}}v^2_{w1} \label{eq:momento-R0-uf}
+  \frac{\dot{M}^0_w}{4\pi R_0^2 v_w}v^2_w &= \frac{\dot{M}^0_{w1}}{4\pi\left(D-R_0\right)^2v_{w1}}v^2_{w1} \label{eq:momento-R0-uf}
 \end{align}
 En esta última ecuación hemos sustituído $\dot{M}^0_w = 4\pi R_0^2 v_w \rho_{ws}$ y \\
-$\dot{M}^0_{w1} = 4\pi \left(D - R_0\right)^2 v_{w1} \rho_{ws1}$ aprovechando que dichas cantidades deben conservarse.
+$\dot{M}^0_{w1} = 4\pi \left(D - R_0\right)^2 v_{w1} \rho_{ws1}$.
 
 Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para $R_0$:
 
@@ -142,7 +142,7 @@ Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para
   \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}}
 \end{align}
 
-\section{$\tilde{R}_{90}$}
+\section{Alatud de Choques tipo Cantoides y Ancantoides}
 $R_{90}$ puede determinarse a partir de evaluar las ecuaciones (\ref{eq:R-geometric}) y (\ref{eq:th1-th}) en $\theta=\frac{\pi}{2}$
 como sigue:
 
@@ -173,26 +173,25 @@ $\theta_{1,90}$:
 Finalmente sustituímos (\ref{eq:th190}) en (\ref{eq:r90-incomplete}) para obtener $R_{90}$:
 \begin{align}
   \frac{R_{90}}{D} &= \frac{\left(3\xi\beta\right)^{1/2}}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} \\
-  \tilde{R}_{90} &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
+  \Lambda &= \frac{\left(3\xi\right)^{1/2}\left(1+\beta^{1/2}\right)}
                    {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} 
 \end{align}
 
-\section{Radio de Curvatura en el  caso de la interacción de dos vientos esféricos.}
+\section{Planitud de choques tipo Cantoides y Ancantoides}
 
 Siendo que el choque de proa en nuestro modelo genérico es simétrico, entonces la forma $R(\theta)$ debe ser una función par,
 por tanto podemos hacer la siguiente expansión en serie:
 
 \begin{align}
-  R(\theta) \simeq R_0\left(1 + \gamma\theta^2 + \Gamma\theta^4 +\cdots +\cdots \right)
+  R(\theta) \simeq R_0 + R_{\theta, \theta, 0}\theta^2 + \mathcal{O}(\theta^4)
 \end{align}
 
-De esta forma el radio de curvatura para $\theta=0$ queda como sigue (ver apéndice \ref{app:math-curvature-radius}):
-
+De esta forma la planitud del choque en el ápex queda como sigue (ver apéndice \ref{app:math-curvature-radius}):
 \begin{align}
-  \tilde{R}_c = \left(1 - 2\gamma\right)^{-1}
+  \Pi = \left(1 - 2R_{\theta \theta, 0}\right)^{-1}
 \end{align}
 
-Para encontrar el coeficiente de segundo orden $\gamma$ hacemos una expansión en serie de las ecuaciones (\ref{eq:th1-th}) y
+Para encontrar el coeficiente de segundo orden $R_{\theta \theta, 0}$ hacemos una expansión en serie de las ecuaciones (\ref{eq:th1-th}) y
 (\ref{eq:R-geometric}) para ángulos pequeños, mostrando a continuación la expansión de cada término para al final hacer la
 reducción algebraica:
 
@@ -247,32 +246,34 @@ dentro de los corchetes:
   &\simeq R_0 \left[1 + \left(\frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1+2\beta^{1/2}}{6}\right)\theta^2\right] 
 \end{align}
 
+De esta mostramos que el término de segundo órden que necesitamos en la ecuación (\ref{eq:CRW-Rc}) está dado por (\ref{eq:2-order})
 
-\section{Radio de Curvatura en el caso de interacción con un viento plano--paralelo}
+
+\section{Radio de Curvatura para choques tipo Wilkinoides}
 \label{sec:Rc-Wilkin}
 Hacemos expansión Taylor hasta cuarto orden de cada uno de los términos de la ecuación (\ref{eq:R-Wilkin})
 
 \begin{align}
-  \csc^2\theta &\simeq \theta^{-2}\left(1 - \frac{\theta^2}{6} + \frac{\theta^4}{120}\right)^{-2} \simeq
-                 \theta^{-2}\left(1 + \frac{\theta^2}{3} + \frac{\theta^4}{15}\right) \\
-  \theta\cot\theta &\simeq 1 - \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \frac{2\theta^4}{315}\right) \\
-  \implies 1 -\theta\cot\theta &\simeq \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \frac{2\theta^4}{315}\right)
+  \csc^2\theta &\simeq \theta^{-2}\left(1 - \frac{\theta^2}{6} + \mathcal{O}(\theta^4)\right)^{-2} \simeq
+                 \theta^{-2}\left(1 + \frac{\theta^2}{3} + \mathcal{O}(\thta^4)\right) \\
+  \theta\cot\theta &\simeq 1 - \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \mathcal{O}(\theta^4)\right) \\
+  \implies 1 -\theta\cot\theta &\simeq \frac{\theta^2}{3}\left(1 + \frac{\theta^2}{15} + \mathcal{O}(\theta^4)\right)
 \end{align}
 
 Sustituímos en la ecuación (\ref{eq:R-Wilkin}):
 
 \begin{align}
-  \tilde{R}(\theta) &\simeq \left[3\theta^{-2}\left(1 + \frac{\theta^2}{3}-\frac{\theta^4}{10}\right)\frac{\theta^2}{15}
+  R(\theta) &\simeq R_0\left[3\theta^{-2}\left(1 + \frac{\theta^2}{3}+\mathcal{O}(\theta^4)\right)\frac{\theta^2}{15}
   \left(1 + \frac{\theta^2}{15}\right) \right]^{1/2} \\
-  \implies \tilde{R}(\theta) &\simeq \left[1 + \frac{2\theta^2}{5} + \frac{2\theta^4}{21}\right]^{1/2} \\
-  \implies \tilde{R}(\theta) &\simeq 1 + \frac{\theta^2}{5} + \frac{29\theta^4}{1050}
+  \implies R(\theta) &\simeq R_0\left[1 + \frac{2\theta^2}{5} + \mathcal{O}(\theta^4)\right]^{1/2} \\
+  \implies R(\theta) &\simeq R_0\left[1 + \frac{\theta^2}{5} + \mathcal{O}(\theta^4)\right]
 \end{align}
 
-De esta forma mostramos que el coeficiente de segundo orden en este caso es $\gamma = \frac{1}{5}$. Por lo tanto,
+De esta forma mostramos que el coeficiente de segundo orden en este caso es $R_{\theta \theta, 0} = \frac{1}{5}$. Por lo tanto,
 sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 
 \begin{align}
-  R_c = \frac{5}{3}
+  \Pi = \frac{5}{3}
 \end{align}
 
 \chapter{Coeficientes de los parámetros de la hipérbola para el ajuste de la cola}
