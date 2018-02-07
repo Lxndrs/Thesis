@@ -49,12 +49,23 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 *** Regiones HII 
 
 ** TODO Write !!!!!!
-** TODO Truncar en dos líneas  ecuaciones largas y otras correcciones menores
+** DONE Truncar en dos líneas ecuaciones largas y otras correcciones menores
 - [X] Sección 3.2.2 Reducir tamaño de font
-- [ ] Sección 4.2 Agregar o corregir ecuación
+- [X] Sección 4.2 Agregar o corregir ecuación
 - [X] Apéndice A cortar ecuación muy larga
 - [X] Corregir referencia en apéndice A.1
 - [X] Cortar ecuaciones muy largas en apéndice B.3
+** TODO Completar secciones
+   - [ ] Discos Protoplanetarios
+   - [ ] Choques
+   - [ ] Vientos Estelares
+   - [ ] Objetos LL
+   - [ ] Regiones HII
+     - [ ] Segunda Expansión
+     - [ ] Flujos de Champaña
+     - [ ] Emisión
+   - [ ] Cuádricas
+   - [ ] Conclusiones
 * Journal
 -[2017-11-30 Thu]
 - Working in Appendix C

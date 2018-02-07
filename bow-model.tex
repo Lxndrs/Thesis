@@ -379,7 +379,38 @@ Asimismo la planitud y la alatud proyectada pueden calcularse a partir de las ec
   \Lambda' &= \left(2\Pi' - \Q'\right)^{1/2}
 \end{align}
 
-%Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
+En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitud y la alatud aparente con la inclinación para distintos valores del parámetro $\Q$ (color) y de la planitud $\Pi$ (grosor de la curva). Se puede observar que para las superficies elipsoidales $(\Q > 0)$, la planitud y alatud aparente tienden a $\Pi' = \Lambda' = 1$ conforme $i \to 90^\circ$. Esto se debe a que en este límite observamos la superficie de frente y vemos su sección transversal circular. En el caso del paraboloide la convergencia se da a $\Lambda' = \Pi' = 2$. Por otro lado, la planitud y alatud aparente divergen cuando $|i| \to i_{\mathrm{crit}} = 90^\circ - |\theta_\Q|$ debido a que cuando $|i| > i_{\mathrm{crit}}$ ya no existe una línea tangente a la línea de visión y por tanto no se observaría abrillantamiento al limbo. También cabe destacar dos casos particulares: El esferoide confocal con planitud unitaria $(\Pi = 1)$ y el paraboloide confocal $(\Pi = \Lambda = 2)$. En estos dos casos su forma aparente no se ve afectada por la inclinación.
+
+\begin{figure*}
+  \begin{tabular}{lr}
+    \includegraphics[width=0.5\linewidth]{./Figures/projected-Rc-vs-i} &
+    \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-i}
+  \end{tabular}
+  \caption{Efectos de la proyección sobre las cuádricas de revolución con la inclinación $|i|$. Los colores de las curvas representan variaciones en el parámetro $\Q$ de las cuádricas. El grosor de la curva indica el valor de la planitud intrínseca $\Pi$. Los rectángulos sombreados muestran cuartiles de $|\sin i|$ que se encuentran equitativamente poblados para una distribución isotrópica de orientaciones. (a) Planitud aparente $\Pi'$. (b) Alatud aparente $\Lambda'$}
+  \label{fig:proj-L-P-vs-i}
+\end{figure*}
+
+\begin{figure}
+  \begin{tabular}{lr}
+    \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc} &
+    \includegraphics[width=0.5\linewidth]{./Figures/projected-R0-vs-i}
+  \end{tabular}
+  \caption{Enter Caption}
+  \label{fig:Pip-Lambdap-diagnostic}
+\end{figure}
+
+En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnóstico $\Pi'-\Lambda'$. Cada curva representa a una cuádrica de revolución siguiendo la misma convención que en la figura \ref{fig:proj-L-P-vs-i} para los valores de $\Q$ y $\Pi$ y variando la inclinación a lo largo de cada una de éstas, donde además el punto donde $i=0$ (cuádrica vista de canto) se marca con un punto. Las regiones sombreadas representan a cada clase de cuádrica, la zona superior más clara a los hiperboloides, la zona gris delgada a los elipsoides prolatos, la interfaz entre estas dos últimas a los hiperboloides y la zona gris inferior a los elipsoides oblatos. Se puede observar que en ningún caso las curvas cruzan de una región a otra. También se observa de nuevo que las curvas elipsoidales convergen a $(\Pi', \Lambda') = (1, 1)$, las curvas hiperbólicas a $(\Pi', \Lambda') = (+\infty, +\infty)$ y las parabólicas a $(\Pi', \Lambda') = (2, 2)$. Asimismo en la figura \ref{fig:Pip-Lambdap-diagnostic} observamos el comportamiento de la separación aparente estrella--ápex con inclinación. En este caso se observa que para inclinaciones pequeñas $(|i| < 30^\circ)$, esta separación depende muy poco del parámetro $\Q$, siendo más importante la planitud $\Pi$. Por otro lado, para inclinaciones mayores, la separación aparente se incrementa cada vez más rápido para cuádricas abiertas $(\Q \leq 0)$, mientras que para los elipsoides la separación es cada vez más lenta e incluso puede decrecer con inclinación.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/projected-R90-Rc-snapshots}
+  \caption{Efectos de la inclinación de la forma aparente de arcos cuádricos cuya planitud y alatud están uniformemente distribuídos en los rangos $\Pi = [0.5, 4.5]$, $\Lambda = [0.5, 4.5]$. En cada pánel se muestra la forma aparente incrementando la inclinación en intervalos iguales de $|\sin i|$. El collor representa el parámetro $\Q$, desde azul (menor valor de $\Q$, que representa formas más abiertas), pasando por naranja, hasta amarillo (elipsoides oblatos). El tamaño representa la distancia aparente estrella--ápex $R'_0/R_0$.}
+  \label{fig:snapshots}
+\end{figure}
+
+
+De manera complementaria en la figura \ref{fig:snapshots} mostramos una visión complementaria del análisis de la forma aparente con la inclinación. En esta figura se toman ``capturas'' de $(\Pi', \Lambda')$ en intervalos regulares de $\sin i$. Los valores de la planitud y alatud intrínseca están uniformemente distribuídos en los intervalos $\Pi = [0.5, 4.5]$ y $\Lambda = [0.5, 4.5]$, lo que nos da un cuadrado uniformemente distribuído de valores cuando $|i| = 0$, y que se va distorsionando conforme $|i|$ se incrementa. La escala de color representa el parámetro $\Q$, incrementándose dicho parámetro desde el azúl hasta el amarillo, pasando por el naranja, mientras que el tamaño del punto es proporcional a $R'_0/R_0$. Se puede observar que todos los puntos tienden a la línea $\Pi' = \Lambda')$ a altas inclinaciones, y que los puntos azules quedan fuera del rango de la gráfica. Esto es porque a altas inclinaciones, para las formas muy abiertas ya no existe la línea tangente a la línea de visión. De hecho, la región verde sombreada es la región para la cual aun existe la línea de visión para cada inclinación y se hace cada vez más pequeña conforme la inclinación aumenta. Esta figura es meramente cualitativa, puesto que no hay razón para esperar una distribución uniforme de planitud y alatud (en el siguiente capítulo encontramos que en el modelo de capa delgada no encontramos formas cuyo parametro $\Q$ sea mayor a 1, por ejemplo).
+
+% Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
 %\begin{align}
 %  \frac{q'}{q} &= 1 \pm \tilde{R}_c\cot^2\theta_c\left(f(i;\theta_c) - 1\right) \\
 %  \tilde{R}'_c &= \frac{\tilde{R_c}}{\cos^2if(i;\theta_c)\frac{q'}{q}} \label{eq:Rpc-quad}\\
