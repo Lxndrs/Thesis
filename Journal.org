@@ -60,13 +60,25 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
    - [ ] Choques
    - [ ] Vientos Estelares
    - [ ] Objetos LL
-   - [ ] Regiones HII
-     - [ ] Segunda Expansión
+   - [-] Regiones HII
+     - [X] Segunda Expansión
      - [ ] Flujos de Champaña
      - [ ] Emisión
-   - [ ] Cuádricas
+   - [X] Cuádricas
    - [ ] Conclusiones
 * Journal
+-[2018-02-07 Wed]
+- Finished First and second expansion subsection
+- Insert figure
+-[2018-02-06 Thu]
+- Make huge changes in thesis structure
+  - Thin shell model is now a separated chapter
+  - Chapter ``Marco Teórico'' dissapeared, split content into chapter 1
+    now called ``Objetos y Fenómenos Astrofísicos Relevantes'' and chapter 2, now called ``Conceptos fundamentales''
+- Work in HII regions section. Almost finished.
+- Incorporate paper terminology into thesis. In progress.
+- Finished Quadrics of revolution section.
+- Make new figures and incorporate others from paper.
 -[2017-11-30 Thu]
 - Working in Appendix C
   - Write something about

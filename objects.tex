@@ -187,7 +187,7 @@ Donde $R_s$ es el \textit{radio de Strömgren}. Es importante notar que el coefi
 Como la densidad de la nube original no cambia apreciablemente cuando el gas es ionizado debido a que el tiempo en que esto pasa es muy corto (como mostraremos en la siguiente sección), entonces $n_e = n^0_H$, donde $n^0_H$ es la densidad de $HI$ en la región contigua a la nube, y a su vez $n^0_H = n_{H_2}$, donde $n_{H_2}$ es la densidad de gas molecular. Con esto podemos calcular el radio de Strömgren como sigue:
 
 \begin{align}
-  R_s = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^0_H)^2}\right]^{1/3} = 0.4\mathrm{~pc}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3}
+  R_s = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^0_H)^2}\right]^{1/3} = 0.4\mathrm{~pc}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3} \label{eq:stromgren}
 \end{align}
 
 En la expresión numérica, se adopta un valor de $\Nio_*$ de $10^{49}\mathrm{s^{-1}}$, una temperatura de $10^4\mathrm{~K}$ que es la temperatura característica de una región $HII$ y con la que el coeficiente de recombinación $\alpha'_{rec}$ adopta un valor de $2.6\times 10^{-13}\mathrm{~cm^3~s^{-1}}$.
@@ -244,7 +244,7 @@ Resolvemos por el método de separación de variables y aplicamos la condición 
 \begin{align}
   \lambda(\tau) = \left[1 - \exp\left(-\frac{2}{3}\tau\right)\right]^{1/3} \label{eq:lambda-tau}
 \end{align}
-
+ 
 De la ecuación (\ref{eq:lambda-tau}) vemos que cuando han pasado una y media veces del tiempo de recombinación,  la región $HII$ se ha expandido alrededor del $86\mathrm{\%}$ del radio de Strömgren, y aunque la expansión se va descelerando constantemente, ya es de una extensión considerable.
 
 La velocidad del sonido en el gas ionizado con temperatura de $\sim 10^4\mathrm{K}$ es de $a_{II}\sim 10\mathrm{km~s^{-1}}$, si comparamos esta velocidad con la media de la velocidad del frente de ionización, por ejemplo, en el intervalo $0< \tau < \frac{3}{2}$, en el que ya comprobamos que el frente de ionización casi alcanza el radio de Strömgren, encontramos lo siguiente:
@@ -258,12 +258,49 @@ Con los valores típicos adoptados en esta sección obtenemos que:
 \begin{align}
   \bar{v}_{IF}\simeq 135\mathrm{~km~s^{-1}}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3}
 \end{align}
-Dado que la velocidad media del IF es mucho mayor que la del sonido del gas ionizado, entonces es razonable asumir que la densidad del gas ionizado es igual a la del gas neutro dado que la densidad del gas no tiene tiempo de reajustarse después de ser ionizado. Sin embargo, la presión sí se vuelve mucho mayor en el gas ionizado que en el gas neutro, y este gas empieza a generar una segunda expansión más lenta que la primera, que provoca que la densidad del gas ionizado disminuya, hasta que llega a un equilibrio de presión con el gas neutro circundante.
-\subsection{Flujos de Champaña}
+Dado que la velocidad media del IF es mucho mayor que la del sonido del gas ionizado, entonces es razonable asumir que la densidad del gas ionizado es igual a la del gas neutro dado que la densidad del gas no tiene tiempo de reajustarse después de ser ionizado. Sin embargo, la presión sí se vuelve mucho mayor en el gas ionizado que en el gas de la nubecircundante, tanto que incluso el frente de ionización es precedido por una onda de choque, dejando una delgada capa de gas neutro entre el frente de ionización y la onda de choque (ver figura \ref{fig:second-expansion}), y este gas empieza a generar una segunda expansión más lenta que la primera, que provoca que la densidad del gas ionizado disminuya, hasta que llega a un equilibrio de presión con el gas neutro circundante.
 
+\begin{figure}
+  \includegraphics[width=0.6\linewidth]{./Figures/second-expansion}
+  \caption{Representación esquemática de la segunda expansión de la región HII: Dado que la diferencia de presiones entre el gas neutro e ionizado es muy grande, se forma una onda de choque que precede al frente de ionización, dejando una capa de gas neutro entre ambas (región sombreada). Por esta misma diferencia de presiones, esta capa se expande hasta que se logre el equilibrio de presión.}
+  \label{fig:second-expansion}
+\end{figure}
+
+
+Para encontrar el comportamiento de la segunda expansión, nos basamos en que el enfriamiento pos choque es muy eficiente y por tanto el choque puede ser considerado isotérmico. En este caso, el equilibrio de presiones entre la región HII y la capa de gas neutro viene dada por:
+
+\begin{align}
+  n^1_H a^2_1 = n^0_H\left(\frac{dR}{dt}\right)^2 \label{eq:sec-exp-P-equililibrium}
+\end{align}
+Donde $n^1_H$ es la densidad numérica del gas ionizado, $a_1$ la velocidad del sonido del gas ionizado y $dR/dt$ es la velocidad a la que se expande la onda de choque.
+
+Ahora, casi todos los fotones ionizantes en esta etapa son consumidos en la región HII, de esta forma modificamos la ecuación (\ref{eq:stromgren}) como sigue:
+
+\begin{align}
+    R = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^1_H)^2}\right]^{1/3} \label{eq:second-exp}
+\end{align}
+
+Combinando las ecuaciones (\ref{eq:sec-exp-P-equililibrium}, \ref{eq:second-exp}) encontramos la ecuación de movimiento de la segunda expansión:
+
+\begin{align}
+  \left(\frac{dR}{dt}\right)^2 = \frac{a^2_1}{n^0_H}\left[\frac{3\Nio_*}{4\pi\alpha'_{rec}R^3}\right]^{1/2} = a^2_1\left(\frac{R}{R_s}\right)^{-3/2} \label{eq:second-exp-motion}
+\end{align}
+
+De nuevo hacemos el cambio de variable $\lambda \equiv R/R_s$, pero en esta ocasión definiremos una nueva variable detiempo adimensional $\tau' \equiv a_1 t/R_s$, para que la ecuación (\ref{eq:second-exp-motion}) quede como sigue:
+
+\begin{align}
+  \frac{d\lambda}{d\tau'} = \lambda^{-3/4}
+\end{align}
+
+Integrando y tomando como condición inicial $\lambda(0) = 1$, puesto que la primera expansión es bastante rápida, encontramos que:
+
+\begin{align}
+  \lambda = \left(1 + \frac{7\tau'}{4}\right)^{4/7}
+\end{align}
+
+
+\subsection{Flujos de Champaña}
 La segunda expansión lleva a que la región $HII$ se expanda dos órdenes de magnitud por encima del radio de Strömgen, pero el tiempo que toma alcanzar dichas dimensiones es tan largo que la estrella central muere antes de que la región $HII$ alcanze el equilibrio de presiones. Sin embargo, es más probable que el frente de ionización rebase el borde de la nube molecular donde se formó, y en este caso el gas ionizado altamente presurizado escapa directamente hacia el medio interestelar que lo rodea, creando el \textit{Flujo de champaña}.
 
 \subsection{Características de la emisión}
-
-
 
