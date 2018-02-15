@@ -3,6 +3,70 @@
 % \addappheadtotoc
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+\chapter{Choques y Frentes de Ionización}
+
+Algunas veces en un medio gaseoso pueden existir discontinuidades importantes en alguna de sus propiedades físicas, cuando estas propiedades son la presión, densidad y temperatura del gas nos estamos refiriendo a un choque, que es producido cuando el gas sufre una perturbación a una velocidad superior a la del sonido, mientras que si la discontinuidad ocurre en el grado de ionización del gas, entonces esta discontinuidad es conocida como frente de ionización. En esta sección analizaremos las condiciones de salto tanto de los choques como de los frentes de ionización para conocer las propiedades del gas en las dos interfaces de la discontinuidad.
+\section{Choques}
+
+Consideremos un fluído que tiene densidad $\rho_1$, presión $P_1$ y se mueve en la dirección de eje $+x$ con velocidad $u_1$. En la posición $x = s(t)$ existe un choque que se mueve a velocidad $u_0\equiv \frac{ds}{dt}$. Delante del choque el fluído tiene densidad $\rho_2$, presión $P_2$ y se mueve a velocidad $u_2$.
+
+Antes y después del choque escogemos dos puntos arbitrarios, $x_1$ y $x_2$, respectivamente que forman una superficie cada uno en el plano $yz$ que están en co-movimiento con la discontinuidad (ver figura \ref{fig:shock}). 
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{./Figures/shock}
+  \caption{Representación esquemática de un fluido con una discontinuidad situada en $x=s(t)$. Detrás y delante del choque en las posiciones $x=x_1$ y $x=x_2$, respectivamente, situamos dos superficies paralelas al choque y que están en co-movimiento con éste.}
+  \label{fig:shock}
+\end{figure}
+
+La masa encerrada dentro del volumen que forman las dos superficies es constante en el tiempo, esto es, la cantidad que fluido que entra por la superficie 1 (atrás del choque), debe ser igual a la que sale por la superficie 2:
+
+\begin{align}
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho~dx = 0
+\end{align}
+
+Por otro lado, dentro del volumen entre las dos superficies, la presión del fluído en la superficie 1 contribuye a incrementar el momento, mientras que la presión en la superficie 2 tiene el efecto contrario, entonces:
+
+\begin{align}
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho u~dx = P_1 - P_2
+\end{align}
+
+Por último la potencia mecánica por unidad de área $P_1u_1 - P_2u_2$ incrementa la energía interna del fluído entre las superficies:
+
+\begin{align}
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho\left(\frac{u^2}{2} + \epsilon\right)~dx = P_1u_1 - P_2u_2
+\end{align}
+
+Donde $\epsilon$ es la energía interna por unidad de masa. Nótese que esta ecuación no es válida si el fluído puede perder energía por radiación (este caso se discutirá aparte más adelante).
+
+Las tres ecuaciones anteriores son de la siguiente forma:
+
+\begin{align}
+  \frac{dJ}{dt} \equiv \frac{d}{dt}\int^{x_2}_{x_1} \Psi(x, t)~dx
+\end{align}
+
+Donde $\Psi(x, t)$ presenta una discontinuidad espacial en $x=s(t)$. Como la integral implica solo la coordenada espacial y la derivada es respecto al tiempo, entonces podemos intercambiar el orden de éstas:
+
+\begin{align}
+    \frac{dJ}{dt} = \int^{x_2}_{x_1} \frac{d\Psi}{dt}~dx = \int^{x_2}_{x_1} \left(\frac{\partial\Psi}{\partial t} + \frac{\partial\psi}{\partial x}\frac{dx}{dt}\right)~dx
+\end{align}
+
+Debido a la discontinuidad separaramos el segundo término de la integral:
+
+\begin{align}
+    \frac{dJ}{dt} = \int^{x_2}_{x_1} \frac{\partial\Psi}{\partial t}~dx + \int^{s}_{x_1}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx +  \int^{x_2}_{s}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx=\int^{x_2}_{x_1}\frac{\partial\Psi}{\partial t}~dx\left(\Psi_1u_0-\Psi_1u_1+\Psi_2u_2-\Psi_2u_0\right)
+\end{align}
+
+Como $x_1$ y $x_2$ son puntos arbitrarios, podemos tomar el límite cuando $x_1, x_2 \to s$. Este límite es de interés ya que los choques en muchos casos son muy delgados en comparación con el tamaño característico del sistema. De esta manera el primer término del lado derecho de la ecuación () desaparece porque la derivada parcial respecto al tiempo de $\Psi$ es finita para toda $x$ (incluída la discontinuidad). Entonces:
+
+\begin{align}
+  \lim_{x_1, x_2 \to s}\frac{dJ}{dt} = \Psi_2v_2 - \Psi_1v_1
+\end{align}
+Donde $v_2\equiv u_2 - u_0$ y $v_1 \equiv u_1-u_0$ son las velocidades del fluído respecto a la velocidad del choque.
+
+\section{Frentes de Ionización}
+%Un frente de ionización es la interfaz entre un medio gaseoso neutro y uno ionizado. Ocurren cerca de fuentes de rediación ionizante, tales como estrellas masivas, tipo B temprana o tipo O. el frente de ionización puede tratarse como una discontinuidad en el medio gaseoso.
+
+
 \chapter{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
 
