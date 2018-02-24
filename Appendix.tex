@@ -21,19 +21,19 @@ Antes y después del choque escogemos dos puntos arbitrarios, $x_1$ y $x_2$, res
 La masa encerrada dentro del volumen que forman las dos superficies es constante en el tiempo, esto es, la cantidad que fluido que entra por la superficie 1 (atrás del choque), debe ser igual a la que sale por la superficie 2:
 
 \begin{align}
-  \frac{d}{dt}\int^{x_2}_{x_1} \rho~dx = 0
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho~dx = 0 \label{eq:rho-dx}
 \end{align}
 
 Por otro lado, dentro del volumen entre las dos superficies, la presión del fluído en la superficie 1 contribuye a incrementar el momento, mientras que la presión en la superficie 2 tiene el efecto contrario, entonces:
 
 \begin{align}
-  \frac{d}{dt}\int^{x_2}_{x_1} \rho u~dx = P_1 - P_2
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho u~dx = P_1 - P_2 \label{eq:u-rho-dx}
 \end{align}
 
-Por último la potencia mecánica por unidad de área $P_1u_1 - P_2u_2$ incrementa la energía interna del fluído entre las superficies:
+Por último, por completez la potencia mecánica por unidad de área $P_1u_1 - P_2u_2$ incrementa la energía interna del fluído entre las superficies:
 
 \begin{align}
-  \frac{d}{dt}\int^{x_2}_{x_1} \rho\left(\frac{u^2}{2} + \epsilon\right)~dx = P_1u_1 - P_2u_2
+  \frac{d}{dt}\int^{x_2}_{x_1} \rho\left(\frac{u^2}{2} + \epsilon\right)~dx = P_1u_1 - P_2u_2 \label{eq:rho-u2-epsilon-dx}
 \end{align}
 
 Donde $\epsilon$ es la energía interna por unidad de masa. Nótese que esta ecuación no es válida si el fluído puede perder energía por radiación (este caso se discutirá aparte más adelante).
@@ -53,25 +53,105 @@ Donde $\Psi(x, t)$ presenta una discontinuidad espacial en $x=s(t)$. Como la int
 Debido a la discontinuidad separaramos el segundo término de la integral:
 
 \begin{align}
-    \frac{dJ}{dt} = \int^{x_2}_{x_1} \frac{\partial\Psi}{\partial t}~dx + \int^{s}_{x_1}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx +  \int^{x_2}_{s}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx=\int^{x_2}_{x_1}\frac{\partial\Psi}{\partial t}~dx\left(\Psi_1u_0-\Psi_1u_1+\Psi_2u_2-\Psi_2u_0\right)
+  \begin{split}
+    \frac{dJ}{dt} = \int^{x_2}_{x_1} \frac{\partial\Psi}{\partial t}~dx + \int^{s}_{x_1}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx +  \int^{x_2}_{s}\frac{\partial\psi}{\partial x}\frac{dx}{dt}~dx \\= \int^{x_2}_{x_1}\frac{\partial\Psi}{\partial t}~dx\left(\Psi_1u_0-\Psi_1u_1+\Psi_2u_2-\Psi_2u_0\right) \label{eq:dj-dt}
+    \end{split}
 \end{align}
 
-Como $x_1$ y $x_2$ son puntos arbitrarios, podemos tomar el límite cuando $x_1, x_2 \to s$. Este límite es de interés ya que los choques en muchos casos son muy delgados en comparación con el tamaño característico del sistema. De esta manera el primer término del lado derecho de la ecuación () desaparece porque la derivada parcial respecto al tiempo de $\Psi$ es finita para toda $x$ (incluída la discontinuidad). Entonces:
+Como $x_1$ y $x_2$ son puntos arbitrarios, podemos tomar el límite cuando $x_1, x_2 \to s$. Este límite es de interés ya que los choques en muchos casos son muy delgados en comparación con el tamaño característico del sistema. De esta manera el primer término del lado derecho de la ecuación (\ref{eq:dj-dt}) desaparece porque la derivada parcial respecto al tiempo de $\Psi$ es finita para toda $x$ (incluída la discontinuidad). Entonces:
 
 \begin{align}
-  \lim_{x_1, x_2 \to s}\frac{dJ}{dt} = \Psi_2v_2 - \Psi_1v_1
+  \lim_{x_1, x_2 \to s}\frac{dJ}{dt} = \Psi_2v_2 - \Psi_1v_1 \label{eq:dj-dt-lim}
 \end{align}
 Donde $v_2\equiv u_2 - u_0$ y $v_1 \equiv u_1-u_0$ son las velocidades del fluído respecto a la velocidad del choque.
 
-\section{Frentes de Ionización}
-%Un frente de ionización es la interfaz entre un medio gaseoso neutro y uno ionizado. Ocurren cerca de fuentes de rediación ionizante, tales como estrellas masivas, tipo B temprana o tipo O. el frente de ionización puede tratarse como una discontinuidad en el medio gaseoso.
+Utilizando la ecuación (\ref{eq:dj-dt-lim}) en (\ref{eq:rho-dx}) obtenemos la primera condición de salto:
 
+\begin{align}
+  \rho_1v_1 = \rho_2v_2 \label{eq:jump-1}
+\end{align}
+
+Aplicando a su vez en la ecuación (\ref{eq:u-rho-dx}) con ayuda de la ecuación (\ref{eq:jump-1}) obtenemos la siguiente condición de salto:
+
+\begin{align}
+  \rho_1v^2_1 = \rho_2v^2_2 \label{eq:jump-2}
+\end{align}
+
+Por último, la última condición de salto, solo válida para sistemas adiabáticos es, utilizando la ecuación (\ref{eq:rho-u2-epsilon-dx}) es:
+
+\begin{align}
+  \frac{1}{2}v^2_1 + \epsilon_1 + \frac{P_1}{\rho_1} = \frac{1}{2}v^2_2 + \epsilon_2 + \frac{P_2}{\rho_2} \label{eq:jump-3}
+\end{align}
+
+Para el caso en que el fluído pierde energía por radiación, la ecuación (\ref{eq:u-rho-dx}) sufre la siguiente modificación:
+
+\begin{align}
+     \frac{d}{dt}\int^{x_3}_{x_1} \rho\left(\frac{u^2}{2} + \epsilon\right)~dx = P_1u_1 - P_3u_3 -2F_{rad}\label{eq:rho-u2-epsilon-dx-rad}
+\end{align}
+
+Donde $F_{rad}$ es el flujo de radiado por el fluído y $x_3$ es un punto localizado más allá de la región de relajamiento del choque (la zona donde el fluído está radiando, como referencia podemos tomar la figura 3 de \citet{Shull:1979}).
+
+De esta forma, la nueva condición de salto en caso de un choque radiativo es:
+
+\begin{align}
+  \frac{1}{2}v^2_3 + \epsilon_3 + \frac{P_3}{\rho_3} = \frac{1}{2}v^2_1 + \epsilon_1 + \frac{P_1}{\rho_1} \frac{2F_{rad}}{\rho_1v_1}\label{eq:jump-rad}
+\end{align}
+
+
+\section{Frentes de Ionización}
+Para esta sección, utilizaremos el subíndice ``0'' para las propiedades del gas en la interfaz neutra, mientras que para la interfaz ionizada utilizaremos el subídice ``i''. Bajo esta nomenclatura, combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:jump-2}) para las condiciones de salto en el Frente de ionización y reescribiendo la presión en términos de la velocidad del sonido:
+
+\begin{align}
+  P_x = c^2_x\rho_x
+\end{align}
+
+Donde el subíndice ``x'' puede hacer referencia tanto al medio neutro o ionizado, encontramos el salto en densidad del frente de ionización:
+
+\begin{align}
+  \frac{\rho_i}{\rho_0} = \frac{1}{2c^2_i}\left[v^2_0 + c^2_0 \pm \left(\left(v^2_0 + c^2_0\right)^2 -4v^2_0c^2_i\right)^{1/2}\right]
+\end{align}
+O bien, en términos del número de Mach del gas neutro $\mathcal{M}\equiv v_0/c_0$:
+
+\begin{align}
+    \frac{\rho_i}{\rho_0} = \frac{1}{2}\frac{c^2_0}{c^2_i}\left[\mathcal{M}^2 + 1 \pm \left(\left(\mathcal{M}^2 + 1\right)^2 -4\mathcal{M}^2\frac{c^2_i}{c^2_0}\right)^{1/2}\right] \label{eq:IF-jump-density}
+\end{align}
+
+En la ecuación (\ref{eq:IF-jump-density}) se requiere que el argumento de la raíz cuadrada sea positivo. Para que esto suceda se debe cumplir la siguiente condición:
+
+\begin{align}
+  \mathcal{M}^2 - 2\mathcal{M}\frac{c_i}{c_0} + 1 \geq 0 \label{eq:discriminant-mach}
+\end{align}
+
+Los casos críticos (donde el discriminante (\ref{eq:discriminant-mach}) es igual a cero) son:
+
+\begin{align}
+  \mathcal{M}_R = \frac{c_i}{c_0}\left[1 + \left(1 - \frac{c^2_0}{c^2_i}\right)^{1/2}\right] \\
+  \mathcal{M}_D = \frac{c_i}{c_0}\left[1 - \left(1 - \frac{c^2_0}{c^2_i}\right)^{1/2}\right]
+\end{align}
+
+Como $c^2_i \gg c^2_0$, dado que $c_i \sim 10\mathrm{~kms^{-1}}$ y $c_0 \sim 1-3\mathrm{~kms^{-1}}$ entonces podemos hacer las siguientes aproximaciones:
+
+\begin{align}
+  \mathcal{M}_R \simeq 2\frac{c_i}{c_0} \\
+  \mathcal{M}_D \simeq \frac{1}{2}\frac{c_0}{c_i}
+\end{align}
+
+Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina tipo R (rarified), y en caso de que $\mathcal{M} \leq \mathcal{M}_D$ se denominan frentes tipo D (dense). Cuando $\mathcal{M} = \mathcal{M}_R$ o $\mathcal{M} = \mathcal{M}_D$ los frentes se denominan R crítico y D crítico, respectivamente. En los frentes tipo R el material neutro viaja a velocidad supersónica y el salto de densidad es $\rho_i/\rho_0 < 0$ (la onda de material que pasa a través del frente de ionización está rarificada respecto al material ionizado, de ahí el nombre). En los frentes tipo D ocurre lo contrario: la onda de material viaja a velocidad subsónica y es densa respecto al material ionizado. En el caso de que $\mathcal{M}_D < \mathcal{M} < \mathcal{M_R}$ la onda de material que viaja hacia el frente de ionización se amortigua rápidamente. En la figura \ref{fig:IF-jump}a se muestran las soluciones para el salto de densidad para frentes de ionización ``fuertes'' (signo positivo en la ecuación (\ref{eq:IF-jump-density})) y ``débiles'' (signo negativo en (\ref{eq:IF-jump-density})).
+
+\begin{figure}
+  \begin{tabular}{lr}
+    \includegraphics[width=0.5\linewidth]{./Figures/IF-types} &
+    \includegraphics[width=0.5\linewidth]{./Figures/IF-vel-jump}
+  \end{tabular}
+  \caption{Soluciones para el salto en (a) densidad y (b) velocidad de un frente de ionización. La línea punteada representa la solución a la ecuación (\ref{eq:IF-jump-density})cuando se utiliza el signo negativo, mientras que la línea contínua a la solución con signo positivo. En la región sombreada en verde se muestran los frentes tipo D y en la región azul los frentes tipo R. Los frentes tipo D crítico y R crítico ocurren donde se intersectan las soluciones con las líneas punteadas verticales.}
+  \label{fig:IF-jump}
+\end{figure}
+Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:IF-jump-density}). El resultado se muestra en la figura \ref{fig:IF-jump}b. En el caso de los frentes R crítico y D crítico, la velocidad del gas en el medio ionizado es igual a la velocidad del sonido.
 
 \chapter{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
 
-Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito.
-Sus derivadas se denotan como $\vec{\sigma}'(t)$ y $\vec{\sigma}''(t)$. Su longitud de arco está dada por:
+Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito. Sus derivadas se denotan como $\vec{\sigma}'(t)$ y $\vec{\sigma}''(t)$. Su longitud de arco está dada por:
 
 \begin{align}
   s(t) = \int^t_0 \norm{\vec{\sigma}'(t')}~dt' \label{eq:arc-length}
@@ -83,11 +163,9 @@ Reparametrizamos la trayectoria $\vec{\sigma}(t)$ con la longitud de arco y dife
   \frac{d\vec{\sigma}}{ds} = \frac{\vec{\sigma}'(t)}{\norm{\vec{\sigma}'(t)}} \equiv \vec{T}(s)
 \end{align}
 
-Esta última expresión se logró diferenciando la ecuación (\ref{eq:arc-length}) y aplicando la regla de la cadena al diferenciar
-$\frac{d\vec{\sigma}}{ds}$. $\vec{T}(s)$ es el vector tangente a la trayectoria $\vec{\sigma}(s)$.
+Esta última expresión se logró diferenciando la ecuación (\ref{eq:arc-length}) y aplicando la regla de la cadena al diferenciar $\frac{d\vec{\sigma}}{ds}$. $\vec{T}(s)$ es el vector tangente a la trayectoria $\vec{\sigma}(s)$.
 
-La curvatura $\kappa$ se define como la magnitud de la derivada del vector tangente respecto a la longitud de arco, o bien, como la
-segunda derivada de la trayectoria $\vec{\sigma}(s)$:
+La curvatura $\kappa$ se define como la magnitud de la derivada del vector tangente respecto a la longitud de arco, o bien, como la segunda derivada de la trayectoria $\vec{\sigma}(s)$:
 
 \begin{align}
   \kappa \equiv \norm{\vec{T}'(s)} = \norm{\vec{\sigma}''(s)} 
