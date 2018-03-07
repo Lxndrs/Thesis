@@ -1,7 +1,7 @@
 \chapter{Modelo de Capa Delgada}
 \label{chap:hipersonica}
 
-Un ejemplo más realista para la forma de los choques de proa proviene de modelos hidrodinámicos en estado estacionario de la interacción de flujos hipersónicos en el límite de capa delgada. Ejemplos clásicos son la interacción entre dos vientos de \citet{Canto:1996} (\CRW {}de aquí en adelante)y la interacción entre un viento con una corriente plano--paralela \citep{Wilkin:1996}. 
+Un ejemplo más realista para la forma de los choques de proa proviene de modelos hidrodinámicos en estado estacionario de la interacción de flujos hipersónicos en el límite de capa delgada. Ejemplos clásicos son la interacción entre dos vientos de \citet{Canto:1996} (\CRW{} de aquí en adelante)y la interacción entre un viento con una corriente plano--paralela \citep{Wilkin:1996}. 
 %El problema de interacción de dos vientos es de gran interés en astrofísica, y ha sido estudiado en múltiples ocasiones, principalmente mediante simulaciones hidrodinámicas. Sin embargo, cuando se toman en cuenta diversos factores, incluídos conservación de masa, momento y momento angular, el problema puede resolverse de manera algebraica.
 \section{Cantidades conservadas en un flujo hipersónico de capa delgada}
 
@@ -47,12 +47,17 @@ Y finalmente combinando con la ecuación (\ref{eq:v-theta}) resolvemos para $R(\
 
 \section{Problema de Interacción de Dos Vientos}
 \label{sec:CRW-2-winds}
-Aplicamos el formalismo ya mencionado para la interacción de dos vientos radiales. El viento con menor momento se localiza en el origen, y su densidad a radio fijo varía con el ángulo polar como una ley de potencias
-(figura \ref{fig:isotropic-aniso}):
+Aplicamos el formalismo ya mencionado para la interacción de dos vientos radiales. El viento con menor momento se localiza en el origen, y su densidad a radio fijo varía con el ángulo polar como una ley de potencias (figura \ref{fig:isotropic-aniso}), o bien, un viento interno con densidad constante e isotrópica:
 \begin{align}
-  n(\theta) = n_0\cos^k\theta \label{eq:anisotropic-density}
+  n_{An}(\theta) &=\left\lbrace
+  \begin{array}{lr}
+    n_0\cos^k\theta \label{eq:anisotropic-density} & \mathrm{si~}\theta\leq 90^\circ \\
+    0 & \mathrm{si~}\theta > 90^\circ
+  \end{array}\right. \label{eq:Ancantoid-density}\\
+  n_C &= n_0 \label{eq:cantoid-density}
 \end{align}
-Donde el índice $k$ indica el grado de anisotropía del viento ``interno''. Cuando $k = 0$ denominamos a los choques resultantes como ``cantoides'', por \citet{Canto:1996}, mientras que en el resto de los casos los denominamos ``Ancantoides''. Un caso particularmente interesantes son el viento para un proplyd \citep{HA:1998}, donde $(k=1/2)$. Por el momento restringimos al viento ``externo'' como isotrópico. El problema se muestra de manera esquemática en la figura \ref{fig:crw-esquema}.
+
+Donde el índice $k$ indica el grado de anisotropía del viento ``interno''. Cuando la densidad del viento está dada por la ecuación (\ref{eq:cantoid-density}) denominamos a los choques resultantes como ``cantoides'', por \citet{Canto:1996}, mientras que si la densidad está dada por (\ref{eq:Ancantoid-density}) entonces los denominamos ``Ancantoides''. Un caso particularmente interesantes son el viento para un proplyd \citep{HA:1998}, donde $(k=1/2)$. Por el momento restringimos al viento ``externo'' como isotrópico. El problema se muestra de manera esquemática en la figura \ref{fig:crw-esquema}.
 
 Utilizando la ecuación (\ref{eq:anisotropic-density}) encontramos que la tasa de pérdida de masa está dada por:
 
@@ -77,8 +82,17 @@ dado son paralelos.
 
 Para el viento exterior consideramos dos casos principales: un viento esférico e isotrópico y un viento plano--paralelo de densidad y velocidad constante.
 
-\subsection{Interacción con un viento esférico isotrópico}
+\subsection{Interacción con un viento esférico isotrópico (choques cantoides y ancantoides)}
 \label{sec:mod-isotropic}
+
+\begin{figure*}
+  \begin{tabular}{lr}
+    \includegraphics[width = 0.55\linewidth]{./Figures/cantoid-ancantoid-shape-bfixed} &
+    \includegraphics[width=0.55\linewidth]{./Figures/ancantoid-shape}
+  \end{tabular}
+  \caption{Forma de choques de proa de vientos en interacción. Las coordenadas están normalizadas con $D$, la distancia entre las fuentes de los vientos. La fuente del viento más débil se localiza en el origen $(0, 0)$, mientras que la otra fuente se localiza en $(1, 0)$, ambas marcadas con puntos negros. En (a) los choques de proa mostrados tienen un valor del parámetro $\beta = 0.01$ fijo, mientras que el índice de anisotropía $k$ varía desde 0 hasta 3, mostrados en escala de colores verdes. El choque cantoide con $\beta=0.01$ se muestra en negro. Nótese que el choque ancantoide con $k=0$ es más cerrado en las alas que el tipo cantoide, debido a que en los choques ancantoides la densidad del viento cae a cero cuando $\theta \geq 90^\circ$, mientras que en los cantoides la densidad del viento es constante para toda $\theta$. En (b) el parámetro de anisotropía $k$ es fijo con valor de $1/2$, mientras que el parámetro $\beta$ varía desde $10^{-3}$ hasta $0.99$. La distancia al ápex $R_0$ se incrementa conforme $\beta$ crece, llegando al valor asintótico de $R_0/D = 0.5$ cuando $\beta\to 1$. Lo mismo sucede con el radio de curvatura y $R_{90}$. Algo notable es que en los choques ancantoides aun en el caso límite $\beta=1$, la forma del choque también es curva, debido a que la densidad del viento interior cae con $\theta$ y fuera del eje de simetría el momento del viento exterior es mayor.}
+\end{figure}
+
 En este caso tomamos como variable independiente al ángulo polar medido a partir de la posición de la fuente del viento externo, denotado por $\theta_1$. De esta forma las tasas de pérdida de masa, momento y momento angular quedan como sigue:
 
 \begin{align}
@@ -121,6 +135,12 @@ El radio en el ápex, la planitud y la alatud en este caso se muestran a continu
 
 
 \subsection{Interacción de un viento esférico isotrópico con un viento plano--paralelo (Choques Wilkinoides)}
+
+\begin{figure*}
+  \includegraphics[width=0.6\linewidth]{./Figures/cantoid-wilkinoid-shape}
+  \caption{Forma de choques cantoides y el choque wilkinoide. Las coordenadas están normalizadas con la distancia al ápex $R_0$. El choque wilkinoide se muestra en negro y los choques cantoides en escala de azul, con $\beta$ variando desde $10^{-3}$ hasta 0.08. Nótese que el choque wilkinoide se comporta como el caso asíntótico de los choques cantoides cuando $\beta\to 0$.}
+\end{figure*}
+
 
 En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo con velocidad $v_a$ y densidad uniforme $\rho_a$ quedan como sigue:
 
