@@ -2,10 +2,10 @@
 \label{sec:Modelo-generico}
 Para este trabajo consideramos en general dos modelos de interacción de vientos:
 \begin{itemize}
-\item Una fuente localizada en el origen que emite un viento esférico que puede ser isotrópico o anisotrópico (figura \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera(figura \ref{fig:crw-esquema}). A los choques de proa resultantes se conocen como ``Cantoides'' y ``Ancantoides'', respectivamente.
-\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura ). Los choques resultantes en este caso se conocen como ``Wilkinoides''.
+\item Una fuente localizada en el origen que emite un viento esférico que puede ser isotrópico o anisotrópico (figura \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}). A los choques de proa resultantes se conocen como ``Cantoides'' y ``Ancantoides'', respectivamente.
+\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides''.
 \end{itemize}
-El sitema en su conjunto tiene simetría cilíndrica.
+Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$.
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
   \caption{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica})}
@@ -20,14 +20,46 @@ El sitema en su conjunto tiene simetría cilíndrica.
     \label{fig:crw-esquema}
 \end{figure}
 
+\section{Parámetros Fundamentales}
+
+El valor mínimo de $R(\theta)$, bajo las condiciones ya mencionadas, ocurre en el ápex $(\theta=0)$, y lo denotamos como $R_0$. Bajo la condición de estado estacionario, la condición de equilibrio de presión ram entre ambos vientos implica que:
+
+\begin{align}
+  \frac{R_0}{D} = \frac{\beta^{1/2}}{1 + \beta^{1/2}}
+\end{align}
+
+Donde $\beta$ es la tasa de momentos entre los vientos en interacción. Si los dos vientos son isotrópicos, donde la tasa de pérdida de masa del viento interior es $\dot{M}_w$ y su velocidad terminal es $v_w$ y para el viento exterior estas cantidades son $\dot{M}_{w1}$ y $v_{w1}$, entonces la tasa de momentos es:
+
+\begin{align}
+  \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}}
+\end{align}
+
+En el caso de que el viento exterior sea una corriente plano--paralela (tipo wilkinoide, siguiendo a \citet{wilkin:1996}), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
+
+En el caso de que el viento interior no sea isotrópico es tratado en el capítulo \ref{chap:hipersonica}.
+
 \section{Planitud y ``Alatud''}
 \label{sec:char-rad}
-Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
-\begin{itemize}
-\item Radio del choque en la dirección del eje del ápex. Denotado como $R_0$
-\item Radio en dirección perpendicular al ápex. Denotado como $R_{90}$
-\item Radio de curvatura en el ápex. Denotado como $R_c$. En el apéndice \ref{app:math-curvature-radius} se muestra el procedimiento para obtener este radio para una curva genérica continua y derivable.
-\end{itemize}
+
+$R_0$ no indica la escala del choque de proa, pero para caracterizar su forma utilizamos parámetros adicionales, mostrados en la figura \ref{fig:char-radii}. El radio perpendicular $R_{90}$ se obtiene evaluando la función $R(\theta)$ en $\theta=\pi/2$, mientras $R_c$ es el radio de curvatura medido en la posición del ápex, que en coordenadas cilíndricas se calcula como sigue (ver apéndice \ref{app:math-curvature-radius}):
+
+\begin{align}
+  R_c = \frac{R^2_0}{R_0 - R_{\theta\theta, 0}} \label{eq:generic-Rc}
+\end{align}
+
+donde $R_{\theta\theta, 0}\equiv \frac{d^2R}{d\theta^2}$.
+
+Una forma simple de obtener el radio de curvatura es haciendo una expansión Taylor para la función $R(\theta)$ como sigue:
+
+\begin{align}
+  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4)
+\end{align}
+y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y determinar $R_0$ y $R_{\theta\theta, 0}$ de los primeros coeficientes del ajuste, y posteriormente $R_c$ a partir de la ecuación \ref{eq:generic-Rc}. 
+%Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
+%\begin{itemize}
+%\item Radio en dirección perpendicular al ápex. Denotado como $R_{90}$
+%\item Radio de curvatura en el ápex. Denotado como $R_c$. En el apéndice \ref{app:math-curvature-radius} se muestra el procedimiento para obtener este radio para una curva genérica continua y derivable.
+%\end{itemize}
 
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/characteristic-radii}
@@ -296,6 +328,7 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
   \label{eq:th90}
 \end{align}
 
+El radio de curvatura aparente se puede
 \subsection{Aplicación a las Cuádricas de Revolución}
 
 El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. Para esto es conveniente utilizar un sistema de referencia donde el origen se ubica en el centro de la sección cónica:
