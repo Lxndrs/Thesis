@@ -34,7 +34,7 @@ Por otro lado, al asumir estado estacionario, necesitamos que la tasa de pérdid
   \dot{M}(\theta) &= \dot{M}_w(\theta) + \dot{M}_{w1}(\theta) \label{eq:M-2}
 \end{align}
 
-Combinando las ecuaciones (\ref{eq:dot-pi}), (\ref{eq:dot-J}), (\ref{eq:dot-M}), (\ref{eq:Pi-2}), (\ref{eq:J-2}) y (\ref{eq:M-2}) encontramos que:
+Combinando las ecuaciones (\ref{eq:dot-pi}, \ref{eq:dot-M}, \ref{eq:dot-J}, \ref{eq:Pi-2}-\ref{eq:M-2}) encontramos que:
 
 \begin{align}
   \dot{M}(\theta)\left[v_r \hat{r} + v_z\hat{z}\right] &= \left(\dot{\Pi}_{wr}(\theta) + \dot{\Pi}_{wr1}(\theta)\right)\hat{r} +
@@ -74,7 +74,7 @@ Resolviendo (\ref{eq:general-inner-dot-M}) para vientos con densidades dadas por
   \begin{array}{lr}
     \left(1 - \cos^k\theta\right) & \mathrm{Ancantoides} \\
     \frac{1}{2} \left(1 - \cos\theta\right) & \mathrm{Cantoides}
-  \end{array}\right.
+  \end{array}\right. \label{eq:inner-dot-M}
 \end{align}
 Donde:
 \begin{align}
@@ -138,7 +138,12 @@ Combinando las ecuaciones (\ref{eq:R-wind}, \ref{eq:Pi-wz} - \ref{eq:J1-iso}, \r
 \begin{align}
   \theta_1\cot\theta_1 -1 = 2\beta I_k(\theta)\cot\theta - \frac{2\beta}{k+2}\left(1 - \cos^{k+2}\theta\right) \label{eq:th1-th} 
 \end{align}
-Donde $\beta = \frac{\dot{M}^0_w v_w}{\dot{M}^0_{w1}v_{w1}}$ es el cociente del momentos entre los vientos. Sin embargo, (\ref{eq:th1-th}) solo aplica en el rango $0 < \theta \leq \pi/2$. Cuando $\theta > \pi/2$ la relación entre $\theta$ y $\theta_1$ es:
+Donde en este caso, la condición de equilibrio de presiones RAM implica que la tasa de momentos $\beta$ ahora está definida como sigue:
+
+\begin{align}
+  \beta\dot{M}^0_{w1}v_{w1} = 2(k+1) \dot{M}^0_{w}v_{w}
+\end{align}
+Sin embargo, (\ref{eq:th1-th}) solo aplica en el rango $0 < \theta \leq \pi/2$. Cuando $\theta > \pi/2$ la relación entre $\theta$ y $\theta_1$ es:
 
 \begin{align}
   \theta_1\cot\theta_1 - 1 = 2\beta\left(I_k(\pi/2)\cot\theta - \frac{1}{k+2}\right)
@@ -149,6 +154,7 @@ Donde:
 I_k(\pi/2) = \frac{\pi}{4}\frac{\Gamma\left(\frac{1+k}{2}\right)}{\Gamma\left(\frac{4+k}{2}\right)} 
 \end{align}
 y $\Gamma$ es la función Gamma usual.
+
 \subsection{Interacción de un viento esférico isotrópico con un viento plano--paralelo (Choques Wilkinoides)}
 \label{sec:wilkinoids}
 \begin{figure*} \includegraphics[width=0.6\linewidth]{./Figures/cantoid-wilkinoid-shape}
@@ -161,7 +167,7 @@ En este caso las tasas de pérdida de masa, de momento y momento angular del vie
   \dot{\Pi}_{wr1} &= 0 \\
   \dot{J}_{w1} &= \int^r_0 r'v_a \sin\theta~d\dot{M}_{w1} = \frac{2}{3}\pi\rho_a v_a^2 R^3 \sin^3\theta 
 \end{align}
-Sustituyendo estas ecuaciones en (\ref{eq:R-wind}) junto con (\ref{eq:inner-dot-M}) - (\ref{eq:inner-dot-J}) para el caso isotrópico $(k=0)$ obtenemos lo siguiente:
+Sustituyendo estas ecuaciones en (\ref{eq:R-wind}) junto con (\ref{eq:inner-dot-M}-\ref{eq:inner-dot-J}) para vientos tipo cantoides $(k=0)$ obtenemos lo siguiente:
 \small
 \begin{align}
   R = \frac{\frac{2}{3}\pi\rho_a v_a R^3 \sin^3\theta}{\frac{\dot{M}^0_w v_w}{4}\left(\theta-\sin\theta\cos\theta\right)\cos\theta
@@ -181,11 +187,6 @@ Resolviendo para $R/R_0$ encontramos que:
 \begin{align}
   R = R_0\left[\csc^2\theta\left(1 - \theta\cot\theta\right)\right]^{1/2} \label{eq:R-Wilkin}
 \end{align}
-El radio en el ápex, la planitud y alatud se calculan de la siguiente manera:
-$R_0$ se obtiene directamente de la ecuación (\ref{eq:Wilkin-stagnation}) como
-\begin{align}
-  R_0 = \left(\frac{\dot{M}^0_w v_w}{4\pi \rho_a v^2_a}\right)^{1/2}
-\end{align}
 
 
 \section{Forma ``verdadera'' de los choques cantoides, ancantoides y wilkinoides}
@@ -198,21 +199,26 @@ Para los tres tipos de formas de choques de proa que utilizamos en este trabajo 
 
 \begin{align}
   \Lambda &= \frac{\left(3\xi_k\right)^{1/2}\left(1+\beta^{1/2}\right)} {\left(1+\frac{1}{5}\xi_k\beta\right)^{1/2}\left(1-\xi_k\beta\right)} \label{eq:CRW-R90}\\
-  \Pi &= \left|1 - 2R_{\theta\theta, 0}\right|^{-1} \label{eq:CRW-Rc}\\
-  \mathrm{Donde:~} R_{\theta\theta, 0} &= \frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1 + 2\beta^{1/2}}{6} \label{eq:2-order}
+  \Pi &= \left|1 - 2\frac{R_{\theta\theta, 0}}{R_0}\right|^{-1} \label{eq:CRW-Rc}\\
+  \mathrm{Donde:~} R_{\theta\theta, 0} &= \frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1 + 2\beta^{1/2}}{3} \label{eq:2-order}
 \end{align}
 Donde $\xi_k \equiv \frac{2}{k+2}$ y $C_{k\beta}$ son parámetros que se introduce por conveniencia en el apéndice \ref{app:derivation-radii}.
 
 Para los choques cantoides la planitud y alatud son equivalentes al resultado del choque ancantoide con $k=0$, pero se muestran a continuación por completez:
 
 \begin{align}
+  \Pi &= \frac{5}{3\left(1-\beta^{1/2}\right)}\\
+  \Lambda &= \frac{\sqrt{3}}{\left(1 + \frac{1}{5}\beta\right)^{1/2}\left(1 - \beta^{1/2}\right)}
 \end{align}
 
-Por último, la planitud y alatud para los choques wilkiniodes es:
+Por último, el radio en el ápex, la planitud y alatud para los choques wilkiniodes es:
+
 \begin{align}
-  \Lambda = \sqrt{3} \label{eq:R90-Wilkin}
-  \Pi = \frac{5}{3} \label{eq:Rc-Wilkin}
+   R_0 &= \left(\frac{\dot{M}^0_w v_w}{4\pi \rho_a v^2_a}\right)^{1/2} \\
+  \Lambda &= \sqrt{3} \label{eq:R90-Wilkin} \\
+  \Pi &= \frac{5}{3} \label{eq:Rc-Wilkin}
 \end{align}
+
 El procedimiento detallado se muestra en el apéndice \ref{sec:Rc-Wilkin}.
 
 \section{Obtención de la Forma Aparente}

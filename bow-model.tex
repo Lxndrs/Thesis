@@ -16,7 +16,7 @@ Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguien
     \includegraphics[width=0.45\linewidth]{./Figures/bowshock-crw-variables} &
     \includegraphics[width=0.45\linewidth]{./Figures/wilkinoid}
   \end{tabular}
-  \caption{Izquierda: Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, siguiendo la ecuación (\ref{eq:anisotropic-density}) del capítulo \ref{chap:hipersonica}, será un choque ``ancantoide''. Derecha: Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''}
+  \caption{Izquierda: Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, siguiendo la ecuación (\ref{eq:Ancantoid-density}) del capítulo \ref{chap:hipersonica}, será un choque ``ancantoide''. Derecha: Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''.}
     \label{fig:crw-esquema}
 \end{figure}
 
@@ -34,7 +34,7 @@ Donde $\beta$ es la tasa de momentos entre los vientos en interacción. Si los d
   \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}}
 \end{align}
 
-En el caso de que el viento exterior sea una corriente plano--paralela (tipo wilkinoide, siguiendo a \citet{wilkin:1996}), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
+En el caso de que el viento exterior sea una corriente plano--paralela (tipo wilkinoide, siguiendo a \citet{Wilkin:1996}), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
 
 En el caso de que el viento interior no sea isotrópico es tratado en el capítulo \ref{chap:hipersonica}.
 
@@ -54,7 +54,7 @@ Una forma simple de obtener el radio de curvatura es haciendo una expansión Tay
 \begin{align}
   R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4)
 \end{align}
-y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y determinar $R_0$ y $R_{\theta\theta, 0}$ de los primeros coeficientes del ajuste, y posteriormente $R_c$ a partir de la ecuación \ref{eq:generic-Rc}. 
+y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y determinar $R_0$ y $R_{\theta\theta, 0}$ de los primeros coeficientes del ajuste, y posteriormente $R_c$ a partir de la ecuación \ref{eq:generic-Rc}. $\Delta\theta$ es el rango del ángulo polar dentro del cual se puede hacer el ajuste. $\Delta\theta = 30^\circ$ es una buena opción.
 %Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
 %\begin{itemize}
 %\item Radio en dirección perpendicular al ápex. Denotado como $R_{90}$
@@ -328,7 +328,12 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
   \label{eq:th90}
 \end{align}
 
-El radio de curvatura aparente se puede
+El radio de curvatura aparente se obtiene a partir de la ecuación (\ref{eq:generic-Rc}) pero en el sistema de referencia primado:
+
+\begin{align}
+  R'_c = \frac{R'^2_0}{R'_0 - R'_{\theta\theta, 0}} \label{eq:Rc-prime}
+\end{align}
+
 \subsection{Aplicación a las Cuádricas de Revolución}
 
 El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. Para esto es conveniente utilizar un sistema de referencia donde el origen se ubica en el centro de la sección cónica:

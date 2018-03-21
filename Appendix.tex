@@ -331,12 +331,12 @@ Siendo que el choque de proa en nuestro modelo genérico es simétrico, entonces
 por tanto podemos hacer la siguiente expansión en serie:
 
 \begin{align}
-  R(\theta) \simeq R_0 + R_{\theta, \theta, 0}\theta^2 + \mathcal{O}(\theta^4)
+  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4)
 \end{align}
 
 De esta forma la planitud del choque en el ápex queda como sigue (ver apéndice \ref{app:math-curvature-radius}):
 \begin{align}
-  \Pi = \left(1 - 2R_{\theta \theta, 0}\right)^{-1}
+  \Pi = \left(1 - 2\frac{R_{\theta \theta, 0}}{R_0}\right)^{-1}
 \end{align}
 
 Para encontrar el coeficiente de segundo orden $R_{\theta \theta, 0}$ hacemos una expansión en serie de las ecuaciones (\ref{eq:th1-th}) y
@@ -366,36 +366,40 @@ término correctivo y resolvemos para $\theta^2_1$:
 \begin{align}
   \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 + \frac{\beta\theta^2}{15}\right)^{-1} \\
   \theta^2_1 &\simeq \beta\theta^2\left[1 + \frac{1}{60}\left(4 - 9k\right)\theta^2\right]\left(1 - \frac{\beta\theta^2}{15}\right) \\
-  \implies \theta^2_1 &\simeq \beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right) \\
-  \mathrm{Donde:\quad}C_{k\beta} &= \frac{1}{2}\left(A_k - \frac{\beta}{15}\right) \\
-  A_k &= \frac{1}{15} - \frac{3k}{20}
+  \implies \theta^2_1 &\simeq \beta\theta^2\left(1 + C_{k\beta}\theta^2\right) \\
+  \mathrm{Donde:\quad}C_{k\beta} &= \left(\frac{1}{15} - \frac{3k}{20} - \frac{\beta}{15}\right)
 \end{align}
 
 Utilizamos esta solución para $\theta_1$ en la ecuación (\ref{eq:R-geometric}), ignorando términos de orden superior al cuártico
 dentro de los corchetes:
 
 \begin{align}
-  \theta_1 &\simeq \beta^{1/2}\theta\left(1 + 2C_{k\beta}\theta^2\right)^{1/2} \\
-  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right]\\ 
+  \theta_1 &\simeq \beta^{1/2}\theta\left(1 + C_{k\beta}\theta^2\right)^{1/2} \\
+  \implies \theta + \theta_1 &\simeq \theta\left[1 + \beta^{1/2}\left(1 + \frac{C_{k\beta}}{2}\theta^2\right)\right]\\ 
   \sin\theta_1 &\simeq \theta_1\left(1 - \frac{\theta^2_1}{6}\right) \\
-  &\simeq \beta^{1/2}\theta\left(1 + C_{k\beta}\theta^2\right)\left[1 - \frac{\beta\theta^2\left(1 + 2C_{k\beta}\theta^2\right)}{6}\right]\\
-  \implies \sin\theta_1 &\simeq \beta^{1/2}\theta\left[1 + \left(C_{k\beta}- \frac{\beta}{6}\right)\theta^2\right]
+  &\simeq \beta^{1/2}\theta\left(1 + \frac{C_{k\beta}}{2}\theta^2\right)\left[1 - \frac{\beta\theta^2\left(1 + C_{k\beta}\theta^2\right)}{6}\right]\\
+  \implies \sin\theta_1 &\simeq \beta^{1/2}\theta\left[1 + \left(\frac{C_{k\beta}}{2}- \frac{\beta}{6}\right)\theta^2\right]
 \end{align}
 \begin{align}
   \sin\left(\theta + \theta_1 \right) &\simeq \left(\theta + \theta_1\right)\left[1 - \frac{\left(\theta + \theta_1\right)^2}{6}\right] \\
-           &\simeq \theta\left[1 + \beta^{1/2}\left(1 + C_{k\beta}\theta^2\right)\right] \left[1 - \frac{\theta^2\left(1 + \beta^{1/2}
-             \left(1 + C_{k\beta}\theta^2\right)\right)^2}{6}\right] \\
-           &\simeq \theta\left(1 + \beta^{1/2}\right)\left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{1}{6}\left(1 + \beta^{1/2}\right)^2
+           &\simeq \theta\left[1 + \beta^{1/2}\left(1 + \frac{C_{k\beta}}{2}\theta^2\right)\right] \left[1 - \frac{\theta^2\left(1 + \beta^{1/2}
+             \left(1 + \frac{C_{k\beta}}{2}\theta^2\right)\right)^2}{6}\right] \\
+           &\simeq \theta\left(1 + \beta^{1/2}\right)\left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{2\left(1 + \beta^{1/2}\right)} - \frac{1}{6}\left(1 + \beta^{1/2}\right)^2
              \theta^2\right)\right]\\
 \begin{split}
-  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(C_{k\beta} - \frac{\beta}{6}\right)\theta^2\right] \\
-               & \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{1 + \beta^{1/2}} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\right]^{-1} 
+  \implies \frac{R}{D} &\simeq \frac{\beta^{1/2}}{1 + \beta^{1/2}}\left[1 + \left(\frac{C_{k\beta}}{2} - \frac{\beta}{6}\right)\theta^2\right] \\
+               & \left[1 + \left(\frac{\beta^{1/2}C_{k\beta}}{2\left(1 + \beta^{1/2}\right)} - \frac{\left(1 + \beta^{1/2}\right)^2}{6}\right)\theta^2\right]^{-1} 
 \end{split}\\
-  &\simeq R_0 \left[1 + \left(\frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1+2\beta^{1/2}}{6}\right)\theta^2\right] 
+  &\simeq R_0 \left[1 + \left(\frac{C_{k\beta}}{2\left(1+\beta^{1/2}\right)} + \frac{1+2\beta^{1/2}}{6}\right)\theta^2\right] 
 \end{align}
 
-De esta mostramos que el término de segundo órden que necesitamos en la ecuación (\ref{eq:CRW-Rc}) está dado por (\ref{eq:2-order})
+De esta mostramos que el término de segundo órden que necesitamos en la ecuación (\ref{eq:CRW-Rc}) está dado por:
 
+\begin{align}
+  \frac{R_{\theta\theta, 0}}{2} = \frac{C_{k\beta}}{2\left(1+\beta^{1/2}\right)} + \frac{1+2\beta^{1/2}}{6}
+\end{align}
+
+que es el resultado mostrado en la ecuación (\ref{eq:2-order})
 
 \section{Radio de Curvatura para choques tipo Wilkinoides}
 \label{sec:Rc-Wilkin}
