@@ -238,7 +238,7 @@ La segunda manera es a partir de estimar el ángulo asintótico $\theta_\infty$:
   \theta^{\mathrm{tail}}_Q = \theta_\infty - \pi
 \end{align}
 
-Donde $\theta_\infty$ puede obtenerse a partir de la ecuación (28) de \CRW para los choques cantoides:
+Donde $\theta_\infty$ puede obtenerse a partir de la ecuación (28) de \CRW{} para los choques cantoides:
 
 \begin{align}
   \theta_\infty - \tan\theta_\infty = \frac{\pi}{1-\beta}
@@ -253,4 +253,38 @@ Mientras que para los choques ancantoides utilizamos la ecuación (\ref{eq:th1-t
 Como las soluciones a la forma de los choques de proa, tanto cantoides como ancantoides solo ajustan parcialmente a una cuádrica de revolución, entonces $\theta^{\mathrm{head}}_Q \neq \theta^{\mathrm{tail}}_Q$. Esta discrepancia se vuelve relevante al momento de obtener la forma aparente,ya que en este caso la región del choque que es tangente a la línea de visión se aleja del ápex y se acerca a las alas lejanas conforme se incrementa la inclinación.
 
 \section{Obtención de la Forma Aparente}
+
+A continuación aplicamos el formalismo desarrollado en la sección \S \ref{sec:projection} a las formas de los choques de proa obtenidos en este capítulo para obtener tanto la forma aparente como la planitud y alatud aparentes.
+
+En la figura \ref{fig:apparent-cantoid} mostramos la forma aparente de choques tipo cantoides y wilkinoides, y mostramos como referencia un paraboloide confocal cuya forma aparente no cambia con la inclinación (ver \S \ref{sec:pi-lambda-quadric}), mientras que la figura \ref{fig:apparent-ancantoid}} muestra la forma aparente de choques ancantoides.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/cantoid-apparent-shape}
+  \caption{Forma aparente de diferentes choques de proa en intervalos de inclinación de $15^\circ$: (a) Paraboloide confocal. (b) Wilkinoide. (c) Cantoide $\beta=0.005$. (d) Cantoide $\beta=0.01$}
+  \label{fig:apparent-cantoid}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/cantoid-apparent-shape}
+  \caption{Extensión de la figura \ref{fig:apparent-cantoid} para choques de proa no isotrópicos (ancantoides): (a) $\beta=0.005$, $k=1/2$. (b) $\beta=0.01$, $k=1/2$. (c) $\beta=0.005$, $k=3$. (d) $\beta=0.01$, $k=3$}
+  \label{fig:apparent-ancantoid}
+\end{figure}
+
+Se muestra una tendencia general en donde las alas son sistemáticamente más abiertas para altas inclinaciones. Sin embargo, en el caso de los choques Wilkinoides se muestra el comportamiento opuesto, aunque los cambios son muy sutiles. El caso de la figura \ref{fig:apparent-ancantoid}}a, donde se muestra un choque tipo ancantoide con $\beta=0.005$ y $k=1/2$ se observa que para inclinaciones menores a $60^\circ$, las alas cercanas $(\theta\sim 90^\circ)$ se cierran sutilmente, y luego se abren más para inclinaciones mayores.
+
+En la figuras \ref{fig:th0-isotropic} y \ref{fig:th0-anisotropic} mostramos la solución a las ecuaciones (\ref{eq:th-0}, ref{eq:R0p}) para el modelo de capa delgada, junto con el factor de escalamiento $R'_0/R_0$ en función de la inclinación. En estas figuras se observa que el radio aparente en el ápex siempre aumenta con la inclinación, mostrando un crecimiento más rápido para choques más abiertos, pero un incremento mayor para choques más cerrados; ésto debido a que en los choques más cerrados la inclinación máxima donde aun existe una línea tangente es mayor.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/cantoid-th0-vs-i}
+  \caption{(a) Soluciones a la ecuación (\ref{eq:th-0}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior isotrópico (cantoides y wilkinoides). (b) Soluciones a la ecuación (\ref{eq:R0p}) en función de la inclinación.}
+  \label{fig:th0-isotropic}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/ancantoid-th0-vs-i}
+  \caption{(a) Soluciones a la ecuación (\ref{eq:th-0}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior anisotrópico (Ancantoides). (b) Soluciones a la ecuación (\ref{eq:R0p}) en función de la inclinación.}
+  \label{fig:th0-anisotropic}
+\end{figure}
+
+Las soluciones a las ecuaciones (\ref{eq:th90}, \ref{eq:R90p}) para el modelo de capa delgada se muestran en las figuras  . Se observa que la alatud aparente se incrementa abruptamente cuando la inclinación se aproxima a la inclinación máxima, excepto en el caso wilkinoide, donde la alatud disminuye con inclinación muy lentamente.
 
