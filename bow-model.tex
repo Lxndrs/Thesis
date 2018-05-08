@@ -165,14 +165,18 @@ Por tanto, el signo de $2\Pi - \Lambda^2$ determina si una cuádrica es esferoid
 
 Para un choque de proa que es la vez geométricamente delgado y ópticamente delgado, únicamente se observa el borde de éste por
 abrillantamiento al limbo, por lo tanto, su orientación respecto a la línea de visión modifica su forma respecto a la forma real del
-choque. Para ello, rotamos el sistema de referencia del choque de proa en coordenadas cartesianas, denotado por $(x, y, z)$, por un ángulo que llamamos \textit{inclinación}, denotado por $i$, en el plano $xz$, de modo que la transformación entre el sistema de refencia del choque y el sistema de referencia del plano del cielo, denotado por
-$(x', y', z')$ queda como sigue:
+choque. Para ello, rotamos el sistema de referencia del choque de proa en coordenadas cartesianas, denotado por $(x, y, z)$, por un ángulo que llamamos \textit{inclinación}, denotado por $i$, en el plano $xz$. La inclinación está definida de modo que cuando $i=0^\circ$ el eje de simetría del choque es perpendicular a la línea de visión, es decir, lo observamos ``de canto''. Y cuando $i = 90^\circ$ el eje desimetría es paralelo a la línea de visión, es decir, que lo observamos ``de frente''. De este modo la transformación entre el sistema de refencia del choque y el sistema de referencia del plano del cielo, denotado por $(x', y', z')$ queda como sigue:
 \begin{align}
   \left(
   \begin{array}{c}
     x' \\ y' \\ z'
   \end{array}
-  \right) &=
+  \right) = \mathbf{A}_y(i)
+  \left(
+  \begin{array}{c}
+    x \\ y \\ z
+  \end{array}
+  \right) =
   \left(
   \begin{array}{c}
     x\cos i - z\sin i \\ y' \\ z\cos i + x\sin i
@@ -180,6 +184,8 @@ $(x', y', z')$ queda como sigue:
   \right)
   \label{eq:rotation}
 \end{align}
+
+Donde $\mathbf{A}_y(i)$ está definida en el apéndice \ref{app:matrix}
 Por otro lado, la forma tridimensional del choque de proa viene dado por:
 \begin{align}
   \left(
@@ -198,8 +204,8 @@ Por otro lado, la forma tridimensional del choque de proa viene dado por:
 La relación entre ambos sistemas de referencia se ilustra en la figura \ref{fig:reference}.
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{./Figures/projection-pos}
-  \label{fig:reference}
   \caption{Sistema de referencia del choque vs sistema de referencia del plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del cielo, mientras el eje $z'$ es paralelo a la línea de visión. Solo la región del choque cuya tangente sea paralela a la línea de visión será visible por abrillantamiento al limbo.}
+  \label{fig:reference}
 \end{figure}
 
 \subsection{Vectores normal y tangente a la superficie}
@@ -233,30 +239,26 @@ y:
 \begin{align}
   \omega(\theta) = -\frac{1}{R}\frac{dR}{d\theta} 
 \end{align}
-Para otros valores de $\phi$, basta con hacer una rotación de las ecuaciones (\ref{eq:unit-vec}) alrededor del eje $x$. Para la conversión al sistema de referencia del plano del cielo se utiliza la ecuación (\ref{eq:rotation}):
-\begin{align}
-\begin{split}
-  \hat{n}' &= \frac{1}{\left(1 + \omega^2\right)^{1/2}} \\
-           & \times \left(
-             \begin{array}{c}
-               (\cos\theta+\omega\sin\theta)\cos i-(\sin\theta-\omega\cos\theta)\sin i\sin\phi\\
-               (\sin\theta-\omega\cos\theta)\cos\phi \\
-               (\cos\theta+\omega\sin\theta)\sin i+(\sin\theta-\omega\cos\theta)\sin\phi\cos i
-             \end{array}
-                    \right) \\
-\end{split}\\
-\begin{split}
-    \hat{t}' &= \frac{1}{\left(1 + \omega^2\right)^{1/2}} \\
-           & \times \left(
-             \begin{array}{c}
-               -(\sin\theta-\omega\cos\theta)\cos i-(\cos\theta+\omega\sin\theta)\sin i\sin\phi\\
-               (\cos\theta+\omega\sin\theta)\cos\phi \\
-               -(\cos\theta+\omega\sin\theta)\sin i+(\sin\theta-\omega\cos\theta)\sin\phi\cos i
-             \end{array}
-             \right)
-\end{split} 
-\end{align}
+Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:unit-vec}) alrededor del eje $x$ utilizando la matriz de rotación $\mathbf{A}_x(\phi)$ (ecuación ):
 
+\begin{align}
+  \hat{n} &= \mathbf{A}_x(\phi)\hat{n}_0 =
+ \left(
+  \begin{array}{c}
+    \sin\alpha \\
+    \cos\alpha\cos\phi \\
+    \cos\alpha\sin\phi
+  \end{array}
+  \right) \quad
+    \hat{t} &= \mathbf{A}_x(\phi)\hat{t}_0 =
+ \left(
+  \begin{array}{c}
+    -\cos\alpha \\
+    \sin\alpha\cos\phi \\
+    \sin\alpha\sin\phi
+  \end{array}
+  \right)
+\end{align}
 
 \begin{figure}
   \includegraphics[width=0.6\linewidth]{./Figures/bowshock-unit-vectors}
@@ -271,11 +273,11 @@ Debido a que el choque es ópticamente delgado y geométricamente delgado, solo 
 línea de visión seré visible. Esto corresponde a una curva que denominamos \textit{línea tangente}, que debe cumplir con la siguiente
 condición:
 \begin{align}
-  \hat{n}'\boldsymbol{\cdot} \hat{z}' = 0
+  \hat{n}\boldsymbol{\cdot} \hat{z}' = 0
 \end{align}
 Denotamos como $\phi_T$ al ángulo azimutal que cumple la condición anterior para una inclinación dada, en función del ángulo polar $\theta$:
 \begin{align}
-  \sin\phi_T = \tan i\tan\alpha = \tan i\frac{1+\omega\tan\theta}{\omega-\tan\theta}
+  \sin\phi_T = -\tan i\tan\alpha = \tan i\frac{1+\omega\tan\theta}{\omega-\tan\theta}
   \label{eq:phi-tan}
 \end{align}
 De esta manera, la forma de la línea tangente del choque de proa, a la que llamamos \textit{forma proyectada} viene dada por:
@@ -297,7 +299,7 @@ De esta manera, la forma de la línea tangente del choque de proa, a la que llam
 \end{align}
 En el caso general, $z'_T$ no es una función lineal de $x'_T$ y $y'_T$, por lo que la línea tangente no se encuentra en un plano. La forma aparente $(x'_T, y'_T)$  de la línea tangente también puede escribirse en coordenadas polares $(R', \theta')$, donde:
 \begin{align}
-  R'(\theta) = \left(x'^2_T + y'^2_T\right)^{1/2} & \mathrm{y} & \tan\theta' = \frac{y'_T}{x'_T}
+  R'(\theta) = \left(x'^2_T + y'^2_T\right)^{1/2} \quad \mathrm{y} \quad \tan\theta' = \frac{y'_T}{x'_T}
   \label{eq:polar}
 \end{align}
 Es de notar a su vez que la ecuación (\ref{eq:phi-tan}) no tiene solución para valores arbitrarios de $\theta$ y de la inclinación, puesto que se requiere que $\left|\sin\phi_T\right| < 1$. Por tanto, la línea tangente solo existe para valores de $\theta$ tales que $\theta < \theta_0$ donde $\theta_0$ es el valor de $\theta$ en el eje de simetría de la línea tangente proyectada $(\theta'(\theta_0) = 0)$ y que se obtiene resolviendo la siguiente ecuación implícita:
@@ -313,9 +315,9 @@ $|i| > 90^\circ - \alpha_{min}$ no existirá la línea tangente para ningún val
 En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir
 $R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones (\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
 \begin{align}
-R'_0 = R(\theta_0)\cos(\theta_0 - i)
+R'_0 = R(\theta_0)\cos(\theta_0 - |i|)\footnotemark
 \label{eq:R0p}
-\end{align}
+\end{align}\footnotetext{Evaluando la ecuación (\ref{eq:phi-tan}) en $\theta=\theta_0$ con ayuda de la ecuación (\ref{eq:th-0}) encontramos que $\sin\phi_T(\theta_0) = -\frac{\tan i}{|\tan i|}$ por lo que al sustituir este resultado en la componente $x$ de la ecuación (\ref{eq:proj-shape}) encontramos que $R'_0 = R(\theta_0)\left(\cos\theta_0\cos i + \sin\theta_0\sin i\frac{\tan i}{|\tan i|\right)}$ que finalmente se reduce al resultado de la ecuación (\ref{eq:R0p})}
 Donde $\theta_0$ es la solución de la ecuación (\ref{eq:th-0}), y
 \begin{align}
   R'_{90} = R(\theta_{90})\sin\theta_{90}\left(1-\sin^2\phi_T(\theta_{90})\right)^{1/2}
@@ -331,7 +333,7 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
 El radio de curvatura aparente se obtiene a partir de la ecuación (\ref{eq:generic-Rc}) pero en el sistema de referencia primado:
 
 \begin{align}
-  R'_c = \frac{R'^2_0}{R'_0 - R'_{\theta\theta, 0}} \label{eq:Rc-prime}
+  R'_c = \frac{R'^2_0}{R'_0 - R'_{\theta'\theta', 0}} \label{eq:Rc-prime}
 \end{align}
 
 \subsection{Aplicación a las Cuádricas de Revolución}

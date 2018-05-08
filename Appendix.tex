@@ -154,6 +154,10 @@ Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina ti
 \end{figure}
 Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:IF-jump-density}). El resultado se muestra en la figura \ref{fig:IF-jump}b. En el caso de los frentes R crítico y D crítico, la velocidad del gas en el medio ionizado es igual a la velocidad del sonido.
 
+\chapter{Matrices de Rotación y Proyección en el Plano del Cielo.}
+\label{app:matrix}
+\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
+
 \chapter{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
 
@@ -427,27 +431,3 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 \begin{align}
   \Pi = \frac{5}{3}
 \end{align}
-
-\chapter{Coeficientes de los parámetros de la hipérbola para el ajuste de la cola}
-\label{app:tail-fit}
-Como ya se mencionó en la \S \ref{sec:tail-fit}, se hizo un ajuste numérico a
-la cola de un set de choques de proa con parámetros dentro de una malla pequeña para los parámetros del choque $(\beta, \xi)$, que se encuentran dentro de los rangos $-4.3 < \log\beta < -1$ y $0.2 < \xi < 1$, de modo que los coeficientes encontrados solo son válidos en este rango, pero es lo suficientemente amplio como para abarcar el espectro de choques de proa observados en ONC.
-
-El ajuste nos permitió encontrar una tabla de valores para los parámetros de la hipérbola $(x_{0,t}, x_{0,t} - a_t)$. En particular, para $x_{0,t}$ se observó que la dependencia con $\beta$ tenía un comportamiento que tendía a ser de una ley de potencias, con un índice de $\sim -0.55$, y cuyo residuo ajustó a un polinomio de tercer grado del logaritmo de $\beta$. Para $x_{0,t} - a_t$ se ajustó un polinomio de segundo grado para el logaritmo de $\beta$. En la figura \ref{fig:fit-1} se muestra el residuo de $x_0$ y $x_{0,t} - a_t$ como función de $\beta$ para diferentes valores de $\xi$, mientras que en la figura \ref{fig:fit-2} se muestra el ajuste de los coeficientes $C_k$ y $D_k$ en función de $\xi$, que resultó ser un polinomio de segundo grado. Los parámetros del ajuste para todos los coeficientes se muestran en la tabla \ref{tab:tail-fit-coeffs}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{./Figures/fit-tail-params-1}
-  \caption{Ajuste de los parámetros $x_{0,t}$ (normalizado con la tendencia) y $x_{0,t} -a_t$. En cada curva se utiliza un valor diferente del parámetro de anisotropía $\xi$, indicado por la barra de colores. La curva negra representa el ajuste del caso ``isotrópico''. En el caso del residuo del coeficiente $x_{0,t}$ se ajustó a un polinomio de tercer grado en función del logaritmo de $\beta$, y se obtuvieron los coeficientes $(C_k(\xi)$, donde $k=[0, 1, 2, 3]$ mientras que para $x_{0,t} - a_t$ el ajustó un polinomio de segudo grado, y se obtuvieron los coeficientes $D_k(\xi)$, donde $k=[0, 1, 2]$.}
-  \label{fig:fit-1}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{./Figures/tail_params_fit}
-  \caption{Ajuste de los coeficientes $C_k$ y $D_k$ de los ajustes de los parámetros $x_{0,t}$ y $x_{0,t} - a_t$. En ambos casos se ajustó un polinomio de segundo grado de donde se obtuvieron los coeficientes $c_k$ y $d_k$, donde $k=[0, 1, 2]$. Para el caso isotrópico se obtuvo un valor único de los coeficientes $C_k$ y $D_k$. Los valores numéricos de todos estos coeficientes se encuentran en la tabla \ref{tab:tail-fit-coeffs}}
-  \label{fig:fit-2}
-\end{figure}
-
-  
-%\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
