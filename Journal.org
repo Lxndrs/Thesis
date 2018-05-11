@@ -18,7 +18,7 @@ RECORD OF THE THESIS PROGRESS
 - [X] T\'itulos de cap\'itulos, secciones y ap\'endices en espa\~nol.
 - [X] Formato de p\'agina.
 
-** TODO Buscar ideas principales en notas de la maestría
+** DONE Buscar ideas principales en notas de la maestría
    - [ ] Choques
    - [ ] Vientos Estelares
    - [ ] Regiones HII
@@ -56,17 +56,21 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [X] Corregir referencia en apéndice A.1
 - [X] Cortar ecuaciones muy largas en apéndice B.3
 ** TODO Completar secciones
-   - [ ] Discos Protoplanetarios
-   - [ ] Choques
-   - [ ] Vientos Estelares
+   - [X] Choques
+   - [X] Vientos Estelares
    - [ ] Objetos LL
    - [-] Regiones HII
      - [X] Segunda Expansión
-     - [ ] Flujos de Champaña
+     - [X] Flujos de Champaña
      - [ ] Emisión
    - [X] Cuádricas
    - [ ] Conclusiones
 * Journal
+-[2018-05-11 Fri]
+- Finished Apparent shape for thin shell model section
+- Correcting projection onto the plane of sky section inserting rotation matrix
+- Insert appendix about rotation matrix
+- Other corrections
 -[2018-02-07 Wed]
 - Finished First and second expansion subsection
 - Insert figure
