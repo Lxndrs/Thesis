@@ -12,9 +12,9 @@ import bow_projection as bp
 import ancantoid_shape
 import bow_diagnostic
 
+
 # Set graph style
 f = plt.figure()
-
 
 sns.set_style("ticks")
 
@@ -49,9 +49,9 @@ m_savefiles = glob.glob("./saves/LV-bowshocks-xyfancy-positionswill-*.save")
 dict_xtext = {"LV2":10, "LV2b":-10, "LV3":10, "LV4":10, "LV5":10, "168-328":-10, "169-338":-10, "177-341":10, "180-331":-20}
 dict_ytext = {"LV2":10, "LV2b":10, "LV3":-10, "LV4":10, "LV5":10, "168-328":10, "169-338":10, "177-341":-10, "180-331":-20}
 
-for n, xi in enumerate(XI_LIST):
+for xi in XI_LIST:
     k = None if xi is None else 2/xi - 2
-    ax = f.add_subplot(2, 2, n+1, adjustable="box") 
+    ax = f.add_subplot(1, 1, 1, adjustable="box") 
     for beta, col in zip(BETA_LIST, cols):    
 #        if beta == BETA_LIST[0]:
 #            label = "Cantoid" if k is None else fr"Ancantoid $k = {k:.1f}$" # set label into plot
@@ -75,16 +75,26 @@ for n, xi in enumerate(XI_LIST):
         R0 = R0pR0*R0D*DDp
         label = r"$\beta={}$".format(beta)
         ax.plot(R0, Rc, '-', c=col, label=label, lw=1.0, alpha=1.0)
-        # Get points evenly spaced in sin i
-        sini = np.linspace(0.0, 1.0, 20)
-        inc_e = np.arcsin(sini)
+        # Get points evenly spaced every 15 degrees (and minor marks every 5 degrees)
+        inc_e = np.radians(np.array([15, 30, 45, 60, 75, 90]))
+        minor_jump = 5
+        n_inc = (np.pi/2 - np.radians(5.0))/np.radians(minor_jump)
+        inc_e2 = np.linspace(np.radians(5.), np.pi/2, n_inc)
         inc_e = inc_e[inc_e < th_inf - np.pi/2]
+        inc_e2 = inc_e2[inc_e2 < th_inf - np.pi/2]
         tab_e = bow_diagnostic.parameter_table(inc_e, shape)
+        tab_e2 = bow_diagnostic.parameter_table(inc_e2, shape)
         Rc_e, R0pR0_e = tab_e['tilde R_c prime'], tab_e['R_0 prime']
+        Rc_e2, R0pR0_e2 = tab_e2['tilde R_c prime'], tab_e2['R_0 prime']
         DDp_e = 1./np.cos(inc_e)
         R0_e = R0pR0_e*R0D*DDp_e
-        ax.scatter(R0_e, Rc_e, marker='|', s=3**2,
+        DDp_e2 = 1./np.cos(inc_e2)
+        R0_e2 = R0pR0_e2*R0D*DDp_e2
+        ax.scatter(R0_e, Rc_e, marker='o', s=3**2,
                    linewidths=0.1, edgecolors='none',
+                   c=col, alpha=0.8, label="_nolabel_")
+        ax.scatter(R0_e2, Rc_e2, marker='|', s=3**2,
+                   linewidths=0.08, edgecolors='none',
                    c=col, alpha=0.5, label="_nolabel_")
 
         # Put a dot at the i=0 case
@@ -118,8 +128,12 @@ for n, xi in enumerate(XI_LIST):
             alpha = 1./(1 + 20.0*scale)
             ax.plot([R0_d, vR0], [A, vA], '-',
                     lw=2, alpha=alpha, color=colordict[data["proplyd"]])
-        ktitle = "Cantoid" if k is None else r"$k={}$".format(k) 
-        ax.legend(loc="upper right", title=ktitle, fontsize="x-small", ncol=2)
-f.set_size_inches(8, 8)
-f.tight_layout()
-f.savefig("test2.pdf")
+    ktitle = "Cantoid" if k is None else r"$k={}$".format(k)
+    filesuffix = "Cantoid" if k is None else "k{:02.0f}".format(10*k)
+    ax.legend(loc="upper right", title=ktitle, fontsize="x-small", ncol=2)
+    ax.set_xlabel(r"Projected apex radius: $R'_0/D'$")
+    ax.set_ylabel(r"Projected Planitude: $\Pi'$")
+    f.set_size_inches(6, 6)
+    f.tight_layout()
+    f.savefig("./Figures/obs-diagnostic-Pi-R0-{}.pdf".format(filesuffix))
+    f.clf()
