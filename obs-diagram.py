@@ -11,12 +11,13 @@ import glob
 import bow_projection as bp
 import ancantoid_shape
 import bow_diagnostic
-
+import matplotlib.ticker as mpl
 
 # Set graph style
 f = plt.figure()
 
 sns.set_style("ticks")
+
 
 # Set theoretical curves
 
@@ -26,7 +27,7 @@ bp.SCALE_NEIGHBORHOOD = 0.03
 bp.DEGREE_POLY_NEIGHBORHOOD_90 = 2
 bp.SCALE_NEIGHBORHOOD_90 = 0.01     #Stuff from bow_projection classes
 
-XI_LIST = [None, 0.8, 0.4, 0.2]
+XI_LIST = [None, 0.8, 0.4, 0.2, 0.1]
 BETA_LIST = [5e-4, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]
 nxi, nbeta = len(XI_LIST), len(BETA_LIST) # set shells parameters (xi=None for cantoid shell)
 cols = sns.color_palette('magma', n_colors=nbeta) # color palette of curves
@@ -77,9 +78,7 @@ for xi in XI_LIST:
         ax.plot(R0, Rc, '-', c=col, label=label, lw=1.0, alpha=1.0)
         # Get points evenly spaced every 15 degrees (and minor marks every 5 degrees)
         inc_e = np.radians(np.array([15, 30, 45, 60, 75, 90]))
-        minor_jump = 5
-        n_inc = (np.pi/2 - np.radians(5.0))/np.radians(minor_jump)
-        inc_e2 = np.linspace(np.radians(5.), np.pi/2, n_inc)
+        inc_e2 = np.radians(np.array([5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85]))
         inc_e = inc_e[inc_e < th_inf - np.pi/2]
         inc_e2 = inc_e2[inc_e2 < th_inf - np.pi/2]
         tab_e = bow_diagnostic.parameter_table(inc_e, shape)
@@ -133,6 +132,10 @@ for xi in XI_LIST:
     ax.legend(loc="upper right", title=ktitle, fontsize="x-small", ncol=2)
     ax.set_xlabel(r"Projected apex radius: $R'_0/D'$")
     ax.set_ylabel(r"Projected Planitude: $\Pi'$")
+    ax.get_xaxis().set_minor_locator(mpl.AutoMinorLocator())
+    ax.get_yaxis().set_minor_locator(mpl.AutoMinorLocator())
+    ax.grid(b=True, which='major', linewidth=1.0)
+    ax.grid(b=True, which='minor', linewidth=0.5)
     f.set_size_inches(6, 6)
     f.tight_layout()
     f.savefig("./Figures/obs-diagnostic-Pi-R0-{}.pdf".format(filesuffix))

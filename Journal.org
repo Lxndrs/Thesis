@@ -69,7 +69,18 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [X] Graficar las curvas teóricas para 4 valores de k en 4 subgráficas
 - [X] Incluir las observaciones en las 4 subgráficas junto con las incertidumbres de las submuestras
 - [X] Mejorar detalles (etiquetas de los ejes, guardar 4 archivos con una grafica cada uno) 
+** TODO Reanalizar observaciones y recalcular parámetros de los vientos
+- [X] Encontrar tabla, programas y procedimiento con el que ya habíamos hecho esto con las curvas teóricas de las cuádricas.
+- [X] Reencontrar cómo funcionaba todo ésto.
+- [ ] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos. 
 * Journal
+-[2018-05-20 Sun]
+Old entries:
+- Finished \Pi'vs R'_0/D' graphs. One pdf per k value k=[0, 1/2, 3, 8]
+- Incorporate graph into thesis
+Today entries:
+- Start Analyzing data from graphs to obtain stagnation pressures
+- Initialize table where I'll do this
 -[2018-05-14 Mon]
 - Created a Programs bar into Journal.org
 - Moving python scripts into Programs bar, editing and tangling controlled here
@@ -356,12 +367,13 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   import bow_projection as bp
   import ancantoid_shape
   import bow_diagnostic
-
+  import matplotlib.ticker as mpl
 
   # Set graph style
   f = plt.figure()
 
   sns.set_style("ticks")
+
 
   # Set theoretical curves
 
@@ -371,7 +383,7 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   bp.DEGREE_POLY_NEIGHBORHOOD_90 = 2
   bp.SCALE_NEIGHBORHOOD_90 = 0.01     #Stuff from bow_projection classes
 
-  XI_LIST = [None, 0.8, 0.4, 0.2]
+  XI_LIST = [None, 0.8, 0.4, 0.2, 0.1]
   BETA_LIST = [5e-4, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]
   nxi, nbeta = len(XI_LIST), len(BETA_LIST) # set shells parameters (xi=None for cantoid shell)
   cols = sns.color_palette('magma', n_colors=nbeta) # color palette of curves
@@ -422,9 +434,7 @@ f.savefig("./Figures/Pi-vs-i.pdf")
           ax.plot(R0, Rc, '-', c=col, label=label, lw=1.0, alpha=1.0)
           # Get points evenly spaced every 15 degrees (and minor marks every 5 degrees)
           inc_e = np.radians(np.array([15, 30, 45, 60, 75, 90]))
-          minor_jump = 5
-          n_inc = (np.pi/2 - np.radians(5.0))/np.radians(minor_jump)
-          inc_e2 = np.linspace(np.radians(5.), np.pi/2, n_inc)
+          inc_e2 = np.radians(np.array([5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85]))
           inc_e = inc_e[inc_e < th_inf - np.pi/2]
           inc_e2 = inc_e2[inc_e2 < th_inf - np.pi/2]
           tab_e = bow_diagnostic.parameter_table(inc_e, shape)
@@ -478,10 +488,77 @@ f.savefig("./Figures/Pi-vs-i.pdf")
       ax.legend(loc="upper right", title=ktitle, fontsize="x-small", ncol=2)
       ax.set_xlabel(r"Projected apex radius: $R'_0/D'$")
       ax.set_ylabel(r"Projected Planitude: $\Pi'$")
+      ax.get_xaxis().set_minor_locator(mpl.AutoMinorLocator())
+      ax.get_yaxis().set_minor_locator(mpl.AutoMinorLocator())
+      ax.grid(b=True, which='major', linewidth=1.0)
+      ax.grid(b=True, which='minor', linewidth=0.5)
       f.set_size_inches(6, 6)
       f.tight_layout()
       f.savefig("./Figures/obs-diagnostic-Pi-R0-{}.pdf".format(filesuffix))
       f.clf()
 
 #+END_SRC
-*** Alternative way to contrast against observations: 
+* Table
+
+** Analisis de las presiones externas (2018)
++ Utilizando los resultados del modelo de capa delgada, tenemos \beta e i para cada proplyd, asumiendo un valor de \xi
+  - Actualmente tenemos un rango de posibilidades debido a las incertidumbres en los ajustes
++ De esta manera encontramos R0/D y D
++ Y utilizando la densidad observada n_0 del proplyd, podemos estimar la presión de quilibrio en la cáscara
++ Podemos graficar ésto contra distancia y comparar con lo que se espera para un viento estelar simple
+** Medición de la presión de equiibrio
++ Densidad pre-choque en el flujo del proplyd:
+  + \( n = n_{0} (R_{0} / r_{0})^{-2} M^{-1} \)
++ Presión RAM en la cáscara
+  + \(P = n m M^{2} c_{s}^{2} = n_{0} m c_{s}^{2} M (R_{0} / r_{0})^{-2} \)
+  + m = 1.3 m_{p} = 1.3 1.67262158e-24 g
+  + c_s = 11 km/s
+    + m c_s^2 = 2 k T
+    + c_s = sqrt(2 k T / m) = 11.27 sqrt(T_4) km/s
+  + Suponer M = 3
++ Presión RAM del viento estelar
+  + P = Mdot Vw / 4 pi D**2
+  + Mdot = 3.5e-7 Msun/yr = 2.206e19 g/s
+  + Vw = 1200 km/s = 1.2e8 cm/s
+  + La escala de D es arcsec = 440 au = 6.582e15 cm
+
+** Mediciones de los parámetros de los choques de proa de los proplyds:
+:PROPERTIES:
++ Las mediciones de las distancias están medidas en segundos de arco
+  - r0 es el radio del frente de ionización
++ N6 es la densidad del frente de ionización en unidades de 1e6 partículas por cc
+  - Dividimos los valores de HA98 por 2
++ Comparación de los flujos ionizantes
+  - F(photo) es el flujo requerido para contrarrestar el flujo fotoevaporado
+  - F(photo) = n*c_s + 0.12*r0*alpha*n**2
++ F(star) es el flujo de la estrella a la distancia D
+  - F(star) = (1 - f_d)*Q_H / (4*pi*D**2)
+  - Q_H = 1e49 /s 
+  - f_d es la fracción del flujo absorbida por el polvo (assumimos 0.5)
++ La columna marcada con * indica qué tan buena es la medición de una submuestra dada, en base a qué tan bien se cumple el equilibrio de presiones en la cáscara
+
+| Fuente  |  xi | k       |    r0 |   N6 |   D' | R0'/D' |  Pi' | \beta | * | i (deg) | R0/D |     D |   R0 | R0/r0  | P(in) | P(wind) | P(in)/P(wind) | F(photo) | F(star) | F(ph)/F(*) |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| LV2     | 0.8 | 0.5     | 0.120 | 2.53 | 7.76 |   0.25 | 1.48 | 0.002 |   |      70 | 0.04 | 22.69 | 0.91 | 189.08 |       |         |               |          |         |            |
+| LV2     | 0.8 | 0.5     | 0.120 | 2.53 | 7.76 |   0.25 | 1.48 | 0.005 |   |      65 | 0.07 | 18.36 | 1.29 | 153.00 |       |         |               |          |         |            |
+| LV2     | 0.4 | 3.0     | 0.120 | 2.53 | 7.76 |        |      |       |   |         |    0 |  7.76 | 0.00 | 64.67  |       |         |               |          |         |            |
+| LV2     | 0.4 | 3.0     | 0.120 | 2.53 | 7.76 |        |      |       |   |         |    0 |  7.76 | 0.00 | 64.67  |       |         |               |          |         |            |
+| LV2     | 0.4 | 3.0     | 0.120 | 2.53 | 7.76 |        |      |       |   |         |    0 |  7.76 | 0.00 | 64.67  |       |         |               |          |         |            |
+| LV2     | 0.2 | 8.0     | 0.120 | 2.53 | 7.76 |        |      |       |   |         |    0 |  7.76 | 0.00 | 64.67  |       |         |               |          |         |            |
+| LV2     | 0.1 | 18.0    | 0.120 | 2.53 | 7.76 |        |      |       |   |         |    0 |  7.76 | 0.00 | 64.67  |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| LV2b    |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| LV3     |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| LV4     |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| LV5     |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| 169-338 |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| 177-341 |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|---------+-----+---------+-------+------+------+--------+------+-------+---+---------+------+-------+------+--------+-------+---------+---------------+----------+---------+------------|
+| 180-331 |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+|         |     | 2/0 - 2 |       |      |      |        |      |       |   |         |    0 |     0 |    0 | 0/0    |       |         |               |          |         |            |
+#+TBLFM: $3=2/$2-2;f1::$12=sqrt($9)/(1 + sqrt($9));f2::$13=$6/cos($11);f2::$14=$12*$13;f2::$15=$13/$4;f2
