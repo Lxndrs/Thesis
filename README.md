@@ -1,38 +1,44 @@
+README
 <<<<<<< HEAD
 # Thesis
 This is my PhD thesis called:
 "Estudio de la Interacción de Flujos Múltiples de Fuentes Astrofísicas Aplicada a los Proplyds Clásicos de la Nebulosa de Orión"
 
-## Chapter 1: Relevant astrophysical objects
+## Chapter 1: Relevant Astrophysical Objects
     - Molecular Clouds
 	- Runaway stars?
-	- Protoplanetary disks
+	- Protoplanetary disks?
 	- HII regions
 	- Proplyds.
 	- LL objects
 	- Orion Nebula 
 	- Map of proplyds.
 
-## Chapter 2: Theoretical background.
-	- Stellar winds
-	- Shocks
-	- Ionization fronts
-## Chapter 3: Bow shocks model
-	- Generic shape.
-	- Characteristic radii
-	- Projection onto the plane of the sky
-	- Quadrics of Revolution.
-## Chapter 4: Hypersonic approximation (CRW model)
-	- True Shape
+## Chapter 2: Fundamental Concepts
+	- Fundamental Parameters
+	- Planitude and Alatude
+	- Quadrics of Revolution
+	- Projection Onto the Plane of Sky
+## Chapter 3: Thin Shell Model
+    - Introduction
+    - Conserved Quantities
+	- Two Winds interaction Problem
+	- True Shape of obtained Bow Shocks
 	- Apparent Shape
-## Chapter 5: Application to Orion Proplyds.
-	- Tracing Bow Shocks positions.
-	- Measuring Empirical parameters: Rc and R0
-	- Fit measurents into model.
+## Chapter 4: Results Obtained for Classical Proplyds
+    - Methodology
+    - Results
 
-## Chapter 6: Discussion and conclusions
+## Chapter 5: Discussion and Conclusions  
 
-## Chapter 7: Future Work?
+## Chapter 6: Future Work?
+
+## Appendix
+     - Shocks and Ionization Fronts
+     - Rotation Matrix
+     - Mathematical Derivation of Radius of Curvature
+     - Step by Step Derivation of Characteristic Radii
+
 =======
 bowshock-shape
 ==============
