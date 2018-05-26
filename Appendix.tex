@@ -264,13 +264,19 @@ De esta forma, calculamos la curvatura como sigue:
 \kappa &= \frac{\left|\ddot{x}\dot{y} - \ddot{y}\dot{x}\right|}{\left(\dot{x}^2+\dot{y}^2\right)^{3/2}} 
 \end{align}
 
-Utilizando coordenadas polares, la expresión para el radio de curvatura queda como sigue:
+Utilizando coordenadas polares, y utlizando el ángulo polar $\theta$ como parámetro, la expresión para el radio de curvatura queda como sigue:
 
 \begin{align}
-R_c = R\frac{\left(1 + \omega^2\right)^{3/2}}{\left|1 + \omega^2 - \dot{\omega}\right|}\label{eq:Rc-generic}
+R_c = \frac{\left(R^2 + R^2_\theta\right)^{3/2}}{\left|R^2 + 2R_\theta -RR_{\theta\theta}\right|}\label{eq:Rc-generic}
 \end{align}
 
-Donde $\omega \equiv \frac{1}{R}\frac{dR}{d\theta}$ (ver sección \ref{sec:projection})
+Donde $R_\theta \equiv \frac{dR}{d\theta}$ y $R_{\theta\theta} \equiv \frac{d^2R}{d\theta^2}$.
+
+Evaluando (\ref{eq:Rc-generic}) en el ápex $(\theta = 0)$ encontramos que $R_{\theta, 0} = 0$ por ser el mínimo de $R(\theta)$ y podemos quitar las barras de valor absoluto porque el denominador resultante siempre es positivo por la misma razón. Por tanto recuperamos la ecuación (\ref{eq:generic-Rc}):
+
+\begin{align}
+R_c = \frac{R_0^2}{R- R_{\theta\theta, 0}}\label{eq:Rc-apex}
+\end{align}
 
 \section{Radio de curvatura para un polinomio de grado $2n$}
 \label{app:curvature-radius-poly}
