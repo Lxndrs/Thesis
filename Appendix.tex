@@ -157,7 +157,6 @@ Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuacione
 \chapter{Matrices de Rotación y Proyección en el Plano del Cielo.}
 \label{app:matrix}
 
-
 La transformación del sistema de referencia del objeto (no primado) al sistema de referencia del plano del cielo (primado), se realiza mediante una rotación respecto al eje $y$ por un ángulo $i$. Dicha rotación es descrita por la matrz de rotación $\mathbf{A}_y(i)$:
 
 \begin{align}
@@ -183,7 +182,7 @@ A su vez se pueden obtener con esta matriz los vectores unitarios del sistema de
   \hat{z}' = \mathbf{A}_y(-i)\left(
   \begin{array}{c}
     0 \\ 0 \\ 1
-  \end{array}\right)
+  \end{array}\right) \label{eq:y-matrix}
 \end{align}
 
 Es de notarse que en este caso el signo de $i$ está invertido debido a que actualmente la matriz de rotación $\mathbf{A}_y(i)$ realiza una rotación en favor de las manecillas del reloj, mientras que convencionalmente se utiliza el signo positivo del ángulo de rotación para rotaciones en contra de las manecillas del reloj (add reference HERE).
@@ -197,7 +196,7 @@ Por otro lado, como estamos considerando choques con geometría cilíndrica, ent
     0 & \cos\phi & -\sin\phi \\
     0 & \sin\phi & \cos\phi
   \end{array}
-  \right)
+  \right) \label{eq:x-matrix}
 \end{align}
 
 Donde $\phi$ toma valores en el intervalo $[0, 2\pi]$

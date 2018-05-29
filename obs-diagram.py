@@ -28,7 +28,7 @@ bp.DEGREE_POLY_NEIGHBORHOOD_90 = 2
 bp.SCALE_NEIGHBORHOOD_90 = 0.01     #Stuff from bow_projection classes
 
 XI_LIST = [None, 0.8, 0.4, 0.2, 0.1]
-BETA_LIST = [5e-4, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]
+BETA_LIST = [5e-4, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.06, 0.1]
 nxi, nbeta = len(XI_LIST), len(BETA_LIST) # set shells parameters (xi=None for cantoid shell)
 cols = sns.color_palette('magma', n_colors=nbeta) # color palette of curves
 
@@ -47,8 +47,8 @@ orange = "#E08000"
 colordict = {"LV2":dark_blue, "LV2b":pearl_turquoise, "LV3":mexican_pink, "LV4":crimson, "LV5":brown, "168-328":leaf_green, "169-338":gray, "177-341":guinda, "180-331":orange}
 
 m_savefiles = glob.glob("./saves/LV-bowshocks-xyfancy-positionswill-*.save")
-dict_xtext = {"LV2":10, "LV2b":-10, "LV3":10, "LV4":10, "LV5":10, "168-328":-10, "169-338":-10, "177-341":10, "180-331":-20}
-dict_ytext = {"LV2":10, "LV2b":10, "LV3":-10, "LV4":10, "LV5":10, "168-328":10, "169-338":10, "177-341":-10, "180-331":-20}
+dict_xtext = {"LV2":0.18, "LV2b":0.18, "LV3":0.18, "LV4":0.18, "LV5":0.25, "168-328":0.25, "169-338":0.25, "177-341":0.25, "180-331":0.32}
+dict_ytext = {"LV2":0.9, "LV2b":0.85, "LV3":0.8, "LV4":0.75, "LV5":0.9, "168-328":0.85, "169-338":0.8, "177-341":0.75, "180-331":0.9}
 
 for xi in XI_LIST:
     k = None if xi is None else 2/xi - 2
@@ -112,7 +112,7 @@ for xi in XI_LIST:
                marker="o")
         ax.annotate(data["proplyd"], xy=(data["R0"], data["Rc"]/data["R0"]),
                    xytext=(dict_xtext[data["proplyd"]], dict_ytext[data["proplyd"]]),
-                   textcoords="offset points", fontsize="xx-small",
+                   textcoords="figure fraction", fontsize="xx-small",
                    bbox=dict(boxstyle='round, pad=0.5',
                              fc=colordict[data["proplyd"]],
                              alpha=0.5))

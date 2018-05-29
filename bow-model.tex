@@ -185,21 +185,26 @@ choque. Para ello, rotamos el sistema de referencia del choque de proa en coorde
   \label{eq:rotation}
 \end{align}
 
-Donde $\mathbf{A}_y(i)$ está definida en el apéndice \ref{app:matrix}
-Por otro lado, la forma tridimensional del choque de proa viene dado por:
+Donde $\mathbf{A}_y(i)$ está definida por la ecuación (\ref{eq:y-matrix}) en el apéndice \ref{app:matrix}.
+
+Por otro lado, la forma tridimensional del choque de proa viene dado por una rotación alrededor del eje $x$ de su forma bidimensional en coordenadas polares utilizando la matriz de rotación $\mathbf{A}_x(\phi)$ definida en (\ref{eq:x-matrix}):
 \begin{align}
   \left(
   \begin{array}{c}
     x \\ y \\ z
   \end{array}
-  \right) &=
-            R(\theta)\left(
-            \begin{array}{c}
-              \cos\theta \\
-              \sin\theta\cos\phi \\
-              \sin\theta\sin\phi
-            \end{array}
-            \right)
+  \right) = \mathbf{A}_x(\phi)\left(
+  \begin{array}{c}
+    R(\theta)\cos\theta \\ R(\theta)\sin\theta \\ 0
+  \end{array}
+  \right)
+  = \left(
+    \begin{array}{c}
+      R(\theta)\cos\theta \\
+      R(\theta)\sin\theta\cos\phi \\
+      R(\theta)\sin\theta\sin\phi
+    \end{array}
+    \right)
 \end{align}
 La relación entre ambos sistemas de referencia se ilustra en la figura \ref{fig:reference}.
 \begin{figure}
@@ -239,7 +244,7 @@ y:
 \begin{align}
   \omega(\theta) = -\frac{1}{R}\frac{dR}{d\theta} 
 \end{align}
-Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:unit-vec}) alrededor del eje $x$ utilizando la matriz de rotación $\mathbf{A}_x(\phi)$ (ecuación ):
+Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:unit-vec}) alrededor del eje $x$ utilizando la matriz de rotación $\mathbf{A}_x(\phi)$:
 
 \begin{align}
   \hat{n} &= \mathbf{A}_x(\phi)\hat{n}_0 =
