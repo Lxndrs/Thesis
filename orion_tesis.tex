@@ -1,5 +1,5 @@
 % Thesis format
-\documentclass[11pt]{book}
+\documentclass[11pt, twoside]{book}
 
 %Select needed packages
 \usepackage[paperwidth=17cm, paperheight=22.5cm, bottom=2.5cm, right=2.5cm]{geometry}
@@ -27,6 +27,7 @@
 \usepackage{siunitx}
 \usepackage{pdfpages}
 \usepackage{color}
+\usepackage{nonumonpart}
 \usepackage{pdflscape}
 \usepackage{rotating}
 \usepackage{hyperref}
@@ -44,9 +45,8 @@
 \newcommand\hmmax{0}            % we don't need heavy fonts
 \newcommand\bmmax{1}            % reduce use of math alphabets for bold
 \usepackage{bm}
-
 \usepackage{fancyhdr}
-\usepackage[fit]{truncate}
+%\usepackage[fit]{truncate}
 \newcommand\thC{\(\theta^1\)\,Ori~C} %Theta 1 C. For further use in any chapter
 \newcommand\Ion[2]{\ensuremath{\mathrm{#1\,\scriptstyle #2}}} %Used when naming different ions. Credit: William J. Henney
 \title{Tesis de doctorado\\
@@ -81,14 +81,17 @@ pueda completar este trabajo de manera exitosa.
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\truncate{0.5\headwidth}{\footnotesize \leftmark}}
-\fancyhead[R]{\truncate{0.5\headwidth}{\footnotesize \rightmark}}
+\fancyhead[LE]{\footnotesize \thepage \quad\leftmark}
+\fancyhead[RO]{\footnotesize \rightmark \quad\thepage}
 \include{objects}
 \include{bow-model}
 \include{CRW}
 \include{orion-results}
 \include{conclusions}
 
+\newbool{firstbib}
+\booltrue{firstbib}
+\preto{\bibitem}{\ifbool{firstbib}{\thispagestyle{empty}\setbool{firstbib}{false}}{}}
 \bibliographystyle{mnras}
 \bibliography{orion_tesis}
 \newpage

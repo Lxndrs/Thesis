@@ -4,7 +4,7 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \chapter{Choques y Frentes de Ionización}
-
+\thispagestyle{empty}
 Algunas veces en un medio gaseoso pueden existir discontinuidades importantes en alguna de sus propiedades físicas, cuando estas propiedades son la presión, densidad y temperatura del gas nos estamos refiriendo a un choque, que es producido cuando el gas sufre una perturbación a una velocidad superior a la del sonido, mientras que si la discontinuidad ocurre en el grado de ionización del gas, entonces esta discontinuidad es conocida como frente de ionización. En esta sección analizaremos las condiciones de salto tanto de los choques como de los frentes de ionización para conocer las propiedades del gas en las dos interfaces de la discontinuidad.
 \section{Choques}
 
@@ -154,9 +154,9 @@ Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina ti
 \end{figure}
 Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:IF-jump-density}). El resultado se muestra en la figura \ref{fig:IF-jump}b. En el caso de los frentes R crítico y D crítico, la velocidad del gas en el medio ionizado es igual a la velocidad del sonido.
 
-\chapter{Matrices de Rotación y Proyección en el Plano del Cielo.}
+\chapter[Matrices de Rotación]{Matrices de Rotación y Proyección en el Plano del Cielo.}
 \label{app:matrix}
-
+\thispagestyle{empty}
 La transformación del sistema de referencia del objeto (no primado) al sistema de referencia del plano del cielo (primado), se realiza mediante una rotación respecto al eje $y$ por un ángulo $i$. Dicha rotación es descrita por la matrz de rotación $\mathbf{A}_y(i)$:
 
 \begin{align}
@@ -203,7 +203,7 @@ Donde $\phi$ toma valores en el intervalo $[0, 2\pi]$
 
 \chapter{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
-
+\thispagestyle{empty}
 Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito. Sus derivadas se denotan como $\vec{\sigma}'(t)$ y $\vec{\sigma}''(t)$. Su longitud de arco está dada por:
 
 \begin{align}
@@ -316,10 +316,9 @@ Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos la planitud en el �
 Por esto en el apéndice \ref{app:derivation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
 el coeficiente de segundo orden en la expansión en serie de $R(\theta)$.
 
-\chapter{Derivación paso a paso de los Radios Característicos en la aproximación
-  hipersónica del modelo de interacción de dos vientos}
+\chapter[Derivación de Radios Característicos]{Derivación paso a paso de los Radios Característicos en el Modelo de Capa Delgada}
 \label{app:derivation-radii}
-
+\thispagestyle{empty}
 \section{$R_0$}
 Podemos determinar el radio característico $R_0$ a partir de la condición de que el choque es estacionario. En este caso,
 los momentos de los dos vientos son iguales en la posición del choque. Por tanto, utilizando la ecuación de momento en $\theta=0$
@@ -343,7 +342,7 @@ Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para
   \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}}
 \end{align}
 
-\section{Alatud de Choques tipo Cantoides y Ancantoides}
+\section[Alatud]{Alatud de Choques tipo Cantoides y Ancantoides}
 $R_{90}$ puede determinarse a partir de evaluar las ecuaciones (\ref{eq:R-geometric}) y (\ref{eq:th1-th}) en $\theta=\frac{\pi}{2}$
 como sigue:
 
@@ -378,7 +377,7 @@ Finalmente sustituímos (\ref{eq:th190}) en (\ref{eq:r90-incomplete}) para obten
                    {\left(1+\frac{1}{5}\xi\beta\right)^{1/2}\left(1-\xi\beta\right)} 
 \end{align}
 
-\section{Planitud de choques tipo Cantoides y Ancantoides}
+\section[Planitud]{Planitud de choques tipo Cantoides y Ancantoides}
 
 Siendo que el choque de proa en nuestro modelo genérico es simétrico, entonces la forma $R(\theta)$ debe ser una función par,
 por tanto podemos hacer la siguiente expansión en serie:
@@ -454,7 +453,7 @@ De esta mostramos que el término de segundo órden que necesitamos en la ecuaci
 
 que es el resultado mostrado en la ecuación (\ref{eq:2-order})
 
-\section{Radio de Curvatura para choques tipo Wilkinoides}
+\section[Planitud Wilkinoides]{Planitud para choques tipo Wilkinoides}
 \label{sec:Rc-Wilkin}
 Hacemos expansión Taylor hasta cuarto orden de cada uno de los términos de la ecuación (\ref{eq:R-Wilkin})
 
@@ -482,5 +481,6 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 \end{align}
 
 \chapter{True Versus Apparent Shapes of Bowshocks}
-\setkeys{pdfpages}{nup=2x2, pages=-}
+\thispagestyle{empty}
+\setkeys{pdfpages}{pages=-}
 \includepdf{quadrics-bowshock.pdf}

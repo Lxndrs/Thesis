@@ -73,7 +73,20 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [X] Encontrar tabla, programas y procedimiento con el que ya habíamos hecho esto con las curvas teóricas de las cuádricas.
 - [X] Reencontrar cómo funcionaba todo ésto.
 - [ ] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos. 
+** TODO Observaciones de Will junta de [2018-05-30 Wed]
+- [X] Corregir fromato de la cabeza de la página
+  - [X] Adicional: Corregir formato de número de página. Colocar número de página en headers pero no al inicio de cada capítulo y de la bibliografía
+  - [X] Estilo "twoside" para mejorar los encabezados
+- [ ] Corregir errores tipográficos (si es que siguen ahí)
+- [ ] Observaciones al inicio de los capítulos 3 y 4
+- [-] Reajustar el tamaño del artículo adjunto como pdf y hacerle una introducción.
+  - [X] Reajustar tamaño
+  - [ ] Introducción personal
+- [ ] Cambiar la escala de los ejes de los diagramas \Pi' vd q'  para que sea siempre sea igual
 * Journal
+-[2018-05-30 Wed]
+- Meeting with Will
+- Corrected Issues with headers and page numbering
 -[2018-05-29 Tue]
 Old Entries:
 - Implementing Will's suggestions:
