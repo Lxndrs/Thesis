@@ -72,7 +72,10 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 ** TODO Reanalizar observaciones y recalcular parámetros de los vientos
 - [X] Encontrar tabla, programas y procedimiento con el que ya habíamos hecho esto con las curvas teóricas de las cuádricas.
 - [X] Reencontrar cómo funcionaba todo ésto.
-- [ ] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos. 
+- [-] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos.
+  - [X] Rehacer tabla
+  - [ ] Tabla con incertidumbres
+  - [ ] Rehacer gráficas
 ** TODO Observaciones de Will junta de [2018-05-30 Wed]
 - [X] Corregir fromato de la cabeza de la página
   - [X] Adicional: Corregir formato de número de página. Colocar número de página en headers pero no al inicio de cada capítulo y de la bibliografía
@@ -82,8 +85,14 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [-] Reajustar el tamaño del artículo adjunto como pdf y hacerle una introducción.
   - [X] Reajustar tamaño
   - [ ] Introducción personal
-- [ ] Cambiar la escala de los ejes de los diagramas \Pi' vd q'  para que sea siempre sea igual
+- [X] Cambiar la escala de los ejes de los diagramas \Pi' vd q'  para que sea siempre sea igual
 * Journal
+-[2018-06-01-Fri]
+Old entries:
+- Add Tables bar to Journal.org
+- Readjust of scale in \Pi' vs R'_0/D' diagram to be the same in all graphs
+- Finished Paramenters Table
+- Started table with uncertainties
 -[2018-05-30 Wed]
 - Meeting with Will
 - Corrected Issues with headers and page numbering

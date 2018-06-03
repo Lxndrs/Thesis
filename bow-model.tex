@@ -1,10 +1,11 @@
 \chapter{Conceptos fundamentales}
 \label{sec:Modelo-generico}
 \thispagestyle{empty}
-Para este trabajo consideramos en general dos modelos de interacción de vientos:
+ Para este trabajo consideramos en general tres modelos de interacción de vientos, actualmente publicado \citep{Tarango-Yong:2018a}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. Los modelos considerados en este trabajo se describen brevemente a continuación:
+
 \begin{itemize}
-\item Una fuente localizada en el origen que emite un viento esférico que puede ser isotrópico o anisotrópico (figura \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}). A los choques de proa resultantes se conocen como ``Cantoides'' y ``Ancantoides'', respectivamente.
-\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides''.
+\item Una fuente localizada en el origen que emite un viento esférico que puede ser isotrópico o anisotrópico (figura \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}). A los choques de proa resultantes se conocen como ``Cantoides'' y ``Ancantoides'', respectivamente. Ambos términos fueron acuñados en el artículo en el que se basa esta tesis, anexada en el apéndice \ref{app:article}.
+\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides'' \citep{Cox:2012}.
 \end{itemize}
 Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$.
 \begin{figure}
@@ -22,7 +23,7 @@ Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguien
 \end{figure}
 
 \section{Parámetros Fundamentales}
-
+\label{sec:fundamental-parameters}
 El valor mínimo de $R(\theta)$, bajo las condiciones ya mencionadas, ocurre en el ápex $(\theta=0)$, y lo denotamos como $R_0$. Bajo la condición de estado estacionario, la condición de equilibrio de presión ram entre ambos vientos implica que:
 
 \begin{align}
@@ -35,7 +36,7 @@ Donde $\beta$ es la tasa de momentos entre los vientos en interacción. Si los d
   \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}} \label{eq:beta-def}
 \end{align}
 
-En el caso de que el viento exterior sea una corriente plano--paralela (tipo wilkinoide, siguiendo a \citet{Wilkin:1996}), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
+En el caso de que el viento exterior sea una corriente plano--paralela (wilkinoide), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
 
 En el caso de que el viento interior no sea isotrópico es tratado en el capítulo \ref{chap:hipersonica}.
 

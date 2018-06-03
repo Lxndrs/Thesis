@@ -4,10 +4,12 @@
 \defcitealias{Canto:1996}{CRW}
 \newcommand\CRW{\citetalias{Canto:1996}}
 
-Un ejemplo más realista para la forma de los choques de proa proviene de modelos hidrodinámicos en estado estacionario de la interacción de flujos hipersónicos en el límite de capa delgada. Ejemplos clásicos son la interacción entre dos vientos de \citet{Canto:1996} (\CRW{} de aquí en adelante) y la interacción entre un viento con una corriente plano--paralela \citep{Wilkin:1996}. 
+Un ejemplo más realista para la forma de los choques de proa proviene de modelos hidrodinámicos en estado estacionario de la interacción de flujos hipersónicos en el límite de capa delgada. Ejemplos clásicos son la interacción entre dos vientos de \citet{Canto:1996} (\CRW{} de aquí en adelante) y la interacción entre un viento con una corriente plano--paralela \citep{Wilkin:1996}.
+
+Debido a la relevancia del artículo de \CRW{} para este trabajo, mucho del material presentado corresponde a dicho artículo, como por ejemplo las secciones \S \ref{sec:conserved-CRW} y \S \ref{sec:wilkinoids}, mientras que el resto de las secciones son una extensión a este trabajo, y se encuentra en nuestro artículo anexado en el apéndice \ref{app:article}.
 %El problema de interacción de dos vientos es de gran interés en astrofísica, y ha sido estudiado en múltiples ocasiones, principalmente mediante simulaciones hidrodinámicas. Sin embargo, cuando se toman en cuenta diversos factores, incluídos conservación de masa, momento y momento angular, el problema puede resolverse de manera algebraica.
 \section{Cantidades conservadas en un flujo hipersónico de capa delgada}
-
+\label{sec:conserved-CRW}
 Consideramos dos flujos hipersónicos, no acelerados que forman una capa estacionaria delgada formada por dos choques radiativos separados por una discontinuidad de contacto. El sistema tiene geometría cilíndrica y los vientos no tienen velocidad azimutal. Bajo estos términos, describimos la posición de la capa delgada como $R(\theta)$, donde $R$ es el radio de la capa medido a partir de la posición del origen del viento con menor momento y $\theta$ es el ángulo polar. Asumimos que el gas chocado está bien mezclado, esto implica que  tiene una sola velocidad pos--choque dada por:
 
 \begin{align}
@@ -96,9 +98,9 @@ Donde:
 \begin{align}
   I_k(\theta) = \int^{\mathrm{min}(\theta, \pi/2)}_0 \cos^k\theta \sin^2\theta~d\theta \label{eq:Ikt}
 \end{align}
- Esta última integral tiene una solución analítica en términos de una función hipergeométrica de la forma ${}_2F_1\left(-\frac{1}{2}; \frac{1+k}{2}; \frac{3+k}{2}; \cos^2\theta\right)$. En el caso particular $k=1/2$, este resultado se ``simplifica'' a una integral de segundo tipo de la forma $E\left(\frac{\theta}{2} | 2\right)$, pero es más sencillo calcularla de manera numérica. La tasa de momento angular para el viento interior es cero debido a que éste se mide respecto al origen, donde se localiza la fuente con menor momento. En este punto los vectores de posición y velocidad para un valor de $\theta$ dado son paralelos.
+ Esta última integral tiene una solución analítica en términos de una función hipergeométrica de la forma ${}_2F_1\left(-\frac{1}{2}; \frac{1+k}{2}; \frac{3+k}{2}; \cos^2\theta\right)$. En el caso particular $k=1/2$, este resultado se ``simplifica'' a una integral de segundo tipo de la forma $E\left(\frac{\theta}{2} | 2\right)$, pero es más sencillo calcular estas integrales de manera numérica. La tasa de momento angular para el viento interior es cero debido a que éste se mide respecto al origen, donde se localiza la fuente con menor momento. En este punto los vectores de posición y velocidad para un valor de $\theta$ dado son paralelos.
 
-Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} sin cambiar, pero las incluímos en las siguientes secciones por completez.
+Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} sin cambiar, que corresponden a las ecuaciones (\ref{eq:w-dotm} - \ref{eq:w-jw1}) y (\ref{eq:c-dotm}-\ref{eq:J1}) respectivamente, pero las incluímos en las siguientes secciones por completez.
 
 \subsection{Interacción con un viento esférico isotrópico}
 \label{sec:mod-isotropic}
@@ -114,7 +116,7 @@ Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} si
 En este caso tomamos como variable independiente al ángulo polar medido a partir de la posición de la fuente del viento externo, denotado por $\theta_1$. De esta forma las tasas de pérdida de masa, momento y momento angular quedan como sigue:
 
 \begin{align}
-  \dot{M}_{w1} &= \frac{M^0_{w1}}{2}\left(1 - \cos\theta_1\right)\\
+  \dot{M}_{w1} &= \frac{M^0_{w1}}{2}\left(1 - \cos\theta_1\right) \label{eq:c-dotm}\\
   \dot{\Pi}_{wz1} &= -\frac{v_{w1}\dot{M}^0_{w1}}{4}\sin^2\theta_1\\
   \dot{\Pi}_{wr1} &= \frac{v_{w1}\dot{M}^0_{w1}}{4}\left(\theta_1 - \sin\theta_1\cos\theta_1\right)\\
   \dot{J}_{w1} &= \int^{\theta_1}_0 R(\theta)v_{w1}\sin(\pi-\theta-\theta_1)~d\dot{M}_{w1} \label{eq:J1}
@@ -165,10 +167,10 @@ y $\Gamma$ es la función Gamma usual.
 \end{figure*}
 En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo con velocidad $v_a$ y densidad uniforme $\rho_a$ quedan como sigue:
 \begin{align}
-  \dot{M}_{w1} &= \pi \rho_a v_a R^2 \sin^2\theta\\
+  \dot{M}_{w1} &= \pi \rho_a v_a R^2 \sin^2\theta \label{eq:w-dotm}\\
   \dot{\Pi}_{wz1} &= - \pi\rho_a v^2_a R^2 \sin^2\theta\\
   \dot{\Pi}_{wr1} &= 0 \\
-  \dot{J}_{w1} &= \int^r_0 r'v_a \sin\theta~d\dot{M}_{w1} = \frac{2}{3}\pi\rho_a v_a^2 R^3 \sin^3\theta 
+  \dot{J}_{w1} &= \int^r_0 r'v_a \sin\theta~d\dot{M}_{w1} = \frac{2}{3}\pi\rho_a v_a^2 R^3 \sin^3\theta \label{eq:w-jw1} 
 \end{align}
 Sustituyendo estas ecuaciones en (\ref{eq:R-wind}) junto con (\ref{eq:inner-dot-M}-\ref{eq:inner-dot-J}) para vientos tipo cantoides $(k=0)$ obtenemos lo siguiente:
 \small
@@ -227,7 +229,7 @@ $R_0$ en este caso se obtiene directamente de la ecuación (\ref{eq:Wilkin-stagn
 
 En la figura \ref{fig:true-Pi-Lambda} se muestran los resultados de las ecuaciones (\ref{eq:CRW-R90}-\ref{eq:Rc-Wilkin}) en forma de diagrama $\Lambda-\Pi$. Los choques tipo cantoides ocupan en este diagrama una curva, donde cada punto de ésta representa un valor distinto de $\beta$, cuyo rango es $(0, 1)$, y está representada en color negro. Los choques ancantoides ocupan diferentes curvas, una por cada valor del índice de anisotropía $k$, y se representan por curvas con diferente tonalidad de verde, mientras que los choques wilkinoides ocupan un solo punto en este diagrama, representado por el círculo amarillo.
 
-La tendencia general de los choques cantoides y ancantoides es que conforme se incrementan $\beta$ y $k$, también se vuelven más abiertos y más planos en el aṕex ($\Pi$ y $\Lambda$ incrementan), siendo el choque tipo cantoide el más abierto a un valor de $\beta$ dado. Como ya hemos mencionado, el choque tipo cantoide y el tipo ancantoide con $k=0$ son muy similares, excepto que el choque cantoide es más abierto en las alas $(\theta > 90^\circ)$ debido al soporte que da hacia atrás el viento interior. Sin embargo, como su comportamiento es igual para $\theta \leq 90^\circ$, por tanto, no hay diferencia entre estos dos tipos de choques en este diagrama. Todos los choques se encuentran ya sea en la región de esferoides prolatos (región gris oscura) o hiperboloides (región clara), ninguno en la región de esferoides oblatos (ver figura \ref{fig:Pip-Lambdap-diagnostic}a). Los choques tipo esferoide prolato son los que tienen valores de $\beta$ pequeños, y la transición hacia hiperboloide se da cunado $\beta \sim 0.01$ para los choques cantoides y ancantoides con parámetro $k$ pequeño. Esta transición a los hiperboloides se recorre para $\beta$ mayor conforme el parámetro $k$ se incrementa. Esto contrasta con el caso de las cuádricas puras, que siempre permanecen en la misma región, pero esto se debe a que las formas de los choques de proa son más complejas que una cuádrica de revolución: mientras que la forma de la ``cabeza'' del choque (la región cercana al ápex) puede aproximarse bien con una variedad de cuádricas, la forma de las alas lejanas siempre es más parecida a un hiperboloide (ver figura ). El choque wilkinoide se ubica en el límite $\beta\to 0$ de la curva de los choques cantoides, como era de esperarse, y se ubica en la región de esferoides prolatos. Otro detalle que puede apreciarse en esta figura es que todas las curvas (al menos para $\beta$ pequeña) se aglomeran cerca de la diagonal $\Pi \simeq \Lambda$ con la tendencia de que para anisotropía grande, $\Lambda > \Pi$, existe ena región donde hay una degeneración entre $\beta$ y $k$ que se rompe para $\beta$ grande.
+La tendencia general de los choques cantoides y ancantoides es que conforme se incrementan $\beta$ y $k$, también se vuelven más abiertos y más planos en el aṕex ($\Pi$ y $\Lambda$ incrementan), siendo el choque tipo cantoide el más abierto a un valor de $\beta$ dado. Como ya hemos mencionado, el choque tipo cantoide y el tipo ancantoide con $k=0$ son muy similares, excepto que el choque cantoide es más abierto en las alas $(\theta > 90^\circ)$ debido al soporte que da hacia atrás el viento interior. Sin embargo, como su comportamiento es igual para $\theta \leq 90^\circ$, por tanto, no hay diferencia entre estos dos tipos de choques en este diagrama. Todos los choques se encuentran ya sea en la región de esferoides prolatos (región gris oscura) o hiperboloides (región clara), ninguno en la región de esferoides oblatos (ver figura \ref{fig:Pip-Lambdap-diagnostic}a). Los choques tipo esferoide prolato son los que tienen valores de $\beta$ pequeños, y la transición hacia hiperboloide se da cuando $\beta \sim 0.01$ para los choques cantoides y ancantoides con parámetro $k$ pequeño. Esta transición a los hiperboloides se recorre para $\beta$ mayor conforme el parámetro $k$ se incrementa. Esto contrasta con el caso de las cuádricas puras, que siempre permanecen en la misma región, pero esto se debe a que las formas de los choques de proa son más complejas que una cuádrica de revolución: mientras que la forma de la ``cabeza'' del choque (la región cercana al ápex) puede aproximarse bien con una variedad de cuádricas, la forma de las alas lejanas siempre es más parecida a un hiperboloide (ver figura ). El choque wilkinoide se ubica en el límite $\beta\to 0$ de la curva de los choques cantoides, como era de esperarse, y se ubica en la región de esferoides prolatos. Otro detalle que puede apreciarse en esta figura es que todas las curvas (al menos para $\beta$ pequeña) se aglomeran cerca de la diagonal $\Pi \simeq \Lambda$ con la tendencia de que para anisotropía grande, $\Lambda > \Pi$, existe una región donde hay una degeneración entre $\beta$ y $k$ que se rompe para $\beta$ grande.
 
 Todo esto funciona para la forma verdadera de los choques de proa, que corresponde a cuando son vistos de canto $(i=0)$. La alatud y planitud verdaderas no toman en cuenta el comportamiento de las alas lejanas $(\theta > 90^\circ)$. De hecho, para un choque dado, hay dos formas de calcular el ángulo de las cuádricas $\theta_Q$. Una es a partir de los parámetros $(\Pi, \Lambda)$ utilizando las ecuaciones (\ref{eq:conic-parameter-a-b}, \ref{eq:thc}, \ref{eq:quadric-parameter-pi-lambda}):
 
