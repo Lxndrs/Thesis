@@ -55,28 +55,32 @@ Los radios característicos obtenidos para la muestra original y para las submue
 %\end{figure*}
 
 Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes a los parámteros de los proplyds: inclinación, distancia a \thC{} intrínseca $D$ y radio del choque en el eje de simetría $R_0/D$.
-%\begin{landscape}
+\begin{landscape}
 \begin{table*}
   \caption{Ajuste a los parámetros de los arcos para los choques de proa de los proplyds}
   \label{tab:arc-fits} 
-\newcommand\C[1]{\multicolumn{1}{c}{#1}}
+  \newcommand\C[1]{\multicolumn{1}{c}{#1}}
+  \begin{adjustbox}{width=1.35\textwidth}
+    \small
 \begin{tabular}{llrllllrlll}\toprule
-             &          & \multicolumn{3}{c}{\dotfill Obsetvado \dotfill}              & \multicolumn{6}{c}{\dotfill Ajuste teórico \dotfill} \\ 
-  \C{OW}     & \C{Nombre} & \(D'\) &\C{ \(R_0'/D'\) }&\C{ \((R_c'/R_0')_{\mathrm{shape}}\) }&\C{ \((R_c'/R_0')_{\mathrm{flux}}\) }&\C{ \(\beta\) }&\C{ \(\xi\) }&\C{ \(|i|\) }&\C{ \(D\) }&\C{ \(R_0/D\)}\\
+             &          & \multicolumn{3}{c}{\dotfill Observado \dotfill}              & \multicolumn{6}{c}{\dotfill Ajuste teórico \dotfill} \\ 
+  \C{OW}     & \C{Nombre} & \(D'\) &\C{ \(R_0'/D'\) }&\C{ \(\Pi'_{\mathrm{shape}}\) }&\C{ \(\Pi'_{\mathrm{flux}}\) }&\C{ \(\beta\) }&\C{ \(k\) }&\C{ \(|i|\) }&\C{ \(D\) }&\C{ \(R_0/D\)}\\
   \C{(1)}& \C{ (2) }&\C{ (3)    }&\C{    (4)      }&\C{              (5)           }&\C{           (6)             }&\C{     (7)   }&\C{   (8)   }&\C{   (9) }&\C{  (10) }&\C{   (11)} \\
 \midrule     
- 168-328  &            &    6.8  &  $0.152 \pm 0.001$  &  $1.42 \pm 0.09$   &  $1.45 \pm 0.05$     &  $0.018 \pm 0.003$  &  0.4 -- 0.6  &  $33 \pm 3$   &  $0.017 \pm 0.001$  &  $0.115 \pm 0.005$  \\
- 169-338  &            &  16.4  &  $0.059 \pm 0.001$  &  $1.76 \pm 0.48$   &  $1.50 \pm 0.05$     &  $0.002 \pm 0.001$  &  0.8 -- 0.8  &  $43 \pm 8$   &  $0.049 \pm 0.006$  &  $0.035 \pm 0.005$  \\
- 177-341  & HST1   & 25.6  &  $0.144 \pm 0.001$  &  $1.21 \pm 0.02$   &  $1.25 \pm 0.02$     &  $0.018 \pm 0.003$  &  0.1 -- 0.2  &  $30 \pm 5$   &  $0.064 \pm 0.003$  &  $0.115 \pm 0.005$  \\
- 180-331  &             &  25.1  &  $0.061 \pm 0.007$  &  $1.30 \pm 0.05$   &  $1.27 \pm 0.05$     &  $0.003 \pm 0.001$  &  0.4 -- 0.4  &  $35 \pm 7$   &  $0.066 \pm 0.007$  &  $0.047 \pm 0.005$  \\
- 167-317  &  LV2     &    7.8  &  $0.305 \pm 0.025$  &  $0.81 \pm 0.28$   &  $1.50 \pm 0.1$      &  $0.085 \pm 0.015$  &  0.1 -- 0.2  &  $13 \pm 13$  &  $0.017 \pm 0.001$  &  $0.225 \pm 0.005$  \\
-               & LV2b    &   7.2  &  $0.097 \pm 0.002$  &  $2.00 \pm 0.62$   &  $1.63 \pm 0.08$     &  $0.008 \pm 0.003$  &  0.8 -- 0.8  &  $28 \pm 13$  &  $0.018 \pm 0.002$  &  $0.078 \pm 0.013$  \\
- 163-317  & LV3      &   6.9  &  $0.334 \pm 0.002$  &  $1.81 \pm 0.12$   &  $1.85 \pm 0.15$     &  $0.075 \pm 0.025$  &  0.6 -- 0.8  &  $35 \pm 5$   &  $0.018 \pm 0.001$  &  $0.205 \pm 0.025$  \\
- 161-324  & LV4      &   6.2  &  $0.186 \pm 0.002$  &  $2.59 \pm 0.24$   &  $2.05 \pm 0.07$     &  $0.040 \pm 0.014$  &  0.8 -- 1.0  &  $18 \pm 12$  &  $0.014 \pm 0.001$  &  $0.160 \pm 0.028$  \\
- 168-323  & LV5      &   9.6  &  $0.213 \pm 0.002$  &  $1.57 \pm 0.07$   &  $1.60 \pm 0.07$     &  $0.055 \pm 0.005$  &  0.2 -- 0.4  &  $20 \pm 5$   &  $0.022 \pm 0.001$  &  $0.190 \pm 0.010$  \\
+ 168-328  &            &    6.8  &  $0.15 \pm 0.01$  &  $1.45 \pm 0.15$   &  $1.55 \pm 0.05$     &  0.005  &  0.5  &  $52.5 \pm 2.5$   &  $0.022 \pm \SI{1.8e-4}{}$  &  $0.07$  \\
+ 169-338  &            &  16.4  &  $0.06 \pm 0.01$  &  $1.45^{+1.05}_{-0.25}$   &  $1.65 \pm 0.1$     &  0.002  &  0.0 -- 0.5  &  $35.0 \pm 2.5$   &  $0.040 \pm \SI{1.2e-3}{}$  &  $0.04$  \\
+ 177-341  & HST1   & 25.6  &  $0.15 \pm 0.01$  &  $1.25 \pm 0.05$   &  $1.25 \pm 0.05$     &  0.0005 -- 0.001  &  3.0 -- 8.0  &  $81.25 \pm 2.8$   &  $0.380 \pm \SI{0.13}{}$  &  $0.03 \pm 0.007$  \\
+ 180-331  &             &  25.1  &  $0.07^{+0.01}_{-0.03}$  &  $1.3 \pm 0.1$   &  $1.3 \pm 0.1$     &  0.0005  &  0.5  &  $62.5 \pm 2.5$   &  $0.109 \pm \SI{3.6e-4}{}$  &  $0.02$  \\
+ 167-317  &  LV2     &    7.8  &  $0.31^{+0.01}_{-0.07}$  &  $0.75^{+0.75}_{-0.15}$   &  $1.03 \pm 0.175$      &  0.02 -- 0.1  &  3.0 -- 8.0  &  $42.5 \pm 2.5$  &  $0.021 \pm \SI{9.0e-4}{}$  &  $0.18 \pm 0.06$  \\
+ 166-316  & LV2b    &   7.2  &  $0.09 \pm 0.01$  &  $2.00^{+1.2}_{-0.6}$   &  $1.78 \pm 0.125$     &  0.01  &  0.0 -- 0.5  &  $16.3 \pm 1.25$  &  $0.015 \pm \SI{1.0e-4}{}$  &  $0.09$  \\
+ 163-317  & LV3      &   6.9  &  $0.33 \pm 0.01$  &  $1.85^{+0.25}_{0.15}$   &  $2.05 \pm 0.05$     &  0.06  &  0.5  &  $40.0 \pm 2.5$   &  $0.017 \pm \SI{8e-5}{}$  &  $0.2$  \\
+ 161-324  & LV4      &   6.2  &  $0.19 \pm 0.01$  &  $2.65^{+0.25}_{-0.65}$   &  $2.65^{+0.25}_{-0.65}$     &  0.05  &  0.0  &  $7.5 \pm 2.5$  &  $0.013 \pm \SI{1.2e-5}{}$  &  $0.18$  \\
+ 168-323  & LV5      &   9.6  &  $0.21 \pm 0.01$  &  $1.55^{+0.15}_{-0.15}$   &  $1.7 \pm 0.05$     &  0.02  &  0.5  &  $42.5 \pm 2.5$   &  $0.026 \pm \SI{1e-4}{}$  &  $0.07$  \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \begin{minipage}{0.95\linewidth}
+\footnotesize
   Notes --
 %
   Col.~(1): ID de la fuente \citep{ODell:1994a}.
@@ -85,11 +89,11 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
 % 
   Col.~(3): Distancia proyectada desde \thC{}, segundos de arco.
 %
-  Col.~(4): Radio exterior aparente a lo largo del eje, normalizado con la distancia proyectada, con una incertidumbre de \(\pm 1\sigma\), determinado con el ajuste circular decrito en \S~\ref{sec:methodology}.
+  Col.~(4): Radio exterior aparente a lo largo del eje, normalizado con la distancia proyectada, donde la incertidumbre es calculada a partir de los valores máximo y mínimo de las submuestras descritas en \S~\ref{sec:methodology}, pero utlizando como mínimo la mitad de la resolución de los ejes de la figura \ref{fig:obs-diagnostic}. Se determina con el ajuste circular decrito en \S~\ref{sec:methodology}.
 % 
-  Col.~(5): Radio de curvatura aparente, normalizado con el radio a lo largo del eje, con incertidumbres de \(\pm 1\sigma\), determinado con el ajuste circular descrito en \S~\ref{sec:methodology}.
+  Col.~(5): Planitud aparente, donde la incertidumbre es calculada del mismo modo que en Col.~(4). Se determina con el ajuste circular descrito en \S~\ref{sec:methodology}.
 % 
-  Col.~(6): Igual que Col.~(5) pero aplicando el criterio adicional de que el brillo superficial del proplyd obtenido debe coincidir con la predicción teórica.
+  Col.~(6): Planitud aparente, pero aplicando el criterio adicional de que el brillo superficial del proplyd obtenido debe coincidir con la predicción teórica. La medición central corresponde al promedio de las mediciones de las submuestras que cumplen con dicho criterio, con una desviación de $\pm 1\sigma$. Si solo una submuestra cumple el criterio, el resultado de Col.~(5) se traspasa a esta columna. 
 %
   Col.~(7): Cociente de momentos entre el viento del proplyd y la estrella O (ver capítulo \ref{chap:hipersonica}). 
 % 
@@ -103,4 +107,4 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
 
 \end{minipage}
 \end{table*}
-%\end{landscape}
+\end{landscape}
