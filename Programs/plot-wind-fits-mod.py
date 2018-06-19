@@ -133,7 +133,8 @@ D = tab['D(as)'] * d_Orion*AU/PC
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 ax1.loglog(D, tab['F(star)'], c='k', alpha=0.1, lw=10, label='')
 ax2.loglog(D, tab['P(wind)']/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
-mm = (tab['F(ph)/F(*)'] > 0.707) & (tab['F(ph)/F(*)'] < 1.414) # Subsamples where photoionization is accomplished
+mm = (tab['F(ph)/F(*)'] > 0.707) & (tab['F(ph)/F(*)'] < 1.414) # Subsamples where photoionization balance is accomplished
+nn = (tab['F(ph)/F(*)'] > 0.33) & (tab['F(ph)/F(*)'] < 3.) # Subsamples where photoionization balance is  weakly accomplished.
 out_colnames = ['Source' ,'D prime', 'R0/D prime', 'Rc/R0 prime full',
                 'Rc/R0 prime select', 'beta', 'xi', 'inc', 'D', 'R0/D']
 
@@ -195,6 +196,15 @@ for source, color in zip(sources, colors):
                '-', c=color, alpha=0.4, label='')
     ax2.loglog(D[m & mm], tab['P(in)'][m & mm]/k_Boltzmann,
                'o-', c=color, lw=3, label=source)
+    # Now plot the subsamples which accomplish weakly photoionization balance.
+    ax1.loglog(D[m], tab['F(photo)'][m],
+               '-', c=color, alpha=0.4, label='')
+    ax1.loglog(D[m & (nn & ~mm)], tab['F(photo)'][m & (nn & ~mm)],
+               'o-', lw=0.5, c=color, label='', alpha=0.4)
+    ax2.loglog(D[m], tab['P(in)'][m]/k_Boltzmann,
+               '-', c=color, alpha=0.4, label='')
+    ax2.loglog(D[m & (nn & ~mm)], tab['P(in)'][m & (nn & ~mm)]/k_Boltzmann,
+               'o-', c=color, lw=0.5, label='', alpha=0.4)
 ax2.legend(ncol=2, loc='lower left')
 ax2.set_xlim(0.008, 0.3)
 ax2.set_ylim(1e7, 4e9)
