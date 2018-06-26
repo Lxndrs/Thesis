@@ -238,7 +238,7 @@ plt.plot(0.0, 0.0, "rx", label=None)
 # plt.ylim(ymin=vmin, ymax=vmax)
 
 
-plt.legend(loc="lower left")
+plt.legend(loc="lower left", frameon=True)
 plt.xlabel(r"$z'/R'_0$", fontsize = "large")
 plt.ylabel(r"$r'/R'_0$", fontsize = "large")
 

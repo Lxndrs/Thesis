@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker
 import seaborn as sns
 import sys
-#sys.path.insert(0,"../bowshock-shape/Dust-wave/")
-#sys.path.insert(0,"../bowshock-shape/")
+sys.path.insert(0,"../bowshock-shape/Dust-wave/")
+sys.path.insert(0,"../bowshock-shape/")
 import json
 import glob
 import bow_projection as bp
@@ -46,7 +46,7 @@ orange = "#E08000"
 #Create a dictionary with hex colors for the objects
 colordict = {"LV2":dark_blue, "LV2b":pearl_turquoise, "LV3":mexican_pink, "LV4":crimson, "LV5":brown, "168-328":leaf_green, "169-338":gray, "177-341":guinda, "180-331":orange}
 
-m_savefiles = glob.glob("../saves/LV-bowshocks-xyfancy-base-positionswill-*.save")
+m_savefiles = glob.glob("./saves/LV-bowshocks-xyfancy-positionswill-*.save")
 dict_xtext = {"LV2":0.18, "LV2b":0.18, "LV3":0.18, "LV4":0.18, "LV5":0.25, "168-328":0.25, "169-338":0.25, "177-341":0.25, "180-331":0.32}
 dict_ytext = {"LV2":0.9, "LV2b":0.85, "LV3":0.8, "LV4":0.75, "LV5":0.9, "168-328":0.85, "169-338":0.8, "177-341":0.75, "180-331":0.9}
 
@@ -104,7 +104,7 @@ for xi in XI_LIST:
     #Add the observational points
     for savefile in m_savefiles:
         data = json.load(open(savefile))
-        combined_file = savefile.replace('base-positionswill', 'variations')
+        combined_file = savefile.replace('positionswill', 'variations')
         vardata = json.load(open(combined_file))
         ax.plot(data["R0"], data["Rc"]/data["R0"],
                # color=colordict[data["proplyd"]],
@@ -140,5 +140,5 @@ for xi in XI_LIST:
     ax.set_ylim(0, 4.0)
     f.set_size_inches(6, 6)
     f.tight_layout()
-    f.savefig("../Figures/obs-diagnostic-Pi-R0-{}.pdf".format(filesuffix))
+    f.savefig("./Figures/obs-diagnostic-Pi-R0-{}.pdf".format(filesuffix))
     f.clf()
