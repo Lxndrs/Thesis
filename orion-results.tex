@@ -13,11 +13,11 @@ En todos los casos no fue posible medir el radio característico $R_{90}$ debido
 
 \section{Metodología para la medición de la forma aparente.}
 \label{sec:methodology}
-Se utilizaron imágenes en el filtro de [\Ion{O}{III}] de la cámara WPC2 del Telescopio Espacial Hubble (HST). Se utilizaron las herramientas del programa DS9 para análisis de imágenes astronómicas para trazar la posición de \thC{} y de cada uno de los proplyds de la muestra. La posición y la forma de los choques de proa fue trazada con una serie de marcas a lo largo del choque. Las coordenadas de las marcas fueron guardadas en un archivo y luego procesadas para tener las coordenadas del choque en el sistema de referencia del proplyd (Figura \ref{fig:proplyds-map}). El radio de curvatura aparente se obtiene haciendo un ajuste de mínimos cuadrados de la forma de un círculo de las mediciones obtenidas. $R_0$ se obtiene como la distancia mínima entre el proplyd y el ajuste circular dentro del rango de las coordenadas de las mediciones. 
+Se utilizaron imágenes en el filtro de [\Ion{O}{III}] de la cámara WPC2 del Telescopio Espacial Hubble (HST). Se utilizaron las herramientas del programa DS9 para análisis de imágenes astronómicas para trazar la posición de \thC{} y de cada uno de los proplyds de la muestra. La posición y la forma de los choques de proa fue trazada con una serie de marcas a lo largo del choque. Las coordenadas de las marcas fueron guardadas en un archivo y luego procesadas para tener las coordenadas del choque en el sistema de referencia del proplyd (Figura \ref{fig:proplyds-map}). El radio de curvatura aparente se obtiene haciendo un ajuste de mínimos cuadrados de la forma de un círculo de las mediciones obtenidas. $R_0$ se obtiene como la distancia a lo largo del eje $x$ entre el proplyd y el ajuste circular dentro del rango de las coordenadas de las mediciones. 
 
 \subsection{Medición de incertidumbres}
 
-Para saber qué tan confiables son las coordenadas de las mediciones, se realizó el procedimiento siguiente: Del total de mediciones realizadas para cada proplyd, se crearon varias sub-muestras donde se utilizamos aproximadamente las dos terceras partes de las mediciones, pero dejando un mínimo de cuatro puntos, y se procedió a calcular los radios característicos para cada submuestra, y comprobar qué tanto se desvían estas mediciones de la original. En la figura \ref{fig:char-radii-obs} se muestran ejemplos de dichas sub-muestras para algunos proplyds.
+Para saber qué tan confiables son las coordenadas de las mediciones, se realizó el procedimiento siguiente: Del total de mediciones realizadas para cada proplyd, se crearon varias sub-muestras donde se utilizamos aproximadamente las dos terceras partes de las mediciones, pero dejando un mínimo de cuatro puntos, y se procedió a calcular los radios característicos para cada sub-muestra, y comprobar qué tanto se desvían estas mediciones de la original. En la figura \ref{fig:char-radii-obs} se muestran ejemplos de dichas sub-muestras para algunos proplyds.
 
 
 \begin{figure*}
@@ -35,7 +35,7 @@ Todos los puntos & Primera sub-muestra & Segunda sub-muestra \\ \includegraphics
 
 \section{Resultados Empíricos.}
 
-Los radios característicos obtenidos para la muestra original y para las submuestras se muestran en la figura \ref{fig:obs-diagnostic}. En cada pánel se utiliza un valor fijo para el parámetro de anisotropía $k$. De esta figura se pueden encontrar algunas observaciones cualitativas: Los proplyds con planitud mayor, LV4 y LV2b ajustan mejor a modelos donde el parámetro de anisotropía es bajo. Para LV2, por otro lado, su medición principal no ajusta a ningún modelo, pero tiene dos variaciones que se desvían mucho de la medición principal que ajustan a modelos con índice de anisotropía alto. Probablemente la presencia de un jet interfiera con la forma del choque (añadir referencia) pero es una hipótesis que va más allá del objetivo de este trabajo. El resto de los proplyds ajusta bien con un parámetro de anisotropía medio $(k\sim 1/2 - 3)$. Dependiendo de los parámetros $(\beta, k)$, la inclinación que se le puede atribuir a cada proplyd en la mayoría de los casos varía entre $15^\circ$ y $40^\circ$. 
+Los radios característicos obtenidos para la muestra original y para las submuestras se muestran en la figura \ref{fig:obs-diagnostic}. En cada pánel se utiliza un valor fijo para el parámetro de anisotropía $k$. De esta figura se pueden encontrar algunas observaciones cualitativas: Los proplyds con planitud mayor, LV4 y LV2b ajustan mejor a modelos donde el parámetro de anisotropía es bajo. LV2, quien tiene la planitud aparente más baja de toda la muestra, ajusta con modelos con alto índice de anisotropía $(k \gtrsim 3)$, con HST1 (177-341) ocurre algo similar, sin embargo, los modelos a los que ajusta este proplyd tienen una tasa de momentos baja e inclinaciones muy altas $(i \sim 80^{\circ})$. Esto es difícil de atribuirselo a errores en las mediciones por que es el proplyd que menos desviaciones tiene entre la medición original y las sub-muestras.  El resto de los proplyds ajusta bien con un parámetro de anisotropía medio $(k\sim 1/2 - 3)$. Dependiendo de los parámetros $(\beta, k)$, la inclinación que se le puede atribuir a cada proplyd en la mayoría de los casos varía entre $15^\circ$ y $40^\circ$. 
 
 \begin{figure}
  \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-Cantoid} & \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-k05} \\
@@ -52,7 +52,7 @@ Los radios característicos obtenidos para la muestra original y para las submue
 %\label{fig:conic-xi}
 %\end{figure*}
 
-Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes a los parámteros de los proplyds: inclinación, distancia a \thC{} intrínseca $D$ y radio del choque en el eje de simetría $R_0/D$.
+Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes a los parámteros de los proplyds: inclinación, distancia a \thC{} intrínseca $D$ y radio del choque en el ápex $R_0/D$.
 \begin{landscape}
 \begin{table*}
   \caption{Ajuste a los parámetros de los arcos para los choques de proa de los proplyds}
@@ -65,21 +65,21 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
   \C{OW}     & \C{Nombre} & \(D'\) &\C{ \(R_0'/D'\) }&\C{ \(\Pi'_{\mathrm{shape}}\) }&\C{ \(\Pi'_{\mathrm{flux}}\) }&\C{ \(\beta\) }&\C{ \(k\) }&\C{ \(|i|\) }&\C{ \(D\) }&\C{ \(R_0/D\)}\\
   \C{(1)}& \C{ (2) }&\C{ (3)    }&\C{    (4)      }&\C{              (5)           }&\C{           (6)             }&\C{     (7)   }&\C{   (8)   }&\C{   (9) }&\C{  (10) }&\C{   (11)} \\
 \midrule     
- 168-328  &            &    6.8  &  $0.15 \pm 0.01$  &  $1.45^{+0.10}_ {-0.15}$   &  $1.55 \pm 0.050$     &  0.005  &  0.5  &  $52.5 \pm 2.50$   &  $0.022 \pm \SI{5.4e-4}{}$  &  $0.07$  \\
- 169-338  &            &  16.4  &  $0.06 \pm 0.01$  &  $1.45^{+1.05}_{-0.25}$   &  $1.65 \pm 0.100$     &  0.002  &  0.0 -- 0.5  &  $36.3 \pm 1.25$   &  $0.040 \pm \SI{1.3e-3}{}$  &  $0.04$  \\
- 177-341  & HST1   & 25.6  &  $0.15 \pm 0.01$  &  $1.25 \pm 0.05$   &  $1.25 \pm 0.050$     &  0.0005 -- 0.001  &  3.0 -- 8.0  &  $79.3 \pm 3.57$   &  $0.275 \pm \SI{1.8e-1}{}$  &  $0.03 \pm 0.009$  \\
- 180-331  &             &  25.1  &  $0.07^{+0.01}_{-0.03}$  &  $1.30 \pm 0.10$   &  $1.30 \pm 0.100$     &  0.0005  &  0.5  &  $62.5 \pm 2.50$   &  $0.109 \pm \SI{2.2e-3}{}$  &  $0.02$  \\
- 167-317  &  LV2     &    7.8  &  $0.29^{+0.03}_{-0.05}$  &  $1.15^{+0.35}_{-0.55}$   &  $1.03 \pm 0.177$      &  0.02 -- 0.1  &  3.0 -- 8.0  &  $42.5 \pm 2.04$  &  $0.021 \pm \SI{1.1e-2}{}$  &  $0.18 \pm 0.060$  \\
- 166-316  & LV2b    &   7.2  &  $0.11^{+0.01}_{-0.03}$  &  $1.75^{+0.85}_{-0.35}$   &  $1.75 \pm 0.100$     &  0.02 -- 0.01  &  0.0 -- 0.5  &  $20.0 \pm 2.50$  &  $0.015 \pm \SI{4.4e-4}{}$  &  $0.11 \pm 0.016$  \\
-  163-317  & LV3      &   6.9  &  $0.33 \pm 0.01$  &  $1.80^{+0.30}_{0.10}$   &  $2.05 \pm 0.050$     &  0.06  &  0.5  &  $40.0 \pm 2.50$   &  $0.018 \pm \SI{4.0e-4}{}$  &  $0.20$  \\
- 161-324  & LV4      &   6.2  &  $0.19 \pm 0.01$  &  $2.65^{+0.25}_{-0.65}$   &  $2.10 \pm 0.050$     &  0.02 -- 0.05  &  0.0  &  $23.8 \pm 13.75$  &  $0.014 \pm \SI{1.7e-3}{}$  &  $0.15 \pm 0.030$  \\
- 158-323  & LV5      &   9.6  &  $0.21 \pm 0.01$  &  $1.55 \pm 0.15$   &  $1.70 \pm 0.050$     &  0.02  &  0.5  &  $42.5 \pm 2.50$   &  $0.026 \pm \SI{5.3e-4}{}$  &  $0.07$  \\
+ 168-328  &            &    6.8  &  $0.15 \pm 0.01$  &  $1.45^{+0.10}_ {-0.15}$   &  $1.55 \pm 0.05$     &  0.005  &  0.5  &  $52.5 \pm 2.50$   &  $0.022 \pm \SI{1.5e-3}{}$  &  $0.07$  \\
+ 169-338  &            &  16.4  &  $0.06 \pm 0.01$  &  $1.45^{+1.05}_{-0.25}$   &  $1.65 \pm 0.10$     &  0.002  &  0.0 -- 0.5  &  $36.3 \pm 1.25$   &  $0.040 \pm \SI{1.3e-3}{}$  &  $0.04$  \\
+ 177-341  & HST1   & 25.6  &  $0.15 \pm 0.01$  &  $1.25 \pm 0.05$   &  $1.15 \pm 0.05$     &  0.0005 -- 0.001  &  3.0 -- 8.0  &  $72.5 \pm 2.50$   &  $0.171 \pm \SI{2.6e-2}{}$  &  $0.04$  \\
+ 180-331  &             &  25.1  &  $0.07^{+0.01}_{-0.03}$  &  $1.30 \pm 0.10$   &  $1.30 \pm 0.10$     &  0.0005  &  0.5  &  $62.5 \pm 2.50$   &  $0.109 \pm \SI{2.2e-3}{}$  &  $0.02$  \\
+ 167-317  &  LV2     &    7.8  &  $0.29^{+0.03}_{-0.05}$  &  $1.15^{+0.35}_{-0.55}$   &  $1.03 \pm 0.18$      &  0.02 -- 0.1  &  3.0 -- 8.0  &  $42.5 \pm 2.04$  &  $0.021 \pm \SI{9.2e-4}{}$  &  $0.18 \pm 0.06$  \\
+ 166-316  & LV2b    &   7.2  &  $0.11^{+0.01}_{-0.03}$  &  $1.75^{+0.85}_{-0.35}$   &  $1.75 \pm 0.10$     &  0.02 -- 0.01  &  0.0 -- 0.5  &  $20.0 \pm 2.50$  &  $0.015 \pm \SI{4.4e-4}{}$  &  $0.11 \pm 0.02$  \\
+  163-317  & LV3      &   6.9  &  $0.33 \pm 0.01$  &  $1.80^{+0.30}_{0.10}$   &  $2.05 \pm 0.05$     &  0.06  &  0.5  &  $40.0 \pm 2.50$   &  $0.018 \pm \SI{9.0e-4}{}$  &  $0.20$  \\
+ 161-324  & LV4      &   6.2  &  $0.19 \pm 0.01$  &  $2.65^{+0.25}_{-0.65}$   &  $2.10 \pm 0.05$     &  0.02 -- 0.05  &  0.0  &  $23.8 \pm 13.75$  &  $0.014 \pm \SI{1.7e-3}{}$  &  $0.15 \pm 0.03$  \\
+ 158-323  & LV5      &   9.6  &  $0.21 \pm 0.01$  &  $1.55 \pm 0.15$   &  $1.70 \pm 0.05$     &  0.02  &  0.5  &  $42.5 \pm 2.50$   &  $0.026 \pm \SI{9.4e-3}{}$  &  $0.02$  \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
 \begin{minipage}{0.95\linewidth}
 \footnotesize
-  Notes --
+  Notas --
 %
   Col.~(1): ID de la fuente \citep{ODell:1994a}.
 %
@@ -109,13 +109,15 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
 
 \section{Obtención de la Presión de Equilibrio}
 
-Utilizamos los perfiles de brillo obtenidos en \citet{HA:1998} para obtener la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds. Sin embargo, a partir de los datos mostrados en la tabla 2 de dicho artículo, encuentro que utilizan una distancia a \thC{} de \SI{460}{pc}, mientras que en este trabajo utilizo una distancia de $414 \pm 6.8 \mathrm{~pc}$ \citep{Menten:2007}. En la tabla  muestro la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds corregidos por distancia a \thC{}, además, \citet{Henney:2001} encuentra que la densidad máxima obtenida en \citet{HA:1998} está sobreestimada por un factor del orden del 50\%.
+Utilizamos los perfiles de brillo obtenidos en \citet{HA:1998} para obtener la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds. Sin embargo, a partir de los datos mostrados en la tabla 2 de dicho artículo, encuentro que utilizan una distancia a \thC{} de \SI{460}{pc}, mientras que en este trabajo utilizo una distancia de $414 \pm 6.8 \mathrm{~pc}$ \citep{Menten:2007}. En la tabla  muestro la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds corregidos por distancia a \thC{}, además, \citet{Henney:2001} encuentra que la densidad máxima obtenida en \citet{HA:1998} está sobreestimada por un factor del orden del 33\%.
 
-\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
+
 \begin{table}
-%  \begin{adjustbox}{width=\linewidth}
+  % \begin{adjustbox}{width=\linewidth}
+  \label{tab:Prop-IF-par}
+  \centering
   \begin{tabular}{cccc} \toprule
-    OW      & Nombre & $r_{\mathrm{IF}, 14}$     & $N_6$ \\
+    OW      & Nombre & $r_{\mathrm{IF}, 14}$*     & $N_6$* \\
     \midrule
     168-328 &        & $2.5 \pm 0.3$  & $4.22^{+2.71}_{-0.51}$ \\
     169-338 &        & $2.5 \pm 0.3$  & $1.48^{+1.13}_{-0.22}$ \\
@@ -128,14 +130,58 @@ Utilizamos los perfiles de brillo obtenidos en \citet{HA:1998} para obtener la d
     158-323 & LV5    & $5.7 \pm 0.6$  & $2.46^{+1.45}_{-0.60}$ \\
   \bottomrule
   \end{tabular}
-  
-%  \end{adjustbox}
+  \begin{minipage}{0.9\linewidth}
+    \footnotesize
+    Notas --
+%
+  Col.~(1): ID de la fuente \citep{ODell:1994a}.
+%
+  Col.~(2): Nombre alternativo de la fuente.
+%
+  Col.~(3): Radio del IF del proplyd, en unidades de \SI{e14}{cm}
+%
+  Col.~(4): Densidad máxima del IF, en unidades de \SI{e6}{cm^{-3}}
+%
+  * En la Col.~(3) la corrección por distancia se da como sigue: $r_{\mathrm{IF}, 14} = r_{\mathrm{IF}, 14}^{\mathrm{HA}}\frac{\SI{414}{pc}}{\SI{460}{pc}}$, mientras que en la Col.~(4) la corrección es $N_6 = N_6^{\mathrm{HA}}\left(\frac{\SI{414}{pc}}{\SI{460}{pc}})^{-1/2}$, donde además la cantidad $N_6^{\mathrm{HA}}$ está reducida a solo las dos terceras parte de lo que se reporta en \citet{HA:1998}.
+  \end{minipage}
 \end{table}
 
 Con ayuda de estos parámetros podemos determinar el flujo de fotones ionizantes necesario para que exista equilibrio de ionización en el flujo fotoevaporado proveniente del proplyd, dado por la siguiente ecuación \citep{Henney:2001}:
 
 \begin{align}
-  F_* = v_w n_0 + \alpha'_{\mathrm{rec}}n^2_0 \omega r_{\mathrm{IF}}
+  F_{ph} = v_w n_0 + \alpha'_{\mathrm{rec}}n^2_0 \omega r_{\mathrm{IF}}\label{eq:F-ph}
 \end{align}
 
-Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver \S \ref{sec:HII}) y $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$
+Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver \S \ref{sec:HII}) y $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$.
+
+Por otro lado, el flujo de fotones Ultravioleta provenientes de \thC{} a la distancia $D$ viene dado por:
+
+\begin{align}
+  F_* = \left(1 - f_d\right)\frac{\Nio_*}{4\pi D^2} \label{eq:F-star}
+\end{align}
+
+Donde $f_d$ es un factor relacionado con la absorción del polvo.
+
+La condición de equilibrio de ionización implica que $F_{ph} = F_*$. Sin embargo, no todas las mediciones de las submuestras predicen una distancia $D$ que lleven a alcanzar dicho equilibrio. En la columna (6) de la tabla \ref{tab:arc-fits} mostramos el promedio de la planitud aparente de las sub-muestras que se aproximan más al equilibrio de ionización, y para las mediciones consecuentes de dicha tabla (columnas (7) en adelante) también se utilizan estas sub-muestras.
+
+Por otro lado, la presión RAM en la cáscara viene dada por:
+
+\begin{align}
+  P_{in} = n m M^2 \label{eq:P-in}
+\end{align}
+
+Donde $n$ es la densidad máxima de la cáscara, $m = 1.3 m_p$, $m_p = \SI{1.673e-24}{}$ es la masa del hidrógeno y $M$ es el número de Mach del flujo fotoevaporado. Y la presión RAM del viento de \thC{} es:
+
+\begin{align}
+  P_* = \frac{\dot{M}}{4\pi D^2} \label{eq:P-star}
+\end{align}
+
+Donde $\dot{M} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ es la tasa de pérdida de masa de \thC{}.
+
+De manera análoga al flujo, el equilibrio de presiones RAM que implica un choque estacionario se logra cuando $P_{in} = P_*$. En la figura \ref{fig:wind-fits} se hace una comparación entre $F_{ph}$, $P_{in}$, $F_*$ y $P_{*}$ vs $D$ en un diagrama log-log para las sub-muestras que cumplen con la condición $\left|\frac{F_{ph}}{F_*}\right| < 10$. Para los proplyds más lejanos se observa que las mediciones de las submuestras disponibles predicen una presión RAM mayor a la que se requiere para que el choque sea estacionario. Esto puede significar que por su distancia a \thC{} la presión del viento estelar deja de ser dominante y otra fuente también contribuye a confinar el choque de proa de estos proplyds. Esta hipótesis se está trabajando en un artículo por publicar.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits}
+  \caption{Diagrama log-log de Flujo (arriba) y Presión RAM (abajo) vs distancia, para las sub-muestras de cada proplyd, mostradas con colores, mientras quel el flujo y presión RAM de la estrella se muestran con la línea gris. Las mediciones de la presión y el flujo utilizan las mediciones del radio del IF y densidad de la tabla \ref{tab:Prop-IF-par}, una tasa de fotones ionizantes de $\Nio_* = \SI{1e49}{s^{-1}}$, que corresponde a una estrella de tipo espectral entre O5 y O6 (ver tabla \ref{tab:ionizing-radiation}), un factor de absorción por polvo  $f_d$ de 0.5, el IF de los proplyds es de tipo D-crítico y el número de Mach del flujo fotoionizado en $r=R_0$ es 3.}
+  \label{fig:wind-fits}
+\end{figure}
