@@ -85,11 +85,6 @@ La Nebulosa de Orión (ONC por sus siglas en inglés), ubicada a $\sim \SI{414}{
   \label{fig:champagne}
 \end{figure}
 
-
-%\section{Estrellas ``Errantes''}
-%\section{Discos Protoplanetarios}
-%\subsection{Formación}
-
 \section{Proplyds}
 \subsection{Descubrimiento}
 Observaciones en óptico de la región del trapecio en filtros de banda angosta de diferentes líneas de emisión tales como \Ion{H}{\alpha}, \Ion{H}{\beta}, [\Ion{O}{III}], [\Ion{N}{II}], [\Ion{S}{II}] y continuo, revelaron la existencia de objetos puntuales únicamente visibles en líneas de alta ionización (\Ion{H}{\alpha}, \Ion{H}{\beta} y [\Ion{O}{III}]) que fueron inicialmente denominados como ``condensaciones nebulares'' \citep{Laques:1979}. Hasta el momento no se sabía con certeza si ``condensaciones nebulares'' eran en realidad condensaciones nebulares (regiones donde la densidad de la nebulosa es inusualmente alta por alguna razón o bien esferas de gas molecular cuya envolvente fue ionizada y que la radiación de la estrella central la está ``erosionando'') o si se trataba de protoestrellas de baja masa cuyo disco protoplanetario estaba siendo fotoevaporado por la estrella central \citep{churchwell:1987}. No fue sino hasta que se contó con observaciones de alta resolución con el Telescopio Espacial Hubble (HST) que se se pudo determinar la verdadera naturaleza de estos objetos \citep{ODell:1993} y la razón por la que se les denominó ``proplyds'' (PROtoPLanetarY DiskS). A su vez se encontraron por primera vez arcos delgados y otras estructuras de gran interés.
@@ -135,9 +130,56 @@ Donde $M_*$ es la masa de la protoestrella y $a$ es la velocidad del sonido del 
 $M_* = 0.2~M_\odot$. Para el gas neutro la velocidad del sonido es de $a_I \sim \SI{3}{km.s^{-1}}$ y para el gas ionizado es de $a_{II} \sim \SI{10}{km.s^{-1}}$.
 Por tanto, el radio gravitacional para un flujo dominado por el EUV es de $r_{gII} \sim \SI{2}{AU}$ y para un flujo dominado por el FUV es de $r_{gI} \sim \SI{20}{AU}$.
 \section{Objetos LL}
+
+El arquetipo de esta clase de objetos es LL\,Ori (LL1 de aquí en adelante), son llamados también choques ``in situ'' \citep{Kobulnicky:2016}, donde el choque se da cuando viento de una estrella interactúa con un flujo tal como un flujo de champaña. Sin embargo, no es del todo claro el tipo de flujo interno proveniente de la estrell central (figura \ref{fig:LL-scheme}). \citet{Gutierrez-Soto:2015a} hizo un catálogo de objetos dentro de ONC en los que se observan choques de proa, algunos de ellos no habían sido identificados previamente, a la vez que se realizaron mediciones de $(R'_0, R'_c)$ de cada objeto (ver \S \ref{sec:fundamental-parameters}, \ref{sec:projection}). En las figuras \ref{fig:Luis-mosaic-1} y \ref{fig:Luis-mosaic-2} mostramos algunos ejemplos de este catálogo. A diferencia de los choques de proa más próximos a \thC{}, los choques más exteriores pueden presentar dos cáscaras. Si ese es el caso, los radios $(R'_0, R'_c)$ fueron medidos para ambas cáscaras, así como el grosor $H'$ que es la diferencia de $R'_0$ de ambas cáscaras y la orientación (figura \ref{fig:methodology-LL}).
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/LL-outer-inner-extend-Luis}
+  \caption{Posibiles escenarios para los flujos en interacción de los choques de proa en ONC. Izquierda: Un flujo de champaña transónico interactúa ya sea con el flujo fotoevaporado de un proplyd o con un viento estelar, este caso aplica para los arcos más alejados de \thC{}. Derecha: El viento estelar proveniente de una estrella tipo O interactúa con el flujo fotoevaporado de un proplyd. Aplica para los proplyds más cercanos a \thC{}.}
+  \label{fig:LL-scheme}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{./Figures/radius-methodology-Luis}
+  \caption{Metodología para la medición de los radios característicos $(R'_0, R'_c)$. Para un arco dado, se traza la posición de las dos cáscaras utilizando marcas con el programa DS9 para imágenes astronómicas (las cruces en la figura). Posteriormente, con un ajuste de mínimos cuadrados se ajusta un círculo a las marcas de cada cáscara para obtener el radio de curvatura aparente $R'_c$ (línea roja rayada). $R'_0$ se obtiene como la distancia mínima entre la posición de la estrella y el ajuste circular y por último el grosor $H'$ se obtiene como la diferencia entre ambas mediciones de $R'_0$, suponiendo que estén disponibles.}
+  \label{fig:methodology-LL}
+\end{figure}
+
+\begin{figure}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/LL1-Bally_01-images} & \includegraphics[width=0.5\linewidth]{./Figures/LL4-Bally_24-images} \\ \includegraphics[width=0.5\linewidth]{./Figures/LL5-Bally_07-images} &
+    \includegraphics[width=0.5\linewidth]{./Figures/LL6-Bally_08-images} \\ \includegraphics[width=0.5\linewidth]{./Figures/042-628-Bally_16-images} & \includegraphics[width=0.5\linewidth]{./Figures/109-246-Bally_01-images} 
+  \end{tabular}
+  \caption{Ejemplos de objetos LL obtenidos del catálogo de \citet{Gutierrez-Soto:2015a}. A la derecha de cada panel se observa el objeto con las mediciones superpuestas de los radios característicos $(R'_0, R'_c)$ para las cáscaras exterior e interior o solo para una dependiendo del objeto. La escala de grises muestra el brillo, la barra amarilla indica la escala del objeto y las etiquetas mestran el nombre del objeto, el instrumento que se utilizó para obtener la imagen y la fecha en que se obtuvo.}
+  \label{fig:Luis-mosaic-1}
+\end{figure}
+
+
+\begin{figure}
+  \ContinuedFloat
+    \captionsetup{list=off,format=cont}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/116-3101-Bally_14-images} & \includegraphics[width=0.5\linewidth]{./Figures/4285-458-Robberto_ACS_1r_f658n-images} \\ \includegraphics[width=0.5\linewidth]{./Figures/4468-605-Bally_17-images} &
+\includegraphics[width=0.5\linewidth]{./Figures/LL3-Bally_17-images}
+  \end{tabular}
+  \caption{}
+  \label{fig:Luis-mosaic-2}
+\end{figure}
+
+
+
 \subsection{Mapa de Objetos}
 
-\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
+A continuación mostramos el mapa de los objetos del catálogo de \citet{Gutierrez-Soto:2015a} dentro de la ONC.
+
+\begin{figure}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/ll-pos-image-Luis} & \includegraphics[width=0.46\linewidth]{./Figures/ll-pos-image-zoom-Luis}
+  \end{tabular}
+  \caption{Mapa de objetos del catálogo de \citet{Gutierrez-Soto:2015a} dentro de ONC. Las flechas de colores contienen la línea que une la posición del objeto central con el eje de curvatura de cada cáscara. Los puntos rojos representan objetos que no tienen un choque de proa visible. La zona marcada con el cuadrado amarillo se encuentra amplificada en el pánel derecho.}
+  \label{fig:orion-map-LL}
+\end{figure}
+
 
 \section{Choques de Proa en el Medio Interestelar}
 
@@ -160,7 +202,7 @@ La morfología general de un choque de proa se ilustra en la figura \ref{fig:ter
 
 \begin{figure}
   \includegraphics[width=0.7\linewidth]{./Figures/bow-terminology}
-  \caption{Enter Caption}
+  \caption{Terminología de un choque de Proa}
   \label{fig:terminology}
 \end{figure}
 
@@ -173,7 +215,7 @@ Observaciones en mediano infrarrojo y en líneas de emisión de \Ion{H}{\alpha} 
   \caption{La región del trapecio en \SI{10}{\mu m}. \thC{} es la fuente débil al centro de la imagen. Dentro de este campo además se encuentran los proplyds LV1-LV5 con sus respectivos arcos. Al noreste se encuentra una fuente extensa llamada la Nebulosa Ney Allen (NA). El norte es encuentra hacia arriba y el este a la izquierda. El tamaño del campo es de aproximadamente $1' \times 1'$ \citep{Robberto:2005}.}
 \end{figure}
 
-Asimismo, en \citet{Robberto:2005} se hicieron mediciones de la forma de estos arcos, utlizando el radio aparente en el ápex $R_0/D$ y el radio perpendicular a éste $R_{90}/D$ (la alatud en este trabajo, excepto que normalizada con la distancia a \thC{} $D$, ver \S \ref{sec:char-rad}) para los proplyds LV1-LV5 y la nebulosa Ney-Allen, y los compararon con el modelo de capa delgada \citep{Canto:1996} (figura \ref{fig:Robberto}). Encontraron que aunque los proplyds LV1, LV4 y posiblemente LV5 ajustan a dicho modelo, pero el resto se aleja mucho de la predicción de dicho modelo. Ésto no se puede atribuir atribuir a las limitaciones de la aproximación algebraica hecha por \citet{Canto:1996}, debido a que aun con todas las simplificaciones que conlleva, ajusta bien con modelos hidrodinámicos más complejos \citep{Garcia-Arredondo:2001}. Este trabajo es en parte la inspiración para esta tesis, ya que para explicar la discrepancia en la figura \ref{fig:Robberto} con los proplyds restantes nos llevó a extender el modelo de \citet{Canto:1996} al caso donde el viento interior no es isotrópico.
+Asimismo, en \citet{Robberto:2005} se hicieron mediciones de la forma de estos arcos, utlizando el radio aparente en el ápex $R_0/D$ y el radio perpendicular a éste $R_{90}/D$ (la alatud en este trabajo, excepto que normalizada con la distancia a \thC{} $D$, ver \S \ref{sec:char-rad}) para los proplyds LV1-LV5 y la nebulosa Ney-Allen, y los compararon con el modelo de capa delgada \citep{Canto:1996} (figura \ref{fig:Robberto}). Encontraron que aunque los proplyds LV1, LV4 y posiblemente LV5 ajustan a dicho modelo, pero el resto se aleja mucho de las curvas teóricas. Ésto no se puede atribuir atribuir a las limitaciones de la aproximación algebraica hecha por \citet{Canto:1996}, debido a que aun con todas las simplificaciones que conlleva, ajusta bien con modelos hidrodinámicos más complejos \citep{Garcia-Arredondo:2001}. Este trabajo es en parte la inspiración para esta tesis, ya que para explicar la discrepancia en la figura \ref{fig:Robberto} con los proplyds restantes nos llevó a extender el modelo de \citet{Canto:1996} al caso donde el viento interior no es isotrópico.
 
 \begin{figure}
   \includegraphics[width=0.7\linewidth]{./Figures/robberto}

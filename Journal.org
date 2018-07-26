@@ -58,7 +58,7 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 ** TODO Completar secciones
    - [X] Choques
    - [X] Vientos Estelares
-   - [ ] Objetos LL
+   - [X] Objetos LL
    - [-] Regiones HII
      - [X] Segunda Expansión
      - [X] Flujos de Champaña
@@ -87,7 +87,28 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
   - [X] Reajustar tamaño
   - [ ] Introducción personal
 - [X] Cambiar la escala de los ejes de los diagramas \Pi' vd q'  para que sea siempre sea igual
+** DONE Más pendientes
+- [X] Revisar artículo de Kobulincky
+- [X] Revisar artículo de Cox 2012
+- [X] Pasar a la compu fotos del Stahler
+- [X] Buscar imágenes de objetos LL en el draft del paper de Luis Ángel y que salen en la presentación de Will de Puebla 2017
+  - [X] Mapa de objetos LL
+  - [X] Esquema de escenario Objetos LL
+  - [X] 109-246
+  - [X] 042-628
+  - [X] LL1
+  - [X] 4285-458
+  - [X] LL3
+  - [X] LL4
+  - [X] 4468-605
+  - [X] 116-3101
+  - [X] LL6
+  - [X] LL5
 * Journal
+-[2018-07-25 Wed]
+- Finished Section about LL objects
+-[2018-07-24 Tue]
+- Download images from Luis' paper of some LL objects
 -[2018-07-21 Sun]
 - Finished updating parameters table in Journal.org and thesis.
 - Resume work with Bow shocks in interstellar medium section (And found out that our paper has got one citation!! yay!!)
