@@ -11,7 +11,7 @@ RECORD OF THE THESIS PROGRESS
   - [X] Tama\~no correcto del texto 
   - [ ] L\'ineas.
 ** TODO Escribir el Prefacio de la tesis
-- [ ] Agradecimientos
+- [X] Agradecimientos
 - [ ] Abstract (en inglés y en español)
 
 ** DONE Darle el formato general a la tesis.
@@ -57,26 +57,25 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [X] Cortar ecuaciones muy largas en apéndice B.3
 ** TODO Completar secciones
    - [X] Choques
-   - [X] Vientos Estelares
    - [X] Objetos LL
-   - [-] Regiones HII
+   - [X] Regiones HII
      - [X] Segunda Expansión
      - [X] Flujos de Champaña
-     - [ ] Emisión
+     - [X] Emisión
    - [X] Cuádricas
    - [ ] Conclusiones
 ** DONE Gráfica de \Pi' vs R'_0/D' con observaciones incluídas
 - [X] Graficar las curvas teóricas para 4 valores de k en 4 subgráficas
 - [X] Incluir las observaciones en las 4 subgráficas junto con las incertidumbres de las submuestras
 - [X] Mejorar detalles (etiquetas de los ejes, guardar 4 archivos con una grafica cada uno) 
-** TODO Reanalizar observaciones y recalcular parámetros de los vientos
+** DONE Reanalizar observaciones y recalcular parámetros de los vientos
 - [X] Encontrar tabla, programas y procedimiento con el que ya habíamos hecho esto con las curvas teóricas de las cuádricas.
 - [X] Reencontrar cómo funcionaba todo ésto.
-- [-] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos.
+- [X] Rehacer tabla de parámetros, ajustar su tamaño y rehacer gráficas de las otras propiedades de los vientos.
   - [X] Rehacer tabla
   - [X] Tabla con incertidumbres
-  - [ ] Rehacer gráficas de Presión vs distancia y Flujo vs distancia
-  - [ ] Incluir incertidumbres en gráfica
+  - [X] Rehacer gráficas de Presión vs distancia y Flujo vs distancia
+  - [X] Incluir incertidumbres en gráfica
 ** TODO Observaciones de Will junta de [2018-05-30 Wed]
 - [X] Corregir fromato de la cabeza de la página
   - [X] Adicional: Corregir formato de número de página. Colocar número de página en headers pero no al inicio de cada capítulo y de la bibliografía
@@ -105,6 +104,13 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
   - [X] LL6
   - [X] LL5
 * Journal
+-[2018-07-30 Mon]
+- Add description about proplyds bow shocks scenario
+- Correct minimal errors
+- Finished thanks section
+-[2018-07-27 Fri]
+- Finished Emmision characteristics section
+- Move HII Regions section to Appendix
 -[2018-07-25 Wed]
 - Finished Section about LL objects
 -[2018-07-24 Tue]

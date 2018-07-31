@@ -3,6 +3,68 @@
 % \addappheadtotoc
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+\chapter[Regiones \Ion{H}{II}]{Regiones \Ion{H}{II} \citep{Stahler:2004}}
+\label{app:HII}
+\newcommand\Nio{\ensuremath{\mathcal{N}}}
+%\newcommand\N{\ensuremath{\mathcal{N}}}
+
+Consideremos el caso en que se forma una estrella masiva dentro de una nube molecular, que por simplicidad está compuesta exclusivamente de hidrógeno molecular $\mathrm{H_2}$. La estrella masiva emite fotones ultravioleta que tienen la energía suficiente para disociar el $\mathrm{H_2}$  como para ionizar el hidrógeno atómico resultante. Luego el plasma ionizado se recombina para volver a ser \Ion{H}{I} emitiendo líneas espectrales de diversas energías, siendo la más energética la línea de \Ion{Ly}{\alpha}. Como al realizar una ionización se pierde un fotón ionizante y el flujo de radiación proveniente de la estrella es finito, entonces la estrella solo puede ionizar la región de la nube más próxima a ésta. Si suponemos que la nube tiene densidad uniforme, entonces esta región tendrá forma esférica, conocida como \textit{esfera de Strömgren}.
+
+\section{Esfera de Strömgren}
+
+El plasma ionizado dentro de la Esfera de Strömgren se encuentra en balance de ionización, esto es, que la tasas de ionización y la de recombinación son iguales. La tasa de ionizaciones es igual a la cantidad de fotones ionizantes que emite la estrella central por segundo. Esto es, los fotones que poseen una energía mayor al límite de Lymann, que corresponde a  $E = \SI{13.6}{eV}$, o bien $\lambda = \SI{912}{\angstrom}$. En la tabla \ref{tab:ionizing-radiation} se muestra la tasa de fotones ionizantes $\Nio_*$ para estrellas masivas de tipo espectral O y B temprano.
+
+\begin{table}
+  \begin{tabular}{cccc} \toprule
+    Tipo & Masa & $\log \Nio_*$ & $\log \Nio_{FUV}$ \\
+    Espectral & (\SI{}{M_\odot}) & (\SI{}{s^{-1}}) & (\SI{}{s^{-1}})  \\
+    \midrule
+    O4 & 70 & 49.9 & 49.5 \\
+    O5 & 60 & 49.4 & 49.2 \\
+    O6 & 40 & 48.8 & 48.8 \\
+    O7 & 30 & 48.5 & 48.6 \\
+    O8 & 23 & 48.2 & 48.4 \\
+    O9 & 20 & 47.8 & 48.2 \\
+    B0 & 18 & 47.1 & 48.1 \\
+    B1 & 13 & 45.4 & 47.5 \\
+    B2 & 10 & 44.8 & 47.1 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Tasa de fotones ionizantes para estrellas masivas \citep{Stahler:2004}}
+  \label{tab:ionizing-radiation}
+\end{table}
+
+El radio de esta esfera se denomina \textit{Radio de Strömgren} que viene dado por:
+
+
+\begin{align}
+  R_s = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^0_H)^2}\right]^{1/3} = 0.4\mathrm{~pc}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3} \label{eq:stromgren}
+\end{align}
+
+Donde $\alpha'_{rec}$ es el coeficiente de recombinación a todos los niveles energéticos del hidrógeno excepto el estado base, $n^0_H$ y $n_{H_2}$ son la densidad numérica del hidrógeno neutro y del hidrógeno molecular donde está embebida la región HII, respectivamente.
+
+En la expresión numérica, se adopta una temperatura de $10^4\mathrm{~K}$ que es la temperatura característica de una región \Ion{H}{II} y con la que el coeficiente de recombinación $\alpha'_{rec}$ adopta un valor de \SI{2.6e-13}{cm^3.s^{-1}}.
+
+Dentro de la región \Ion{H}{II}, la probabilidad por unidad de tiempo de ionizar un átomo de hidrógeno dado es mucho mayor a la probabilidad de una recombinación, por lo que el gas está casi completamente ionizado. Sin embargo, en los bordes la densidad de gas neutro aumenta debido a que en dicha región el flujo de fotones ionizantes ha sido atenuado por todo el gas ionizado más próximo a la estrella. La transición de gas ionizado a gas neutro tiene un grosor $\Delta r$ que corresponde al camino libre medio del gas neutro. Esto es:
+
+\begin{align}
+\Delta R = \frac{1}{\sigma_{\nu_1}n^0_H}  
+\end{align}
+
+Donde $\sigma_{\nu_1}$ es la sección recta de un átomo de hidrógeno en el estado base, evaluada en la longitud de onda del límite de Lymann. Utilizando $\sigma_{\nu_1} = \SI{6.8e-18}{cm^2}$ y $n^0_H = \SI{2e3} 10^{3}{cm^{-3}}$ obtenemos que $\Delta r = \SI{7.4e13}{cm} \sim \SI{5e-5}{R_s}$, lo que muestra que las regiones \Ion{H}{II} tienden a tener bordes bien delimitados.
+
+Sin embargo, las esferas de Strömgren no son objetos estáticos, sino que se expanden con el tiempo. Este proceso ocurre en dos etapas: en la primera inicialmente no existe ninguna región \Ion{H}{II} pero que la radiación ultravioleta de la estrella hace que se expanda de manera exponencial al disociar e ionizar el gas a su alrededor hasta alcanzar el radio de Strömgren. Posteriormente la diferencia de presiones entre el gas ionizado de la región \Ion{H}{II} y del gas neutro circundante, provoca una segunda expansión con forma de ley de potencias hasta alcanzar equilibrio de presiones.
+
+\section{Flujos de Champaña}
+La segunda expansión lleva a que la región \Ion{H}{II} se expanda dos órdenes de magnitud por encima del radio de Strömgren, pero el tiempo que toma alcanzar dichas dimensiones es tan largo que la estrella central muere antes de se alcanze el equilibrio de presiones. Sin embargo, es más probable que el frente de ionización rebase el borde de la nube molecular donde se formó, y en este caso el gas ionizado altamente presurizado escapa directamente hacia el medio interestelar que lo rodea (que tiene una presión aún menor que la de la nube molecular), creando el \textit{Flujo de champaña}.
+
+\section{Características de la emisión}
+
+Tradicionalmente la línea de \Ion{H}{\alpha} es la que se utiliza para detectar regiones \Ion{H}{II} en el óptico, sin embargo, otras líneas espectrales, tales como iones de carbono, oxígeno y nitrógeno también son importantes. Es más, aunque estos iones son relativamente poco abundantes, poseen estados meta-estables que pueden ser excitados por electrones del ambiente que tengan solo unos pocos eV de energía, y posteriormente emitir líneas prohibidas de emisión. La sección transversal para la excitación de la línea es relativamente grande, aun más que la de la recombinación electrón-protón, por lo que la emisión de líneas prohibidas es un proceso de enfriamiento más eficaz que la recombinación en cascada del hidrógeno. Los iones más comunes de estos metales son los que están ionizados varias veces, tales como el [\Ion{O}{II}], que emite en óptico el doblete $\lambda\lambda 3726-\SI{3729}{\angstrom}$, el [\Ion{O}{III}], que emite en óptico el doblete $\lambda\lambda 4959-\SI{5007}{\angstrom}$, el [\Ion{N}{II}] que tiene dos transiciones que emiten a las longitudes de onda de $\lambda \SI{6583}{\angstrom}$ y $\lambda \SI{6548}{\angstrom}}$, y el [\Ion{C}{IV}] a $\lambda \SI{1549}{\angstrom}$ en ultravioleta.
+Por otro lado, en radio continuo observamos radiación libre-libre. A bajas frecuencias, donde la aproximación de Rayleigh-Jeans es válida, el coeficiente de absorción es proporcional a $\nu^{-2}$. Por tanto, a bajas frecuencias la región \Ion{H}{II} es ópticamente gruesa respecto a frecuencias más altas. En el régimen ópticamente grueso, la emisividad es proporcional a $\nu^{2}$ y la pendiente nos da una estimación directa de la temperatura. Por otro lado, en el régimen ópticamente delgado, el flujo es proporcional a la medida de emisión, por lo que teniendo la región \Ion{H}{II} espacialmente resuelta, podemos tener una estimación de la densidad electrónica.
+
+%\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
+
 \chapter{Choques y Frentes de Ionización}
 \thispagestyle{empty}
 Algunas veces en un medio gaseoso pueden existir discontinuidades importantes en alguna de sus propiedades físicas, cuando estas propiedades son la presión, densidad y temperatura del gas nos estamos refiriendo a un choque, que es producido cuando el gas sufre una perturbación a una velocidad superior a la del sonido, mientras que si la discontinuidad ocurre en el grado de ionización del gas, entonces esta discontinuidad es conocida como frente de ionización. En esta sección analizaremos las condiciones de salto tanto de los choques como de los frentes de ionización para conocer las propiedades del gas en las dos interfaces de la discontinuidad.
@@ -201,9 +263,10 @@ Por otro lado, como estamos considerando choques con geometría cilíndrica, ent
 
 Donde $\phi$ toma valores en el intervalo $[0, 2\pi]$
 
-\chapter{Derivación Matemática del Radio de Curvatura}
+\chapter[Radio de Curvatura]{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
 \thispagestyle{empty}
+\section{Caso General}
 Tomamos una curva genérica $\vec{\sigma}(t) \equiv x(t) \hat{x} + y(t) \hat{y}$ continua y suave para todo valor de $t$ real y finito. Sus derivadas se denotan como $\vec{\sigma}'(t)$ y $\vec{\sigma}''(t)$. Su longitud de arco está dada por:
 
 \begin{align}
@@ -277,7 +340,7 @@ Evaluando (\ref{eq:Rc-generic}) en el ápex $(\theta = 0)$ encontramos que $R_{\
 R_c = \frac{R_0^2}{R- R_{\theta\theta, 0}}\label{eq:Rc-apex}
 \end{align}
 
-\section{Radio de curvatura para un polinomio de grado $2n$}
+\section[Polinomio Grado $2n$]{Radio de curvatura para un polinomio de grado $2n$}
 \label{app:curvature-radius-poly}
 
 Dado que es de nuestro interés calcular el radio de curvatura del choque en el eje de simetría
