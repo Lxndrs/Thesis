@@ -1,5 +1,5 @@
 \chapter{Conceptos fundamentales}
-\label{sec:Modelo-generico}
+\label{chap:Modelo-generico}
 \thispagestyle{empty}
  Para este trabajo consideramos en general tres modelos de interacción de vientos, actualmente publicado \citep{Tarango-Yong:2018a}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. Los modelos considerados en este trabajo se describen brevemente a continuación:
 
@@ -9,11 +9,13 @@
 \end{itemize}
 Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$.
 \begin{figure}
+  \centering
   \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
   \caption{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica})}
     \label{fig:isotropic-aniso}
 \end{figure}
 \begin{figure}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width=0.45\linewidth]{./Figures/bowshock-crw-variables} &
     \includegraphics[width=0.45\linewidth]{./Figures/wilkinoid}
@@ -64,6 +66,7 @@ y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y dete
 %\end{itemize}
 
 \begin{figure}
+  \centering
   \includegraphics[width=0.5\linewidth]{./Figures/characteristic-radii}
   \caption{Representación esquemática de los radios característicos de un choque de proa}
   \label{fig:char-radii}
@@ -128,6 +131,7 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
   \tan\theta_Q = \sigma\sqrt{\left|1-e^2\right|}
 \end{align}
 \begin{figure}
+  \centering
   \begin{tabular}{cc}
     \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
     \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
@@ -137,6 +141,7 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
 \end{figure}
 
 \begin{figure}
+  \centering
   \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
   \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
@@ -210,6 +215,7 @@ Por otro lado, la forma tridimensional del choque de proa viene dado por una rot
 \end{align}
 La relación entre ambos sistemas de referencia se ilustra en la figura \ref{fig:reference}.
 \begin{figure}
+  \centering
   \includegraphics[width=0.5\linewidth]{./Figures/projection-pos}
   \caption{Sistema de referencia del choque vs sistema de referencia del plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del cielo, mientras el eje $z'$ es paralelo a la línea de visión. Solo la región del choque cuya tangente sea paralela a la línea de visión será visible por abrillantamiento al limbo.}
   \label{fig:reference}
@@ -268,6 +274,7 @@ Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:uni
 \end{align}
 
 \begin{figure}
+  \centering
   \includegraphics[width=0.6\linewidth]{./Figures/bowshock-unit-vectors}
   \caption{Vectores unitarios normal y tangente a la superficie $R(\theta)$
     en un plano de azimuth $\phi$ constante.}
@@ -429,6 +436,7 @@ Asimismo la planitud y la alatud proyectada pueden calcularse a partir de las ec
 En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitud y la alatud aparente con la inclinación para distintos valores del parámetro $\Q$ (color) y de la planitud $\Pi$ (grosor de la curva). Se puede observar que para las superficies elipsoidales $(\Q > 0)$, la planitud y alatud aparente tienden a $\Pi' = \Lambda' = 1$ conforme $i \to 90^\circ$. Esto se debe a que en este límite observamos la superficie de frente y vemos su sección transversal circular. En el caso del paraboloide la convergencia se da a $\Lambda' = \Pi' = 2$. Por otro lado, la planitud y alatud aparente divergen cuando $|i| \to i_{\mathrm{crit}} = 90^\circ - |\theta_\Q|$ debido a que cuando $|i| > i_{\mathrm{crit}}$ ya no existe una línea tangente a la línea de visión y por tanto no se observaría abrillantamiento al limbo. También cabe destacar dos casos particulares: El esferoide confocal con planitud unitaria $(\Pi = 1)$ y el paraboloide confocal $(\Pi = \Lambda = 2)$. En estos dos casos su forma aparente no se ve afectada por la inclinación.
 
 \begin{figure*}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width=0.5\linewidth]{./Figures/projected-Rc-vs-i} &
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-i}
@@ -438,6 +446,7 @@ En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitu
 \end{figure*}
 
 \begin{figure}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc} &
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R0-vs-i}
@@ -449,6 +458,7 @@ En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitu
 En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnóstico $\Pi'-\Lambda'$. Cada curva representa a una cuádrica de revolución siguiendo la misma convención que en la figura \ref{fig:proj-L-P-vs-i} para los valores de $\Q$ y $\Pi$ y variando la inclinación a lo largo de cada una de éstas, donde además el punto donde $i=0$ (cuádrica vista de canto) se marca con un punto. Las regiones sombreadas representan a cada clase de cuádrica, la zona superior más clara a los hiperboloides, la zona gris delgada a los elipsoides prolatos, la interfaz entre estas dos últimas a los hiperboloides y la zona gris inferior a los elipsoides oblatos. Se puede observar que en ningún caso las curvas cruzan de una región a otra. También se observa de nuevo que las curvas elipsoidales convergen a $(\Pi', \Lambda') = (1, 1)$, las curvas hiperbólicas a $(\Pi', \Lambda') = (+\infty, +\infty)$ y las parabólicas a $(\Pi', \Lambda') = (2, 2)$. Asimismo en la figura \ref{fig:Pip-Lambdap-diagnostic}b observamos el comportamiento de la separación aparente estrella--ápex con inclinación. En este caso se observa que para inclinaciones pequeñas $(|i| < 30^\circ)$, esta separación depende muy poco del parámetro $\Q$, siendo más importante la planitud $\Pi$. Por otro lado, para inclinaciones mayores, la separación aparente se incrementa cada vez más rápido para cuádricas abiertas $(\Q \leq 0)$, mientras que para los elipsoides la separación es cada vez más lenta e incluso puede decrecer con inclinación.
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/projected-R90-Rc-snapshots}
   \caption{Efectos de la inclinación de la forma aparente de arcos cuádricos cuya planitud y alatud están uniformemente distribuídos en los rangos $\Pi = [0.5, 4.5]$, $\Lambda = [0.5, 4.5]$. En cada pánel se muestra la forma aparente incrementando la inclinación en intervalos iguales de $|\sin i|$. El collor representa el parámetro $\Q$, desde azul (menor valor de $\Q$, que representa formas más abiertas), pasando por naranja, hasta amarillo (elipsoides oblatos). El tamaño representa la distancia aparente estrella--ápex $R'_0/R_0$.}
   \label{fig:snapshots}

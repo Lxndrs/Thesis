@@ -9,6 +9,7 @@ from matplotlib import pyplot as plt
 import json
 import numpy as np
 import seaborn as sns
+import argparse
 
 def split_list(tab):
     """
@@ -23,8 +24,21 @@ def split_list(tab):
     dx = []
     for t in tab:
         x.append(float(t.split("+/-")[0]))
-        dx.append(float(t.split("+/-")[-1]))
+        try:
+            dx.append(float(t.split("+/-")[1]))
+        except IndexError:
+            dx.append(0.0)
     return x, dx
+
+parser = argparse.ArgumentParser(
+    description=""" Choose a Winds Parameters table""")
+
+parser.add_argument("--table", type=str,
+                    default="wind-fits.tab",
+                    help=" Choose a Winds Parameters table ")
+
+cmd_args = parser.parse_args()
+table = cmd_args.table
 
 # Useful Physical and Astronomical constants.
 AU = 1.49597870691e13
@@ -34,7 +48,7 @@ k_Boltzmann = 1.3806503e-16
 cos80 = 0.173648177667
 
 # Read parameters table
-tab = Table.read('../wind-fits.tab', format='ascii.tab')
+tab = Table.read('../'+table, format='ascii.tab')
 sources = sorted(set(tab['Fuente']))
 n = len(sources)
 colors = sns.color_palette('Set1', n)
@@ -45,16 +59,28 @@ D_pc = np.array(D)*d_Orion*AU/PC
 Delta_D_pc = D_pc*(np.array(Delta_D)/np.array(D))
  
 #split F(star), P(wind) and F(ph)/F(*)+  columns
-Fs, dFs = split_list(tab["F(star)"])
-Fs, dFs = np.array(Fs), np.array(dFs)
-Pw, dPw = split_list(tab["P(wind)"])
-Fr, dFr = split_list(tab["F(ph)/F(*)+"])
+#Fs, dFs = split_list(tab["F(star)"])
+#Fs, dFs = np.array(Fs), np.array(dFs)
+#Pw, dPw = split_list(tab["P(wind)"])
+#Fr, dFr = split_list(tab["F(ph)/F(*)+"])
+
+# Measuring Ionizing flux 
+D_arr = np.logspace(-3, 0)
+Qh = 1e49
+fd = 0.5
+Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
+
+# Measuring stellar wind RAM pressure
+# Units in cgs system
+Mdot = 2.206e19
+Vw = 1.2e8
+Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
-ax1.loglog(D_pc, Fs, c='k', alpha=0.1, lw=10, label='')
-ax2.loglog(D_pc, np.array(Pw)/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
-mm = (np.array(Fr) > 2./3) & (np.array(Fr) < 1.5) # Subsamples where photoionization balance is accomplished
-nn = (np.array(Fr) > 1./3) & (np.array(Fr) < 3.) # Subsamples where photoionization balance is at least weakly accomplished.
-used = (np.array(Fr) > 0.1) & (np.array(Fr) < 10.) # Subsamples where photoionization balance is at least poorly accomplished
+ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
+ax2.loglog(D_arr, np.array(Pw)/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+mm = tab["*"] == "**" # Subsamples where photoionization balance is accomplished
+nn = tab["*"] == "*"  # Subsamples where photoionization balance is at least weakly accomplished.
+used = tab["*"] == "x" # Subsamples where photoionization balance is at least poorly accomplished
 #out_colnames = ['Source' ,'D prime', 'R0/D prime', 'Rc/R0 prime full',
 #                'Rc/R0 prime select', 'beta', 'xi', 'inc', 'D', 'R0/D']
 
@@ -72,21 +98,27 @@ used = (np.array(Fr) > 0.1) & (np.array(Fr) < 10.) # Subsamples where photoioniz
 #
 #out_rows = []
 
-def var_range(x, dx):
-    return x, dx
+#def var_range(x, dx):
+#    return x, dx
 
 
 for source, color in zip(sources, colors):
     m = tab['Fuente'] == source
     Dprime = tab["D'(as)"][m][0] * d_Orion*AU/PC
-    Fp, dFp_plus = split_list(tab['F(photo)+'])
-    Fp, dFp_minus = split_list(tab['F(photo)-'])
-    Fp = np.array(Fp)
-    dFp = np.array([dFp_minus, dFp_plus])
-    Pi, dPi_plus = split_list(tab["P(in)+"])
-    Pi, dPi_minus = split_list(tab["P(in)-"])
-    dPi = np.array([dPi_minus, dPi_plus])
-    Pi = np.array(Pi)
+    try:
+        Fp, dFp = split_list(tab['F(photo)'])
+        Fp, dFp = np.array(Fp), np.array(dFp)
+        Pi, dPi = split_list(tab["P(in)"])
+        Pi, dPi = np.array(Pi), np.array(dPi)
+    except KeyError:
+        Fp, dFp_plus = split_list(tab['F(photo)+'])
+        Fp, dFp_minus = split_list(tab['F(photo)-'])
+        Fp = np.array(Fp)
+        dFp = np.array([dFp_minus, dFp_plus])
+        Pi, dPi_plus = split_list(tab["P(in)+"])
+        Pi, dPi_minus = split_list(tab["P(in)-"])
+        Pi = np.array(Pi)
+        dPi = np.array([dPi_minus, dPi_plus])
     # Get data from variational fits
 #    combined_file = '../saves/LV-bowshocks-xyfancy-variations-{}.save'.format(source)
 #    vardata = json.load(open(combined_file))
@@ -109,29 +141,40 @@ for source, color in zip(sources, colors):
 #        'beta':               var_range(np.mean(beta), np.std(beta)), 
 #        'xi':                 var_range(np.min(xi), np.max(xi)),
 #        'inc':                var_range(np.mean(inc), np.std(inc)),
-#        'D':                  var_range(np.mean(DD), np.std(DD)),
+#        'D':                   var_range(np.mean(DD), np.std(DD)),
 #        'R0/D':               var_range(np.mean(R0_D), np.std(R0_D)),
 #    })
                    
-    ax1.loglog([Dprime, Dprime/cos80], [Fp[m], Fp[m]], ':', c=color, alpha=0.4, label='')
-    ax1.loglog(D_pc[m & used], Fp[m & used], '.-', c=color, alpha=0.4, label='')
-    ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[:, m & used], c=color, alpha=0.4)
-    ax1.loglog(D_pc[m & mm], Fp[m & mm],
-               'o-', lw=3, c=color, label=source)
-    ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[:, m & mm], c=color)
-    ax2.loglog(D_pc[m & used], Pi[m & used]/k_Boltzmann,
-               '.-', c=color, alpha=0.4, label='')
-    ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[:, m & used]/k_Boltzmann, c=color, alpha=0.4)
-    ax2.loglog(D_pc[m & mm], Pi[m & mm]/k_Boltzmann,
-               'o-', c=color, lw=3, label=source)
-    ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[:, m & mm]/k_Boltzmann, c=color)
-    # Now plot the subsamples which accomplish weakly photoionization balance.
-    ax1.loglog(D_pc[m & (nn & ~mm)], Fp[m & (nn & ~mm)],
-               'o-', lw=0.5, c=color, label='', alpha=0.4)
-    ax1.errorbar(D_pc[m & (nn & ~mm)], Fp[m & (nn & ~mm)], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[:, m & (nn & ~mm)], c=color, alpha=0.4)
-    ax2.loglog(D_pc[m & (nn & ~mm)], Pi[m & (nn & ~mm)]/k_Boltzmann,
-               'o-', c=color, lw=0.5, label='', alpha=0.4)
-    ax2.errorbar(D_pc[m & (nn & ~mm)], Pi[m & (nn & ~mm)]/k_Boltzmann, xerr=Delta_D_pc[m & (nn & ~mm)], yerr=dPi[:, m & (nn & ~mm)]/k_Boltzmann, c=color, alpha=0.4)
+    ax1.plot([Dprime, Dprime/cos80], [Fp[m], Fp[m]], ':', c=color, alpha=0.4, label='')
+    ax1.plot(D_pc[m & used], Fp[m & used], linestyle="None", marker=".", c=color, alpha=0.4, label='')
+    ax1.plot(D_pc[m & mm], Fp[m & mm],
+               linestyle="None", marker="o", lw=3, c=color, label=source)
+    ax2.plot(D_pc[m & used], Pi[m & used]/k_Boltzmann,
+               linestyle="None", marker=".", c=color, alpha=0.4, label='')
+    ax2.plot(D_pc[m & mm], Pi[m & mm]/k_Boltzmann,
+               linestyle="None", marker="o", c=color, lw=3, label=source)
+    ax1.plot(D_pc[m & nn], Fp[m & nn],
+               linestyle="None", marker="o", lw=0.5, c=color, label='', alpha=0.4)
+    ax2.plot(D_pc[m & nn], Pi[m & nn]/k_Boltzmann,
+               linestyle="None", marker="o", c=color, lw=0.5, label='', alpha=0.4)
+    try:
+        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[m & used], c=color, alpha=0.4)
+        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[m & mm], c=color)
+        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[m & used]/k_Boltzmann, c=color, alpha=0.4)
+        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[m & mm]/k_Boltzmann, c=color)
+        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[m & nn], c=color, alpha=0.4)
+        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[m & nn]/k_Boltzmann, c=color, alpha=0.4)
+    except:
+        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[:, m & used], c=color, alpha=0.4)
+        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[:, m & mm], c=color)
+        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[:, m & used]/k_Boltzmann, c=color, alpha=0.4)
+        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[:, m & mm]/k_Boltzmann, c=color)
+        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[:, m & nn], c=color, alpha=0.4)
+        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[:, m & nn]/k_Boltzmann, c=color, alpha=0.4)
+ax1.set_xscale("log")
+ax1.set_yscale("log")
+ax2.set_xscale("log")
+ax2.set_yscale("log")
 ax2.legend(ncol=2, loc='lower left')
 ax2.set_xlim(0.008, 0.3)
 ax2.set_ylim(1e7, 4e9)
@@ -141,7 +184,8 @@ ax2.set_ylabel(r'Stagnation Pressure: $P/k$, $\mathrm{cm^{-3}\ K}$')
 ax2.set_xlabel('Distance, parsec')
 fig.set_size_inches(5, 8)
 fig.tight_layout()
-fig.savefig('../Figures/plot-wind-fits.pdf')
+output = table.replace(".tab", ".pdf")
+fig.savefig('../Figures/plot-' + output)
 
 #out_tab = Table(names=out_colnames, rows=out_rows)
 

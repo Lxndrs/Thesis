@@ -5,7 +5,7 @@
 
 \chapter[Regiones \Ion{H}{II}]{Regiones \Ion{H}{II} \citep{Stahler:2004}}
 \label{app:HII}
-\newcommand\Nio{\ensuremath{\mathcal{N}}}
+
 %\newcommand\N{\ensuremath{\mathcal{N}}}
 
 Consideremos el caso en que se forma una estrella masiva dentro de una nube molecular, que por simplicidad está compuesta exclusivamente de hidrógeno molecular $\mathrm{H_2}$. La estrella masiva emite fotones ultravioleta que tienen la energía suficiente para disociar el $\mathrm{H_2}$  como para ionizar el hidrógeno atómico resultante. Luego el plasma ionizado se recombina para volver a ser \Ion{H}{I} emitiendo líneas espectrales de diversas energías, siendo la más energética la línea de \Ion{Ly}{\alpha}. Como al realizar una ionización se pierde un fotón ionizante y el flujo de radiación proveniente de la estrella es finito, entonces la estrella solo puede ionizar la región de la nube más próxima a ésta. Si suponemos que la nube tiene densidad uniforme, entonces esta región tendrá forma esférica, conocida como \textit{esfera de Strömgren}.
@@ -15,6 +15,7 @@ Consideremos el caso en que se forma una estrella masiva dentro de una nube mole
 El plasma ionizado dentro de la Esfera de Strömgren se encuentra en balance de ionización, esto es, que la tasas de ionización y la de recombinación son iguales. La tasa de ionizaciones es igual a la cantidad de fotones ionizantes que emite la estrella central por segundo. Esto es, los fotones que poseen una energía mayor al límite de Lymann, que corresponde a  $E = \SI{13.6}{eV}$, o bien $\lambda = \SI{912}{\angstrom}$. En la tabla \ref{tab:ionizing-radiation} se muestra la tasa de fotones ionizantes $\Nio_*$ para estrellas masivas de tipo espectral O y B temprano.
 
 \begin{table}
+  \centering
   \begin{tabular}{cccc} \toprule
     Tipo & Masa & $\log \Nio_*$ & $\log \Nio_{FUV}$ \\
     Espectral & (\SI{}{M_\odot}) & (\SI{}{s^{-1}}) & (\SI{}{s^{-1}})  \\
@@ -66,6 +67,7 @@ Por otro lado, en radio continuo observamos radiación libre-libre. A bajas frec
 %\includegraphics[width=0.1\linewidth]{./Figures/tux-development}
 
 \chapter{Choques y Frentes de Ionización}
+\label{app:shocks}
 \thispagestyle{empty}
 Algunas veces en un medio gaseoso pueden existir discontinuidades importantes en alguna de sus propiedades físicas, cuando estas propiedades son la presión, densidad y temperatura del gas nos estamos refiriendo a un choque, que es producido cuando el gas sufre una perturbación a una velocidad superior a la del sonido, mientras que si la discontinuidad ocurre en el grado de ionización del gas, entonces esta discontinuidad es conocida como frente de ionización. En esta sección analizaremos las condiciones de salto tanto de los choques como de los frentes de ionización para conocer las propiedades del gas en las dos interfaces de la discontinuidad.
 \section{Choques}
@@ -75,6 +77,7 @@ Consideremos un fluído que tiene densidad $\rho_1$, presión $P_1$ y se mueve e
 Antes y después del choque escogemos dos puntos arbitrarios, $x_1$ y $x_2$, respectivamente que forman una superficie cada uno en el plano $yz$ que están en co-movimiento con la discontinuidad (ver figura \ref{fig:shock}). 
 
 \begin{figure}
+  \centering
   \includegraphics[width=0.7\linewidth]{./Figures/shock}
   \caption{Representación esquemática de un fluido con una discontinuidad situada en $x=s(t)$. Detrás y delante del choque en las posiciones $x=x_1$ y $x=x_2$, respectivamente, situamos dos superficies paralelas al choque y que están en co-movimiento con éste.}
   \label{fig:shock}
@@ -164,6 +167,7 @@ De esta forma, la nueva condición de salto en caso de un choque radiativo es:
 Para esta sección, utilizaremos el subíndice ``0'' para las propiedades del gas en la interfaz neutra, mientras que para la interfaz ionizada utilizaremos el subídice ``i'' (ver figura \ref{fig:IF}). Bajo esta nomenclatura, combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:jump-2}) para las condiciones de salto en el Frente de ionización y reescribiendo la presión en términos de la velocidad del sonido:
 
 \begin{figure*}
+  \centering
   \includegraphics[width=0.8\linewidth]{./Figures/IF}
   \caption{Representación esquemática de la estuctura de un frente de ionización. En un medio gaseoso, con densidad $\rho_0$, presión $P_0$ y que se mueve velocidad $v_1$ está expuesto a radiación ionizante con flujo $\Nio_*$. El gas ionizado tiene densidad $\rho_i$, presión $P_i$ y se mueve a velocidad $v_i$. Las velocidades están medidas en el sistema de referencia del frente de ionización.}
   \label{fig:IF}
@@ -207,6 +211,7 @@ Como $c^2_i \gg c^2_0$, dado que $c_i \sim 10\mathrm{~kms^{-1}}$ y $c_0 \sim 1-3
 Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina tipo R (rarified), y en caso de que $\mathcal{M} \leq \mathcal{M}_D$ se denominan frentes tipo D (dense). Cuando $\mathcal{M} = \mathcal{M}_R$ o $\mathcal{M} = \mathcal{M}_D$ los frentes se denominan R crítico y D crítico, respectivamente. En los frentes tipo R el material neutro viaja a velocidad supersónica y el salto de densidad es $\rho_i/\rho_0 < 0$ (la onda de material que pasa a través del frente de ionización está rarificada respecto al material ionizado, de ahí el nombre). En los frentes tipo D ocurre lo contrario: la onda de material viaja a velocidad subsónica y es densa respecto al material ionizado. En el caso de que $\mathcal{M}_D < \mathcal{M} < \mathcal{M_R}$ la onda de material que viaja hacia el frente de ionización se amortigua rápidamente. En la figura \ref{fig:IF-jump}a se muestran las soluciones para el salto de densidad para frentes de ionización ``fuertes'' (signo positivo en la ecuación (\ref{eq:IF-jump-density})) y ``débiles'' (signo negativo en (\ref{eq:IF-jump-density})).
 
 \begin{figure}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width=0.5\linewidth]{./Figures/IF-types} &
     \includegraphics[width=0.5\linewidth]{./Figures/IF-vel-jump}

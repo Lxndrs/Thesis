@@ -106,6 +106,7 @@ Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} si
 \label{sec:mod-isotropic}
 
 \begin{figure*}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width = 0.55\linewidth]{./Figures/cantoid-ancantoid-shape-bfixed} &
     \includegraphics[width=0.55\linewidth]{./Figures/ancantoid-shape}
@@ -162,7 +163,9 @@ y $\Gamma$ es la función Gamma usual.
 
 \subsection{Interacción de un viento esférico isotrópico con un viento plano--paralelo (Choques Wilkinoides)}
 \label{sec:wilkinoids}
-\begin{figure*} \includegraphics[width=0.6\linewidth]{./Figures/cantoid-wilkinoid-shape}
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.6\linewidth]{./Figures/cantoid-wilkinoid-shape}
   \caption{Forma de choques cantoides y el choque wilkinoide. Las coordenadas están normalizadas con la distancia al ápex $R_0$. El choque wilkinoide se muestra en negro y los choques cantoides en escala de azul, con $\beta$ variando desde $10^{-3}$ hasta 0.08. Nótese que el choque wilkinoide se comporta como el caso asíntótico de los choques cantoides cuando $\beta\to 0$.}
 \end{figure*}
 En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo con velocidad $v_a$ y densidad uniforme $\rho_a$ quedan como sigue:
@@ -197,6 +200,7 @@ Resolviendo para $R/R_0$ encontramos que:
 \section[Forma Verdadera]{Forma ``verdadera'' de los choques cantoides, ancantoides y wilkinoides}
 
 \begin{figure*}
+  \centering
   \includegraphics[0.7\linewidth]{./Figures/Pi-vs-Lambda}
   \caption{Forma verdadera de los choques cantoides, ancantoides y wilkinoides. En cada línea, $\beta$ varía en el rango $[0, 1]$, y los parámetros $(\Pi, \Lambda)$ fueron calculados de acuerdo a los resultados del apéndice \ref{app:derivation-radii}. Los círculos del color de las líneas representan valores particulares de $\beta$: $10^{-3}$, $10^{-2}$, 0.1 y 0.5, y con la diferencia de que el coeficiente de segundo orden de la ecuación \ref{eq:CRW-Rc} para la planitud $\Pi$ fue obtenido de manera numérica con el fin de utilizar este método para encontrar la planitud aparente con la ecuación \ref{eq:Rc-prime}}
   \label{fig:true-Pi-Lambda}
@@ -264,12 +268,14 @@ A continuación aplicamos el formalismo desarrollado en la sección \S \ref{sec:
 En la figura \ref{fig:apparent-cantoid} mostramos la forma aparente de choques tipo cantoides y wilkinoides, y mostramos como referencia un paraboloide confocal cuya forma aparente no cambia con la inclinación (ver \S \ref{sec:pi-lambda-quadric}), mientras que la figura \ref{fig:apparent-ancantoid}} muestra la forma aparente de choques ancantoides.
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/cantoid-apparent-shape}
   \caption{Forma aparente de diferentes choques de proa en intervalos de inclinación de $15^\circ$: (a) Paraboloide confocal. (b) Wilkinoide. (c) Cantoide $\beta=0.005$. (d) Cantoide $\beta=0.01$}
   \label{fig:apparent-cantoid}
 \end{figure}
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/ancantoid-apparent-shape}
   \caption{Extensión de la figura \ref{fig:apparent-cantoid} para choques de proa no isotrópicos (ancantoides): (a) $\beta=0.005$, $k=1/2$. (b) $\beta=0.01$, $k=1/2$. (c) $\beta=0.005$, $k=3$. (d) $\beta=0.01$, $k=3$}
   \label{fig:apparent-ancantoid}
@@ -280,12 +286,14 @@ Se muestra una tendencia general en donde las alas son sistemáticamente más ab
 En la figuras \ref{fig:th0-isotropic} y \ref{fig:th0-anisotropic} mostramos la solución a las ecuaciones (\ref{eq:th-0}, ref{eq:R0p}) para el modelo de capa delgada, junto con el factor de escalamiento $R'_0/R_0$ en función de la inclinación. En estas figuras se observa que el radio aparente en el ápex siempre aumenta con la inclinación, mostrando un crecimiento más rápido para choques más abiertos, pero un incremento mayor para choques más cerrados; ésto debido a que en los choques más cerrados la inclinación máxima donde aun existe una línea tangente es mayor.
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/cantoid-th0-vs-i}
   \caption{(a) Soluciones a la ecuación (\ref{eq:th-0}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior isotrópico (cantoides y wilkinoides). (b) Soluciones a la ecuación (\ref{eq:R0p}) en función de la inclinación normalizadas con $R_0$.}
   \label{fig:th0-isotropic}
 \end{figure}
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/ancantoid-th0-vs-i}
   \caption{(a) Soluciones a la ecuación (\ref{eq:th-0}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior anisotrópico (ancantoides) para dos índices de anisotropía: $k=1/2$ (arriba) y $k=3$ (abajo). (b) Soluciones a la ecuación (\ref{eq:R0p}) en función de la inclinación normalizadas con $R_0$.}
   \label{fig:th0-anisotropic}
@@ -294,12 +302,14 @@ En la figuras \ref{fig:th0-isotropic} y \ref{fig:th0-anisotropic} mostramos la s
 Las soluciones a las ecuaciones (\ref{eq:th90}, \ref{eq:R90p}) para el modelo de capa delgada se muestran en las figuras \ref{fig:t90-isotropic}, \ref{fig:t90-anisotropic}. Se observa que la alatud aparente se incrementa abruptamente cuando la inclinación se aproxima a la inclinación máxima, excepto en el caso wilkinoide, donde la alatud disminuye con inclinación muy lentamente.
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/cantoid-th90-vs-i}
   \caption{(a) Soluciones a la ecuación (\ref{eq:th90}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior isotrópico (cantoides y wilkinoides). (b) Alatud aparente en función de la inclinación, obtenida a a partir del cociente de las soluciones de las ecuaciones (\ref{eq:R90p}, \ref{eq:R0p})}
   \label{fig:t90-isotropic}
 \end{figure}
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/ancantoid-th90-vs-i}
   \caption{(a) Soluciones a la ecuación (\ref{eq:th90}) en función de la inclinación para choques de proa del modelo de capa delgada y viento interior anisotrópico (ancantoides) para dos índices de anisotropía: $k=1/2$ (arriba) y $k=3$ (abajo). (b) Alatud aparente en función de la inclinación, obtenida a a partir del cociente de las soluciones de las ecuaciones (\ref{eq:R90p}, \ref{eq:R0p})}
   \label{fig:t90-anisotropic}
@@ -310,6 +320,7 @@ La planitud aparente se obtuvo a partir de realizar ajustes polinómicos en $\th
 Su comportamiento con inclinación se muestra en la figura \ref{fig:Pi-vs-inclination}. Aquí se observa un comportamiento similar al de la alatud aparente; sin embargo, en la figura \ref{fig:Pi-vs-inclination}b, donde el pararámetro de anisotropía es $k=1/2$, se observa una pequeña caída en la planitud justo antes de llegar a la inclinación máxima. 
 
 \begin{figure}
+  \centering
   \includegraphics[width=\linewidth]{./Figures/Pi-vs-i}
   \caption{Soluciones a la ecuación \ref{eq:Rc-prime} para obtener la planitud aparente en función de la inclinación en el modelo de capa delgada para: (a) viento interno isotrópico (cantoides y wilkinoides) y viento interno anisotrópico (ancantoides) con índice de anisotropía de (b) $k=1/2$ y (c) $k=3$.}
   \label{fig:Pi-vs-inclination}
@@ -322,6 +333,7 @@ La curva del choque wilkinoide se muestra en color blanco, y tiene un comportami
 La densidad de marcas a lo largo de una curva nos indican la probabilidad de observar dicha porción de ésta, si asumimos una distribución isotrópica de ángulos de visión. Se puede observar que la densidad de marcas usualmente se concentra al inicio de cada curva, cerca de $i=0^\circ$, y este efecto se intensifica cuando $\beta$ es pequeño.
 
 \begin{figure}
+  \centering
   \begin{tabular}{lll}
     (a) & (b) & (c) \\
     \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-a} & \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-b}   &                            \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-lobeta-a}                                             

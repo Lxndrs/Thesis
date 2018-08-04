@@ -1,15 +1,19 @@
 \chapter[La Nebulosa de Orión]{La Nebulosa de Orión: La Fotoevaporación de Discos Protoplanetarios como una Forma de Feedback Estelar}
 \thispagestyle{empty}
-
+\label{chap:ONC}
 \section{Características Generales}
 \begin{figure*}
-    \includegraphics[width=0.5\linewidth]{./Figures/OrionVR13A} 
-  \caption{La Nebulosa de Orión observada por el VLA en la banda L ($\lambda = \SI{20}{cm}$, $\nu = \SI{1.4}{GHz}$, \citet{Yusef:1990}).}
+  \centering
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/OrionVR13A} & \includegraphics[width=0.5\linewidth]{./Figures/ONC-HST}
+  \end{tabular}
+  \caption{Izquierda:La Nebulosa de Orión observada por el VLA en la banda L ($\lambda = \SI{20}{cm}$, $\nu = \SI{1.4}{GHz}$, \citet{Yusef:1990}). Derecha: la nebulosa de Orion tomada con el Telescopio Espacial Hubble (hubblesite.org).}
 \end{figure*}
 
 La Nebulosa de Orión (ONC por sus siglas en inglés), ubicada a $\sim \SI{414}{pc}$ \citep{Menten:2007}, es probablemente la región \Ion{H}{II} mejor estudiada del cielo (ver apéndice \ref{app:HII}). Forma parte de la nube molecular gigante de Orión, de donde se distinguen dos sub-unidades, llamadas Orión A y Orión B. ONC forma parte de Orión A. El cúmulo de estrellas que se formó y que es responsable de la región \Ion{H}{II} se conoce como asociación OB Ori Id, cuyos miembros más prominentes son un grupo de cuatro estrellas conocidas como el ``Trapecio''. La más masiva de éstas es \thC{}, de clasificación espectral O6 aproximadamente (ver tabla \ref{tab:ionizing-radiation}), tiene una luminosidad de \SI{4e5}{L_\odot} y una temperatura de \SI{4e4}{K}. Cuando la región \Ion{H}{II} se encuentra embebida en el gas molecular, no puede ser visible en el rango óptico del espectro. En el caso de ONC, que se ubica cerca del borde de la nube molecular Orion A, el gas ionizado caliente, que posee una presión mayor que el gas molecular frío, se escapa hacia el gas adyacente a la nube molecular en forma de ``flujo de champaña'' (figura \ref{fig:champagne}), y de esta manera el gas ionizado puede ser visible por medio de diferentes líneas espectrales, tanto de hidrógeno como de otros elementos. 
 
 \begin{figure}
+  \centering
   \begin{tabular}{lr}
     \includegraphics[width=0.4\linewidth]{./Figures/champagne} &
     \includegraphics[width=0.5\linewidth]{./Figures/H85-alpha}
@@ -30,6 +34,7 @@ en el gas ionizado implicaba que la fuente de este gas debía oscurecer a la pro
 emisión de radio observada, se estima que la densidad electrónica máxima en el IF es de $n_e \sim \SI{e6}{cm^{-3}}$ y la tasa de pérdida de masa en $\dot{M} \sim \SI{e-7}{M_\odot.yr^{-1}}$.
 
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\linewidth]{./Figures/Johnstone-shape}
   \caption{Representación esquemática de la formación de un frente de ionización hemisférico y de una cola de gas ionizado detrás del disco en proceso de fotoevaporación. $r_{\mathrm{IF}}$ y $r_w$ representan el radio del frente de ionización en las direcciones de los ejes $x$ e $y$, respectivamente. $I_y$ representa el campo de radiación difusa. Por detrás del disco, la radiación difusa calienta el gas del disco provocando otro flujo fotoevaporado. $\Delta y$ es la diferencia entre la forma actual del frente de ionización por detrás del disco y una forma cilíndrica. La forma de la colase explica como que el flujo de radiación $I_y$ es capaz de penetrar más cerca del eje $x$ conforme uno se aleja del disco, donde el flujo fotoevaporado es menos denso.}
     \label{fig:prop-shape}
@@ -47,7 +52,8 @@ Si el flujo está dominado por el FUV, la presión térmica depende del calentam
 
 Las ecuaciones de continuidad de la masa y el momento restringen la velocidad del flujo neutro antes de alcanzar el IF. Mas allá de éste, la presión del gas hace que éste se expanda a velocidades del orden de una a dos veces la velocidad del sonido. Para el gas neutro dentro del IF hay dos posibles soluciones: si el gas neutro es supersónico entonces el IF será de baja densidad (Tipo R) con bajo contraste de densidad entre gas neutro y gas ionizado. O si el gas neutro es subsónico se formará un IF tipo D con un gran contraste de densidad entre el gas neutro y el gas ionizado. Sin embargo, sin importar qué tipo de radiación domina la fotoevaporación, el gas neutro permanece a velocidades subsónicas al llegar al IF, por lo que dicho frente será tipo D. En el caso de un flujo dominado por el EUV, el gas neutro permanece a velocidad subsónica, su velocidad decae como $v_I \propto r^{-2}$ y llega a \SI{0.5}{km.s^{-1}} al llegar al frente de ionización. Cundo el flujo es dominado por el FUV, el gas neutro se acelera hasta llegar a velocidades supersónicas, luego atraviesa un choque isotérmico que lo desacelera y llega al frente de ionizacion a \SI{0.5}{km.s^{-1}}.
 
-  \begin{figure}
+\begin{figure}
+  \centering
     \begin{tabular}{cc}
       \includegraphics[width=0.5\linewidth]{./Figures/Johnstone-2} &
       \includegraphics[width=0.5\linewidth]{./Figures/Johnstone-3}
@@ -56,7 +62,7 @@ Las ecuaciones de continuidad de la masa y el momento restringen la velocidad de
     \caption{Representación esquemática de las regiones del flujo fotoevaporado de un proplyd. Izquierda: Cuando el flujo es dominado por el FUV. Derecha: Flujo dominado por EUV \citep{Johnstone:1998}}
   \end{figure}
   
-
+  
 Sin importar el tipo de mecanismo de fotoevaporación dominante, el flujo fotoevaporado existe solo si la presión térmica supera a la gravedad de la protoestrella. Entonces, el flujo fotoevaporado solo existe a partir de un radio crítico $r_g$, donde este radio se estima a partir del balance entre la energía necesaria para escapar de una órbita kepleriana y la energía térmica:
 \begin{align}
   r_g = \frac{GM_*}{a^2}
