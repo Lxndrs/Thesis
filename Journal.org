@@ -1,7 +1,6 @@
 RECORD OF THE THESIS PROGRESS
 
 * Tasks
-
 ** DONE Portada
 - [X] Contenido e la Portada
   - [X] Texto
@@ -10,14 +9,12 @@ RECORD OF THE THESIS PROGRESS
 - [-] Formato de la Portada
   - [X] Tama\~no correcto del texto 
   - [ ] L\'ineas.
-** TODO Escribir el Prefacio de la tesis
+** DONE Escribir el Prefacio de la tesis
 - [X] Agradecimientos
-- [ ] Abstract (en inglés y en español)
-
+- [X] Abstract (en inglés y en español)
 ** DONE Darle el formato general a la tesis.
 - [X] T\'itulos de cap\'itulos, secciones y ap\'endices en espa\~nol.
 - [X] Formato de p\'agina.
-
 ** DONE Buscar ideas principales en notas de la maestría
    - [ ] Choques
    - [ ] Vientos Estelares
@@ -76,15 +73,15 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
   - [X] Tabla con incertidumbres
   - [X] Rehacer gráficas de Presión vs distancia y Flujo vs distancia
   - [X] Incluir incertidumbres en gráfica
-** TODO Observaciones de Will junta de [2018-05-30 Wed]
+** DONE Observaciones de Will junta de [2018-05-30 Wed]
 - [X] Corregir fromato de la cabeza de la página
   - [X] Adicional: Corregir formato de número de página. Colocar número de página en headers pero no al inicio de cada capítulo y de la bibliografía
   - [X] Estilo "twoside" para mejorar los encabezados
 - [X] Corregir errores tipográficos (si es que siguen ahí)
 - [X] Observaciones al inicio de los capítulos 3 y 4
-- [-] Reajustar el tamaño del artículo adjunto como pdf y hacerle una introducción.
+- [X] Reajustar el tamaño del artículo adjunto como pdf y hacerle una introducción.
   - [X] Reajustar tamaño
-  - [ ] Introducción personal
+  - [X] Introducción personal
 - [X] Cambiar la escala de los ejes de los diagramas \Pi' vd q'  para que sea siempre sea igual
 ** DONE Más pendientes
 - [X] Revisar artículo de Kobulincky
@@ -104,6 +101,11 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
   - [X] LL6
   - [X] LL5
 * Journal
+- [2018-08-04 Sat]
+- Finished section about equilibrium pressure
+- Finished "thanks", preface and abstract (and added a cute photo that I don't know Will will let me keep)
+Old Entries:
+- Videoconference with Will via Skype
 -[2018-07-30 Mon]
 - Add description about proplyds bow shocks scenario
 - Correct minimal errors

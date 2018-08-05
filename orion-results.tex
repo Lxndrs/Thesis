@@ -159,15 +159,15 @@ Las mediciones de los radios característicos y las inclinaciones obtenidas para
 El flujo de fotones ionizantes necesario para que exista equilibrio de ionización en el flujo fotoevaporado proveniente del proplyd, se puede determinar con la siguiente ecuación \citep{Henney:2001}:
 
 \begin{align}
-  F_{ph} = v_w(r_{mathrm{IF}}) n_{\mathrm{IF}} + \alpha'_{\mathrm{rec}}n^2_{\mathrm{IF}} \omega r_{\mathrm{IF}}\label{eq:F-ph}
+  F_{\mathrm{ph}} = v_w(r_{\mathrm{IF}}) n_{\mathrm{IF}} + \alpha'_{\mathrm{rec}}n^2_{\mathrm{IF}} \omega r_{\mathrm{IF}}\label{eq:F-ph}
 \end{align}
 
-Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver apéndice \ref{app:HII}), $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$, y por último, estamos considerando que los Frentes de Ionización son de tipo D crítico, por lo que $v_w(r_{\mathrm{IF}}) = a_\marhrm{II} = \SI{11}{km.s^{-1}}$ es la velocidad del sonido del medio ionizado.
+Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver apéndice \ref{app:HII}), $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$, $n_{\mathrm{IF}}$ es la densidad máxima del Frente de Ionización, y por último, estamos considerando que los Frentes de Ionización son de tipo D crítico, por lo que $v_w(r_{\mathrm{IF}}) = a_\marhrm{II} = \SI{11}{km.s^{-1}}$ es la velocidad del sonido del medio ionizado.
 
 Por otro lado, el flujo de fotones Ultravioleta provenientes de \thC{} a la distancia $D$ viene dado por:
 
 \begin{align}
-  F_* = \left(1 - f_d\right)\frac{\Nio_*}{4\pi D^2} \label{eq:F-star}
+   F_* &= \frac{(1-f_d)\Nio_*}{4\piD^2} \label{eq:F-star} 
 \end{align}
 
 Donde $f_d$ es un factor relacionado con la absorción del polvo.
@@ -177,10 +177,17 @@ La condición de equilibrio de ionización implica que $F_{ph} = F_*$. Sin embar
 Por otro lado, la presión RAM en la cáscara viene dada por:
 
 \begin{align}
-  P_{in} = n_0 \bar{m} M^2 \label{eq:P-in}
+  P_{in} = n_0\bar{m}M^2 \label{eq:P-in}
 \end{align}
 
-Donde $n_0$ es la densidad máxima del flujo fotoevaporado antes del choque, $\bar{m} = 1.3 m_p$, $m_p = \SI{1.673e-24}{}$ es la masa del hidrógeno y $M$ es el número de Mach del flujo fotoevaporado antes del choque. Y la presión RAM del viento de \thC{} es:
+Donde $\bar{m} = 1.3 m_p$, $m_p = \SI{1.673e-24}{}$ es la masa del hidrógeno, $M$ es el número de Mach del flujo fotoevaporado antes del choque y $n_0$ es la densidad máxima del flujo fotoevaporado antes del choque, que se relaciona con $n_{\mathrm{IF}}$ como sigue:
+
+\begin{align}
+  n_0 = n_{\mathrm{IF}}\left(\frac{R_0}{r_{\mathrm{IF}}}\right)^{-2} M^{-1} \label{eq:density-scale}
+\end{align}
+
+
+Por último, la presión RAM del viento de \thC{} es:
 
 \begin{align}
   P_* = \frac{\dot{M}^{0}_{w1}v_{w1}}{4\pi D^2} \label{eq:P-star}
@@ -213,5 +220,6 @@ En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distanc
   
 \end{enumerate}
 
-Y como modelo de referencia utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998} (modelo HA). Además, suponemos que el número de Mach del flujo fotoevaporado es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Se observa en general que los cambios en el flujo y la presión por el número de Mach del flujo fotoevaporado son mínimos, (varían por un factor de $4/9$, excepto por el modelo B. donde la presión del viento interna no depende del número de Mach). 
+Y como modelo de referencia utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998} (modelo HA). Además, suponemos que el número de Mach del flujo fotoevaporado es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de mach en la presión en los Modelos A. y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B. no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A. y HA no parece existir una correlación entre las presiones RAM de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí parece existir una dependencia con distancia, similar a la del viento de \thC{}, pero más alta por un factor de $\sim 5$. Probablemente haga falta explorar en este modelo el comportamiento del factor de aborción por polvo $f_d$. Por último, los proplyds que tienen relacionada una distancia mayor a \thC{}, que son 177-341 y 180-331 no cumplen con equilibrio de presiones RAM en ningún modelo.
 
+Los resultados de este capítulo serán publicados próximamente.
