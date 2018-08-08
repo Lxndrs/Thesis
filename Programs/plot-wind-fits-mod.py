@@ -74,10 +74,22 @@ Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
 # Units in cgs system
 Mdot = 2.206e19
 Vw = 1.2e8
+
+# Mass loss rate and terminal velocity of \thC{} taken from Gagne et al. 2005, table 3.
+# There are two models: cool model (for an O7 star) and hot model (for a O5.5 star)
+Mdot_cool = 3.47e19
+Mdot_hot = 8.83e19
+Vw_cool = 2.76e8
+Vw_hot = 2.98e8
+
 Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
+Pw_cool = Mdot_cool*Vw_cool/(4*np.pi*(D_arr*PC)**2)
+Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
-ax2.loglog(D_arr, np.array(Pw)/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
+ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
 mm = tab["*"] == "**" # Subsamples where photoionization balance is accomplished
 nn = tab["*"] == "*"  # Subsamples where photoionization balance is at least weakly accomplished.
 used = tab["*"] == "x" # Subsamples where photoionization balance is at least poorly accomplished

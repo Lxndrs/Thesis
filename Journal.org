@@ -45,14 +45,14 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 
 *** Regiones HII 
 
-** TODO Write !!!!!!
+** DONE Write !!!!!!
 ** DONE Truncar en dos líneas ecuaciones largas y otras correcciones menores
 - [X] Sección 3.2.2 Reducir tamaño de font
 - [X] Sección 4.2 Agregar o corregir ecuación
 - [X] Apéndice A cortar ecuación muy larga
 - [X] Corregir referencia en apéndice A.1
 - [X] Cortar ecuaciones muy largas en apéndice B.3
-** TODO Completar secciones
+** DONE Completar secciones
    - [X] Choques
    - [X] Objetos LL
    - [X] Regiones HII
@@ -60,7 +60,7 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
      - [X] Flujos de Champaña
      - [X] Emisión
    - [X] Cuádricas
-   - [ ] Conclusiones
+   - [X] Conclusiones
 ** DONE Gráfica de \Pi' vs R'_0/D' con observaciones incluídas
 - [X] Graficar las curvas teóricas para 4 valores de k en 4 subgráficas
 - [X] Incluir las observaciones en las 4 subgráficas junto con las incertidumbres de las submuestras
@@ -100,6 +100,12 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
   - [X] 116-3101
   - [X] LL6
   - [X] LL5
+- [ ] Introducir modelos para el viento de \thC{} de Gagne (2005)
+  - [ ] Cool model
+  - [ ] Hot model
+** TODO Meeting with will [2018-08-08 Wed]
+   - [ ] Have the meeting
+   - [ ] Work with corrections
 * Journal
 - [2018-08-04 Sat]
 - Finished section about equilibrium pressure
@@ -706,10 +712,22 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   # Units in cgs system
   Mdot = 2.206e19
   Vw = 1.2e8
+
+  # Mass loss rate and terminal velocity of \thC{} taken from Gagne et al. 2005, table 3.
+  # There are two models: cool model (for an O7 star) and hot model (for a O5.5 star)
+  Mdot_cool = 3.47e19
+  Mdot_hot = 8.83e19
+  Vw_cool = 2.76e8
+  Vw_hot = 2.98e8
+
   Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
+  Pw_cool = Mdot_cool*Vw_cool/(4*np.pi*(D_arr*PC)**2)
+  Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
   fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
   ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
-  ax2.loglog(D_arr, np.array(Pw)/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+  ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+  ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
+  ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
   mm = tab["*"] == "**" # Subsamples where photoionization balance is accomplished
   nn = tab["*"] == "*"  # Subsamples where photoionization balance is at least weakly accomplished.
   used = tab["*"] == "x" # Subsamples where photoionization balance is at least poorly accomplished
@@ -955,7 +973,11 @@ f.savefig("./Figures/Pi-vs-i.pdf")
 + Presión RAM del viento estelar
   + P = Mdot Vw / 4 pi (D-R_0)**2
   + Mdot = 3.5e-7 Msun/yr = 2.206e19 g/s
+  + Mdot_cool = 5.5e-7 Msun/yr = 3.47e19 g/s (Gagne et al., 2005)
+  + Mdot_hot = 1.4e-6 Msun/yr = 8.83e19 g/s
   + Vw = 1200 km/s = 1.2e8 cm/s
+  + Vw_cool = 2760 km/s = 2.76e8 cm/s
+  + V_w_hot = 2980 km/s = 2.98e8 cm/s
   + La escala de D es arcsec = 414.03 au = 6.194e15 cm
 ** Mediciones de los parámetros de los choques de proa de los proplyds:
 + Las mediciones de las distancias están medidas en segundos de arco
