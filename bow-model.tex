@@ -85,13 +85,18 @@ Un último parámetro es el ángulo asintótico de apertura de las alas, denotad
 \newcommand\Cot{\ensuremath{\mathcal{T}}}
 \newcommand\Q{\ensuremath{\mathcal{Q}}}
 \newcommand\fQi{\ensuremath{f_{\scriptscriptstyle \Q, i}}}
-En el caso general es difícil encontrar la forma aparente para un choque de proa siguiendo el formalismo desarrollado en la sección anterior, por lo que optamos por aproximar la forma éstos con una de las superficies más simples: las \textit{cuádricas de revolución}, que son superficies de revolución de las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies cuádricas que utilizaremos en este trabajo:
-\begin{itemize}
-  \item El eje focal se encuentra alineado con el eje $x$
-  \item La posición del foco de la superficie cuádrica no necesariamente coincide con la posición de la fuente
-  \item En el caso de las hipérbolas, solo tomamos una de las ramas de ésta.
-\end{itemize}
-Implementando dichas restricciones, utilizamos la representación paramétrica de las curvas cónicas en términos de un parámetro adimensional denotado con la letra $t$:
+% En el caso general es difícil encontrar la forma aparente para un choque de proa siguiendo el formalismo desarrollado en la sección anterior, por lo que optamos por aproximar la forma éstos con una de las superficies más simples: las \textit{cuádricas de revolución}, que son superficies de revolución de las curvas cónicas. Dado el modelo general descrito en la \S \ref{sec:Modelo-generico}, haremos algunas restricciones para las superficies cuádricas que utilizaremos en este trabajo:
+
+Un tipo de superficies relevante y matemáticamente simple son las \textit{Cuádricas de Revolución} \citep{Goldman:1983a, Gfrerrer:2009a}, que son superficies de revolución de las secciones cónicas (círculo, elipse, parábola e hipérbola). Estas superficies son muy flexibles y pueden ser una aproximación muy útil a choques de proa con formas más complejas.
+
+La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conics}(a) y (b) para elipses e hipérbolas, respectivamente. La sección cónica en sí se describe con dos parámetros, que son los semi-ejes $a$ y $b$. Sin embargo, la curva puede desplazarse a lo largo del eje $x$, de manera que el radio en el ápex $R_0$ sea independiente de $a$ y $b$, para utilizamos un tercer parámetro denominado $x_0$ que nos indica el desplazamiento del centro de la curva respecto al origen.
+
+%\begin{itemize}
+%  \item El eje focal se encuentra alineado con el eje $x$
+%  \item La posición del foco de la superficie cuádrica no necesariamente coincide con la posición de la fuente
+%  \item En el caso de las hipérbolas, solo tomamos una de las ramas de ésta.
+%\end{itemize}
+De esta manera hacemos la representación paramétrica de las curvas cónicas en términos de un parámetro adimensional denotado con la letra $t$:
 \begin{align}
   x &= x_0 + \sigma a\Cos(t) \\
   y &= b\Sin(t) 
@@ -110,9 +115,8 @@ Donde:
   \end{array}\right. \\
   x_0 &= R_0 -\sigma a \label{eq:x0} 
 \end{align}
-Donde $a$ y $b$ representan la longitud de los semi-ejes de la cónica en cuestión (Figura \ref{fig:conics}). $x_0$ representa la distancia entre el centro de la cónica y el origen. 
-
-La forma polar del choque de proa $R(\theta)$ viene dada por:
+%Donde $a$ y $b$ representan la longitud de los semi-ejes de la cónica en cuestión (Figura \ref{fig:conics}) y $x_0$ representa la distancia entre el centro de la cónica y el origen. En esta figura representamos 
+Por otro lado, la forma polar del choque de proa $R(\theta)$ viene dada por:
 
 \begin{align}
   \tan\theta &= \frac{b\Sin(t)}{a\Cos(t) + x_0} \label{eq:t-th-conversion} \\

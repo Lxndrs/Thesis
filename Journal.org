@@ -103,10 +103,16 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [ ] Introducir modelos para el viento de \thC{} de Gagne (2005)
   - [ ] Cool model
   - [ ] Hot model
-** TODO Meeting with will [2018-08-08 Wed]
-   - [ ] Have the meeting
-   - [ ] Work with corrections
+** DONE Meeting with will [2018-08-08 Wed]
+   - [X] Have the meeting
+   - [X] Work with corrections
 * Journal
+- [2018-08-16 Sat]
+- Finished to correct Will's comments
+- Update Readme.md
+Old Entries:
+- Finished Thesis. YAAAAAAY!!!!
+- Will sent me his comments.
 - [2018-08-04 Sat]
 - Finished section about equilibrium pressure
 - Finished "thanks", preface and abstract (and added a cute photo that I don't know Will will let me keep)
