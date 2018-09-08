@@ -59,10 +59,14 @@
 \author{Jorge Alejandro Tarango Yong}
 \DeclareCaptionFormat{cont}{#1 (cont.)#2#3\par}
 \begin{document}
-\maketitle
+%\maketitle
 \pagestyle{empty}
 \include{portada}
+\setcounter{page}{0}
 \tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\pagenumbering{gobble}
+\clearpage
 \newpage
 \section*{\centering Agradecimientos}
 \addcontentsline{toc}{section}{\protect\numberline{}Agradecimientos}
