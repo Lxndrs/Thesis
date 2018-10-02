@@ -5,3 +5,10 @@
 *~
 *.out
 *.sty
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.sqlite
+*.blg

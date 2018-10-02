@@ -106,7 +106,43 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 ** DONE Meeting with will [2018-08-08 Wed]
    - [X] Have the meeting
    - [X] Work with corrections
+** DONE Send important documents
+   - [X] Sign and send documents to Karin
+   - [X] Send a copy of thesis to the sinodals
+** TODO Make the thesis defense presentation
+   - [X] Create the template
+   - [-] Sections to include
+     - [X] Summary of the talk
+     - [-] Introduction: About Orion Nebula and Bow shocks in the ISM
+       - [X] Bow shocks in the ISM
+       - [ ] Orion Nebula and photoevaporation mechanism
+     - [ ] Fundamental Concepts:
+       - [ ] Alatude, planitude, \beta, etc.
+       - [ ] Quadrics of Revolution
+       - [ ] Projection onto the Plane of Sky
+     - [ ] The Thin Shell Model
+       - [ ] General Description
+       - [ ] True Shape
+       - [ ] Apparent Shape
+     - [ ] Application of the Thin Shell Model to the bow shocks produced by the classical proplyds
+     - [ ] Summary and Conclusions
 * Journal
+-[2018-10-01 Mon]
+- More advances in defense presentation
+- Working in quadrics section
+- Allow more than one frame for bibliography
+-[2018-09-19 Wed]
+- More advances in defense presentation:
+  - Finished introductory summary
+  - Add new pictures
+  - Working with Orion Nebula and proplyds section
+-[2018-09-15 Sat]
+- Starting defense presentation
+  - Created presentation template
+  - Started with 1st section
+Old Entries:
+- Sent thesis to synodals
+- Sent signed graduation documents to Karin
 - [2018-08-16 Sat]
 - Finished to correct Will's comments
 - Update Readme.md
