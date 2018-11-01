@@ -221,53 +221,6 @@ Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina ti
 \end{figure}
 Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:IF-jump-density}). El resultado se muestra en la figura \ref{fig:IF-jump}b. En el caso de los frentes R crítico y D crítico, la velocidad del gas en el medio ionizado es igual a la velocidad del sonido.
 
-\chapter[Matrices de Rotación]{Matrices de Rotación y Proyección en el Plano del Cielo.}
-\label{app:matrix}
-\thispagestyle{empty}
-La transformación del sistema de referencia del objeto (no primado) al sistema de referencia del plano del cielo (primado), se realiza mediante una rotación respecto al eje $y$ por un ángulo $i$. Dicha rotación es descrita por la matrz de rotación $\mathbf{A}_y(i)$:
-
-\begin{align}
-  \mathbf{A}_y(i) = \left(
-  \begin{array}{ccc}
-    \cos i & 0 & -\sin i \\
-    0      & 1 & 0       \\
-    \sin i & 0 & \cos i
-  \end{array}\right)
-\end{align}
-
-A su vez se pueden obtener con esta matriz los vectores unitarios del sistema de referencia primado en términos de los vectores unitarios del sistema de referencia no primado:
-
-\begin{align}
-  \hat{x}' = \mathbf{A}_y(-i)\left(
-  \begin{array}{c}
-    1 \\ 0 \\ 0
-  \end{array}\right)\\
-  \hat{y}' = \mathbf{A}_y(-i)\left(
-  \begin{array}{c}
-    0 \\ 1 \\ 0
-  \end{array} \right)\\
-  \hat{z}' = \mathbf{A}_y(-i)\left(
-  \begin{array}{c}
-    0 \\ 0 \\ 1
-  \end{array}\right) \label{eq:y-matrix}
-\end{align}
-
-Es de notarse que en este caso el signo de $i$ está invertido debido a que actualmente la matriz de rotación $\mathbf{A}_y(i)$ realiza una rotación en favor de las manecillas del reloj, mientras que convencionalmente se utiliza el signo positivo del ángulo de rotación para rotaciones en contra de las manecillas del reloj \citep{Bronson}.
-
-Por otro lado, como estamos considerando choques con geometría cilíndrica, entonces todos los ángulos azimutales $\phi$ son equivalentes. Entonces, por simplicidad, podemos trabajar con curvas bidimensionales en plano $xy~(z=0)$, donde su forma tridimensional es una superficie de revolución de éstas alrededor del eje $x$ y se puede encontrar mediante la matriz de rotación:
-
-\begin{align}
-  \mathbf{A}_x(\phi) = \left(
-  \begin{array}{ccc}
-    1 & 0        & 0         \\
-    0 & \cos\phi & -\sin\phi \\
-    0 & \sin\phi & \cos\phi
-  \end{array}
-  \right) \label{eq:x-matrix}
-\end{align}
-
-Donde $\phi$ toma valores en el intervalo $[0, 2\pi]$
-
 \chapter[Radio de Curvatura]{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
 \thispagestyle{empty}
@@ -384,6 +337,53 @@ Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos la planitud en el �
 Por esto en el apéndice \ref{app:derivation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
 el coeficiente de segundo orden en la expansión en serie de $R(\theta)$.
 
+\chapter[Matrices de Rotación]{Matrices de Rotación y Proyección en el Plano del Cielo.}
+\label{app:matrix}
+\thispagestyle{empty}
+La transformación del sistema de referencia del objeto (no primado) al sistema de referencia del plano del cielo (primado), se realiza mediante una rotación respecto al eje $y$ por un ángulo $i$. Dicha rotación es descrita por la matriz de rotación $\mathbf{A}_y(i)$:
+
+\begin{align}
+  \mathbf{A}_y(i) = \left(
+  \begin{array}{ccc}
+    \cos i & 0 & -\sin i \\
+    0      & 1 & 0       \\
+    \sin i & 0 & \cos i
+  \end{array}\right)
+\end{align}
+
+A su vez se pueden obtener con esta matriz los vectores unitarios del sistema de referencia primado en términos de los vectores unitarios del sistema de referencia no primado:
+
+\begin{align}
+  \hat{x}' = \mathbf{A}_y(-i)\left(
+  \begin{array}{c}
+    1 \\ 0 \\ 0
+  \end{array}\right)\\
+  \hat{y}' = \mathbf{A}_y(-i)\left(
+  \begin{array}{c}
+    0 \\ 1 \\ 0
+  \end{array} \right)\\
+  \hat{z}' = \mathbf{A}_y(-i)\left(
+  \begin{array}{c}
+    0 \\ 0 \\ 1
+  \end{array}\right) \label{eq:y-matrix}
+\end{align}
+
+Es de notarse que en este caso el signo de $i$ está invertido debido a que actualmente la matriz de rotación $\mathbf{A}_y(i)$ realiza una rotación en favor de las manecillas del reloj, mientras que convencionalmente se utiliza el signo positivo del ángulo de rotación para rotaciones en contra de las manecillas del reloj \citep{Bronson}.
+
+Por otro lado, como estamos considerando choques con geometría cilíndrica, entonces todos los ángulos azimutales $\phi$ son equivalentes. Entonces, por simplicidad, podemos trabajar con curvas bidimensionales en plano $xy~(z=0)$, donde su forma tridimensional es una superficie de revolución de éstas alrededor del eje $x$ y se puede encontrar mediante la matriz de rotación:
+
+\begin{align}
+  \mathbf{A}_x(\phi) = \left(
+  \begin{array}{ccc}
+    1 & 0        & 0         \\
+    0 & \cos\phi & -\sin\phi \\
+    0 & \sin\phi & \cos\phi
+  \end{array}
+  \right) \label{eq:x-matrix}
+\end{align}
+
+Donde $\phi$ toma valores en el intervalo $[0, 2\pi]$
+
 \chapter[Derivación de Radios Característicos]{Derivación paso a paso de los Radios Característicos en el Modelo de Capa Delgada}
 \label{app:derivation-radii}
 \thispagestyle{empty}
@@ -411,6 +411,7 @@ Reduciendo la ecuación (\ref{eq:momento-R0-uf}) encontramos una expresión para
 \end{align}
 
 \section[Alatud]{Alatud de Choques tipo Cantoides y Ancantoides}
+\label{app:alatude-derivation}
 $R_{90}$ puede determinarse a partir de evaluar las ecuaciones (\ref{eq:R-geometric}) y (\ref{eq:th1-th}) en $\theta=\frac{\pi}{2}$
 como sigue:
 

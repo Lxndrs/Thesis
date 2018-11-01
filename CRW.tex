@@ -10,7 +10,7 @@ Debido a la relevancia del artículo de \CRW{} para este trabajo, mucho del mate
 %El problema de interacción de dos vientos es de gran interés en astrofísica, y ha sido estudiado en múltiples ocasiones, principalmente mediante simulaciones hidrodinámicas. Sin embargo, cuando se toman en cuenta diversos factores, incluídos conservación de masa, momento y momento angular, el problema puede resolverse de manera algebraica.
 \section{Cantidades conservadas en un flujo hipersónico de capa delgada}
 \label{sec:conserved-CRW}
-Consideramos dos flujos hipersónicos, no acelerados que forman una capa estacionaria delgada formada por dos choques radiativos separados por una discontinuidad de contacto. El sistema tiene geometría cilíndrica y los vientos no tienen velocidad azimutal. Bajo estos términos, describimos la posición de la capa delgada como $R(\theta)$, donde $R$ es el radio de la capa medido a partir de la posición del origen del viento con menor momento y $\theta$ es el ángulo polar. Asumimos que el gas chocado está bien mezclado, esto implica que  tiene una sola velocidad pos--choque dada por:
+Consideramos dos flujos hipersónicos, no acelerados que forman una capa estacionaria delgada formada por dos choques radiativos separados por una discontinuidad de contacto. El sistema tiene geometría cilíndrica y los vientos no tienen velocidad azimutal. Bajo estos términos, describimos la posición de la capa delgada como $R(\theta)$, donde $R$ es el radio de la capa medido a partir de la posición del origen del viento con menor momento y $\theta$ es el ángulo polar. Asumimos que la capa de gas chocado es muy delgada, por lo que podemos asumir que tiene una sola velocidad pos--choque dada por:
 
 \begin{align}
   \vec{v} = v_r \hat{r} + v_z \hat{z}
@@ -60,14 +60,15 @@ Aplicamos el formalismo ya mencionado para la interacción de dos vientos radial
   n_C &= n_0 \label{eq:cantoid-density}
 \end{align}
 
-Donde el índice $k$ indica el grado de anisotropía del viento ``interno''. Cuando la densidad del viento está dada por la ecuación (\ref{eq:cantoid-density}) denominamos a los choques resultantes como ``cantoides'', por \citet{Canto:1996}, mientras que si la densidad está dada por (\ref{eq:Ancantoid-density}) entonces los denominamos ``Ancantoides''. Un caso particularmente interesantes son el viento para un proplyd \citep{HA:1998}, donde $(k=1/2)$. Por el momento restringimos al viento ``externo'' como isotrópico. El problema se muestra de manera esquemática en la figura \ref{fig:crw-esquema}.
+Donde $n_0$ corresponde a la densidad del viento interior en el eje de simetría $(\theta=0)$ y a su vez en el radio tal que el viento ha alcanzado su velocidad terminal. Mientras que el índice $k$ indica el grado de anisotropía del viento interior. Cuando la densidad del viento está dada por la ecuación (\ref{eq:cantoid-density}) denominamos a los choques resultantes como ``cantoides'', por \citet{Canto:1996}, mientras que si la densidad está dada por (\ref{eq:Ancantoid-density}) entonces los denominamos ``Ancantoides''. Un caso particularmente interesante e
+s el viento para un proplyd \citep{HA:1998}, donde $(k=1/2)$. Por el momento restringimos al viento ``externo'' como isotrópico. El problema se muestra de manera esquemática en la figura \ref{fig:crw-esquema}.
 
-Utilizando las ecuaciones (\ref{eq:Ancantoid-density}, \ref{eq:cantoid-density}) encontramos que la tasa de pérdida de masa está dada por:
-
+%Utilizando las ecuaciones (\ref{eq:Ancantoid-density}, \ref{eq:cantoid-density}) encontramos que la tasa de pérdida de masa está dada por:
+Al considerar un flujo de masa en estado estacionario que se mueve a través de una superficie esférica de radio $r_0$ encontramos la siguiente expresión para calcular la tasa de pérdida de masa:
 \begin{align}
   \dot{M}_w = \int^\theta_0\int^{2\pi}_0\rho_w v_w~r^2_0\sin\theta~d\theta~d\phi  \label{eq:general-inner-dot-M}
 \end{align}
-Donde $v_w$ es la velocidad del viento inteno, $\rho_w = n\bar{m}$  es su densidad, $n$ se obtiene de las ecuaciones (\ref{eq:Ancantoid-density}), $\bar{m}$  es la masa promedio de las partículas del viento y $r_0$ es el radio del viento al cual se alcanza la velocidad terminal $v_w$. Para un proplyd consideramos que dicho radio es el del frente de ionización.
+Donde $v_w$ es la velocidad del viento interno, $\rho_w = n\bar{m}$  es su densidad, $n$ se obtiene utilizando la ecuación \ref{eq:cantoid-density} ó \ref{eq:Ancantoid-density}. Y $\bar{m}$  es la masa promedio de las partículas del viento.
 
 Resolviendo (\ref{eq:general-inner-dot-M}) para vientos con densidades dadas por (\ref{eq:Ancantoid-density}, \ref{eq:cantoid-density}), encontramos que:
 
@@ -107,12 +108,22 @@ Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} si
 
 \begin{figure*}
   \centering
-  \begin{tabular}{lr}
-    \includegraphics[width = 0.55\linewidth]{./Figures/cantoid-ancantoid-shape-bfixed} &
-    \includegraphics[width=0.55\linewidth]{./Figures/ancantoid-shape}
-  \end{tabular}
-  \caption{Forma de choques de proa de vientos en interacción. Las coordenadas están normalizadas con $D$, la distancia entre las fuentes de los vientos. La fuente del viento más débil se localiza en el origen $(0, 0)$, mientras que la otra fuente se localiza en $(1, 0)$, ambas marcadas con puntos negros. En (a) los choques de proa mostrados tienen un valor del parámetro $\beta = 0.01$ fijo, mientras que el índice de anisotropía $k$ varía desde 0 hasta 3, mostrados en escala de colores verdes. El choque cantoide con $\beta=0.01$ se muestra en negro. Nótese que el choque ancantoide con $k=0$ es más cerrado en las alas que el tipo cantoide, debido a que en los choques ancantoides la densidad del viento cae a cero cuando $\theta \geq 90^\circ$, mientras que en los cantoides la densidad del viento es constante para toda $\theta$. En (b) el parámetro de anisotropía $k$ es fijo con valor de $1/2$, mientras que el parámetro $\beta$ varía desde $10^{-3}$ hasta $0.99$. La distancia al ápex $R_0$ se incrementa conforme $\beta$ crece, llegando al valor asintótico de $R_0/D = 0.5$ cuando $\beta\to 1$. Lo mismo sucede con el radio de curvatura y $R_{90}$. Algo notable es que en los choques ancantoides aun en el caso límite $\beta=1$, la forma del choque también es curva, debido a que la densidad del viento interior cae con $\theta$ y fuera del eje de simetría el momento del viento exterior es mayor.}
+  % \begin{tabular}{lr}
+  \includegraphics[width=0.8\linewidth]{./Figures/cantoid-ancantoid-shape-bfixed} 
+ % \end{tabular}
+  \caption{Forma de choques de proa de vientos en interacción. Las coordenadas están normalizadas con $D$, la distancia entre las fuentes de los vientos. La fuente del viento más débil se localiza en el origen $(0, 0)$, mientras que la otra fuente se localiza en $(1, 0)$, ambas marcadas con puntos negros. Los choques de proa mostrados tienen un valor del parámetro $\beta = 0.01$ fijo, mientras que el índice de anisotropía $k$ varía desde 0 hasta 3, mostrados en escala de colores verdes. El choque cantoide con $\beta=0.01$ se muestra en negro. Nótese que el choque ancantoide con $k=0$ es más cerrado en las alas que el tipo cantoide, debido a que en los choques ancantoides la densidad del viento cae a cero cuando $\theta \geq 90^\circ$, mientras que en los cantoides la densidad del viento es constante para toda $\theta$.}
+  \label{fig:CRW-shape-1}
 \end{figure}
+
+\begin{figure}
+\centering
+  \ContinuedFloat
+    \captionsetup{list=off,format=cont}
+    \includegraphics[width=0.8\linewidth]{./Figures/ancantoid-shape}
+    \caption{En esta figura el parámetro de anisotropía $k$ es fijo con valor de $1/2$, mientras que el parámetro $\beta$ varía desde $10^{-3}$ hasta $0.99$. La distancia al ápex $R_0$ se incrementa conforme $\beta$ crece, llegando al valor asintótico de $R_0/D = 0.5$ cuando $\beta\to 1$. Algo notable es que en los choques ancantoides aún en el caso límite $\beta=1$, la forma del choque también es curva, debido a que la densidad del viento interior cae con $\theta$ y fuera del eje de simetría el momento del viento exterior es mayor.}
+    \label{fig:CRW-shape-2}
+\end{figure}
+
 
 En este caso tomamos como variable independiente al ángulo polar medido a partir de la posición de la fuente del viento externo, denotado por $\theta_1$. De esta forma las tasas de pérdida de masa, momento y momento angular quedan como sigue:
 
@@ -141,7 +152,7 @@ Combinando las ecuaciones (\ref{eq:R-wind}, \ref{eq:Pi-wz} - \ref{eq:J1-iso}, \r
 \begin{align}
   \theta_1\cot\theta_1 -1 = 2\beta I_k(\theta)\cot\theta - \frac{2\beta}{k+2}\left(1 - \cos^{k+2}\theta\right) \label{eq:th1-th} 
 \end{align}
-Donde en este caso, la condición de equilibrio de presiones RAM implica que la tasa de momentos $\beta$ ahora está definida como sigue:
+donde en este caso, la condición de equilibrio de presiones ram implica que la tasa de momentos $\beta$ ahora está definida como sigue:
 
 \begin{align}
   \beta_A = 2(k+1) \beta
@@ -165,7 +176,7 @@ y $\Gamma$ es la función Gamma usual.
 \label{sec:wilkinoids}
 \begin{figure*}
   \centering
-  \includegraphics[width=0.6\linewidth]{./Figures/cantoid-wilkinoid-shape}
+  \includegraphics[width=0.5\linewidth]{./Figures/cantoid-wilkinoid-shape}
   \caption{Forma de choques cantoides y el choque wilkinoide. Las coordenadas están normalizadas con la distancia al ápex $R_0$. El choque wilkinoide se muestra en negro y los choques cantoides en escala de azul, con $\beta$ variando desde $10^{-3}$ hasta 0.08. Nótese que el choque wilkinoide se comporta como el caso asíntótico de los choques cantoides cuando $\beta\to 0$.}
 \end{figure*}
 En este caso las tasas de pérdida de masa, de momento y momento angular del viento plano--paralelo con velocidad $v_a$ y densidad uniforme $\rho_a$ quedan como sigue:
@@ -202,7 +213,7 @@ Resolviendo para $R/R_0$ encontramos que:
 \begin{figure*}
   \centering
   \includegraphics[0.7\linewidth]{./Figures/Pi-vs-Lambda}
-  \caption{Forma verdadera de los choques cantoides, ancantoides y wilkinoides. En cada línea, $\beta$ varía en el rango $[0, 1]$, y los parámetros $(\Pi, \Lambda)$ fueron calculados de acuerdo a los resultados del apéndice \ref{app:derivation-radii}. Los círculos del color de las líneas representan valores particulares de $\beta$: $10^{-3}$, $10^{-2}$, 0.1 y 0.5, y con la diferencia de que el coeficiente de segundo orden de la ecuación \ref{eq:CRW-Rc} para la planitud $\Pi$ fue obtenido de manera numérica con el fin de utilizar este método para encontrar la planitud aparente con la ecuación \ref{eq:Rc-prime}}
+  \caption{Forma verdadera de los choques cantoides, ancantoides y wilkinoides. En cada línea, $\beta$ varía en el rango $[0, 1]$, y los parámetros $(\Pi, \Lambda)$ fueron calculados de acuerdo a los resultados del apéndice \ref{app:derivation-radii}. Los círculos del color de las líneas representan valores particulares de $\beta$: $10^{-3}$, $10^{-2}$, 0.1 y 0.5, y con la diferencia de que el coeficiente de segundo orden de la ecuación \ref{eq:CRW-Rc} para la planitud $\Pi$ fue obtenido de manera numérica con el fin de utilizar este método para encontrar la planitud aparente con la ecuación \ref{eq:Rc-prime}.}
   \label{fig:true-Pi-Lambda}
 \end{figure*}
 Para los tres tipos de formas de choques de proa que utilizamos en este trabajo (cantoides, ancantoides y wilkinoides), calculamos su correspondiente alatud y planitud. Para los choques ancantoides obtenemos lo siguiente. El procedimiento detallado se puede consultar en el apéndice \ref{app:derivation-radii}:
@@ -233,7 +244,7 @@ $R_0$ en este caso se obtiene directamente de la ecuación (\ref{eq:Wilkin-stagn
 
 En la figura \ref{fig:true-Pi-Lambda} se muestran los resultados de las ecuaciones (\ref{eq:CRW-R90}-\ref{eq:Rc-Wilkin}) en forma de diagrama $\Lambda-\Pi$. Los choques tipo cantoides ocupan en este diagrama una curva, donde cada punto de ésta representa un valor distinto de $\beta$, cuyo rango es $(0, 1)$, y está representada en color negro. Los choques ancantoides ocupan diferentes curvas, una por cada valor del índice de anisotropía $k$, y se representan por curvas con diferente tonalidad de verde, mientras que los choques wilkinoides ocupan un solo punto en este diagrama, representado por el círculo amarillo.
 
-La tendencia general de los choques cantoides y ancantoides es que conforme se incrementan $\beta$ y $k$, también se vuelven más abiertos y más planos en el aṕex ($\Pi$ y $\Lambda$ incrementan), siendo el choque tipo cantoide el más abierto a un valor de $\beta$ dado. Como ya hemos mencionado, el choque tipo cantoide y el tipo ancantoide con $k=0$ son muy similares, excepto que el choque cantoide es más abierto en las alas $(\theta > 90^\circ)$ debido al soporte que da hacia atrás el viento interior. Sin embargo, como su comportamiento es igual para $\theta \leq 90^\circ$, por tanto, no hay diferencia entre estos dos tipos de choques en este diagrama. Todos los choques se encuentran ya sea en la región de esferoides prolatos (región gris oscura) o hiperboloides (región clara), ninguno en la región de esferoides oblatos (ver figura \ref{fig:Pip-Lambdap-diagnostic}a). Los choques tipo esferoide prolato son los que tienen valores de $\beta$ pequeños, y la transición hacia hiperboloide se da cuando $\beta \sim 0.01$ para los choques cantoides y ancantoides con parámetro $k$ pequeño. Esta transición a los hiperboloides se recorre para $\beta$ mayor conforme el parámetro $k$ se incrementa. Esto contrasta con el caso de las cuádricas puras, que siempre permanecen en la misma región, pero esto se debe a que las formas de los choques de proa son más complejas que una cuádrica de revolución: mientras que la forma de la ``cabeza'' del choque (la región cercana al ápex) puede aproximarse bien con una variedad de cuádricas, la forma de las alas lejanas siempre es más parecida a un hiperboloide (ver figura ). El choque wilkinoide se ubica en el límite $\beta\to 0$ de la curva de los choques cantoides, como era de esperarse, y se ubica en la región de esferoides prolatos. Otro detalle que puede apreciarse en esta figura es que todas las curvas (al menos para $\beta$ pequeña) se aglomeran cerca de la diagonal $\Pi \simeq \Lambda$ con la tendencia de que para anisotropía grande, $\Lambda > \Pi$, existe una región donde hay una degeneración entre $\beta$ y $k$ que se rompe para $\beta$ grande.
+La tendencia general de los choques cantoides y ancantoides es que conforme se incrementan $\beta$ y $k$, también se vuelven más abiertos y más planos en el ápex ($\Pi$ y $\Lambda$ incrementan), siendo el choque tipo cantoide el más abierto a un valor de $\beta$ dado. Como ya hemos mencionado, el choque tipo cantoide y el tipo ancantoide con $k=0$ son muy similares, excepto que el choque cantoide es más abierto en las alas $(\theta > 90^\circ)$ debido al soporte que da hacia atrás el viento interior. Sin embargo, como su comportamiento es igual para $\theta \leq 90^\circ$, por tanto, no hay diferencia entre estos dos tipos de choques en este diagrama. Todos los choques se encuentran ya sea en la región de esferoides prolatos (región gris oscura) o hiperboloides (región clara), ninguno en la región de esferoides oblatos (ver figura \ref{fig:Pip-Lambdap-diagnostic}a). Los choques tipo esferoide prolato son los que tienen valores de $\beta$ pequeños, y la transición hacia hiperboloide se da cuando $\beta \sim 0.01$ para los choques cantoides y ancantoides con parámetro $k$ pequeño. Esta transición a los hiperboloides se recorre para $\beta$ mayor conforme el parámetro $k$ se incrementa. Esto contrasta con el caso de las cuádricas puras, que siempre permanecen en la misma región, pero esto se debe a que las formas de los choques de proa son más complejas que una cuádrica de revolución: mientras que la forma de la ``cabeza'' del choque (la región cercana al ápex) puede aproximarse bien con una variedad de cuádricas, la forma de las alas lejanas siempre es más parecida a un hiperboloide, como se ilustra en la figura \ref{fig:thq-beta}. Por otro lado, el choque wilkinoide se ubica en el límite $\beta\to 0$ de la curva de los choques cantoides, como era de esperarse, y se ubica en la región de esferoides prolatos. De la figura \ref{fig:true-Pi-Lambda} también puede apreciarse que todas las curvas (al menos para $\beta$ pequeña) se aglomeran cerca de la diagonal $\Pi \simeq \Lambda$ con la tendencia de que para anisotropía grande, $\Lambda > \Pi$, existe una región donde hay una degeneración entre $\beta$ y $k$ que se rompe para $\beta$ grande.
 
 Todo esto funciona para la forma verdadera de los choques de proa, que corresponde a cuando son vistos de canto $(i=0)$. La alatud y planitud verdaderas no toman en cuenta el comportamiento de las alas lejanas $(\theta > 90^\circ)$. De hecho, para un choque dado, hay dos formas de calcular el ángulo de las cuádricas $\theta_Q$. Una es a partir de los parámetros $(\Pi, \Lambda)$ utilizando las ecuaciones (\ref{eq:conic-parameter-a-b}, \ref{eq:thc}, \ref{eq:quadric-parameter-pi-lambda}):
 
@@ -244,7 +255,7 @@ Todo esto funciona para la forma verdadera de los choques de proa, que correspon
 La segunda manera es a partir de estimar el ángulo asintótico $\theta_\infty$:
 
 \begin{align}
-  \theta^{\mathrm{tail}}_Q = \theta_\infty - \pi
+  \theta^{\mathrm{tail}}_Q = \theta_\infty - \pi \label{eq:th-inf-tail}
 \end{align}
 
 Donde $\theta_\infty$ puede obtenerse a partir de la ecuación (28) de \CRW{} para los choques cantoides:
@@ -259,7 +270,14 @@ Mientras que para los choques ancantoides utilizamos la ecuación (\ref{eq:th1-t
   \theta_\infty - \left(\frac{k+2(1-\beta)}{k+2}\right)\tan\theta_\infty = \pi + 2\beta I_k(\pi/2)
 \end{align}
 
-Como las soluciones a la forma de los choques de proa, tanto cantoides como ancantoides solo ajustan parcialmente a una cuádrica de revolución, entonces $\theta^{\mathrm{head}}_Q \neq \theta^{\mathrm{tail}}_Q$. Esta discrepancia se vuelve relevante al momento de obtener la forma aparente,ya que en este caso la región del choque que es tangente a la línea de visión se aleja del ápex y se acerca a las alas lejanas conforme se incrementa la inclinación.
+Como las soluciones a la forma de los choques de proa, tanto cantoides como ancantoides solo ajustan parcialmente a una cuádrica de revolución, entonces $\theta^{\mathrm{head}}_Q \neq \theta^{\mathrm{tail}}_Q$. Esta discrepancia se vuelve relevante al momento de obtener la forma aparente, ya que en este caso la región del choque que es tangente a la línea de visión se aleja del ápex y se acerca a las alas lejanas conforme se incrementa la inclinación.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./Figures/thc-beta-log}
+  \caption{Parámetro de las cuádricas $\theta_Q$ (ver \S \ref{sec:quadrics}) en función de la tasa de momentos $\beta$ para choques cantoides y ancantoides (en este caso se muestra el parámetro de anisotropía $\xi$, introducido en el apéndice \ref{app:alatude-derivation}) para la cabeza del choque de proa, mostrado en línea continua, y la cola, mostrada en línea rayada. Para valores numéricos pequeños de $\beta$, se puede encontrar que el parámetro $\theta_Q$ es consistente con la forma de esferoides prolatos, sin embargo, conforme $\beta$ incrementa este parámetro disminuye y eventualmente hay una transición hacia formas hiperbólicas. Para la forma de las alas, estimada a partir del ángulo asintótico $\theta_\infty$ (ecuación \ref{eq:th-inf-tail}), la forma siempre es hipérbólica, y en este caso, existe una diferencia entre los choques tipo cantoide (línea negra) con el choque tipo ancantoide isotrópico $(k=0, \xi=1)$.}
+  \label{fig:thq-beta}
+\end{figure}
 
 \section[Forma Aparente]{Obtención de la Forma Aparente}
 
@@ -283,7 +301,7 @@ En la figura \ref{fig:apparent-cantoid} mostramos la forma aparente de choques t
 
 Se muestra una tendencia general en donde las alas son sistemáticamente más abiertas para altas inclinaciones. Sin embargo, en el caso de los choques Wilkinoides se muestra el comportamiento opuesto, aunque los cambios son muy sutiles. El caso de la figura \ref{fig:apparent-ancantoid}}a, donde se muestra un choque tipo ancantoide con $\beta=0.005$ y $k=1/2$ se observa que para inclinaciones menores a $60^\circ$, las alas cercanas $(\theta\sim 90^\circ)$ se cierran sutilmente, y luego se abren más para inclinaciones mayores.
 
-En la figuras \ref{fig:th0-isotropic} y \ref{fig:th0-anisotropic} mostramos la solución a las ecuaciones (\ref{eq:th-0}, ref{eq:R0p}) para el modelo de capa delgada, junto con el factor de escalamiento $R'_0/R_0$ en función de la inclinación. En estas figuras se observa que el radio aparente en el ápex siempre aumenta con la inclinación, mostrando un crecimiento más rápido para choques más abiertos, pero un incremento mayor para choques más cerrados; ésto debido a que en los choques más cerrados la inclinación máxima donde aun existe una línea tangente es mayor.
+En la figuras \ref{fig:th0-isotropic} y \ref{fig:th0-anisotropic} mostramos la solución a las ecuaciones (\ref{eq:th-0}, \ref{eq:R0p}) para el modelo de capa delgada, junto con el factor de escalamiento $R'_0/R_0$ en función de la inclinación. En estas figuras se observa que el radio aparente en el ápex siempre aumenta con la inclinación, mostrando un crecimiento más rápido para choques más abiertos, pero un incremento mayor para choques más cerrados; ésto debido a que en los choques más cerrados la inclinación máxima donde aun existe una línea tangente es mayor.
 
 \begin{figure}
   \centering
@@ -326,7 +344,7 @@ Su comportamiento con inclinación se muestra en la figura \ref{fig:Pi-vs-inclin
   \label{fig:Pi-vs-inclination}
 \end{figure}
 
-Por último, mostramos en la figura \ref{fig:Lambda-Pi-diagram} los diagramas $\Lambda'-\Pi'$ para diferentes tipos de choques de proa. Cada curva representa un choque de proa con parámetros $(\beta, k)$ fijos donde la inclinación varía de un punto a otro a lo largo de la curva. El comportamiento de estos choques de proa se diferencia del de las cuádricas de revolución, mostrado en la figura \ref{fig:Pip-Lambdap-diagnostic}a. En este caso, las curvas no están confinadas a una sola región: para inclinaciones bajas, la mayoría de las curvas ajustan mejor a la forma de elipsoides prolatos, a excepción de las curvas con parámetro $\beta$ alto $(\beta \gtrsim 0.01)$, mientras que para altas inclinaciones la forma ajusta mejor a hiperboloides. Esto se debe a la tensión que existe entre la forma de la cabeza y de la cola (figura ).
+Por último, mostramos en la figura \ref{fig:Lambda-Pi-diagram} los diagramas $\Lambda'-\Pi'$ para diferentes tipos de choques de proa. Cada curva representa un choque de proa con parámetros $(\beta, k)$ fijos donde la inclinación varía de un punto a otro a lo largo de la curva. El comportamiento de estos choques de proa se diferencia del de las cuádricas de revolución, mostrado en la figura \ref{fig:Pip-Lambdap-diagnostic}a. En este caso, las curvas no están confinadas a una sola región: para inclinaciones bajas, la mayoría de las curvas ajustan mejor a la forma de elipsoides prolatos, a excepción de las curvas con parámetro $\beta$ alto $(\beta \gtrsim 0.01)$, mientras que para altas inclinaciones la forma ajusta mejor a hiperboloides. Esto se debe a la tensión que existe entre la forma de la cabeza y de la cola (figura \ref{fig:thq-beta}).
 
 La curva del choque wilkinoide se muestra en color blanco, y tiene un comportamiento menos interesante que otras curvas: simplemente se mueve desde $(5/3, \sqrt{3})$ hasta $(3/2, \sqrt{8/3})$. Aunque se ubica en la región de elipsoide prolato, el hecho de que $\theta_\infty$ sea de $180^\circ$ sugiere que la forma de las alas lejanas sea más parecido al de un paraboloide. Pero converge en $(3/2, \sqrt{8/3})$ en vez de en $(2, 2)$ porque las alas lejanas son asintóticamente cúbicas en vez de cuadráticas.
 
@@ -338,6 +356,6 @@ La densidad de marcas a lo largo de una curva nos indican la probabilidad de obs
     (a) & (b) & (c) \\
     \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-a} & \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-b}   &                            \includegraphics[width=0.33\linewidth]{./Figures/ancantoid-R90-vs-Rc-lobeta-a}                                             
   \end{tabular}
-  \caption{Diagramas planitud-ataud para las soluciones del modelo de capa delgada. Los círculos de colores indican la forma intrínseca para cada modelo $(i=0^\circ)$. Las líneas muestran la solución a este mismo modelo en función de la inclinación. Las marcas más pequeñas corresponden a inclinaciones igualmente espaciadas de $|\sin i|$. El modelo wilkinoide se muestra en color blanco. (a) Soluciones para los modelos cantoide (azul) y ancantoide $k=0.5$ (rojo) para $\beta=[0.001, 0.003, 0.01, 0.03, 0.1, 0.3]$. (b) Soluciones para modelos ancantoides $k=3$ (naranja) y $k=0$ (morado). (c) Igual que (a) pero aumentada para mostrar la convergencia de los modelos cantoides hacia el modelo wilkinoide conforme $\beta\to 0$ utilizando como referencia $\beta=[10^{-3}, 10^{-4}, 10^{-5}]$.}
+  \caption{Diagramas planitud-alatud para las soluciones del modelo de capa delgada. Los círculos de colores indican la forma intrínseca para cada modelo $(i=0^\circ)$. Las líneas muestran la solución a este mismo modelo en función de la inclinación. Las marcas más pequeñas corresponden a inclinaciones igualmente espaciadas de $|\sin i|$. El modelo wilkinoide se muestra en color blanco. (a) Soluciones para los modelos cantoide (azul) y ancantoide $k=0.5$ (rojo) para $\beta=[0.001, 0.003, 0.01, 0.03, 0.1, 0.3]$. (b) Soluciones para modelos ancantoides $k=3$ (naranja) y $k=0$ (morado). (c) Igual que (a) pero aumentada para mostrar la convergencia de los modelos cantoides hacia el modelo wilkinoide conforme $\beta\to 0$ utilizando como referencia $\beta=[10^{-3}, 10^{-4}, 10^{-5}]$.}
   \label{fig:Lambda-Pi-diagram}
 \end{figure}

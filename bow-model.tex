@@ -38,7 +38,8 @@ Donde $\beta$ es la tasa de momentos entre los vientos en interacción. Si los d
   \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}} \label{eq:beta-def}
 \end{align}
 
-En el caso de que el viento exterior sea una corriente plano--paralela (wilkinoide), correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
+En el caso de que el viento exterior sea una corriente plano--paralela (wilkinoide), puede verse como el límite donde $D\to\infty$, lo que implica que a su vez se trata del límite donde $\beta\to 0$
+%correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
 
 En el caso de que el viento interior no sea isotrópico es tratado en el capítulo \ref{chap:hipersonica}.
 
@@ -89,7 +90,7 @@ Un último parámetro es el ángulo asintótico de apertura de las alas, denotad
 
 Un tipo de superficies relevante y matemáticamente simple son las \textit{Cuádricas de Revolución} \citep{Goldman:1983a, Gfrerrer:2009a}, que son superficies de revolución de las secciones cónicas (círculo, elipse, parábola e hipérbola). Estas superficies son muy flexibles y pueden ser una aproximación muy útil a choques de proa con formas más complejas.
 
-La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conics}(a) y (b) para elipses e hipérbolas, respectivamente. La sección cónica en sí se describe con dos parámetros, que son los semi-ejes $a$ y $b$. Sin embargo, la curva puede desplazarse a lo largo del eje $x$, de manera que el radio en el ápex $R_0$ sea independiente de $a$ y $b$, para utilizamos un tercer parámetro denominado $x_0$ que nos indica el desplazamiento del centro de la curva respecto al origen.
+La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conics}(a) y (b) para elipses e hipérbolas, respectivamente. La sección cónica en sí se describe con dos parámetros, que son los semi-ejes $a$ y $b$. Sin embargo, la curva puede desplazarse a lo largo del eje $x$, de manera que el radio en el ápex $R_0$ sea independiente de $a$ y $b$, para eso utilizamos un tercer parámetro denominado $x_0$ que nos indica el desplazamiento del centro de la curva respecto al origen.
 
 %\begin{itemize}
 %  \item El eje focal se encuentra alineado con el eje $x$
@@ -150,7 +151,7 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
   \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
 \end{figure}
-El set de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos sets de parámetros los calculamos a continuación:
+El conjunto de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos conjuntos de parámetros los calculamos a continuación:
 \begin{align} 
   R_c &= \frac{b^2}{a} = a|\Q|\label{eq:R-curv-conic}\\
   R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic} 
@@ -227,7 +228,7 @@ La relación entre ambos sistemas de referencia se ilustra en la figura \ref{fig
 
 \subsection{Vectores normal y tangente a la superficie}
 
-Si definimos los vectores $\hat{n}$ y $\hat{t}$, como los vectores normal y tangente a la superficie, respectivamente para $\phi$ constante. En el caso $\phi = 0$ (figura \ref{fig:unit-vec}), ambos vectores se encuentran en el plano $xy$ y es fácil mostrar que:
+Definimos los vectores $\hat{n}$ y $\hat{t}$, como los vectores normal y tangente a la superficie, respectivamente para $\phi$ constante. En el caso $\phi = 0$ (figura \ref{fig:unit-vec}), ambos vectores se encuentran en el plano $xy$ y es fácil mostrar que:
 \begin{align}
   \hat{t}_0 =
   \left(
@@ -288,14 +289,14 @@ Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:uni
 \subsection{Línea tangente}
 \label{sec:tangent-line}
 Debido a que el choque es ópticamente delgado y geométricamente delgado, solo la región del choque cuya tangente sea paralela a la
-línea de visión seré visible. Esto corresponde a una curva que denominamos \textit{línea tangente}, que debe cumplir con la siguiente
+línea de visión será visible. Esto corresponde a una curva que denominamos \textit{línea tangente}, que debe cumplir con la siguiente
 condición:
 \begin{align}
   \hat{n}\boldsymbol{\cdot} \hat{z}' = 0
 \end{align}
 Denotamos como $\phi_T$ al ángulo azimutal que cumple la condición anterior para una inclinación dada, en función del ángulo polar $\theta$:
 \begin{align}
-  \sin\phi_T = -\tan i\tan\alpha = \tan i\frac{1+\omega\tan\theta}{\omega-\tan\theta}
+  \sin\phi_T = -\tan i\tan\alpha = \tan i~\frac{1+\omega\tan\theta}{\omega-\tan\theta}
   \label{eq:phi-tan}
 \end{align}
 De esta manera, la forma de la línea tangente del choque de proa, a la que llamamos \textit{forma proyectada} viene dada por:
@@ -309,7 +310,7 @@ De esta manera, la forma de la línea tangente del choque de proa, a la que llam
   \right) =
   R(\theta)\left(
   \begin{array}{c}
-    \cos\theta\cos i - \sin\theta\sin\phi_t\sin i \\
+    \cos\theta\cos i - \sin\theta\sin\phi_T\sin i \\
     \sin\theta\left(1-\sin^2\phi_T\right)^{1/2} \\
     \cos\theta\sin i + \sin\theta\sin\phi_T\cos i
   \end{array}
@@ -328,7 +329,7 @@ Es de notar a su vez que la ecuación (\ref{eq:phi-tan}) no tiene solución para
 Esto implica que si el choque de proa es suficientemente ``abierto'' $(\alpha > \alpha_{min})$, entonces para inclinaciones tales que
 $|i| > 90^\circ - \alpha_{min}$ no existirá la línea tangente para ningún valor de $\theta$, es decir, el choque de proa se encontrará sufientemente ``de cara'' como para que ya no parezca un choque de proa para el observador.
 
-\subsection{Planiud y Alatud proyectadas: caso general}
+\subsection{Planitud y Alatud proyectadas: caso general}
 
 En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir
 $R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones (\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
@@ -459,7 +460,7 @@ En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitu
   \label{fig:Pip-Lambdap-diagnostic}
 \end{figure}
 
-En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnóstico $\Pi'-\Lambda'$. Cada curva representa a una cuádrica de revolución siguiendo la misma convención que en la figura \ref{fig:proj-L-P-vs-i} para los valores de $\Q$ y $\Pi$ y variando la inclinación a lo largo de cada una de éstas, donde además el punto donde $i=0$ (cuádrica vista de canto) se marca con un punto. Las regiones sombreadas representan a cada clase de cuádrica, la zona superior más clara a los hiperboloides, la zona gris delgada a los elipsoides prolatos, la interfaz entre estas dos últimas a los hiperboloides y la zona gris inferior a los elipsoides oblatos. Se puede observar que en ningún caso las curvas cruzan de una región a otra. También se observa de nuevo que las curvas elipsoidales convergen a $(\Pi', \Lambda') = (1, 1)$, las curvas hiperbólicas a $(\Pi', \Lambda') = (+\infty, +\infty)$ y las parabólicas a $(\Pi', \Lambda') = (2, 2)$. Asimismo en la figura \ref{fig:Pip-Lambdap-diagnostic}b observamos el comportamiento de la separación aparente estrella--ápex con inclinación. En este caso se observa que para inclinaciones pequeñas $(|i| < 30^\circ)$, esta separación depende muy poco del parámetro $\Q$, siendo más importante la planitud $\Pi$. Por otro lado, para inclinaciones mayores, la separación aparente se incrementa cada vez más rápido para cuádricas abiertas $(\Q \leq 0)$, mientras que para los elipsoides la separación es cada vez más lenta e incluso puede decrecer con inclinación.
+En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnóstico $\Pi'-\Lambda'$. Cada curva representa a una cuádrica de revolución siguiendo la misma convención que en la figura \ref{fig:proj-L-P-vs-i} para los valores de $\Q$ y $\Pi$ y variando la inclinación a lo largo de cada una de éstas, donde además el punto donde $i=0$ (cuádrica vista de canto) se marca con un punto. Las regiones sombreadas representan a cada clase de cuádrica, la zona superior más clara a los hiperboloides, la zona gris delgada a los elipsoides prolatos, la interfaz entre estas dos últimas a los paraboloides y la zona gris inferior a los elipsoides oblatos. Se puede observar que en ningún caso las curvas cruzan de una región a otra. También se observa de nuevo que las curvas elipsoidales convergen a $(\Pi', \Lambda') = (1, 1)$, las curvas hiperbólicas a $(\Pi', \Lambda') = (+\infty, +\infty)$ y las parabólicas a $(\Pi', \Lambda') = (2, 2)$. Asimismo en la figura \ref{fig:Pip-Lambdap-diagnostic}b observamos el comportamiento de la separación aparente estrella--ápex con inclinación. En este caso se observa que para inclinaciones pequeñas $(|i| < 30^\circ)$, esta separación depende muy poco del parámetro $\Q$, siendo más importante la planitud $\Pi$. Por otro lado, para inclinaciones mayores, la separación aparente se incrementa cada vez más rápido para cuádricas abiertas $(\Q \leq 0)$, mientras que para los elipsoides la separación es cada vez más lenta e incluso puede decrecer con inclinación.
 
 \begin{figure}
   \centering
@@ -469,7 +470,7 @@ En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnó
 \end{figure}
 
 
-De manera complementaria en la figura \ref{fig:snapshots} mostramos una visión complementaria del análisis de la forma aparente con la inclinación. En esta figura se toman ``capturas'' de $(\Pi', \Lambda')$ en intervalos regulares de $\sin i$. Los valores de la planitud y alatud intrínseca están uniformemente distribuídos en los intervalos $\Pi = [0.5, 4.5]$ y $\Lambda = [0.5, 4.5]$, lo que nos da un cuadrado uniformemente distribuído de valores cuando $|i| = 0$, y que se va distorsionando conforme $|i|$ se incrementa. La escala de color representa el parámetro $\Q$, incrementándose dicho parámetro desde el azúl hasta el amarillo, pasando por el naranja, mientras que el tamaño del punto es proporcional a $R'_0/R_0$. Se puede observar que todos los puntos tienden a la línea $\Pi' = \Lambda')$ a altas inclinaciones, y que los puntos azules quedan fuera del rango de la gráfica. Esto es porque a altas inclinaciones, para las formas muy abiertas ya no existe la línea tangente a la línea de visión. De hecho, la región verde sombreada es la región para la cual aun existe la línea de visión para cada inclinación y se hace cada vez más pequeña conforme la inclinación aumenta. Esta figura es meramente cualitativa, puesto que no hay razón para esperar una distribución uniforme de planitud y alatud (en el siguiente capítulo encontramos que en el modelo de capa delgada no encontramos formas cuyo parametro $\Q$ sea mayor a 1, por ejemplo).
+En la figura \ref{fig:snapshots} mostramos una visión complementaria del análisis de la forma aparente con la inclinación. En esta figura se toman ``capturas'' de $(\Pi', \Lambda')$ en intervalos regulares de $\sin i$. Los valores de la planitud y alatud intrínseca están uniformemente distribuídos en los intervalos $\Pi = [0.5, 4.5]$ y $\Lambda = [0.5, 4.5]$, lo que nos da un cuadrado uniformemente distribuído de valores cuando $|i| = 0$, y que se va distorsionando conforme $|i|$ se incrementa. La escala de color representa el parámetro $\Q$, incrementándose dicho parámetro desde el azúl hasta el amarillo, pasando por el naranja, mientras que el tamaño del punto es proporcional a $R'_0/R_0$. Se puede observar que todos los puntos tienden a la línea $\Pi' = \Lambda')$ a altas inclinaciones, y que los puntos azules quedan fuera del rango de la gráfica. Esto es porque a altas inclinaciones, para las formas muy abiertas ya no existe la línea tangente a la línea de visión. De hecho, la región verde sombreada es la región para la cual aun existe la línea de visión para cada inclinación y se hace cada vez más pequeña conforme la inclinación aumenta. Esta figura es meramente cualitativa, puesto que no hay razón para esperar una distribución uniforme de planitud y alatud (en el siguiente capítulo encontramos que en el modelo de capa delgada no encontramos formas cuyo parametro $\Q$ sea mayor a 1, por ejemplo).
 
 % Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
 %\begin{align}

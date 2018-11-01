@@ -35,17 +35,53 @@ Todos los puntos & Primera sub-muestra & Segunda sub-muestra \\ \includegraphics
 \label{fig:char-radii-obs}
 \end{figure*}
 
+\begin{figure}
+    \centering
+  \ContinuedFloat
+    \captionsetup{list=off,format=cont}
+
+\end{figure}
+
+
 \section{Comparación con el Modelo de Capa Delgada}
 
 Los radios característicos obtenidos para la muestra original y para las submuestras se muestran en la figura \ref{fig:obs-diagnostic}. En cada pánel se utiliza un valor fijo para el parámetro de anisotropía $k$. De estas figuras se pueden obtener la tasa de momentos $\beta$ y la inclinación $i$ para un grado de anisotropía dado por inspección visual al encontrar intersecciones entre las curvas teóricas y las barras radiales de las incertidumbres de cada proplyd. Y a partir de éstos se puede inferir la distancia intrínseca a \thC{}, $D$, y el radio intrínseco en el ápex, $R_0$. En general algunas observaciones cualitativas que se encuentran son: Los proplyds con planitud mayor, LV4 y LV2b ajustan mejor a modelos donde el parámetro de anisotropía es bajo. LV2, quien tiene la planitud aparente más baja de toda la muestra, ajusta con modelos con alto índice de anisotropía $(k \gtrsim 3)$, con HST1 (177-341) ocurre algo similar, sin embargo, los modelos a los que ajusta este proplyd tienen una tasa de momentos baja e inclinaciones muy altas $(i \sim 80^{\circ})$. Esto es difícil de atribuirselo a errores en las mediciones por que es el proplyd que menos desviaciones tiene entre la medición original y las sub-muestras. El resto de los proplyds ajusta bien con un parámetro de anisotropía medio $(k\sim 1/2 - 3)$. Dependiendo de los parámetros $(\beta, k)$, la inclinación que se le puede atribuir a cada proplyd en la mayoría de los casos varía entre $15^\circ$ y $40^\circ$. 
 
 \begin{figure}
   \centering
- \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-Cantoid} & \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-k05} \\
-  \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-k30} & \includegraphics[width=0.48\linewidth]{./Figures/obs-diagnostic-Pi-R0-k80}
+ \includegraphics[width=0.9\linewidth]{./Figures/obs-diagnostic-Pi-R0-Cantoid}  
   \caption{Similar a la figura \ref{fig:Lambda-Pi-diagram} pero sustituyendo la alatud aparente por el radio aparente en el ápex $R'_0/D'$ para diferentes grados de anisotropía $k$, donde en cada pánel se asume que este parámetro es fijo. A lo largo de cada curva el valor del parámetro $\beta$ es fijo,  mientras que la inclinación se incrementa a lo largo de la curva, empezando a partir del círculo grande, donde $i=0^\circ$. Las marcas circulares pequeñas representan intervalos de $15^\circ$, mientras que las marcas más pequeñas representan intervalos de $5^\circ$. Los resultados observacionales de los choques de proa para nuestro set de proplyds se muestran con puntos negros, mientras que las mediciones de las sub muestras se muestran con líneas de colores radiales que parten desde la medición ``principal''. La opacidad de la medición de cada sub muestra es mayor cuanto menor sea la desviación respecto a la medición principal.}
   \label{fig:obs-diagnostic}
 \end{figure}
+
+\begin{figure}
+  \centering
+  \ContinuedFloat
+  \captionsetup{list=off, format=cont}
+  \includegraphics[width=0.9\linewidth]{./Figures/obs-diagnostic-Pi-R0-k05}
+  \caption{}
+  \label{fig:obs-diagnostic-2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \ContinuedFloat
+  \captionsetup{list=off, format=cont}
+  \includegraphics[width=0.9\linewidth]{./Figures/obs-diagnostic-Pi-R0-k30} 
+  \caption{}
+  \label{fig:obs-diagnostic-3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \ContinuedFloat
+  \captionsetup{list=off, format=cont}
+  \includegraphics[width=0.9\linewidth]{./Figures/obs-diagnostic-Pi-R0-k80}
+  \caption{}
+  \label{fig:obs-diagnostic-4}
+\end{figure}
+
+
 %\begin{figure*}
 %\begin{tabular}{cc}
 %\includegraphics[width=0.48\linewidth]{./Figures/conic_xi-10} & \includegraphics[width=0.48\linewidth]{./Figures/conic_xi-08} \\
@@ -216,10 +252,10 @@ En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distanc
   \begin{align}
     n_0 = \frac{\beta\left(\dot{M}^0_{w1}v_{w1}\right)\left(k + 1\right)}{2\pi R^2_0 \bar{m}\left(M a_{\mathrm{II}}\right)^2} \label{eq:b-density}
   \end{align}
-  
+\item Como referencia mostramos el modelo HA, donde utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998}.
 \end{enumerate}
 
 
-Y como modelo de referencia utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998} (modelo HA). Además, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A y HA no parece existir una correlación entre las presiones RAM de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí existe una dependencia con distancia, que ajusta muy bien con el modelo \textit{frío} de \citet{Gagne:2005}. También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
+Para todos los modelos, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A y HA no parece existir una correlación entre las presiones RAM de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí existe una dependencia con distancia, que ajusta muy bien con el modelo \textit{frío} de \citet{Gagne:2005}. También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
 
 Los resultados de este capítulo serán publicados próximamente.

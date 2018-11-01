@@ -174,6 +174,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   
 \frame[label=bally]{\frametitle{Bow Shocks in the ISM}
   \twocols{\begin{block}{}
+      \small
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
       \item Jets Surface Work
@@ -188,8 +189,9 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
         \end{itemize}
       \end{itemize}
     \end{block}}{\begin{block}{}
-      \includegraphics[width=\linewidth]{../Figures/bally-trapezium}\\
-     \footnotesize  The Classical proplyds in the core of the trapezium in Orion Nebula also show a bow shock by the HST (red is [\Ion{N}{II}], green is \Ion{H}{\alpha} and blue is [\Ion{O}{I}]) \citep{Bally:1998}.\end{block}}
+      \begin{center}\includegraphics[width=0.8\linewidth]{../Figures/bally-trapezium}\end{center}\\
+      \footnotesize  The Classical proplyds in the core of the trapezium in Orion Nebula also show a bow shock by the HST (red is [\Ion{N}{II}], green is \Ion{H}{\alpha} and blue is [\Ion{O}{I}]) \citep{Bally:1998}.\end{block}}
+  \tiny \hyperlink{Robberto}{\beamergotobutton{Return button}}
 }
 \section{Orion Nebula}
 \frame{\frametitle{Orion Nebula}
@@ -212,9 +214,9 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
     \end{block}}
 }
 
-\frame{
+\frame[label=Robberto]{
   \twocols{\begin{block}{}
-      Some of the nearest proplyds to \thC{} were previously observed by \citet{Bally:1998} (slide \hyperlink{bally}{\beamergotobutton{10}}) and \citet{Robberto:2005} in mid infrared and their shape analyzed using the Thin Shell Model from \citep{Canto:1996}, but some proplyds don't fit at all.
+      Some of the nearest proplyds to \thC{} were previously observed by \citet{Bally:1998} (hyperlink{bally}{\beamergotobutton{slide 11}}) and \citet{Robberto:2005} in mid infrared and their shape analyzed using the Thin Shell Model from \citep{Canto:1996}, but some proplyds don't fit at all.
     \end{block}}{\begin{block}{}
       \includegraphics[width=\linewidth]{../Figures/robberto} \\
       \footnotesize Apparent shape of some proplyds (in black points) compared with the thin shell model of \citep{Canto:1996} (open dots and lines) in a $R_{90}/D$ vs $R_0/D$ diagram \citep{Robberto:2005}.
@@ -227,6 +229,8 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
       \includegraphics[width=0.5\linewidth]{../Figures/anisotropic-arrows}
       \end{center} \\
       \footnotesize This motivated us to extend \citet{Canto:1996} model to include non isotropic winds.
+
+      \hyperlink{generic-bow}{\beamergotobutton{Return Button}}
     \end{block}
 }
 \frame{\frametitle{Photoevaporated wind in proplyds}
@@ -260,8 +264,27 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 }
 \frame{}
 \section{Fundamental Concepts}
-\frame{\frametitle{General Considerations}
+\frame[label=generic-bow]{\frametitle{General Considerations}
+  \begin{block}{}
+    For our model for the two winds interaction which forms a bow shock we consider two main scenarios:
+  \end{block}
+  \twocols{\begin{block}{}
+      \only<1>{Two wind sources separated by a distance $D$ from each other. The weaker wind is placed at the origin and has any of the profiles of \hyperlink{k-index}{\beamergotobutton{slide 16}}, while the stronger wind is spherical and isotropic.}
+      \includegraphics<2>[width=\linewidth]{../Figures/wilkinoid}
+      \end{block}
+    }{\begin{block}{}
+        \includegraphics<1>[width=\linewidth]{../Figures/bowshock-crw-variables}
+        \only<2>{The second scenario is a spherical, isotropic wind placed at the origin interacting with a plane-parallel flow with constant density}
+      \end{block}
+  }
+}
 
+\frame{\frametitle{General Considerations}
+  \begin{block}{}
+    \twocols{The shape of the bow shock is determined by the function $R(\theta, \phi)$, where $(\theta, \phi)$ are the usual polar and azimuthal angle. Since the bow shocks are (ideally) cylindrically symmetric, then the bow shock shape may be given by $R(\theta)$, and is enough to represent it with a bidimensional curve with constant $\phi$. In the two spherical wings scenario, the polar angle measured from the second source is $\theta_1$}
+    {\includegraphics[width=\linewidth]{../Figures/bowshock-crw-variables}}
+  \end{block}
+  
 }
 \frame{\frametitle{Planitude and Alatude}
   \small
@@ -281,6 +304,22 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
       \includegraphics<5>[width=\linewidth]{../Figures/characteristic-radii-Lambda}
     \end{block}}
 }
+
+\frame{
+  \begin{block}{}
+    The relevant parameters of the winds are the density at the shock's position, the terminal velocity and the mass loss rate. Following \citep{Canto:1996}, the density and terminal velocity of the inner (weaker) wind are $(\rho_w, v_w, \dot{M}^0_w)$ and for the outer wind we have $(\rho_{w1}, V_{w1}, \dot{M}^0_{w1})$
+  \end{block}}
+\frame{\begin{block}{}
+    And the winds momentum ratio, called $\beta$ (also following \citet{Canto:1996}) is given by:
+      \begin{align}
+        \beta = \frac{\dot{M}^0_{w}v_{w}}{\dot{M}^0_{w1}v_{w1}}
+      \end{align}
+      And is related with $R_0$ as follows:
+      \begin{align}
+        \frac{R_0}{D} = \frac{\beta^{1/2}}{1+\beta^{1/2}}
+      \end{align}    
+  \end{block}
+  }
 
 \frame{\frametitle{Quadrics of Revolution}
   \twocols{\begin{block}{}
