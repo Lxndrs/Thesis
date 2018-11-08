@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
@@ -217,12 +218,12 @@ plt.plot(rcx/R0, rcy/R0, 'm-', label=r"$\Pi'={:.3f}$".format(R_2/R0))
 #***************************************************************************
 
 
-plt.annotate(r"$R'_0$", xy=(0.5*xr0line/R0, 0.5*yr0line/R0), xytext=(20, -20), fontsize='x-small',
+plt.annotate(r"$R'_0$", xy=(0.5*xr0line/R0, 0.5*yr0line/R0), xytext=(20, -20),
     alpha=1.0, textcoords='offset points', ha ='right', va='bottom',
     bbox=dict(boxstyle='round,pad=0.5', fc='blue', alpha=0.5),
     arrowprops = dict(arrowstyle='->', connectionstyle='arc3,rad=0'))
 plt.annotate(r"$\Pi'$", xy=(0.5*(xc_2+xrcline)/R0, 0.5*(yc_2+yrcline)/R0), xytext=(-20, 20),
-    fontsize='x-small', alpha=1.0,textcoords='offset points', ha='left', va='top',
+     alpha=1.0,textcoords='offset points', ha='left', va='top',
      bbox=dict(boxstyle='round,pad=0.5', fc='blue', alpha=0.5),
      arrowprops = dict(arrowstyle='->', connectionstyle='arc3,rad=0'))
 # Proplyd position (at the origin in this frame)
@@ -238,7 +239,7 @@ plt.plot(0.0, 0.0, "rx", label=None)
 # plt.ylim(ymin=vmin, ymax=vmax)
 
 
-plt.legend(loc="lower left", frameon=True)
+plt.legend(loc="lower left", frameon=True, fontsize="large")
 plt.xlabel(r"$z'/R'_0$", fontsize = "large")
 plt.ylabel(r"$r'/R'_0$", fontsize = "large")
 
@@ -269,4 +270,3 @@ savedict = {
 
 with open(savefile, 'w') as f:
     json.dump(savedict, f)
-

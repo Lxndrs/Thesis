@@ -7,7 +7,7 @@ En todos los casos no fue posible medir el radio característico $R_{90}$ debido
 
 \begin{figure*}
   \centering
-    \includegraphics[width=\linewidth]{./Figures/LV-full-field-annotated}
+    \includegraphics[width=\linewidth]{./Figures/Trapezium-annotate-rob-2018}
     \caption{Imagen de la parte central de la Nebulosa de Orión donde se ubican los proplyds de nuestra muestra. Las cruces color cyan corresponden a las mediciones de la forma aparente para cada choque de proa. Los círculos amarillos marcan la posición de cada proplyd y la ``x'' roja corresponde a la posición de la estrella ionizante \thC{}. Los círculos negros ilustran de manera esquemática el radio de curvatura de cada choque.}
     \label{fig:proplyds-map}
 \end{figure*}
@@ -23,23 +23,30 @@ Para saber qué tan confiables son las coordenadas de las mediciones, se realiz�
 
 \begin{figure*}
   \centering
-  \setkeys{Gin}{width=0.33\linewidth}%, trim=10 30 55 62.5}
-\begin{tabular}{@{}c@{}c@{}c@{}}
+  \setkeys{Gin}{width=0.5\linewidth}%, trim=10 30 55 62.5}
+\begin{tabular}{cc}
  
-Todos los puntos & Primera sub-muestra & Segunda sub-muestra \\ \includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-177-341} & \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-177-341} &
-\includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-177-341} \\
-\includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-LV4} & \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-LV4} & \includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-LV4} \\
-\includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-168-328} &  \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-168-328} & \includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-168-328}
+Todos los puntos & Primera sub-muestra  \\ \includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-177-341} & \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-177-341} \\
+\includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-LV4} & \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-LV4} \\
+\includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-168-328} &  \includegraphics[clip]{./Programs/Multi-Fit/samp00/LV-bowshocks-xyfancy-positionssamp00-168-328} & 
 \end{tabular}
-\caption{Ejemplos de incertidumbres sistemáticas en los ajustes circulares a la forma de los choques para tres fuentes (desde la línea superior hasta la inferior): 177-341, LV4 y 168-328. La columna de la izquierda muestra el ajuste a todos los puntos identificados en el borde de la cáscara, donde el número y el espaciamiento de los puntos es una medida subjetiva de nuestra confianza al trazar el borde de cada cáscara. Las dos columnas restantes muestran ajustes a sub-muestras seleccionadas aleatoriamente que contienen 2/3 partes de los puntos de la muestra original para cada cáscara.}
+\caption{Ejemplos de incertidumbres sistemáticas en los ajustes circulares a la forma de los choques para tres fuentes (desde la línea superior hasta la inferior): 177-341, LV4 y 168-328. La columna de la izquierda muestra el ajuste a todos los puntos identificados en el borde de la cáscara, donde el número y el espaciamiento de los puntos es una medida subjetiva de nuestra confianza al trazar el borde de cada cáscara. La columna de la derecha muestra el ajuste a una de las sub-muestras seleccionadas aleatoriamente que contienen 2/3 partes de los puntos de la muestra original para cada cáscara.}
 \label{fig:char-radii-obs}
 \end{figure*}
 
 \begin{figure}
     \centering
   \ContinuedFloat
-    \captionsetup{list=off,format=cont}
-
+  \captionsetup{list=off,format=cont}
+  \setkeys{Gin}{width=0.55\linewidth}
+  \begin{tabular}{cc}
+    Todos los puntos & Segunda sub-muestra  \\
+    \includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-177-341} & \includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-177-341} \\
+    \includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-LV4} &                                                                            \includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-LV4} \\
+    \includegraphics[clip]{./Programs/LV-bowshocks-xyfancy-positionswill-168-328} &
+ \includegraphics[clip]{./Programs/Multi-Fit/samp01/LV-bowshocks-xyfancy-positionssamp01-168-328}
+    \end{tabular}
+    \caption{En esta figura la columna de la derecha muestra el ajuste para una sub-muestra diferente a la columna anterior.}
 \end{figure}
 
 
@@ -128,7 +135,7 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
 % 
   Col.~(3): Distancia proyectada desde \thC{}, segundos de arco.
 %
-  Col.~(4): Radio exterior aparente a lo largo del eje, normalizado con la distancia proyectada, donde la incertidumbre es calculada a partir de los valores máximo y mínimo de las submuestras descritas en \S~\ref{sec:methodology}, pero utlizando como mínimo la mitad de la resolución de los ejes de la figura \ref{fig:obs-diagnostic}. Se determina con el ajuste circular decrito en \S~\ref{sec:methodology}.
+  Col.~(4): Radio exterior aparente a lo largo del eje, normalizado con la distancia proyectada, donde la incertidumbre es calculada a partir de los valores máximo y mínimo de las submuestras descritas en \S~\ref{sec:methodology}, pero utilizando como mínimo la mitad de la resolución de los ejes de la figura \ref{fig:obs-diagnostic}. Se determina con el ajuste circular decrito en \S~\ref{sec:methodology}.
 % 
   Col.~(5): Planitud aparente, donde la incertidumbre es calculada del mismo modo que en Col.~(4). Se determina con el ajuste circular descrito en \S~\ref{sec:methodology}.
 % 
@@ -150,7 +157,7 @@ Con base a este análisis, se resume en la tabla \ref{tab:arc-fits} los ajustes 
 
 \section{Obtención de la Presión de Equilibrio}
 
-Las mediciones de los radios característicos y las inclinaciones obtenidas para los proplyds en esta sección se puede predecir la distancia intrínseca del proplyd $D$ a \thC{}, así como la escala intrínseca del proplyd, dada por el radio en el ápex $R_0$ (columnas 10 y 11 de la tabla \ref{tab:arc-fits}). Con ayuda de estos parámetros y además conociendo el radio del Frente de Ionización y la densidad máxima del flujo fotoevaporado en el Frente de Ionización de cada proplyd podemos estimar el flujo $\Nio_*$ que se requiere para que exista equilibrio de ionización y compararlo con el flujo ionizante que recibe el proplyd de \thC{} a la distancia $D$. A su vez se puede estimar la presión Ram del flujo fotoevaporado antes del choque y compararlo con la presión Ram del viento estelar de \thC{} antes del choque. 
+Las mediciones de los radios característicos y las inclinaciones obtenidas para los proplyds en esta sección se puede predecir la distancia intrínseca del proplyd $D$ a \thC{}, así como la escala intrínseca del proplyd, dada por el radio en el ápex $R_0$ (columnas 10 y 11 de la tabla \ref{tab:arc-fits}). Con ayuda de estos parámetros y además conociendo el radio del frente de ionización y la densidad máxima del flujo fotoevaporado en el frente de ionización de cada proplyd podemos estimar el flujo $\Nio_*$ que se requiere para que exista equilibrio de ionización y compararlo con el flujo ionizante que recibe el proplyd de \thC{} a la distancia $D$. A su vez se puede estimar la presión ram del flujo fotoevaporado antes del choque y compararlo con la presión Ram del viento estelar de \thC{} antes del choque. 
 
 
 %Utilizamos los perfiles de brillo obtenidos en \citet{HA:1998} para obtener la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds. Sin embargo, a partir de los datos mostrados en la tabla 2 de dicho artículo, encuentro que utilizan una distancia a \thC{} de \SI{460}{pc}, mientras que en este trabajo utilizo una distancia de $414 \pm 6.8 \mathrm{~pc}$ \citep{Menten:2007}. En la tabla \ref{tab:prop-IF-par} muestro la densidad máxima y el radio del Frente de Ionización de nuestra muestra de proplyds corregidos por distancia a \thC{}, además, \citet{Henney:2001} encuentra que la densidad máxima obtenida en \citet{HA:1998} está sobreestimada por un factor del orden del 33\%.
@@ -198,9 +205,9 @@ El flujo de fotones ionizantes necesario para que exista equilibrio de ionizaci�
   F_{\mathrm{ph}} = v_w(r_{\mathrm{IF}}) n_{\mathrm{IF}} + \alpha'_{\mathrm{rec}}n^2_{\mathrm{IF}} \omega r_{\mathrm{IF}}\label{eq:F-ph}
 \end{align}
 
-Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver apéndice \ref{app:HII}), $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$, $n_{\mathrm{IF}}$ es la densidad máxima del Frente de Ionización, y por último, estamos considerando que los Frentes de Ionización son de tipo D crítico, de donde se obtiene que $v_w(r_{\mathrm{IF}}) = a_{\mathrm{II}} = \SI{11}{km.s^{-1}}$, donde $a_{\mathrm{II}}$ es la velocidad del sonido del medio ionizado.
+Donde $\alpha'_{\mathrm{rec}} = \SI{2.6e-13}{cm^3.s^{-1}}$ (ver apéndice \ref{app:HII}), $\omega \simeq 0.12$ es un factor que está relacionado con la ley de velocidades del flujo fotoevaporado del proplyd, y es proporcional al grosor del IF escalado con $r_{\mathrm{IF}}$, $n_{\mathrm{IF}}$ es la densidad máxima del frente de ionización, y por último, estamos considerando que los frentes de ionización son de tipo D crítico, de donde se obtiene que $v_w(r_{\mathrm{IF}}) = a_{\mathrm{II}} = \SI{11}{km.s^{-1}}$, donde $a_{\mathrm{II}}$ es la velocidad del sonido del medio ionizado.
 
-Por otro lado, el flujo de fotones Ultravioleta provenientes de \thC{} a la distancia $D$ viene dado por:
+Por otro lado, el flujo de fotones ultravioleta provenientes de \thC{} a la distancia $D$ viene dado por:
 
 \begin{align}
    F_* &= \frac{(1-f_d)\Nio_*}{4\pi D^2} \label{eq:F-star} 
@@ -210,43 +217,58 @@ Donde $f_d$ es un factor relacionado con la absorción del polvo.
 
 La condición de equilibrio de ionización implica que $F_{ph} = F_*$. Sin embargo, no todas las mediciones de las submuestras predicen una distancia $D$ que lleven a alcanzar dicho equilibrio. En la columna (6) de la tabla \ref{tab:arc-fits} mostramos el promedio de la planitud aparente de las sub-muestras que se aproximan más al equilibrio de ionización, y para las mediciones consecuentes de dicha tabla (columnas (7) en adelante) también se utilizan estas sub-muestras.
 
-Por otro lado, la presión Ram en la cáscara viene dada por:
+Por otro lado, la presión ram en la cáscara viene dada por:
 
 \begin{align}
   P_{in} = n_0\bar{m}M^2 \label{eq:P-in}
 \end{align}
 
-Donde $\bar{m} = \mu m_p$, donde $\mu = 1.3$ para un gas con una temperatura de $\sim \SI{e4}{K}$ y una velocidad del sonido de \SI{11}{km.s^{-1}}, $m_p = \SI{1.673e-24}{g}$ es la masa del hidrógeno, $M$ es el número de Mach del flujo fotoevaporado antes del choque y $n_0$ es la densidad máxima del flujo fotoevaporado antes del choque, que se relaciona con $n_{\mathrm{IF}}$ como sigue:
+donde $\bar{m} = \mu m_p$, donde $\mu = 1.3$ para un gas con una temperatura de $\sim \SI{e4}{K}$ y una velocidad del sonido de \SI{11}{km.s^{-1}}, $m_p = \SI{1.673e-24}{g}$ es la masa del hidrógeno, $M$ es el número de Mach del flujo fotoevaporado antes del choque y $n_0$ es la densidad máxima del flujo fotoevaporado antes del choque, que se relaciona con $n_{\mathrm{IF}}$ como sigue:
 
 \begin{align}
   n_0 = n_{\mathrm{IF}}\left(\frac{R_0}{r_{\mathrm{IF}}}\right)^{-2} M^{-1} \label{eq:density-scale}
 \end{align}
 
 
-Por último, la presión Ram del viento de \thC{} es:
+Por último, la presión ram del viento de \thC{} es:
 
 \begin{align}
   P_* = \frac{\dot{M}^{0}_{w1}v_{w1}}{4\pi D^2} \label{eq:P-star}
 \end{align}
 
 %Donde $\dot{M}^{0}_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}$ es la tasa de pérdida de masa de \thC{}, y $v_{w1} = \SI{1400}{km.s^{-1}}$ es la velocidad terminal del viento de \thC{}.
- Donde $\dot{M}^{0}_{w1}$ es la tasa de pérdida de masa de \thC{} y $v_{w1}$ es la velocidad terminal del viento. De manera análoga al flujo, el equilibrio de presiones Ram que implica un choque estacionario se logra cuando $P_{in} = P_*$. %En la figura \ref{fig:wind-fits} se hace una comparación entre $F_{ph}$, $P_{in}$, $F_*$ y $P_{*}$ vs $D$ en un diagrama log-log para las sub-muestras que cumplen con la condición $\left|\frac{F_{ph}}{F_*}\right| < 10$. %Para los proplyds más lejanos se observa que las mediciones de las submuestras disponibles predicen una presión RAM mayor a la que se requiere para que el choque sea estacionario. Esto puede significar que por su distancia a \thC{} la presión del viento estelar deja de ser dominante y otra fuente también contribuye a confinar el choque de proa de estos proplyds. Esta hipótesis se está trabajando en un artículo por publicar.
+ Donde $\dot{M}^{0}_{w1}$ es la tasa de pérdida de masa de \thC{} y $v_{w1}$ es la velocidad terminal del viento. De manera análoga al flujo, el equilibrio de presiones ram que implica un choque estacionario se logra cuando $P_{in} = P_*$. %En la figura \ref{fig:wind-fits} se hace una comparación entre $F_{ph}$, $P_{in}$, $F_*$ y $P_{*}$ vs $D$ en un diagrama log-log para las sub-muestras que cumplen con la condición $\left|\frac{F_{ph}}{F_*}\right| < 10$. %Para los proplyds más lejanos se observa que las mediciones de las submuestras disponibles predicen una presión RAM mayor a la que se requiere para que el choque sea estacionario. Esto puede significar que por su distancia a \thC{} la presión del viento estelar deja de ser dominante y otra fuente también contribuye a confinar el choque de proa de estos proplyds. Esta hipótesis se está trabajando en un artículo por publicar.
 
 
 \begin{figure}
   \centering
-  \begin{tabular}{ccc}
-    \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits} & \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits-beta} & \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits-HA98} & \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits-2} & \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits-beta-2} & \includegraphics[width=0.3\linewidth]{./Figures/plot-wind-fits-HA98-2}
+  \begin{tabular}{cc}
+    \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits}& \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits-2}  
   \end{tabular}
-  \caption{Diagrama log-log de Flujo y Presión Ram vs distancia, para las sub-muestras de cada proplyd, mostradas con colores, mientras que el flujo y presión Ram de la estrella se muestran con la línea gris. Las mediciones de la presión y el flujo utilizan las mediciones del radio del IF y densidad de la tabla \ref{tab:Prop-IF-par}, una tasa de fotones ionizan
-    tes de $\Nio_* = \SI{1e49}{s^{-1}}$, que corresponde a una estrella de tipo espectral entre O5 y O6 (ver tabla \ref{tab:ionizing-radiation}), un factor de absorción por polvo  $f_d$ de 0.5 y el IF de los proplyds es de tipo D-crítico. En los páneles superiores el número de Mach del flujo fotoionizado es $M=3$, y en los páneles inferiores es $M=2$. En la columna izquierda se muestra el modelo A: se utiliza la densidad y radio del Frente de Ionización de la tabla \ref{tab:Prop-IF-par}. En la columna central se muestra el modelo B: la densidad se obtiene de a partir de la tasa de momentos $\beta$ obtenida para cada submuestra con la ecuación \ref{eq:b-density}. Y por último en la columna derecha se muestra el modelo HA, que utiliza las densidades de la tabla \ref{tab:Prop-IF-par} y además las inclinaciones reportadas en \citet{HA:1998}. En los diagramas de presión vs distancia, las líneas rojas y azul representan la presión Ram de los modelos \textit{frío} (azul) y \textit{caliente} (rojo) de \citet{Gagne:2005}}
+  \caption{Diagrama log-log de flujo y presión ram vs distancia, para las sub-muestras de cada proplyd, mostradas con colores, mientras que el flujo y presión ram de la estrella se muestran con la línea gris. Las mediciones de la presión y el flujo utilizan las mediciones del radio del IF y densidad de la tabla \ref{tab:Prop-IF-par}, una tasa de fotones ionizantes de $\Nio_* = \SI{1e49}{s^{-1}}$, que corresponde a una estrella de tipo espectral entre O5 y O6 (ver tabla \ref{tab:ionizing-radiation}), un factor de absorción por polvo  $f_d$ de 0.5 y el IF de los proplyds es de tipo D-crítico. En el pánel izquierdo el número de Mach del flujo fotoionizado es $M=3$, y en el pánel derecho es $M=2$. En esta figura se muestra el modelo A: se utiliza la densidad y radio del frente de ionización de la tabla \ref{tab:Prop-IF-par}. En los diagramas de presión vs distancia, las líneas rojas y azul representan la presión ram de los modelos \textit{frío} (azul) y \textit{caliente} (rojo) de \citet{Gagne:2005}}
   \label{fig:wind-fits}
 \end{figure}
 
-En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distancia y presión vs distancia de los proplyds (mostrados en colores) contra el flujo y presión del viento de \thC{} (mostrados con la línea gris). En el diagrama de la presión, las líneas roja y azul representan dos modelos para el viento estelar de \thC{} de \citet{Gagne:2005}: el modelo \textit{frío} (azul), apropiado para una estrella O7, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ y una velocidad terminal del viento de $v_{w1} = \SI{2760}{km.s^{-1}}$, mientras que para el modelo \textit{caliente} (rojo), apropiado para una estrella tipo O5.5, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{1.4e-6}{M_\odot.yr^{-1}}$ y una velocidad del viento de $v_{w1} = \SI{2980}{km.s^{-1}}$ (en la línea gris la tasa de pérdida de masa es de $\dot{M}^0_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ y la velocidad terminal del viento es de $v_{w1} = \SI{1400}{km.s^{-1}}$, \citet{GAH:2002}). En todos los casos utilizamos el radio del Frente de Ionización reportado en \citet{HA:1998}, tabla 2, pero escalados a la distancia a ONC utilizada en este trabajo ($414 \pm \SI{6.8}{pc}$, \citet{Menten:2007}), y mostrados en la columna 3 de la tabla \ref{tab:Prop-IF-par}, para la densidad utilizamos dos modelos diferentes:
+\begin{figure}
+  \ContinuedFloat
+  \captionsetup{list=off, format=cont}
+  \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits-beta}& \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits-beta-2}
+  \caption{Modelo B: la densidad se obtiene de a partir de la tasa de momentos $\beta$ obtenida para cada submuestra con la ecuación \ref{eq:b-density}.}
+\end{figure}
+
+
+\begin{figure}
+    \ContinuedFloat
+    \captionsetup{list=off, format=cont}
+    \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits-HA98} & \includegraphics[width=0.5\linewidth]{./Figures/plot-wind-fits-HA98-2}
+    \caption{Modelo HA, que utiliza las densidades de la tabla \ref{tab:Prop-IF-par} y además las inclinaciones reportadas en \citet{HA:1998}.}
+\end{figure}
+
+
+En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distancia y presión vs distancia de los proplyds (mostrados en colores) contra el flujo y presión del viento de \thC{} (mostrados con la línea gris). En el diagrama de la presión, las líneas roja y azul representan dos modelos para el viento estelar de \thC{} de \citet{Gagne:2005}: el modelo \textit{frío} (azul), apropiado para una estrella O7, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ y una velocidad terminal del viento de $v_{w1} = \SI{2760}{km.s^{-1}}$, mientras que para el modelo \textit{caliente} (rojo), apropiado para una estrella tipo O5.5, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{1.4e-6}{M_\odot.yr^{-1}}$ y una velocidad del viento de $v_{w1} = \SI{2980}{km.s^{-1}}$ (en la línea gris la tasa de pérdida de masa es de $\dot{M}^0_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ y la velocidad terminal del viento es de $v_{w1} = \SI{1400}{km.s^{-1}}$, \citet{GAH:2002}). En todos los casos utilizamos el radio del frente de ionización reportado en \citet{HA:1998}, tabla 2, pero escalados a la distancia a ONC utilizada en este trabajo ($414 \pm \SI{6.8}{pc}$, \citet{Menten:2007}), y mostrados en la columna 3 de la tabla \ref{tab:Prop-IF-par}, para la densidad utilizamos dos modelos diferentes:
 
 \begin{enumerate}[A.]
-\item Utilizando los perfiles de brillo y la densidad máxima del Frente de Ionización obtenidos en \citet{HA:1998}, pero escalando por la distancia a \thC{} (columna 4 de la tabla \ref{tab:Prop-IF-par})
+\item Utilizando los perfiles de brillo y la densidad máxima del frente de ionización obtenidos en \citet{HA:1998}, pero escalando por la distancia a \thC{} (columna 4 de la tabla \ref{tab:Prop-IF-par})
 \item A partir de nuestras propias mediciones de la tasa de momentos $\beta$, y utilizando las ecuaciones (\ref{eq:beta-def}, \ref{eq:inner-dot-M}) la densidad se calcula como sigue:
 
   \begin{align}
@@ -256,6 +278,6 @@ En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distanc
 \end{enumerate}
 
 
-Para todos los modelos, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A y HA no parece existir una correlación entre las presiones RAM de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí existe una dependencia con distancia, que ajusta muy bien con el modelo \textit{frío} de \citet{Gagne:2005}. También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
+Para todos los modelos, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de Mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A y HA no parece existir una correlación entre las presiones ram de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí existe una dependencia con distancia, que ajusta muy bien con el modelo \textit{frío} de \citet{Gagne:2005}. También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
 
 Los resultados de este capítulo serán publicados próximamente.

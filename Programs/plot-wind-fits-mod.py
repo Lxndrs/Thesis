@@ -51,25 +51,32 @@ cos80 = 0.173648177667
 tab = Table.read('../'+table, format='ascii.tab')
 sources = sorted(set(tab['Fuente']))
 n = len(sources)
-colors = sns.color_palette('Set1', n)
+#colors = sns.color_palette('Set1', n)
 sns.set_style("whitegrid")
 # Physical separations in parsec
 D, Delta_D = split_list(tab["D(as)"])
 D_pc = np.array(D)*d_Orion*AU/PC
 Delta_D_pc = D_pc*(np.array(Delta_D)/np.array(D))
- 
+
+#collection of hex colors
+dark_blue = "#1e25b6"
+pearl_turquoise ="#32c6a6"
+mexican_pink = "#e4007c"
+crimson = "#dc143c"
+leaf_green = "#15ae26"
+brown = "#b6451e"
+gray = "#515952"
+guinda = "#aa1c47"
+gold = "#FFD700"
+orange = "#E08000"
+#Create a dictionary with hex colors for the objects
+colordict = {"LV2":dark_blue, "LV2b":pearl_turquoise, "LV3":mexican_pink, "LV4":crimson, "LV5":brown, "168-328":leaf_green, "169-338":gray, "177-341":guinda, "180-331":orange}
+
+
 #split F(star), P(wind) and F(ph)/F(*)+  columns
 #Fs, dFs = split_list(tab["F(star)"])
 #Fs, dFs = np.array(Fs), np.array(dFs)
-#Pw, dPw = split_list(tab["P(wind)"])
-#Fr, dFr = split_list(tab["F(ph)/F(*)+"])
-
-# Measuring Ionizing flux 
-D_arr = np.logspace(-3, 0)
-Qh = 1e49
-fd = 0.5
-Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
-
+#Pw,
 # Measuring stellar wind RAM pressure
 # Units in cgs system
 Mdot = 2.206e19
@@ -81,10 +88,15 @@ Mdot_cool = 3.47e19
 Mdot_hot = 8.83e19
 Vw_cool = 2.76e8
 Vw_hot = 2.98e8
-
+D_arr = np.logspace(-6, 0)
 Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
 Pw_cool = Mdot_cool*Vw_cool/(4*np.pi*(D_arr*PC)**2)
 Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
+
+# Measuring stellar flux
+Qh = 1e49 # Number of ionizing photons per second
+fd = 0.5 # Asortion by dust factor
+Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
 ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
@@ -114,7 +126,7 @@ used = tab["*"] == "x" # Subsamples where photoionization balance is at least po
 #    return x, dx
 
 
-for source, color in zip(sources, colors):
+for source in sources:
     m = tab['Fuente'] == source
     Dprime = tab["D'(as)"][m][0] * d_Orion*AU/PC
     try:
@@ -157,32 +169,32 @@ for source, color in zip(sources, colors):
 #        'R0/D':               var_range(np.mean(R0_D), np.std(R0_D)),
 #    })
                    
-    ax1.plot([Dprime, Dprime/cos80], [Fp[m], Fp[m]], ':', c=color, alpha=0.4, label='')
-    ax1.plot(D_pc[m & used], Fp[m & used], linestyle="None", marker=".", c=color, alpha=0.4, label='')
+    ax1.plot([Dprime, Dprime/cos80], [Fp[m], Fp[m]], ':', c=colordict[source], alpha=0.4, label='')
+    ax1.plot(D_pc[m & used], Fp[m & used], linestyle="None", marker=".", c=colordict[source], alpha=0.4, label='')
     ax1.plot(D_pc[m & mm], Fp[m & mm],
-               linestyle="None", marker="o", lw=3, c=color, label=source)
+               linestyle="None", marker="o", lw=3, c=colordict[source], label=source)
     ax2.plot(D_pc[m & used], Pi[m & used]/k_Boltzmann,
-               linestyle="None", marker=".", c=color, alpha=0.4, label='')
+               linestyle="None", marker=".", c=colordict[source], alpha=0.4, label='')
     ax2.plot(D_pc[m & mm], Pi[m & mm]/k_Boltzmann,
-               linestyle="None", marker="o", c=color, lw=3, label=source)
+               linestyle="None", marker="o", c=colordict[source], lw=3, label=source)
     ax1.plot(D_pc[m & nn], Fp[m & nn],
-               linestyle="None", marker="o", lw=0.5, c=color, label='', alpha=0.4)
+               linestyle="None", marker="o", lw=0.5, c=colordict[source], label='', alpha=0.4)
     ax2.plot(D_pc[m & nn], Pi[m & nn]/k_Boltzmann,
-               linestyle="None", marker="o", c=color, lw=0.5, label='', alpha=0.4)
+               linestyle="None", marker="o", c=colordict[source], lw=0.5, label='', alpha=0.4)
     try:
-        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[m & used], c=color, alpha=0.4)
-        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[m & mm], c=color)
-        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[m & used]/k_Boltzmann, c=color, alpha=0.4)
-        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[m & mm]/k_Boltzmann, c=color)
-        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[m & nn], c=color, alpha=0.4)
-        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[m & nn]/k_Boltzmann, c=color, alpha=0.4)
+        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[m & used], c=colordict[source], alpha=0.4)
+        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[m & mm], c=colordict[source])
+        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[m & used]/k_Boltzmann, c=colordict[source], alpha=0.4)
+        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[m & mm]/k_Boltzmann, c=colordict[source])
+        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[m & nn], c=colordict[source], alpha=0.4)
+        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[m & nn]/k_Boltzmann, c=colordict[source], alpha=0.4)
     except:
-        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[:, m & used], c=color, alpha=0.4)
-        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[:, m & mm], c=color)
-        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[:, m & used]/k_Boltzmann, c=color, alpha=0.4)
-        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[:, m & mm]/k_Boltzmann, c=color)
-        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[:, m & nn], c=color, alpha=0.4)
-        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[:, m & nn]/k_Boltzmann, c=color, alpha=0.4)
+        ax1.errorbar(D_pc[m & used], Fp[m & used], xerr=Delta_D_pc[m & used],yerr=dFp[:, m & used], c=colordict[source], alpha=0.4)
+        ax1.errorbar(D_pc[m & mm], Fp[m & mm], xerr=Delta_D_pc[m & mm], yerr=dFp[:, m & mm], c=colordict[source])
+        ax2.errorbar(D_pc[m & used], Pi[m & used]/k_Boltzmann, xerr=Delta_D_pc[m & used], yerr=dPi[:, m & used]/k_Boltzmann, c=colordict[source], alpha=0.4)
+        ax2.errorbar(D_pc[m & mm], Pi[m & mm]/k_Boltzmann, xerr=Delta_D_pc[m & mm], yerr=dPi[:, m & mm]/k_Boltzmann, c=colordict[source])
+        ax1.errorbar(D_pc[m & nn], Fp[m & nn], xerr = Delta_D_pc[m & (nn & ~mm)], yerr=dFp[:, m & nn], c=colordict[source], alpha=0.4)
+        ax2.errorbar(D_pc[m & nn], Pi[m & nn]/k_Boltzmann, xerr=Delta_D_pc[m & nn], yerr=dPi[:, m & nn]/k_Boltzmann, c=colordict[source], alpha=0.4)
 ax1.set_xscale("log")
 ax1.set_yscale("log")
 ax2.set_xscale("log")
