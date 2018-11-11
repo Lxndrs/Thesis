@@ -133,6 +133,8 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
 - [ ] Ricardo's corrections (explain him I'm not in Morelia)
 - [ ] Wait for Susana's corrections
 * Journal
+-[2018-11-10 Sat]
+- (Almost) Finished corrections until chapter 4.
 -[2018-11-07 Wed]
 - Finished corrections in chapter 1
 Old entries:

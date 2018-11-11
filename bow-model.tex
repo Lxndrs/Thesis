@@ -1,17 +1,24 @@
 \chapter{Conceptos fundamentales}
 \label{chap:Modelo-generico}
 \thispagestyle{empty}
- Para este trabajo consideramos en general tres modelos de interacción de vientos, actualmente publicado \citep{Tarango-Yong:2018a}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. Los modelos considerados en este trabajo se describen brevemente a continuación:
+ Para este trabajo consideramos en general tres modelos de interacción de vientos, actualmente publicado \citep{Tarango-Yong:2018a}, y anexado en esta tesis en el apéndice \ref{app:article}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. Los modelos considerados en este trabajo se describen brevemente a continuación:
 
 \begin{itemize}
-\item Una fuente localizada en el origen que emite un viento esférico que puede ser isotrópico o anisotrópico (figura \ref{fig:isotropic-aniso}) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}). A los choques de proa resultantes se conocen como ``Cantoides'' y ``Ancantoides'', respectivamente. Ambos términos fueron acuñados en el artículo en el que se basa esta tesis, anexada en el apéndice \ref{app:article}.
-\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides'' \citep{Cox:2012}.
+\item Una fuente localizada en el origen que emite un viento esférico con densidad isotrópica (figura \ref{fig:isotropic-aniso}, esquina superior izquierda) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Cantoides''\footnote{En referencia a J. Cantó, quien encontró la solución al problema de dos vientos en la aproximación de capa delgada en \citet{Canto:1996}}. 
+\item  Una fuente localizada en el origen que emite un viento esférico no acelerado cuya densidad varía como una ley de potencias de $\cos\theta$, cuyo índice denotamos como $k$, y $\theta$ es el ángulo polar de las coordenadas esféricas (figura \ref{fig:isotropic-aniso}, esquina superior derecha y páneles inferiores), que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Ancantoides''\footnote{En inglés Ancantoid, abreviación de ``Anisotropic Cantoid''}.
+\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides''\footnote{En referencia a F.P. Wilkin, quien en \citet{Wilkin:1996} resolvió el problema de dos vientos entre un viento esférico isotrópico y un viento plano-paralelo de densidad uniforme en la aproximación de capa delgada. El término fue acuñado en \citet{Cox:2012} y en este trabajo fue adoptado.}.
 \end{itemize}
-Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$.
+Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$, y la forma del choque se puede representar con una curva bidimensional, donde el ángulo azimutal $\phi$ es constante. De esta manera, la forma del choque en coordenadas cartesianas se obtiene mediante la conocida tranformación de coordenadas polares a cartesianas:
+
+\begin{align}
+  x &= R(\theta)\cos\theta \label{eq:polar-to-x}\\
+  y &= R(\theta)\sin\theta \label{eq:polar-to-y}
+\end{align}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
-  \caption{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica})}
+  \caption{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica}). $\xi = \frac{2}{k+2}$ es un parámetro introducido por conveniencia en el apéndice \ref{app:alatude-derivation}.}
     \label{fig:isotropic-aniso}
 \end{figure}
 \begin{figure}
@@ -20,7 +27,7 @@ Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguien
     \includegraphics[width=0.45\linewidth]{./Figures/bowshock-crw-variables} &
     \includegraphics[width=0.45\linewidth]{./Figures/wilkinoid}
   \end{tabular}
-  \caption{Izquierda: Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, siguiendo la ecuación (\ref{eq:Ancantoid-density}) del capítulo \ref{chap:hipersonica}, será un choque ``ancantoide''. Derecha: Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''.}
+  \caption{a) Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, con índice $k$, será un choque ``ancantoide''. b) Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''.}
     \label{fig:crw-esquema}
 \end{figure}
 
@@ -32,21 +39,27 @@ El valor mínimo de $R(\theta)$, bajo las condiciones ya mencionadas, ocurre en 
   \frac{R_0}{D} = \frac{\beta^{1/2}}{1 + \beta^{1/2}}
 \end{align}
 
-Donde $\beta$ es la tasa de momentos entre los vientos en interacción. Si los dos vientos son isotrópicos, donde la tasa de pérdida de masa del viento interior es $\dot{M}_w$ y su velocidad terminal es $v_w$ y para el viento exterior estas cantidades son $\dot{M}_{w1}$ y $v_{w1}$, entonces la tasa de momentos es:
+Donde $\beta$ es el cociente de la tasa de momentos entre los vientos en interacción. La tasa de pérdida de masa del viento interior es $\dot{M}_w$ y su velocidad terminal es $v_w$ y para el viento exterior estas cantidades son $\dot{M}_{w1}$ y $v_{w1}$. De esta forma, la tasa de momentos es:
 
 \begin{align}
   \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}} \label{eq:beta-def}
 \end{align}
 
-En el caso de que el viento exterior sea una corriente plano--paralela (wilkinoide), puede verse como el límite donde $D\to\infty$, lo que implica que a su vez se trata del límite donde $\beta\to 0$
+En el caso de que el viento exterior sea una corriente plano--paralela (wilkinoide), puede verse como el límite donde $D\to\infty$, lo que implica que a su vez se trata del límite donde $\beta\to 0$.
 %correspondería al caso en que $\beta\to 0$, entonces $D$ deja de ser un parámetro relevante, ya que técnicamente $D\to\infty$.
 
-En el caso de que el viento interior no sea isotrópico es tratado en el capítulo \ref{chap:hipersonica}.
 
 \section{Planitud y ``Alatud''}
 \label{sec:char-rad}
 
-$R_0$ nos indica la escala del choque de proa, pero para caracterizar su forma utilizamos parámetros adicionales, mostrados en la figura \ref{fig:char-radii}. El radio perpendicular $R_{90}$ se obtiene evaluando la función $R(\theta)$ en $\theta=\pi/2$, mientras $R_c$ es el radio de curvatura medido en la posición del ápex, que en coordenadas cilíndricas se calcula como sigue (ver apéndice \ref{app:math-curvature-radius}):
+$R_0$ nos indica la escala del choque de proa, pero para caracterizar su forma utilizamos parámetros adicionales, mostrados en la figura \ref{fig:char-radii}. El radio perpendicular $R_{90}$ se obtiene evaluando la función $R(\theta)$ en $\theta=\pi/2$, mientras $R_c$ es el radio de curvatura medido en la posición del ápex. En el apéndice \ref{app:math-curvature-radius} mostramos que en el caso general en coordenadas cartesianas el radio de curvatura de una curva plana genérica $\vec{\sigma}(t)$ continua y derivable cuyas componentes son $(x(t), y(t))$ viene dado por:%que en coordenadas cilíndricas se calcula como sigue (ver apéndice \ref}):
+
+\begin{align}
+  R_c(t) = \frac{\left(\dot{x}^2 + \dot{y}^2\right)^{3/2}}{\left|\ddot{x}\dot{y} - \ddot{y}\dot{x}\right|} \label{eq:Rc-general-xy} 
+\end{align}
+donde $\dot{x}$ y $\dot{y}$ son las derivadas de $x$ e $y$ respecto a un parámetro adimensional $t$.
+
+Haciendo la transformación a coordenadas polares con las ecuaciones (\ref{eq:polar-to-x}, \ref{eq:polar-to-y}) y con $\theta=t$, y evaluando el resultado en $\theta=0$ encontramos que:
 
 \begin{align}
   R_c = \frac{R^2_0}{R_0 - R_{\theta\theta, 0}} \label{eq:generic-Rc}
@@ -57,7 +70,7 @@ donde $R_{\theta\theta, 0}\equiv \frac{d^2R}{d\theta^2}$ evaluado en $\theta = 0
 Una forma simple de obtener el radio de curvatura es haciendo una expansión Taylor para la función $R(\theta)$ como sigue:
 
 \begin{align}
-  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4)
+  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4) \ref{eq:R-poly}
 \end{align}
 y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y determinar $R_0$ y $R_{\theta\theta, 0}$ de los primeros coeficientes del ajuste, y posteriormente $R_c$ a partir de la ecuación \ref{eq:generic-Rc}. $\Delta\theta$ es el rango del ángulo polar dentro del cual se puede hacer el ajuste. $\Delta\theta = 30^\circ$ es una buena opción.
 %Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
@@ -90,7 +103,7 @@ Un último parámetro es el ángulo asintótico de apertura de las alas, denotad
 
 Un tipo de superficies relevante y matemáticamente simple son las \textit{Cuádricas de Revolución} \citep{Goldman:1983a, Gfrerrer:2009a}, que son superficies de revolución de las secciones cónicas (círculo, elipse, parábola e hipérbola). Estas superficies son muy flexibles y pueden ser una aproximación muy útil a choques de proa con formas más complejas.
 
-La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conics}(a) y (b) para elipses e hipérbolas, respectivamente. La sección cónica en sí se describe con dos parámetros, que son los semi-ejes $a$ y $b$. Sin embargo, la curva puede desplazarse a lo largo del eje $x$, de manera que el radio en el ápex $R_0$ sea independiente de $a$ y $b$, para eso utilizamos un tercer parámetro denominado $x_0$ que nos indica el desplazamiento del centro de la curva respecto al origen.
+La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conics} para elipses e hipérbolas, respectivamente. La sección cónica en sí se describe con dos parámetros, que son los semi-ejes $a$ y $b$. Sin embargo, la curva puede desplazarse a lo largo del eje $x$, de manera que el radio en el ápex $R_0$ sea independiente de $a$ y $b$, para eso utilizamos un tercer parámetro denominado $x_0$ que nos indica el desplazamiento del centro de la curva respecto al origen.
 
 %\begin{itemize}
 %  \item El eje focal se encuentra alineado con el eje $x$
@@ -141,17 +154,17 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
     \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
     \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
   \end{tabular}
-  \caption{Representación esquemática de: Izquierda: Elipse. Y, derecha: Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
+  \caption{Representación esquemática de: a) Elipse. Y, b) Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
   \label{fig:conics}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width = 0.5\linewidth]{./Figures/conic1}
+  \includegraphics[width = \linewidth]{./Figures/conic1}
   \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
 \end{figure}
-El conjunto de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje x. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos conjuntos de parámetros los calculamos a continuación:
+El conjunto de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje $x$. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos conjuntos de parámetros los calculamos a continuación:
 \begin{align} 
   R_c &= \frac{b^2}{a} = a|\Q|\label{eq:R-curv-conic}\\
   R^2_{90} &= b^2\sigma\left(1 - \frac{x^2_0}{a^2}\right) = \Q\left(a^2 - x^2_0\right)\label{eq:R90-conic} 
@@ -199,7 +212,7 @@ choque. Para ello, rotamos el sistema de referencia del choque de proa en coorde
 
 Donde $\mathbf{A}_y(i)$ está definida por la ecuación (\ref{eq:y-matrix}) en el apéndice \ref{app:matrix}.
 
-Por otro lado, la forma tridimensional del choque de proa viene dado por una rotación alrededor del eje $x$ de su forma bidimensional en coordenadas polares utilizando la matriz de rotación $\mathbf{A}_x(\phi)$ definida en (\ref{eq:x-matrix}):
+Por otro lado, la forma tridimensional del choque de proa viene dado por una rotación alrededor del eje $x$ utilizando la matriz de rotación $\mathbf{A}_x(\phi)$ (ecuación \ref{eq:x-matrix}) sobre las ecuaciones (\ref{eq:polar-to-x}, \ref{eq:polar-to-y}):
 \begin{align}
   \left(
   \begin{array}{c}
@@ -331,8 +344,8 @@ $|i| > 90^\circ - \alpha_{min}$ no existirá la línea tangente para ningún val
 
 \subsection{Planitud y Alatud proyectadas: caso general}
 
-En orden de comparar la forma $R(\theta)$ con observaciones, es útil definir los radios característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir
-$R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones (\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
+La forma del choque de proa en el sistema de de referencia del cielo $R'(\theta')$ es la que actualmente se observa, por tanto
+es necesario definir los radios característicos $R'_0$ y $R'_{90}$, donde $R'_0$ es el radio del eje de simetría aparente y $R'_{90}$ es el radio aparente en la dirección perpendicular a $R'_0$. Es decir $R'_0 = x'_T(y'_t=0)$ y $R'_{90} = y'_t(x'_t = 0)$. Utilizando las ecuaciones (\ref{eq:phi-tan}) y (\ref{eq:proj-shape}) encontramos que:
 \begin{align}
 R'_0 = R(\theta_0)\cos(\theta_0 - |i|)\footnotemark
 \label{eq:R0p}
@@ -349,7 +362,7 @@ donde $\theta_{90}$ es la solución de la siguiente ecuación implícita:
   \label{eq:th90}
 \end{align}
 
-El radio de curvatura aparente se obtiene a partir de la ecuación (\ref{eq:generic-Rc}) pero en el sistema de referencia primado:
+Por otro lado, el radio de curvatura aparente se obtiene a partir de la ecuación (\ref{eq:generic-Rc}) pero en el sistema de referencia primado:
 
 \begin{align}
   R'_c = \frac{R'^2_0}{R'_0 - R'_{\theta'\theta', 0}} \label{eq:Rc-prime}
@@ -360,15 +373,28 @@ El radio de curvatura aparente se obtiene a partir de la ecuación (\ref{eq:gene
 El objetivo de esta sección es obtener la forma proyectada de las cuádricas de revolución, puesto que son una aproximación buena y mucho más sencilla a la forma real de un choque de proa. Para esto es conveniente utilizar un sistema de referencia donde el origen se ubica en el centro de la sección cónica:
 
 \begin{align}
-  (X, Y, Z) = (x-x_0, y, z)
+  (X, Y) = (x-x_0, y)
 \end{align}
+de esta manera, la forma de las cuádricas de revolución es:
 
-De esta manera, la forma de la cuádrica de revolución es:
 
 \begin{align}
-  X &= a\Cos(t) \\
-  Y &= b\Sin(t)\cos\phi \\
-  Z &= b\Sin(t)\sin\phi
+  \left(
+  \begin{array}{c}
+    X \\ Y \\ Z
+  \end{array}
+  \right) = \mathbf{A}_x(\phi)\left(
+  \begin{array}{c}
+    a\Cos(t) \\ b\Sin(t) \\ 0
+  \end{array}
+  \right)
+  = \left(
+    \begin{array}{c}
+      a\Cos(t) \\
+      b\Sin(t)\cos\phi \\
+      b\Sin(t)\sin\phi
+    \end{array}
+    \right)
 \end{align}
 
 Siguiendo el procedimiento mostrado en la \S \ref{sec:projection} calculamos el ángulo azimutal $\phi$ que cumple con el criterio de ser tangente a la línea de visión: 
@@ -399,7 +425,7 @@ Después de un poco de álgebra encontramos que nuestra suposición es consisten
 
 Donde introducimos el factor de proyección de las cuádricas:
 \begin{align}
-  \fQi = \left(1 + \Q\tan^2i\right)^{1/2}
+  \fQi = \left(1 + \Q\tan^2i\right)^{1/2} \label{eq:Q-factor}
 \end{align}
 
 
@@ -428,17 +454,17 @@ donde el desplazamiento proyectado $x'_0$ es:
 La proyección de la distancia al ápex viene dada por la versión primada de la ecuación (\ref{eq:R0}):
 \begin{align}
   R'_0 &=  x'_0 + \sigma a'\\
-  \implies \frac{R'_0}{R_0} &= \cos i\left[1 + \frac{\Pi}{\Q}\left(1 - \fQi\right)\right]
-\end{align}
+  \implies \frac{R'_0}{R_0} &= \cos i\left[1 + \frac{\Pi}{\Q}\left(1 - \fQi\right)\right] \label{eq:R0p-R0-quad}
+\end{align}eq;
 
 Asimismo la planitud y la alatud proyectada pueden calcularse a partir de las ecuaciones (\ref{eq:quadric-planitude}, \ref{eq:quadric-parameter-pi-lambda}, \ref{eq:a-prime}, \ref{eq:Q-prime}):
 
 \begin{align}
-  \Pi' &= \frac{\Pi}{\left(R'_0/R_0\right)\fQi\cos i}\\
-  \Lambda' &= \left(2\Pi' - \Q'\right)^{1/2}
+  \Pi' &= \frac{\Pi}{\left(R'_0/R_0\right)\fQi\cos i} \label{eq:quadrics-planitude-prime}\\
+  \Lambda' &= \left(2\Pi' - \Q'\right)^{1/2} \label{eq:quadrics-alatude-prime}
 \end{align}
 
-En la figura (\ref{fig:proj-L-P-vs-i}) mostramos el comportamiento de la planitud y la alatud aparente con la inclinación para distintos valores del parámetro $\Q$ (color) y de la planitud $\Pi$ (grosor de la curva). Se puede observar que para las superficies elipsoidales $(\Q > 0)$, la planitud y alatud aparente tienden a $\Pi' = \Lambda' = 1$ conforme $i \to 90^\circ$. Esto se debe a que en este límite observamos la superficie de frente y vemos su sección transversal circular. En el caso del paraboloide la convergencia se da a $\Lambda' = \Pi' = 2$. Por otro lado, la planitud y alatud aparente divergen cuando $|i| \to i_{\mathrm{crit}} = 90^\circ - |\theta_\Q|$ debido a que cuando $|i| > i_{\mathrm{crit}}$ ya no existe una línea tangente a la línea de visión y por tanto no se observaría abrillantamiento al limbo. También cabe destacar dos casos particulares: El esferoide confocal con planitud unitaria $(\Pi = 1)$ y el paraboloide confocal $(\Pi = \Lambda = 2)$. En estos dos casos su forma aparente no se ve afectada por la inclinación.
+En la figura \ref{fig:proj-L-P-vs-i} mostramos el comportamiento de la planitud y la alatud aparente con la inclinación para distintos valores del parámetro $\Q$ (color) y de la planitud $\Pi$ (grosor de la curva). Se puede observar que para las superficies elipsoidales $(\Q > 0)$, la planitud y alatud aparente tienden a $\Pi' = \Lambda' = 1$ conforme $i \to 90^\circ$. Esto se debe a que en este límite observamos la superficie de frente y vemos su sección transversal circular. En el caso del paraboloide la convergencia se da a $\Lambda' = \Pi' = 2$. Por otro lado, la planitud y alatud aparente divergen cuando $|i| \to i_{\mathrm{crit}} = 90^\circ - |\theta_\Q|$ debido a que, como ya mencionamos en la \S \ref{sec:tangent-line}, cuando $|i| > i_{\mathrm{crit}}$ ya no existe una línea tangente a la línea de visión y por tanto no se observaría abrillantamiento al limbo. También cabe destacar dos casos particulares: El esferoide confocal con planitud unitaria $(\Pi = 1)$ y el paraboloide confocal $(\Pi = \Lambda = 2)$. En estos dos casos su forma aparente no se ve afectada por la inclinación: para el esferoide confocal se puede mostrar fácilmente a partir de las ecuaciones (\ref{eq:Q-factor}, \ref{eq:Q-prime}, \ref{eq:R0p-R0-quad}-\ref{eq:quadrics-alatude-prime}) que si $\Q = 1$, $\Pi = 1$, entonces $\Pi'=1$, $\Lambda'=1$ y $\Q' = 1$, independientemente de la inclinación. De manera similar, tomando el límite de estas mismas ecuaciones cuando $\Q\to 0$ podemos estimar la planitud y alatud aparente del paraboloide, y para el caso particular donde $\Pi = 2$, se obtiene a su vez que $\Pi'=2$ independientemente de la inclinación.
 
 \begin{figure*}
   \centering
@@ -470,7 +496,7 @@ En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnó
 \end{figure}
 
 
-En la figura \ref{fig:snapshots} mostramos una visión complementaria del análisis de la forma aparente con la inclinación. En esta figura se toman ``capturas'' de $(\Pi', \Lambda')$ en intervalos regulares de $\sin i$. Los valores de la planitud y alatud intrínseca están uniformemente distribuídos en los intervalos $\Pi = [0.5, 4.5]$ y $\Lambda = [0.5, 4.5]$, lo que nos da un cuadrado uniformemente distribuído de valores cuando $|i| = 0$, y que se va distorsionando conforme $|i|$ se incrementa. La escala de color representa el parámetro $\Q$, incrementándose dicho parámetro desde el azúl hasta el amarillo, pasando por el naranja, mientras que el tamaño del punto es proporcional a $R'_0/R_0$. Se puede observar que todos los puntos tienden a la línea $\Pi' = \Lambda')$ a altas inclinaciones, y que los puntos azules quedan fuera del rango de la gráfica. Esto es porque a altas inclinaciones, para las formas muy abiertas ya no existe la línea tangente a la línea de visión. De hecho, la región verde sombreada es la región para la cual aun existe la línea de visión para cada inclinación y se hace cada vez más pequeña conforme la inclinación aumenta. Esta figura es meramente cualitativa, puesto que no hay razón para esperar una distribución uniforme de planitud y alatud (en el siguiente capítulo encontramos que en el modelo de capa delgada no encontramos formas cuyo parametro $\Q$ sea mayor a 1, por ejemplo).
+En la figura \ref{fig:snapshots} mostramos una visión complementaria del análisis de la forma aparente con la inclinación. En esta figura se toman ``capturas'' de $(\Pi', \Lambda')$ en intervalos regulares de $\sin i$. Los valores de la planitud y alatud intrínseca están uniformemente distribuídos en los intervalos $\Pi = [0.5, 4.5]$ y $\Lambda = [0.5, 4.5]$, lo que nos da un cuadrado uniformemente distribuído de valores cuando $|i| = 0$, y que se va distorsionando conforme $|i|$ se incrementa. La escala de color representa el parámetro $\Q$, incrementándose dicho parámetro desde el azúl hasta el amarillo, pasando por el naranja, mientras que el tamaño del punto es proporcional a $R'_0/R_0$. Se puede observar que todos los puntos tienden a la línea $\Pi' = \Lambda')$ a altas inclinaciones, y que los puntos azules quedan fuera del rango de la gráfica. Esto es porque a altas inclinaciones, para las formas muy abiertas ya no existe la línea tangente a la línea de visión. De hecho, la región verde sombreada es la región para la cual aun existe la línea de visión para cada inclinación y se hace cada vez más pequeña conforme la inclinación aumenta. Esta figura es meramente cualitativa, puesto que no hay razón para esperar una distribución uniforme de planitud y alatud (en el siguiente capítulo encontramos que en el modelo de capa delgada no encontramos formas cuyo parámetro $\Q$ sea mayor a 1, por ejemplo).
 
 % Utilizando las ecuaciones (\ref{eq:x0}), (\ref{eq:a-prime}) y (\ref{eq:b-prime}), utlizando la definición $D' = D\cos i$ e introduciendo la función $f(i;\theta_c)\equiv \left(1 \pm \tan^2\theta_c\tan^2i\right)^{1/2}$ obtenemos ecuaciones explícitas para los radios característicos en el sistema de referencia del plano del cielo en términos de la inclinación:
 %\begin{align}
