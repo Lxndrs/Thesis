@@ -12,7 +12,7 @@ Consideremos el caso en que se forma una estrella masiva dentro de una nube mole
 
 \section{Esfera de Strömgren}
 
-El plasma ionizado dentro de la Esfera de Strömgren se encuentra en balance de ionización, esto es, que la tasas de ionización y la de recombinación son iguales. La tasa de ionizaciones es igual a la cantidad de fotones ionizantes que emite la estrella central por segundo. Esto es, los fotones que poseen una energía mayor al límite de Lymann, que corresponde a  $E = \SI{13.6}{eV}$, o bien $\lambda = \SI{912}{\angstrom}$. En la tabla \ref{tab:ionizing-radiation} se muestra la tasa de fotones ionizantes $\Nio_*$ para estrellas masivas de tipo espectral O y B temprano.
+El plasma ionizado dentro de la esfera de Strömgren se encuentra en balance de ionización, esto es, que la tasas de ionización y la de recombinación son iguales. La tasa de ionizaciones es igual a la cantidad de fotones ionizantes que emite la estrella central por segundo. Esto es, los fotones que poseen una energía mayor al límite de Lymann, que corresponde a  $E = \SI{13.6}{eV}$, o bien $\lambda = \SI{912}{\angstrom}$. En la tabla \ref{tab:ionizing-radiation} se muestra la tasa de fotones ionizantes $\Nio_*$ para estrellas masivas de tipo espectral O y B temprano.
 
 \begin{table}
   \centering
@@ -35,16 +35,16 @@ El plasma ionizado dentro de la Esfera de Strömgren se encuentra en balance de 
   \label{tab:ionizing-radiation}
 \end{table}
 
-El radio de esta esfera se denomina \textit{Radio de Strömgren} que viene dado por:
+El radio de esta esfera se denomina \textit{radio de Strömgren} que viene dado por:
 
 
 \begin{align}
   R_s = \left[\frac{3\Nio_*}{4\pi\alpha'_{rec}(n^0_H)^2}\right]^{1/3} = 0.4\mathrm{~pc}\left(\frac{\Nio_*}{10^{49}\mathrm{~s^{-1}}}\right)^{1/3}\left(n_{H_2}\right)^{-2/3} \label{eq:stromgren}
 \end{align}
 
-Donde $\alpha'_{rec}$ es el coeficiente de recombinación a todos los niveles energéticos del hidrógeno excepto el estado base, $n^0_H$ y $n_{H_2}$ son la densidad numérica del hidrógeno neutro y del hidrógeno molecular donde está embebida la región HII, respectivamente.
+Donde $\alpha'_{rec}$ es el coeficiente de recombinación a todos los niveles energéticos del hidrógeno excepto el estado base, $n^0_H$ y $n_{H_2}$ son la densidad numérica del hidrógeno neutro y del hidrógeno molecular donde está embebida la región \Ion{H}{II}, respectivamente.
 
-En la expresión numérica, se adopta una temperatura de $10^4\mathrm{~K}$ que es la temperatura característica de una región \Ion{H}{II} y con la que el coeficiente de recombinación $\alpha'_{rec}$ adopta un valor de \SI{2.6e-13}{cm^3.s^{-1}}.
+En la expresión numérica, se adopta una temperatura de \SI{e4}{K} que es la temperatura característica de una región \Ion{H}{II} y con la que el coeficiente de recombinación $\alpha'_{rec}$ adopta un valor de \SI{2.6e-13}{cm^3.s^{-1}}.
 
 Dentro de la región \Ion{H}{II}, la probabilidad por unidad de tiempo de ionizar un átomo de hidrógeno dado es mucho mayor a la probabilidad de una recombinación, por lo que el gas está casi completamente ionizado. Sin embargo, en los bordes la densidad de gas neutro aumenta debido a que en dicha región el flujo de fotones ionizantes ha sido atenuado por todo el gas ionizado más próximo a la estrella. La transición de gas ionizado a gas neutro tiene un grosor $\Delta r$ que corresponde al camino libre medio del gas neutro. Esto es:
 
@@ -549,6 +549,7 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
   \Pi = \frac{5}{3}
 \end{align}
 
+
 \chapter{True Versus Apparent Shapes of Bowshocks}
 \label{app:article}
 \thispagestyle{empty}
@@ -556,3 +557,6 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 Este artículo contiene gran parte de esta Tesis, actualmente publicado en la revista Monthly Notices of the Royal Astronomical Society (MNRAS) en Marzo de 2018 \citep{Tarango-Yong:2018a}. 
 \setkeys{pdfpages}{pages=-}
 \includepdf{quadrics-bowshock.pdf}
+
+\listoffigures
+\listoftables

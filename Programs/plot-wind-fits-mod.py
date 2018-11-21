@@ -47,6 +47,23 @@ d_Orion = 414.0 # Use Menten et al. (2007) Measurement
 k_Boltzmann = 1.3806503e-16
 cos80 = 0.173648177667
 
+# Determine which model we are using
+# Model A: Uses inner wind density from HA1998 but inclinations obtained in this work
+# Model B: Derive inner wind density from our determinations of $\beta$, depends of outer wind pressure.
+# Model B.1: uses outer wind parameters from GAH:2002
+# Model B.2: uses cool model from Gagne:2005
+# Model HA: Uses inner wind density and inclinations from HA1998
+# the input table assumes certain model.
+# In sake of consistency, is neccesary to distinguish model B from the others
+
+model = "A" # assumes model A by default
+
+if "beta" in table:
+    model = "B.1"
+    if "Gagne" in table:
+        model = "B.2"
+
+
 # Read parameters table
 tab = Table.read('../'+table, format='ascii.tab')
 sources = sorted(set(tab['Fuente']))
@@ -83,15 +100,15 @@ Mdot = 2.206e19
 Vw = 1.2e8
 
 # Mass loss rate and terminal velocity of \thC{} taken from Gagne et al. 2005, table 3.
-# There are two models: cool model (for an O7 star) and hot model (for a O5.5 star)
+# There are two models: cool model (for an O7 star) and hot model (for a O5.5 star) (hot model removed)
 Mdot_cool = 3.47e19
-Mdot_hot = 8.83e19
+#Mdot_hot = 8.83e19
 Vw_cool = 2.76e8
-Vw_hot = 2.98e8
+#Vw_hot = 2.98e8
 D_arr = np.logspace(-6, 0)
 Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
 Pw_cool = Mdot_cool*Vw_cool/(4*np.pi*(D_arr*PC)**2)
-Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
+#Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
 
 # Measuring stellar flux
 Qh = 1e49 # Number of ionizing photons per second
@@ -99,9 +116,14 @@ fd = 0.5 # Asortion by dust factor
 Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
-ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
-ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
-ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
+if model == "A": # in model A and HA can display both outer winds: GAH:2002 and cool model
+    ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+    ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
+elif model == "B.1": # in model B.1 only the GAH:2002 must be displayed
+    ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+else: # in the B.2 model, only the cool model must be displayed
+    ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')  
+#ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
 mm = tab["*"] == "**" # Subsamples where photoionization balance is accomplished
 nn = tab["*"] == "*"  # Subsamples where photoionization balance is at least weakly accomplished.
 used = tab["*"] == "x" # Subsamples where photoionization balance is at least poorly accomplished

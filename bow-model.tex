@@ -18,7 +18,7 @@ Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguien
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{./Figures/anisotropic-arrows}
-  \caption{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica}). $\xi = \frac{2}{k+2}$ es un parámetro introducido por conveniencia en el apéndice \ref{app:alatude-derivation}.}
+  \caption[Representación esquemática de vientos con diferentes anisotropías]{Representación esquemática de vientos con diferentes anisotropías: Arriba izquierda: Viento isotrópico esférico. Arriba derecha: viento isotrópico hemisférico. Abajo: Vientos anisotrópicos donde el parámetro $k$ indica el grado de anisotropía (ver capítulo \ref{chap:hipersonica}). $\xi = \frac{2}{k+2}$ es un parámetro introducido por conveniencia en el apéndice \ref{app:alatude-derivation}.}
     \label{fig:isotropic-aniso}
 \end{figure}
 \begin{figure}
@@ -27,7 +27,7 @@ Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguien
     \includegraphics[width=0.45\linewidth]{./Figures/bowshock-crw-variables} &
     \includegraphics[width=0.45\linewidth]{./Figures/wilkinoid}
   \end{tabular}
-  \caption{a) Representación esquemática del problema de interacción de dos vientos esféricos: Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, con índice $k$, será un choque ``ancantoide''. b) Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''.}
+  \caption[Representación esquemática del problema de interacción de dos vientos]{Representación esquemática del problema de interacción de dos vientos: (a) Dos fuentes separadas por una distancia $D$ emiten un viento radial que forma un choque de proa a una distancia $R$ del origen. El sistema tiene geometría cilíndrica siendo el eje $z$ el eje de simetría. La forma del choque es función únicamente del ángulo polar $\theta$, medido a partir del origen. Otro ángulo que es de utilidad es $\theta_1$, que corresponde al ángulo polar medido a partir de la posición de la otra fuente. Cuando el viento interior tiene densidad constante y es esférico, denominamos al choque resultante como ``cantoide'', mientras que si su densidad sigue una ley de potencias de $\cos\theta$, con índice $k$, será un choque ``ancantoide''. b) Representación esquemática de la interacción de un choque esférico e isotrópico con una corriente plano--paralela de densidad y velocidad constantes. El choque resultante es en este caso de tipo ``wilkinoide''.}
     \label{fig:crw-esquema}
 \end{figure}
 
@@ -70,7 +70,7 @@ donde $R_{\theta\theta, 0}\equiv \frac{d^2R}{d\theta^2}$ evaluado en $\theta = 0
 Una forma simple de obtener el radio de curvatura es haciendo una expansión Taylor para la función $R(\theta)$ como sigue:
 
 \begin{align}
-  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4) \ref{eq:R-poly}
+  R(\theta) \simeq R_0 + \frac{1}{2}R_{\theta\theta, 0}\theta^2 + \mathcal{O}(\theta^4) \label{eq:R-poly}
 \end{align}
 y hacer un ajuste polinomial a $R(\theta)$ para $|\theta| < \Delta\theta$ y determinar $R_0$ y $R_{\theta\theta, 0}$ de los primeros coeficientes del ajuste, y posteriormente $R_c$ a partir de la ecuación \ref{eq:generic-Rc}. $\Delta\theta$ es el rango del ángulo polar dentro del cual se puede hacer el ajuste. $\Delta\theta = 30^\circ$ es una buena opción.
 %Las cantidades medibles que nos ayudan a caracterizar un choque de proa las llamamos ``Radios característicos'' (ilustrados en la figura \ref{fig:char-radii}):
@@ -154,14 +154,14 @@ Este ángulo se relaciona con la excentricidad de las cónicas (y que sustituye 
     \includegraphics[width=0.4\linewidth]{./Figures/ellipse_edited} &
     \includegraphics[width=0.5\linewidth]{./Figures/hyperbola_edited}
   \end{tabular}
-  \caption{Representación esquemática de: a) Elipse. Y, b) Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
+  \caption[Parámetros relevantes y radios característicos de elipse e hipérbola]{Representación esquemática de: a) Elipse. Y, b) Hipérbola. En ambos casos se ilustran los parámetros relevantes de éstas y los radios característicos}
   \label{fig:conics}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width = \linewidth]{./Figures/conic1}
-  \caption{Familia de curvas cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
+  \caption[Familia de secciones cónicas]{Familia de secciones cónicas, donde el valor del parámetro $\theta_Q$ varía desde $\theta_Q < 0$ (hipérbolas) hasta $\theta_Q > 0$ (elipses). Casos especiales son $\theta_Q = 0$ (parábola) y $\theta_Q = 45^\circ$ (círculo). Este parámetro sustituye en este trabajo a la excentricidad.}
   \label{fig:conics-family}
 \end{figure}
 El conjunto de parámetros $(a, x_0, \Q)$ es suficiente para caracterizar a nuestras cuádricas de revolución: $\Q$ nos indica el tipo de cónica, $a$ establece la escala y $x_0$ el desplazamiento del centro a lo largo del eje $x$. Sin embargo, para futuras aplicaciones tanto a modelos de interacción de vientos como a observaciones (capítulos \ref{chap:hipersonica} y \ref{chap:proplyds}) nos sería util hacer la caracterización mediante los parámetros $(R_0, \Pi, \Lambda)$ (ver \S \ref{sec:char-rad}). Las equivalencias entre los dos conjuntos de parámetros los calculamos a continuación:
@@ -235,7 +235,7 @@ La relación entre ambos sistemas de referencia se ilustra en la figura \ref{fig
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{./Figures/projection-pos}
-  \caption{Sistema de referencia del choque vs sistema de referencia del plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del cielo, mientras el eje $z'$ es paralelo a la línea de visión. Solo la región del choque cuya tangente sea paralela a la línea de visión será visible por abrillantamiento al limbo.}
+  \caption[Sistema de referencia del choque vs sistema de referencia del plano del cielo]{Sistema de referencia del choque vs sistema de referencia del plano del cielo. Los ejes $x'$ y $y'$ se encuentran en el plano del cielo, mientras el eje $z'$ es paralelo a la línea de visión. Solo la región del choque cuya tangente sea paralela a la línea de visión será visible por abrillantamiento al limbo.}
   \label{fig:reference}
 \end{figure}
 
@@ -294,7 +294,7 @@ Para $\phi \neq 0$, basta con hacer una rotación de las ecuaciones (\ref{eq:uni
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{./Figures/bowshock-unit-vectors}
-  \caption{Vectores unitarios normal y tangente a la superficie $R(\theta)$
+  \caption[Vectores unitarios normal y tangente a la superficie $R(\theta)$]{Vectores unitarios normal y tangente a la superficie $R(\theta)$
     en un plano de azimuth $\phi$ constante.}
     \label{fig:unit-vec}
 \end{figure}
@@ -376,7 +376,6 @@ El objetivo de esta sección es obtener la forma proyectada de las cuádricas de
   (X, Y) = (x-x_0, y)
 \end{align}
 de esta manera, la forma de las cuádricas de revolución es:
-
 
 \begin{align}
   \left(
@@ -472,7 +471,7 @@ En la figura \ref{fig:proj-L-P-vs-i} mostramos el comportamiento de la planitud 
     \includegraphics[width=0.5\linewidth]{./Figures/projected-Rc-vs-i} &
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-i}
   \end{tabular}
-  \caption{Efectos de la proyección sobre las cuádricas de revolución con la inclinación $|i|$. Los colores de las curvas representan variaciones en el parámetro $\Q$ de las cuádricas. El grosor de la curva indica el valor de la planitud intrínseca $\Pi$. Los rectángulos sombreados muestran cuartiles de $|\sin i|$ que se encuentran equitativamente poblados para una distribución isotrópica de orientaciones. (a) Planitud aparente $\Pi'$. (b) Alatud aparente $\Lambda'$}
+  \caption[Efectos de la proyección sobre las cuádricas de revolución con la inclinación $|i|$]{Efectos de la proyección sobre las cuádricas de revolución con la inclinación $|i|$. Los colores de las curvas representan variaciones en el parámetro $\Q$ de las cuádricas. El grosor de la curva indica el valor de la planitud intrínseca $\Pi$. Los rectángulos sombreados muestran cuartiles de $|\sin i|$ que se encuentran equitativamente poblados para una distribución isotrópica de orientaciones. (a) Planitud aparente $\Pi'$. (b) Alatud aparente $\Lambda'$}
   \label{fig:proj-L-P-vs-i}
 \end{figure*}
 
@@ -482,7 +481,7 @@ En la figura \ref{fig:proj-L-P-vs-i} mostramos el comportamiento de la planitud 
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R90-vs-Rc} &
     \includegraphics[width=0.5\linewidth]{./Figures/projected-R0-vs-i}
   \end{tabular}
-  \caption{(a) Diagrama de diagnóstico $\Lambda'$ vs $\Pi'$ para diferentes tipos de cuádricas: esferoides oblatos (amarillo), esferoides (rojo), esferoides prolatos (morado), paraboloides (negro) e hiperboloides (azul, verde y turquesa). Cada punto de una curva representa un valor diferente de la inclinación, y se muestran explícitamente las inclinaciones múltiplos de $15^\circ$, con la forma de círculos rellenos. Las regiones sombreadas representan al tipo de cuádrica que mejor ajusta a los parámetros $(\Pi', \Lambda')$ cubiertos. La región clara para los hiperboloides, la región gris oscura para los esferoides prolatos y la región gris clara para los hiperboloides oblatos. La interfaz entre la región de hiperboloides y esferoides prolatos corresponde a los paraboloides y la región entre esferoides prolatos y oblatos a los esferoides. (b) Distacia proyectada $R'_0/R_0$ versus $|i|$.}
+  \caption[Diagrama de diagnóstico $\Lambda'$ vs $\Pi'$ para diferentes tipos de cuádricas y distacia proyectada $R'_0/R_0$ versus $|i|$]{(a) Diagrama de diagnóstico $\Lambda'$ vs $\Pi'$ para diferentes tipos de cuádricas: esferoides oblatos (amarillo), esferoides (rojo), esferoides prolatos (morado), paraboloides (negro) e hiperboloides (azul, verde y turquesa). Cada punto de una curva representa un valor diferente de la inclinación, y se muestran explícitamente las inclinaciones múltiplos de $15^\circ$, con la forma de círculos rellenos. Las regiones sombreadas representan al tipo de cuádrica que mejor ajusta a los parámetros $(\Pi', \Lambda')$ cubiertos. La región clara para los hiperboloides, la región gris oscura para los esferoides prolatos y la región gris clara para los hiperboloides oblatos. La interfaz entre la región de hiperboloides y esferoides prolatos corresponde a los paraboloides y la región entre esferoides prolatos y oblatos a los esferoides. (b) Distacia proyectada $R'_0/R_0$ versus $|i|$.}
   \label{fig:Pip-Lambdap-diagnostic}
 \end{figure}
 
@@ -491,7 +490,7 @@ En la figura \ref{fig:Pip-Lambdap-diagnostic}a observamos el diagrama de diagnó
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{./Figures/projected-R90-Rc-snapshots}
-  \caption{Efectos de la inclinación de la forma aparente de arcos cuádricos cuya planitud y alatud están uniformemente distribuídos en los rangos $\Pi = [0.5, 4.5]$, $\Lambda = [0.5, 4.5]$. En cada pánel se muestra la forma aparente incrementando la inclinación en intervalos iguales de $|\sin i|$. El collor representa el parámetro $\Q$, desde azul (menor valor de $\Q$, que representa formas más abiertas), pasando por naranja, hasta amarillo (elipsoides oblatos). El tamaño representa la distancia aparente estrella--ápex $R'_0/R_0$.}
+  \caption[Efectos de la inclinación de la forma aparente de arcos cuádricos]{Efectos de la inclinación de la forma aparente de arcos cuádricos cuya planitud y alatud están uniformemente distribuídos en los rangos $\Pi = [0.5, 4.5]$, $\Lambda = [0.5, 4.5]$. En cada pánel se muestra la forma aparente incrementando la inclinación en intervalos iguales de $|\sin i|$. El collor representa el parámetro $\Q$, desde azul (menor valor de $\Q$, que representa formas más abiertas), pasando por naranja, hasta amarillo (elipsoides oblatos). El tamaño representa la distancia aparente estrella--ápex $R'_0/R_0$.}
   \label{fig:snapshots}
 \end{figure}
 

@@ -130,7 +130,7 @@ for xi in XI_LIST:
 #                        fontsize='x-small', color=col, **annot_pars)
 
 
-ax3.legend(ncol=1, fontsize='small', frameon=True, title=r"Ancantoid $k=3.0$") # legends board
+ax3.legend(ncol=1, fontsize='x-large', frameon=True, title=r"Ancantoid $k=3.0$").get_title().set_fontsize("20") # legends board
 ax3.set(
     yscale='linear',
     xscale='linear',
@@ -141,18 +141,17 @@ ax3.set(
 #    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
 )        
 
-ax1.legend(ncol=1, fontsize='small', frameon=True, title="Isotropic inner wind") # legends board
+ax1.legend(ncol=1, fontsize='x-large', frameon=True, title="Isotropic inner wind").get_title().set_fontsize("20") # legends board
 ax1.set(
     yscale='linear',
     xscale='linear',
     xlim=[0.0, 90.0],
     ylim=[0.8, 6.0],
 #    ylim=[-3.0, 1.1],
-    xlabel=r"inclination (deg)",
-    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
 )
-
-ax2.legend(ncol=1, fontsize='small', frameon=True, title=r"Ancantoid $k=0.5$") # legends board
+ax1.set_xlabel(r"inclination (deg)", fontsize=24)
+ax1.set_ylabel(r"Projected planitude: $\Pi'$", fontsize=24)
+ax2.legend(ncol=1, fontsize='x-large', frameon=True, title=r"Ancantoid $k=0.5$").get_title().set_fontsize("20") # legends board
 ax2.set(
     yscale='linear',
     xscale='linear',
@@ -163,11 +162,17 @@ ax2.set(
 #    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
 )
 #sns.despine()
-ax1.text(5, 5.8, "( a )")
-ax2.text(5, 5.8, "( b )")
-ax3.text(5, 5.8, "( c )")
+ax1.text(5, 5.8, "( a )", fontsize="x-large")
+ax2.text(5, 5.8, "( b )", fontsize="x-large")
+ax3.text(5, 5.8, "( c )", fontsize="x-large")
+ax1.xaxis.set_tick_params(labelsize=16)
+ax2.xaxis.set_tick_params(labelsize=16)
+ax3.xaxis.set_tick_params(labelsize=16)
+ax1.yaxis.set_tick_params(labelsize=16)
+ax2.yaxis.set_tick_params(labelsize=16)
+ax3.yaxis.set_tick_params(labelsize=16)
 f.tight_layout()
 f.set_size_inches(17, 10)
-f.savefig("./Figures/Pi-vs-i.pdf")
+f.savefig("../Figures/Pi-vs-i.pdf")
 #print(plotfile, end='')
 # The End

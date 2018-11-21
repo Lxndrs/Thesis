@@ -127,12 +127,16 @@ $$N_{stellar} = ∫₀^{r_IF}4π r²nₑnₚα_{rec} dr $$
      - [ ] Application of the Thin Shell Model to the bow shocks produced by the classical proplyds
      - [ ] Summary and Conclusions
 ** TODO Work into sinodals corrections
-- [ ] Sergiy Silich's corrections
+- [X] Sergiy Silich's corrections
 - [ ] Jane's corrections
-- [ ] Luis' corrections
+- [X] Luis' corrections
 - [ ] Ricardo's corrections (explain him I'm not in Morelia)
 - [ ] Wait for Susana's corrections
 * Journal
+-[2018-11-20 Tue]
+- Finished corrections until chapter 5
+- Solved inconsistency in P vs D diagrams: in model B inner wind density also depends of outer wind parameters
+  and I only used wind parameters from GAH:2002.
 -[2018-11-10 Sat]
 - (Almost) Finished corrections until chapter 4.
 -[2018-11-07 Wed]
@@ -320,178 +324,183 @@ Long time I don't write anything here !!! =(
 - Tangle with C-u C-c C-v t
 #+NAME: mod-pi-vs-i
 #+BEGIN_SRC python :eval no :tangle ./Programs/mod-pi-vs-i.py
-import sys
-sys.path.insert(0,"../bowshock-shape/Dust-wave/")
-sys.path.insert(0,"../bowshock-shape/")
-import numpy as np
-from matplotlib import pyplot as plt
-import matplotlib.ticker
-import seaborn as sns
-import bow_projection as bp
-import ancantoid_shape
-import bow_diagnostic
+  import sys
+  sys.path.insert(0,"../bowshock-shape/Dust-wave/")
+  sys.path.insert(0,"../bowshock-shape/")
+  import numpy as np
+  from matplotlib import pyplot as plt
+  import matplotlib.ticker
+  import seaborn as sns
+  import bow_projection as bp
+  import ancantoid_shape
+  import bow_diagnostic
 
-#####################################
-# Modify program to plot            #
-# \Pi' vs inclination               #
-# instead of \Lambda' vs \Pi'       #
-# Document everyhing as I           #
-# understand what each command does #
-#####################################
+  #####################################
+  # Modify program to plot            #
+  # \Pi' vs inclination               #
+  # instead of \Lambda' vs \Pi'       #
+  # Document everyhing as I           #
+  # understand what each command does #
+  #####################################
 
-# Maybe I won't need this
-#try: 
-#    xiset = sys.argv[1] # Additional argument in command line to enter the anisotropy parameter 'xi'
-#    plotfile = sys.argv[0].replace('.py', f'-{xiset}.pdf') # The output pdf file will be the name of the program itself with extension
-#    assert xiset in 'ab' #Test searching potential errors  # '.pdf' instead of '.py' 
-#    istart = -2 if xiset == 'a' else -1 # Honestly I don't know what this means
-#except:
-#    sys.exit(f"Usage: {sys.argv[0]} a|b") # Exit in case of failure
+  # Maybe I won't need this
+  #try: 
+  #    xiset = sys.argv[1] # Additional argument in command line to enter the anisotropy parameter 'xi'
+  #    plotfile = sys.argv[0].replace('.py', f'-{xiset}.pdf') # The output pdf file will be the name of the program itself with extension
+  #    assert xiset in 'ab' #Test searching potential errors  # '.pdf' instead of '.py' 
+  #    istart = -2 if xiset == 'a' else -1 # Honestly I don't know what this means
+  #except:
+  #    sys.exit(f"Usage: {sys.argv[0]} a|b") # Exit in case of failure
 
-#sns.set_style('ticks') #Set plot axis style
-# Adapt the style to the other graphs I have so far
-sns.set_style("white") 
-#fig, ax = plt.subplots(figsize=(4, 4)) # set subplot size
-f = plt.figure()
-ax1 = f.add_subplot(1, 3, 1, adjustable="box") # wilkinoid + cantoid plot
-ax2 = f.add_subplot(1, 3, 2, adjustable="box") # Ancantoid xi=0.8 plot
-ax3 = f.add_subplot(1, 3, 3, adjustable="box") # Ancantoid xi=0.4 plot
+  #sns.set_style('ticks') #Set plot axis style
+  # Adapt the style to the other graphs I have so far
+  sns.set_style("white") 
+  #fig, ax = plt.subplots(figsize=(4, 4)) # set subplot size
+  f = plt.figure()
+  ax1 = f.add_subplot(1, 3, 1, adjustable="box") # wilkinoid + cantoid plot
+  ax2 = f.add_subplot(1, 3, 2, adjustable="box") # Ancantoid xi=0.8 plot
+  ax3 = f.add_subplot(1, 3, 3, adjustable="box") # Ancantoid xi=0.4 plot
 
-bp.N_NEIGHBORHOOD = 50
-bp.DEGREE_POLY_NEIGHBORHOOD = 2
-bp.SCALE_NEIGHBORHOOD = 0.03 
-bp.DEGREE_POLY_NEIGHBORHOOD_90 = 2
-bp.SCALE_NEIGHBORHOOD_90 = 0.01     #Stuff from bow_projection classes
+  bp.N_NEIGHBORHOOD = 50
+  bp.DEGREE_POLY_NEIGHBORHOOD = 2
+  bp.SCALE_NEIGHBORHOOD = 0.03 
+  bp.DEGREE_POLY_NEIGHBORHOOD_90 = 2
+  bp.SCALE_NEIGHBORHOOD_90 = 0.01     #Stuff from bow_projection classes
 
-#left_annotate_pars = dict(xytext=(-5, 5), ha='right', va='bottom')
-#right_annotate_pars = dict(xytext=(5, -5), ha='left', va='top') # set location oftext inside plot
-
-
-#Rc_grid = np.linspace(0.0, 10.0, 2000)
-#R90_T0_grid = np.sqrt(2*Rc_grid)
-#R90_T1_grid = np.sqrt(2*Rc_grid - 1.0)
-#R90_T1_grid[~np.isfinite(R90_T1_grid)] = 0.0 #set grids for shaded regions
-
-#ax.fill_between(Rc_grid, R90_T1_grid, R90_T0_grid, color='k', alpha=0.2)
-#ax.fill_between(Rc_grid, R90_T0_grid, color='k', alpha=0.1) # shade the different regions in diagram
-#ax.plot(Rc_grid, R90_T0_grid, c='k', lw=0.5) # Plot the parabolic interface
-#ax.axhline(1.0, lw=0.5, alpha=0.5, color='k', zorder=-1) #plot horizontal line
-#ax.axvline(1.0, lw=0.5, alpha=0.5, color='k', zorder=-1) #plot vertical line
-#ax.plot([0.0, 10.0], [0.0, 10.0], lw=0.5, alpha=0.5, color='k', zorder=-1) #Plot diagonal identity line
-
-XI_LIST = [None, 0.8, 0.4]
-BETA_LIST = [0.005, 0.01, 0.05, 0.08, 0.5]
-nxi, nbeta = len(XI_LIST), len(BETA_LIST) # set shells parameters (xi=None for cantoid shell)
-cols = sns.color_palette('magma', n_colors=nbeta+1) # color palette of curves
-# Put a cross at the Wilkinoid coordinates: [5/3, sqrt(3)]
-#ax.plot([5./3.], [np.sqrt(3.0)], '+', c='w', ms=10, alpha=1.0)
-# And plot the projected wilkinoids 
-shape = bp.wilkinoid_R_theta
-th_inf = bp.theta_infinity(shape)
-inc = np.linspace(0.0, th_inf - np.pi/2, 50)
-tab = bow_diagnostic.parameter_table(inc, shape)
-Rc, R90 = tab['tilde R_c prime'], tab['tilde R_90 prime']
-ax1.plot(np.degrees(inc), Rc, '-', c=cols[0], label="wilkinoid", lw=2.0, alpha=1.0)
-#sini = np.linspace(0.0, 1.0, 20)
-#inc_e = np.arcsin(sini)
-#tab_e = bow_diagnostic.parameter_table(inc_e, shape)
-#Rc_e, R90_e = tab_e['tilde R_c prime'], tab_e['tilde R_90 prime']
-#ax.scatter(Rc_e, R90_e, marker='|', s=3**2,
-#           linewidths=0.1, edgecolors='none',
-#           c='w', alpha=0.5, label="_nolabel_")
-
-#annot_pars_list = [right_annotate_pars]*2 + [left_annotate_pars]*2 
-#for beta in BETA_LIST[::-1]:
-#    for xi, col, annot_pars in list(zip(XI_LIST, cols, annot_pars_list))[istart::-2]: #start loops in beta and xi
-for xi in XI_LIST:
-    k = None if xi is None else 2/xi - 2
-    for beta, col in zip(BETA_LIST, cols[1:]):    
-#        if beta == BETA_LIST[0]:
-#            label = "Cantoid" if k is None else fr"Ancantoid $k = {k:.1f}$" # set label into plot
-#        else:
-#            label = "_nolabel_"
-#
-        if xi is None: #cantoid case
-            shape = bp.Spline_R_theta_from_function(
-                ngrid=1000,
-                shape_func=bp.cantoid_R_theta,
-                shape_func_pars=(beta,))
-        else: #ancantoid case
-            shape = ancantoid_shape.Ancantoid(xi=xi, beta=beta, n=301)
-
-        th_inf = bp.theta_infinity(shape)
-        inc = np.linspace(0.0, th_inf - np.pi/2, 200)
-        tab = bow_diagnostic.parameter_table(inc, shape)
-        Rc, R90 = tab['tilde R_c prime'], tab['tilde R_90 prime']
-        label = r"$\beta={}$".format(beta)
-        if xi is None:
-            ax1.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
-        elif xi==0.8:
-            ax2.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
-        else:
-            ax3.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
-        # Get points evenly spaced in sin i
-#        sini = np.linspace(0.0, 1.0, 20)
-#        inc_e = np.arcsin(sini)
-#        inc_e = inc_e[inc_e < th_inf - np.pi/2]
-#        tab_e = bow_diagnostic.parameter_table(inc_e, shape)
-#        Rc_e, R90_e = tab_e['tilde R_c prime'], tab_e['tilde R_90 prime']
-#        ax.scatter(Rc_e, R90_e, marker='|', s=3**2,
-#                   linewidths=0.1, edgecolors='none',
-#                   c=col, alpha=0.5, label="_nolabel_")
-
-        # Put a dot at the i=0 case
-#        ax.plot(Rc[0:1], R90[0:1], 'o', mec='none', c=col, label="_nolabel_", alpha=0.7)
-        # Label the dot with the cross-over inclination
-#        beta_label = rf'$\beta = \mathrm{{{beta:g}}}$'
-#        if beta_label.endswith('1}$'):
-            # But only for some of them
-#            ax.annotate(beta_label, xy=(Rc[0], R90[0]),
-#                        textcoords='offset points',
-#                        fontsize='x-small', color=col, **annot_pars)
+  #left_annotate_pars = dict(xytext=(-5, 5), ha='right', va='bottom')
+  #right_annotate_pars = dict(xytext=(5, -5), ha='left', va='top') # set location oftext inside plot
 
 
-ax3.legend(ncol=1, fontsize='small', frameon=True, title=r"Ancantoid $k=3.0$") # legends board
-ax3.set(
-    yscale='linear',
-    xscale='linear',
-    xlim=[0.0, 90.0],
-    ylim=[0.8, 6.0],
-#    ylim=[-3.0, 1.1],
-#    xlabel=r"inclination (deg)",
-#    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
-)        
+  #Rc_grid = np.linspace(0.0, 10.0, 2000)
+  #R90_T0_grid = np.sqrt(2*Rc_grid)
+  #R90_T1_grid = np.sqrt(2*Rc_grid - 1.0)
+  #R90_T1_grid[~np.isfinite(R90_T1_grid)] = 0.0 #set grids for shaded regions
 
-ax1.legend(ncol=1, fontsize='small', frameon=True, title="Isotropic inner wind") # legends board
-ax1.set(
-    yscale='linear',
-    xscale='linear',
-    xlim=[0.0, 90.0],
-    ylim=[0.8, 6.0],
-#    ylim=[-3.0, 1.1],
-    xlabel=r"inclination (deg)",
-    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
-)
+  #ax.fill_between(Rc_grid, R90_T1_grid, R90_T0_grid, color='k', alpha=0.2)
+  #ax.fill_between(Rc_grid, R90_T0_grid, color='k', alpha=0.1) # shade the different regions in diagram
+  #ax.plot(Rc_grid, R90_T0_grid, c='k', lw=0.5) # Plot the parabolic interface
+  #ax.axhline(1.0, lw=0.5, alpha=0.5, color='k', zorder=-1) #plot horizontal line
+  #ax.axvline(1.0, lw=0.5, alpha=0.5, color='k', zorder=-1) #plot vertical line
+  #ax.plot([0.0, 10.0], [0.0, 10.0], lw=0.5, alpha=0.5, color='k', zorder=-1) #Plot diagonal identity line
 
-ax2.legend(ncol=1, fontsize='small', frameon=True, title=r"Ancantoid $k=0.5$") # legends board
-ax2.set(
-    yscale='linear',
-    xscale='linear',
-    xlim=[0.0, 90.0],
-    ylim=[0.8, 6.0],
-#    ylim=[-3.0, 1.1],
-#    xlabel=r"inclination (deg)",
-#    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
-)
-#sns.despine()
-ax1.text(5, 5.8, "( a )")
-ax2.text(5, 5.8, "( b )")
-ax3.text(5, 5.8, "( c )")
-f.tight_layout()
-f.set_size_inches(17, 10)
-f.savefig("./Figures/Pi-vs-i.pdf")
-#print(plotfile, end='')
-# The End
+  XI_LIST = [None, 0.8, 0.4]
+  BETA_LIST = [0.005, 0.01, 0.05, 0.08, 0.5]
+  nxi, nbeta = len(XI_LIST), len(BETA_LIST) # set shells parameters (xi=None for cantoid shell)
+  cols = sns.color_palette('magma', n_colors=nbeta+1) # color palette of curves
+  # Put a cross at the Wilkinoid coordinates: [5/3, sqrt(3)]
+  #ax.plot([5./3.], [np.sqrt(3.0)], '+', c='w', ms=10, alpha=1.0)
+  # And plot the projected wilkinoids 
+  shape = bp.wilkinoid_R_theta
+  th_inf = bp.theta_infinity(shape)
+  inc = np.linspace(0.0, th_inf - np.pi/2, 50)
+  tab = bow_diagnostic.parameter_table(inc, shape)
+  Rc, R90 = tab['tilde R_c prime'], tab['tilde R_90 prime']
+  ax1.plot(np.degrees(inc), Rc, '-', c=cols[0], label="wilkinoid", lw=2.0, alpha=1.0)
+  #sini = np.linspace(0.0, 1.0, 20)
+  #inc_e = np.arcsin(sini)
+  #tab_e = bow_diagnostic.parameter_table(inc_e, shape)
+  #Rc_e, R90_e = tab_e['tilde R_c prime'], tab_e['tilde R_90 prime']
+  #ax.scatter(Rc_e, R90_e, marker='|', s=3**2,
+  #           linewidths=0.1, edgecolors='none',
+  #           c='w', alpha=0.5, label="_nolabel_")
+
+  #annot_pars_list = [right_annotate_pars]*2 + [left_annotate_pars]*2 
+  #for beta in BETA_LIST[::-1]:
+  #    for xi, col, annot_pars in list(zip(XI_LIST, cols, annot_pars_list))[istart::-2]: #start loops in beta and xi
+  for xi in XI_LIST:
+      k = None if xi is None else 2/xi - 2
+      for beta, col in zip(BETA_LIST, cols[1:]):    
+  #        if beta == BETA_LIST[0]:
+  #            label = "Cantoid" if k is None else fr"Ancantoid $k = {k:.1f}$" # set label into plot
+  #        else:
+  #            label = "_nolabel_"
+  #
+          if xi is None: #cantoid case
+              shape = bp.Spline_R_theta_from_function(
+                  ngrid=1000,
+                  shape_func=bp.cantoid_R_theta,
+                  shape_func_pars=(beta,))
+          else: #ancantoid case
+              shape = ancantoid_shape.Ancantoid(xi=xi, beta=beta, n=301)
+
+          th_inf = bp.theta_infinity(shape)
+          inc = np.linspace(0.0, th_inf - np.pi/2, 200)
+          tab = bow_diagnostic.parameter_table(inc, shape)
+          Rc, R90 = tab['tilde R_c prime'], tab['tilde R_90 prime']
+          label = r"$\beta={}$".format(beta)
+          if xi is None:
+              ax1.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
+          elif xi==0.8:
+              ax2.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
+          else:
+              ax3.plot(np.degrees(inc), Rc, '-', c=col, label=label, lw=1.0, alpha=1.0) #Plot Rc vs i
+          # Get points evenly spaced in sin i
+  #        sini = np.linspace(0.0, 1.0, 20)
+  #        inc_e = np.arcsin(sini)
+  #        inc_e = inc_e[inc_e < th_inf - np.pi/2]
+  #        tab_e = bow_diagnostic.parameter_table(inc_e, shape)
+  #        Rc_e, R90_e = tab_e['tilde R_c prime'], tab_e['tilde R_90 prime']
+  #        ax.scatter(Rc_e, R90_e, marker='|', s=3**2,
+  #                   linewidths=0.1, edgecolors='none',
+  #                   c=col, alpha=0.5, label="_nolabel_")
+
+          # Put a dot at the i=0 case
+  #        ax.plot(Rc[0:1], R90[0:1], 'o', mec='none', c=col, label="_nolabel_", alpha=0.7)
+          # Label the dot with the cross-over inclination
+  #        beta_label = rf'$\beta = \mathrm{{{beta:g}}}$'
+  #        if beta_label.endswith('1}$'):
+              # But only for some of them
+  #            ax.annotate(beta_label, xy=(Rc[0], R90[0]),
+  #                        textcoords='offset points',
+  #                        fontsize='x-small', color=col, **annot_pars)
+
+
+  ax3.legend(ncol=1, fontsize='x-large', frameon=True, title=r"Ancantoid $k=3.0$").get_title().set_fontsize("20") # legends board
+  ax3.set(
+      yscale='linear',
+      xscale='linear',
+      xlim=[0.0, 90.0],
+      ylim=[0.8, 6.0],
+  #    ylim=[-3.0, 1.1],
+  #    xlabel=r"inclination (deg)",
+  #    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
+  )        
+
+  ax1.legend(ncol=1, fontsize='x-large', frameon=True, title="Isotropic inner wind").get_title().set_fontsize("20") # legends board
+  ax1.set(
+      yscale='linear',
+      xscale='linear',
+      xlim=[0.0, 90.0],
+      ylim=[0.8, 6.0],
+  #    ylim=[-3.0, 1.1],
+  )
+  ax1.set_xlabel(r"inclination (deg)", fontsize=24)
+  ax1.set_ylabel(r"Projected planitude: $\Pi'$", fontsize=24)
+  ax2.legend(ncol=1, fontsize='x-large', frameon=True, title=r"Ancantoid $k=0.5$").get_title().set_fontsize("20") # legends board
+  ax2.set(
+      yscale='linear',
+      xscale='linear',
+      xlim=[0.0, 90.0],
+      ylim=[0.8, 6.0],
+  #    ylim=[-3.0, 1.1],
+  #    xlabel=r"inclination (deg)",
+  #    ylabel=r"Projected planitude: $\Pi'$", #Plot settings
+  )
+  #sns.despine()
+  ax1.text(5, 5.8, "( a )", fontsize="x-large")
+  ax2.text(5, 5.8, "( b )", fontsize="x-large")
+  ax3.text(5, 5.8, "( c )", fontsize="x-large")
+  ax1.xaxis.set_tick_params(labelsize=16)
+  ax2.xaxis.set_tick_params(labelsize=16)
+  ax3.xaxis.set_tick_params(labelsize=16)
+  ax1.yaxis.set_tick_params(labelsize=16)
+  ax2.yaxis.set_tick_params(labelsize=16)
+  ax3.yaxis.set_tick_params(labelsize=16)
+  f.tight_layout()
+  f.set_size_inches(17, 10)
+  f.savefig("../Figures/Pi-vs-i.pdf")
+  #print(plotfile, end='')
+  # The End
 #+END_SRC
 *** Plot \Pi' vs R'_0/D' for new thin shell models vs observations
 
@@ -740,6 +749,23 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   k_Boltzmann = 1.3806503e-16
   cos80 = 0.173648177667
 
+  # Determine which model we are using
+  # Model A: Uses inner wind density from HA1998 but inclinations obtained in this work
+  # Model B: Derive inner wind density from our determinations of $\beta$, depends of outer wind pressure.
+  # Model B.1: uses outer wind parameters from GAH:2002
+  # Model B.2: uses cool model from Gagne:2005
+  # Model HA: Uses inner wind density and inclinations from HA1998
+  # the input table assumes certain model.
+  # In sake of consistency, is neccesary to distinguish model B from the others
+
+  model = "A" # assumes model A by default
+
+  if "beta" in table:
+      model = "B.1"
+      if "Gagne" in table:
+          model = "B.2"
+
+
   # Read parameters table
   tab = Table.read('../'+table, format='ascii.tab')
   sources = sorted(set(tab['Fuente']))
@@ -776,15 +802,15 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   Vw = 1.2e8
 
   # Mass loss rate and terminal velocity of \thC{} taken from Gagne et al. 2005, table 3.
-  # There are two models: cool model (for an O7 star) and hot model (for a O5.5 star)
+  # There are two models: cool model (for an O7 star) and hot model (for a O5.5 star) (hot model removed)
   Mdot_cool = 3.47e19
-  Mdot_hot = 8.83e19
+  #Mdot_hot = 8.83e19
   Vw_cool = 2.76e8
-  Vw_hot = 2.98e8
+  #Vw_hot = 2.98e8
   D_arr = np.logspace(-6, 0)
   Pw = Mdot*Vw/(4*np.pi*(D_arr*PC)**2)
   Pw_cool = Mdot_cool*Vw_cool/(4*np.pi*(D_arr*PC)**2)
-  Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
+  #Pw_hot = Mdot_hot*Vw_hot/(4*np.pi*(D_arr*PC)**2)
 
   # Measuring stellar flux
   Qh = 1e49 # Number of ionizing photons per second
@@ -792,9 +818,14 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
   fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
   ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
-  ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
-  ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
-  ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
+  if model == "A": # in model A and HA can display both outer winds: GAH:2002 and cool model
+      ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+      ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
+  elif model == "B.1": # in model B.1 only the GAH:2002 must be displayed
+      ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
+  else: # in the B.2 model, only the cool model must be displayed
+      ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')  
+  #ax2.loglog(D_arr, Pw_hot/k_Boltzmann, c='r', alpha=0.1, lw=10, label='')
   mm = tab["*"] == "**" # Subsamples where photoionization balance is accomplished
   nn = tab["*"] == "*"  # Subsamples where photoionization balance is at least weakly accomplished.
   used = tab["*"] == "x" # Subsamples where photoionization balance is at least poorly accomplished
@@ -1242,12 +1273,12 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   #***************************************************************************
 
 
-  plt.annotate(r"$R'_0$", xy=(0.5*xr0line/R0, 0.5*yr0line/R0), xytext=(20, -20),
-      alpha=1.0, textcoords='offset points', ha ='right', va='bottom',
+  plt.annotate(r"$R'_0$", xy=(0.5*xr0line/R0, 0.5*yr0line/R0), xytext=(20, -40),
+      alpha=1.0, textcoords='offset points', ha ='right', va='bottom', fontsize="large",
       bbox=dict(boxstyle='round,pad=0.5', fc='blue', alpha=0.5),
       arrowprops = dict(arrowstyle='->', connectionstyle='arc3,rad=0'))
-  plt.annotate(r"$\Pi'$", xy=(0.5*(xc_2+xrcline)/R0, 0.5*(yc_2+yrcline)/R0), xytext=(-20, 20),
-       alpha=1.0,textcoords='offset points', ha='left', va='top',
+  plt.annotate(r"$\Pi'$", xy=(0.5*(xc_2+xrcline)/R0, 0.5*(yc_2+yrcline)/R0), xytext=(-40, 40),
+       alpha=1.0,textcoords='offset points', ha='left', va='top', fontsize="large",
        bbox=dict(boxstyle='round,pad=0.5', fc='blue', alpha=0.5),
        arrowprops = dict(arrowstyle='->', connectionstyle='arc3,rad=0'))
   # Proplyd position (at the origin in this frame)
@@ -1263,9 +1294,9 @@ f.savefig("./Figures/Pi-vs-i.pdf")
   # plt.ylim(ymin=vmin, ymax=vmax)
 
 
-  plt.legend(loc="lower left", frameon=True, fontsize="large")
-  plt.xlabel(r"$z'/R'_0$", fontsize = "large")
-  plt.ylabel(r"$r'/R'_0$", fontsize = "large")
+  plt.legend(loc="lower left", frameon=True, fontsize="x-large")
+  plt.xlabel(r"$z'/R'_0$", fontsize = "xx-large")
+  plt.ylabel(r"$r'/R'_0$", fontsize = "xx-large")
 
   #plt.grid()
   #plt.title("{} fit circle".format(proplyd))
@@ -1616,6 +1647,61 @@ f.savefig("./Figures/Pi-vs-i.pdf")
 |---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+------------------------------+---------------------+-----------------------+------------------+---------------------+---------------------+-----------------------+----|
 | 180-331 | 0.8 |  0.5 |  25.07 | 0.07 | 0.01 | 1.35 |  0.05 | 11.0 |  1.3 | 0.0005 |    62.5 |      2.5 | 2.17 +/- 0.18   | 0.02 | 54.4 +/- 4.5    | 0.109 +/- 0.009   | 1.09 +/- 0.09   | 0.178 +/- 0.021 | 663.40 +/- 109.55      | 6.12 +/- 0.88   | 49694.50 +/- 16479.74        | 6.98e-9 +/- 1.15e-9 | 1.94e-9 +/- 3.20e-10  | 3.60 +/- 0.84    | 1.39e11 +/- 5.99e10 | 3.52e12 +/- 5.81e11 | 0.04 +/- 0.02         | x  |
 #+TBLFM: $3=2/$2-2;f1::$14=1/cos($12 +/- $13);f2::$15=sqrt($11)/(1+sqrt($11));f2::$16=$4*$14;f1::$17=$16*$rad*(414 +/- 6.8);f3::$18=$15*$16;f2::$19=$sec*($9 +/- $10)*1e14/((414 +/- 6.8)*$pc);f3::$20=($11*($Mdot*$Vw)*($3+1))/(2*$pi*($15*$17*$pc)**2*1.3*$mp*(2.0*$cs)**2);f2::$21=$18/$19;f2::$22=$20*$21**2*2.0;f2::$23=$20*1.3*$mp*(2.0*$cs)**2;s3::$24=($Mdot*$Vw)/(4*$pi*($17*$pc)**2*(1-$15)**2);s3::$25=$23/$24;f2::$26=$22*$cs + 0.12*($9 +/- $10)*1e14*$alpha*$22**2;s3::$27=$Qh*(1-$fd)/(4*$pi*($17*$pc)**2);s3::$28=$26/$27;f2
+
+*** Deduciendo la densidad a partir del parámetro $\beta$ y utilizando el modelo frío de Gagne:2005
+:PROPERTIES:
+:TABLE_EXPORT_FILE: wind-fits-beta-Gagne.tab
+:TABLE_EXPORT_FORMAT: orgtbl-to-tsv
+:END:
+#+CONSTANTS: pi=3.14159265358979323846 :: pc=3.086e18 :: sec=206264.8 :: M=3.0 :: Mdot=3.47e19 :: Vw=2.76e8 :: mp=1.67262158e-24 :: cs=11e5 :: rad=4.84814e-6 :: alpha=2.6e-13 :: fd=0.5 :: Qh=1e49
+| Fuente  |  xi |    k | D'(as) |   q' |  dq' | \Pi' | d\Pi' |  r14 | dr14 |  \beta | i (deg) | di (deg) | sec(i)          |    q | D(as)           | D(pc)             | R0(as)          | r0              | n                      | R0/r0           | n0                            | P(in)               | P(wind)               | P(in)/P(wind)    | F(photo)             | F(star)             | F(ph)/F(*)              | *  |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| LV2     | 0.8 |  0.5 |   7.76 | 0.25 | 0.01 |  1.5 |  0.05 |  7.1 |  0.4 |  0.005 |      65 |      2.5 | 2.37 +/- 0.22   | 0.07 | 18.4 +/- 1.7    | 0.037 +/- 0.003   | 1.29 +/- 0.12   | 0.115 +/- 0.007 | 7557.18 +/- 1225.49    | 11.22 +/- 1.25  | 2854083.90 +/- 786525.52      | 1.79e-7 +/- 2.90e-8 | 6.76e-8 +/- 1.10e-8   | 2.65 +/- 0.61    | 1.84e14 +/- 1.000e14 | 3.05e13 +/- 4.95e12 | 6.03 +/- 3.42           | ** |
+| LV2     | 0.8 |  0.5 |   7.76 | 0.25 | 0.01 |  1.5 |  0.05 |  7.1 |  0.4 |  0.002 |    67.5 |      2.5 | 2.61 +/- 0.28   | 0.04 | 20.3 +/- 2.2    | 0.041 +/- 0.004   | 0.81 +/- 0.09   | 0.115 +/- 0.007 | 7539.31 +/- 1471.08    | 7.04 +/- 0.89   | 1120980.80 +/- 358014.05      | 1.79e-7 +/- 3.48e-8 | 5.17e-8 +/- 1.01e-8   | 3.46 +/- 0.95    | 2.91e13 +/- 1.79e13  | 2.49e13 +/- 4.85e12 | 1.17 +/- 0.75           | x  |
+| LV2     | 0.4 |  3.0 |   7.76 | 0.28 | 0.01 |  1.2 |  0.05 |  7.1 |  0.4 |   0.02 |      45 |      2.5 | 1.41 +/- 0.06   | 0.12 | 10.9 +/- 0.5    | 0.022 +/- 0.001   | 1.31 +/- 0.06   | 0.115 +/- 0.007 | 77585.41 +/- 7053.22   | 11.39 +/- 0.87  | 30195954.51 +/- 5367902.19    | 1.84e-6 +/- 1.67e-7 | 2.14e-7 +/- 1.94e-8   | 8.60 +/- 1.10    | 2.02e16 +/- 7.27e15  | 8.63e13 +/- 7.85e12 | 234.07 +/- 86.89        | xx |
+| LV2     | 0.4 |  3.0 |   7.76 | 0.26 | 0.01 | 1.45 |  0.05 |  7.1 |  0.4 |  0.001 |    82.5 |      2.5 | 7.66 +/- 2.54   | 0.03 | 59.4 +/- 19.7   | 0.119 +/- 0.040   | 1.78 +/- 0.59   | 0.115 +/- 0.007 | 2121.39 +/- 1426.15    | 15.48 +/- 5.22  | 1525048.60 +/- 1452235.01     | 5.02e-8 +/- 3.38e-8 | 6.01e-9 +/- 4.04e-9   | 8.35 +/- 7.95    | 5.32e13 +/- 9.82e13  | 2.95e12 +/- 1.98e12 | 18.03 +/- 35.42         | ** |
+| LV2     | 0.2 |  8.0 |   7.76 |  0.3 | 0.01 | 0.85 |  0.05 |  7.1 |  0.4 |    0.1 |      40 |      2.5 | 1.31 +/- 0.05   | 0.24 | 10.2 +/- 0.4    | 0.020 +/- 8.70e-4 | 2.45 +/- 0.10   | 0.115 +/- 0.007 | 264032.84 +/- 22970.86 | 21.30 +/- 1.56  | 359367177.54 +/- 61224463.54  | 6.25e-6 +/- 5.44e-7 | 3.46e-7 +/- 3.01e-8   | 18.06 +/- 2.22   | 2.86e18 +/- 9.88e17  | 1.04e14 +/- 9.09e12 | 27500.00 +/- 9799.35    | xx |
+| LV2     | 0.2 |  8.0 |   7.76 | 0.25 | 0.01 | 1.45 |  0.05 |  7.1 |  0.4 | 0.0005 |    87.5 |      2.5 | 22.93 +/- 22.91 | 0.02 | 177.9 +/- 177.8 | 0.357 +/- 0.357   | 3.56 +/- 3.56   | 0.115 +/- 0.007 | 596.64 +/- 1193.28     | 30.96 +/- 31.01 | 1715676.98 +/- 4856587.39     | 1.41e-8 +/- 2.83e-8 | 6.54e-10 +/- 1.31e-9  | 21.56 +/- 61.13  | 6.71e13 +/- 3.69e14  | 3.28e11 +/- 6.56e11 | 204.57 +/- 1197.09      | xx |
+| LV2     | 0.2 |  8.0 |   7.76 | 0.31 | 0.01 | 0.85 |  0.05 |  7.1 |  0.4 |    0.1 |    42.5 |      2.5 | 1.36 +/- 0.05   | 0.24 | 10.6 +/- 0.4    | 0.021 +/- 8.76e-4 | 2.54 +/- 0.10   | 0.115 +/- 0.007 | 239485.57 +/- 19979.94 | 22.09 +/- 1.60  | 350583955.71 +/- 58606592.08  | 5.67e-6 +/- 4.73e-7 | 3.14e-7 +/- 2.62e-8   | 18.06 +/- 2.13   | 2.72e18 +/- 9.23e17  | 9.47e13 +/- 7.90e12 | 28722.28 +/- 10036.76   | xx |
+| LV2     | 0.1 | 18.0 |   7.76 | 0.25 | 0.01 | 1.45 |  0.05 |  7.1 |  0.4 | 0.0005 |    87.5 |      2.5 | 22.93 +/- 22.91 | 0.02 | 177.9 +/- 177.8 | 0.357 +/- 0.357   | 3.56 +/- 3.56   | 0.115 +/- 0.007 | 1259.58 +/- 2519.16    | 30.96 +/- 31.01 | 3622003.91 +/- 10252849.87    | 2.98e-8 +/- 5.97e-8 | 6.54e-10 +/- 1.31e-9  | 45.57 +/- 129.09 | 2.95e14 +/- 1.65e15  | 3.28e11 +/- 6.56e11 | 899.39 +/- 5342.42      | xx |
+| LV2     | 0.1 | 18.0 |   7.76 | 0.31 | 0.01 | 0.65 |  0.05 |  7.1 |  0.4 |    0.1 |      55 |      2.5 | 1.74 +/- 0.11   | 0.24 | 13.5 +/- 0.9    | 0.027 +/- 0.002   | 3.24 +/- 0.22   | 0.115 +/- 0.007 | 305845.09 +/- 45310.38 | 28.17 +/- 2.57  | 728109104.22 +/- 171130177.43 | 7.24e-6 +/- 1.07e-6 | 1.90e-7 +/- 2.82e-8   | 38.11 +/- 7.98   | 1.17e19 +/- 5.56e18  | 5.73e13 +/- 8.49e12 | 204188.48 +/- 101640.27 | xx |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| LV2b    | 1.0 |  0.0 |   7.21 |  0.1 | 0.01 | 1.85 |  0.05 |  2.2 |  0.6 |   0.02 |    17.5 |      2.5 | 1.05 +/- 0.01   | 0.12 | 7.6 +/- 7e-2    | 0.015 +/- 2.87e-4 | 0.91 +/- 8.4e-3 | 0.036 +/- 0.010 | 41723.71 +/- 1596.63   | 25.28 +/- 7.03  | 79994165.49 +/- 44595609.91   | 9.88e-7 +/- 3.78e-8 | 4.59e-7 +/- 1.76e-8   | 2.15 +/- 0.12    | 4.40e16 +/- 5.04e16  | 1.86e14 +/- 7.11e12 | 236.56 +/- 271.12       | xx |
+| LV2b    | 1.0 |  0.0 |   7.21 | 0.09 | 0.01 |  1.7 |  0.05 |  2.2 |  0.6 | 0.0005 |      65 |      2.5 | 2.37 +/- 0.22   | 0.02 | 17.1 +/- 1.6    | 0.034 +/- 0.003   | 0.34 +/- 0.03   | 0.036 +/- 0.010 | 7308.87 +/- 1289.80    | 9.44 +/- 2.75   | 1953959.15 +/- 1189504.15     | 1.73e-7 +/- 3.05e-8 | 7.21e-8 +/- 1.27e-8   | 2.40 +/- 0.60    | 2.84e13 +/- 3.27e13  | 3.61e13 +/- 6.38e12 | 0.79 +/- 0.92           | x  |
+| LV2b    | 0.8 |  0.5 |   7.21 | 0.11 | 0.01 | 1.65 |  0.05 |  2.2 |  0.6 |   0.01 |    22.5 |      2.5 | 1.08 +/- 0.02   | 0.09 | 7.8 +/- 0.1     | 0.016 +/- 3.26e-4 | 0.70 +/- 9e-3   | 0.036 +/- 0.010 | 48894.97 +/- 1992.47   | 19.44 +/- 5.41  | 55434222.40 +/- 30936404.45   | 1.16e-6 +/- 4.72e-8 | 3.77e-7 +/- 1.54e-8   | 3.08 +/- 0.18    | 2.12e16 +/- 2.42e16  | 1.63e14 +/- 6.65e12 | 130.06 +/- 148.56       | x  |
+| LV2b    | 0.8 |  0.5 |   7.21 |  0.1 | 0.01 | 1.45 |  0.05 |  2.2 |  0.6 |  0.002 |      55 |      2.5 | 1.74 +/- 0.11   | 0.04 | 12.5 +/- 0.8    | 0.025 +/- 0.002   | 0.50 +/- 0.03   | 0.036 +/- 0.010 | 20277.72 +/- 3244.44   | 13.89 +/- 3.95  | 11736669.31 +/- 6934392.89    | 4.80e-7 +/- 7.68e-8 | 1.39e-7 +/- 2.22e-8   | 3.45 +/- 0.78    | 9.58e14 +/- 1.15e15  | 6.68e13 +/- 1.07e13 | 14.34 +/- 17.37         | ** |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| LV3     | 1.0 |  0.0 |   6.89 | 0.33 | 0.01 |  2.1 |  0.05 |  4.5 |  0.6 |  0.001 |      75 |      2.5 | 3.86 +/- 0.63   | 0.03 | 26.6 +/- 4.3    | 0.053 +/- 0.009   | 0.80 +/- 0.13   | 0.073 +/- 0.010 | 2673.64 +/- 908.03     | 10.96 +/- 2.33  | 963485.74 +/- 524302.72       | 6.33e-8 +/- 2.15e-8 | 3.03e-8 +/- 1.03e-8   | 2.09 +/- 1.00    | 1.41e13 +/- 1.43e13  | 1.49e13 +/- 5.05e12 | 0.95 +/- 1.01           | x  |
+| LV3     | 0.8 |  0.5 |   6.89 | 0.33 | 0.01 | 2.05 |  0.05 |  4.5 |  0.6 |   0.06 |      40 |      2.5 | 1.31 +/- 0.05   | 0.20 | 9.0 +/- 0.3     | 0.018 +/- 6.71e-4 | 1.80 +/- 0.06   | 0.073 +/- 0.010 | 46939.17 +/- 3499.58   | 24.66 +/- 3.48  | 85633324.58 +/- 24998050.21   | 1.11e-6 +/- 8.29e-8 | 3.86e-7 +/- 2.88e-8   | 2.88 +/- 0.30    | 1.03e17 +/- 6.17e16  | 1.29e14 +/- 9.61e12 | 798.45 +/- 481.98       | xx |
+| LV3     | 0.8 |  0.5 |   6.89 | 0.33 | 0.01 |  1.7 |  0.05 |  4.5 |  0.6 |   0.02 |    57.5 |      2.5 | 1.86 +/- 0.13   | 0.12 | 12.8 +/- 0.9    | 0.026 +/- 0.002   | 1.54 +/- 0.11   | 0.073 +/- 0.010 | 20830.99 +/- 3204.77   | 21.10 +/- 3.26  | 27822495.17 +/- 9603904.69    | 4.93e-7 +/- 7.59e-8 | 1.53e-7 +/- 2.35e-8   | 3.22 +/- 0.70    | 1.09e16 +/- 7.64e15  | 6.18e13 +/- 9.51e12 | 176.38 +/- 126.57       | x  |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| LV4     | 1.0 |  0.0 |    6.2 | 0.19 | 0.01 | 2.15 |  0.05 |  3.1 |  0.3 |   0.05 |      10 |      2.5 | 1.02 +/- 7.8e-3 | 0.18 | 6.3 +/- 5e-2    | 0.013 +/- 2.31e-4 | 1.13 +/- 9e-3   | 0.050 +/- 0.005 | 61721.46 +/- 2193.49   | 22.60 +/- 2.27  | 94574558.73 +/- 19293616.23   | 1.46e-6 +/- 5.19e-8 | 7.04e-7 +/- 2.50e-8   | 2.07 +/- 0.10    | 8.66e16 +/- 3.63e16  | 2.47e14 +/- 8.79e12 | 350.61 +/- 147.49       | xx |
+| LV4     | 1.0 |  0.0 |    6.2 | 0.19 | 0.01 | 2.05 |  0.05 |  3.1 |  0.3 |   0.02 |    37.5 |      2.5 | 1.26 +/- 0.04   | 0.12 | 7.8 +/- 0.2     | 0.016 +/- 4.77e-4 | 0.94 +/- 0.02   | 0.050 +/- 0.005 | 36671.23 +/- 2186.52   | 18.80 +/- 1.92  | 38883238.59 +/- 8273579.24    | 8.68e-7 +/- 5.18e-8 | 4.04e-7 +/- 2.41e-8   | 2.15 +/- 0.18    | 1.47e16 +/- 6.38e15  | 1.63e14 +/- 9.73e12 | 90.18 +/- 39.51         | x  |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| LV5     | 0.8 |  0.5 |   9.55 | 0.21 | 0.01 |  1.7 |  0.05 |  5.7 |  0.6 |   0.02 |    42.5 |      2.5 | 1.36 +/- 0.05   | 0.12 | 13.0 +/- 0.5    | 0.026 +/- 0.001   | 1.56 +/- 0.06   | 0.092 +/- 0.010 | 20830.99 +/- 1602.38   | 16.96 +/- 1.96  | 17975577.88 +/- 4378784.64    | 4.93e-7 +/- 3.79e-8 | 1.53e-7 +/- 1.18e-8   | 3.22 +/- 0.35    | 5.77e15 +/- 2.86e15  | 6.18e13 +/- 4.75e12 | 93.37 +/- 46.83         | x  |
+| LV5     | 0.8 |  0.5 |   9.55 | 0.21 | 0.01 | 1.45 |  0.05 |  5.7 |  0.6 |  0.001 |      75 |      2.5 | 3.86 +/- 0.63   | 0.03 | 36.9 +/- 6.0    | 0.074 +/- 0.012   | 1.11 +/- 0.18   | 0.092 +/- 0.010 | 2057.23 +/- 667.21     | 12.07 +/- 2.36  | 899122.04 +/- 456793.09       | 4.87e-8 +/- 1.58e-8 | 1.55e-8 +/- 5.04e-9   | 3.14 +/- 1.44    | 1.54e13 +/- 1.47e13  | 7.63e12 +/- 2.47e12 | 2.02 +/- 2.03           | *  |
+| LV5     | 0.8 |  0.5 |   9.55 | 0.21 | 0.01 | 1.45 |  0.05 |  5.7 |  0.6 |  0.005 |    62.5 |      2.5 | 2.17 +/- 0.18   | 0.07 | 20.7 +/- 1.7    | 0.042 +/- 0.003   | 1.45 +/- 0.12   | 0.092 +/- 0.010 | 5864.95 +/- 837.85     | 15.76 +/- 2.15  | 4370166.62 +/- 1345921.00     | 1.39e-7 +/- 1.98e-8 | 5.25e-8 +/- 7.49e-9   | 2.65 +/- 0.53    | 3.44e14 +/- 2.12e14  | 2.37e13 +/- 3.38e12 | 14.51 +/- 9.18          | ** |
+| LV5     | 0.8 |  0.5 |   9.55 | 0.21 | 0.01 | 1.55 |  0.05 |  5.7 |  0.6 |   0.01 |    52.5 |      2.5 | 1.64 +/- 0.09   | 0.09 | 15.7 +/- 0.9    | 0.032 +/- 0.002   | 1.41 +/- 0.08   | 0.092 +/- 0.010 | 12223.74 +/- 1527.97   | 15.33 +/- 1.88  | 8618063.07 +/- 2372438.23     | 2.89e-7 +/- 3.62e-8 | 9.44e-8 +/- 1.18e-8   | 3.06 +/- 0.54    | 1.33e15 +/- 7.40e14  | 4.08e13 +/- 5.10e12 | 32.60 +/- 18.59         | ** |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| 168-328 | 0.8 |  0.5 |   6.83 | 0.15 | 0.01 | 1.55 |  0.05 |  2.5 |  0.3 |  0.005 |    52.5 |      2.5 | 1.64 +/- 0.09   | 0.07 | 11.2 +/- 0.6    | 0.022 +/- 0.001   | 0.78 +/- 0.04   | 0.040 +/- 0.005 | 21375.57 +/- 1943.23   | 19.50 +/- 2.63  | 24384181.48 +/- 6940974.97    | 5.06e-7 +/- 4.60e-8 | 1.91e-7 +/- 1.74e-8   | 2.65 +/- 0.34    | 4.66e15 +/- 2.70e15  | 8.63e13 +/- 7.85e12 | 54.00 +/- 31.67         | *  |
+| 168-328 | 0.8 |  0.5 |   6.83 | 0.15 | 0.01 |  1.4 |  0.05 |  2.5 |  0.3 |  0.001 |    72.5 |      2.5 | 3.33 +/- 0.46   | 0.03 | 22.7 +/- 3.1    | 0.046 +/- 0.006   | 0.68 +/- 0.09   | 0.040 +/- 0.005 | 5323.91 +/- 1388.85    | 17.00 +/- 3.09  | 4615829.97 +/- 2065329.62     | 1.26e-7 +/- 3.29e-8 | 4.02e-8 +/- 1.05e-8   | 3.13 +/- 1.16    | 1.71e14 +/- 1.50e14  | 1.97e13 +/- 5.15e12 | 8.68 +/- 7.95           | ** |
+| 168-328 | 0.8 |  0.5 |   6.83 | 0.15 | 0.01 |  1.4 |  0.05 |  2.5 |  0.3 |  0.002 |    62.5 |      2.5 | 2.17 +/- 0.18   | 0.04 | 14.8 +/- 1.2    | 0.030 +/- 0.002   | 0.59 +/- 0.05   | 0.040 +/- 0.005 | 14081.75 +/- 1877.57   | 14.75 +/- 2.23  | 9190982.20 +/- 3037299.10     | 3.33e-7 +/- 4.45e-8 | 9.65e-8 +/- 1.29e-8   | 3.45 +/- 0.65    | 6.69e14 +/- 4.43e14  | 4.64e13 +/- 6.19e12 | 14.42 +/- 9.74          | ** |
+| 168-328 | 0.4 |  3.0 |   6.83 | 0.15 | 0.01 | 1.35 |  0.05 |  2.5 |  0.3 | 0.0005 |      80 |      2.5 | 5.76 +/- 1.43   | 0.02 | 39.3 +/- 9.8    | 0.079 +/- 0.020   | 0.79 +/- 0.20   | 0.040 +/- 0.005 | 5415.19 +/- 2741.87    | 19.75 +/- 5.58  | 6336787.65 +/- 4807889.13     | 1.28e-7 +/- 6.49e-8 | 1.34e-8 +/- 6.76e-9   | 9.55 +/- 6.83    | 3.20e14 +/- 4.77e14  | 6.69e12 +/- 3.39e12 | 47.83 +/- 75.31         | x  |
+| 168-328 | 0.2 |  8.0 |   6.83 | 0.15 | 0.01 | 1.25 |  0.05 |  2.5 |  0.3 | 0.0005 |    82.5 |      2.5 | 7.66 +/- 2.54   | 0.02 | 52.3 +/- 17.3   | 0.105 +/- 0.035   | 1.05 +/- 0.35   | 0.040 +/- 0.005 | 6897.18 +/- 4598.12    | 26.25 +/- 9.35  | 14257764.28 +/- 13910866.42   | 1.63e-7 +/- 1.09e-7 | 7.56e-9 +/- 5.04e-9   | 21.56 +/- 20.36  | 1.60e15 +/- 3.10e15  | 3.79e12 +/- 2.53e12 | 422.16 +/- 865.13       | xx |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| 169-338 | 1.0 |  0.0 |  16.44 | 0.06 | 0.01 | 1.65 |  0.05 |  2.5 |  0.3 | 0.0005 |    57.5 |      2.5 | 1.86 +/- 0.13   | 0.02 | 30.6 +/- 2.1    | 0.061 +/- 0.004   | 0.61 +/- 0.04   | 0.040 +/- 0.005 | 2270.64 +/- 297.79     | 15.25 +/- 2.15  | 1584197.15 +/- 492645.37      | 5.38e-8 +/- 7.05e-9 | 2.24e-8 +/- 2.94e-9   | 2.40 +/- 0.45    | 2.13e13 +/- 1.24e13  | 1.12e13 +/- 1.47e12 | 1.90 +/- 1.13           | *  |
+| 169-338 | 1.0 |  0.0 |  16.44 | 0.06 | 0.01 | 1.75 |  0.05 |  2.5 |  0.3 |  0.002 |      35 |      2.5 | 1.22 +/- 0.04   | 0.04 | 20.1 +/- 0.7    | 0.040 +/- 0.002   | 0.80 +/- 0.03   | 0.040 +/- 0.005 | 5280.66 +/- 528.07     | 20.00 +/- 2.61  | 6336792.00 +/- 1771143.58     | 1.25e-7 +/- 1.25e-8 | 5.43e-8 +/- 5.43e-9   | 2.30 +/- 0.33    | 3.20e14 +/- 1.79e14  | 2.61e13 +/- 2.61e12 | 12.26 +/- 6.97          | ** |
+| 169-338 | 0.8 |  0.5 |  16.44 | 0.06 | 0.01 | 1.35 |  0.05 |  2.5 |  0.3 | 0.0005 |      60 |      2.5 | 2.00 +/- 0.15   | 0.02 | 32.9 +/- 2.5    | 0.066 +/- 0.005   | 0.66 +/- 0.05   | 0.040 +/- 0.005 | 2909.45 +/- 440.83     | 16.50 +/- 2.41  | 2376293.29 +/- 781984.96      | 6.89e-8 +/- 1.04e-8 | 1.91e-8 +/- 2.90e-9   | 3.61 +/- 0.77    | 4.67e13 +/- 2.95e13  | 9.59e12 +/- 1.45e12 | 4.87 +/- 3.16           | ** |
+| 169-338 | 0.8 |  0.5 |  16.44 | 0.06 | 0.01 | 1.55 |  0.05 |  2.5 |  0.3 |  0.002 |    37.5 |      2.5 | 1.26 +/- 0.04   | 0.04 | 20.7 +/- 0.7    | 0.042 +/- 0.002   | 0.83 +/- 0.03   | 0.040 +/- 0.005 | 7184.57 +/- 684.24     | 20.75 +/- 2.70  | 9280219.26 +/- 2571734.92     | 1.70e-7 +/- 1.62e-8 | 4.92e-8 +/- 4.69e-9   | 3.46 +/- 0.47    | 6.82e14 +/- 3.81e14  | 2.37e13 +/- 2.26e12 | 28.78 +/- 16.31         | ** |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| 177-341 | 0.4 |  3.0 |  25.65 | 0.15 | 0.01 | 1.25 |  0.05 | 18.4 |  1.7 |  0.001 |    77.5 |      2.5 | 4.62 +/- 0.91   | 0.03 | 118.5 +/- 23.3  | 0.238 +/- 0.047   | 3.56 +/- 0.70   | 0.297 +/- 0.028 | 530.35 +/- 209.47      | 11.99 +/- 2.61  | 228729.51 +/- 134452.99       | 1.26e-8 +/- 4.96e-9 | 1.50e-9 +/- 5.93e-10  | 8.40 +/- 4.69    | 3.26e12 +/- 3.54e12  | 7.38e11 +/- 2.91e11 | 4.42 +/- 5.10           | ** |
+| 177-341 | 0.4 |  3.0 |  25.65 | 0.15 | 0.01 | 1.15 |  0.05 | 18.4 |  1.7 |  0.002 |    72.5 |      2.5 | 3.33 +/- 0.46   | 0.04 | 85.4 +/- 11.8   | 0.171 +/- 0.024   | 3.42 +/- 0.47   | 0.297 +/- 0.028 | 1155.78 +/- 324.43     | 11.52 +/- 1.92  | 460152.08 +/- 200525.41       | 2.74e-8 +/- 7.68e-9 | 2.97e-9 +/- 8.34e-10  | 9.23 +/- 3.66    | 1.27e13 +/- 1.07e13  | 1.43e12 +/- 4.01e11 | 8.88 +/- 7.89           | ** |
+| 177-341 | 0.2 |  8.0 |  25.65 | 0.15 | 0.01 | 1.25 |  0.05 | 18.4 |  1.7 | 0.0005 |    82.5 |      2.5 | 7.66 +/- 2.54   | 0.02 | 196.5 +/- 65.2  | 0.394 +/- 0.131   | 3.93 +/- 1.30   | 0.297 +/- 0.028 | 489.84 +/- 325.73      | 13.23 +/- 4.55  | 257214.35 +/- 246080.22       | 1.16e-8 +/- 7.71e-9 | 5.37e-10 +/- 3.57e-10 | 21.60 +/- 20.31  | 4.08e12 +/- 7.28e12  | 2.69e11 +/- 1.79e11 | 15.17 +/- 28.88         | ** |
+| 177-341 | 0.2 |  8.0 |  25.65 | 0.15 | 0.01 | 1.15 |  0.05 | 18.4 |  1.7 |  0.001 |      80 |      2.5 | 5.76 +/- 1.43   | 0.03 | 147.7 +/- 36.7  | 0.296 +/- 0.074   | 4.43 +/- 1.10   | 0.297 +/- 0.028 | 771.46 +/- 385.73      | 14.92 +/- 3.96  | 515195.80 +/- 375698.09       | 1.83e-8 +/- 9.13e-9 | 9.71e-10 +/- 4.85e-10 | 18.85 +/- 13.31  | 1.58e13 +/- 2.23e13  | 4.77e11 +/- 2.38e11 | 33.12 +/- 49.59         | ** |
+| 177-341 | 0.1 | 18.0 |  25.65 | 0.15 | 0.01 | 1.25 |  0.05 | 18.4 |  1.7 | 0.0005 |      85 |      2.5 | 11.47 +/- 5.72  | 0.02 | 294.2 +/- 146.7 | 0.590 +/- 0.295   | 5.88 +/- 2.93   | 0.297 +/- 0.028 | 461.17 +/- 461.17      | 19.80 +/- 10.04 | 542391.26 +/- 772499.75       | 1.09e-8 +/- 1.09e-8 | 2.39e-10 +/- 2.39e-10 | 45.61 +/- 64.50  | 1.75e13 +/- 4.81e13  | 1.20e11 +/- 1.20e11 | 145.83 +/- 426.54       | xx |
+|---------+-----+------+--------+------+------+------+-------+------+------+--------+---------+----------+-----------------+------+-----------------+-------------------+-----------------+-----------------+------------------------+-----------------+-------------------------------+---------------------+-----------------------+------------------+----------------------+---------------------+-------------------------+----|
+| 180-331 | 0.8 |  0.5 |  25.07 | 0.07 | 0.01 | 1.35 |  0.05 | 11.0 |  1.3 | 0.0005 |    62.5 |      2.5 | 2.17 +/- 0.18   | 0.02 | 54.4 +/- 4.5    | 0.109 +/- 0.009   | 1.09 +/- 0.09   | 0.178 +/- 0.021 | 1066.71 +/- 176.15     | 6.12 +/- 0.88   | 119858.95 +/- 39747.74        | 2.53e-8 +/- 4.17e-9 | 7.01e-9 +/- 1.16e-9   | 3.61 +/- 0.84    | 6.25e11 +/- 3.35e11  | 3.52e12 +/- 5.81e11 | 0.18 +/- 0.10           | x  |
+#+TBLFM: $3=2/$2-2;f1::$14=1/cos($12 +/- $13);f2::$15=sqrt($11)/(1+sqrt($11));f2::$16=$4*$14;f1::$17=$16*$rad*(414 +/- 6.8);f3::$18=$15*$16;f2::$19=$sec*($9 +/- $10)*1e14/((414 +/- 6.8)*$pc);f3::$20=($11*($Mdot*$Vw)*($3+1))/(2*$pi*($15*$17*$pc)**2*1.3*$mp*(3.0*$cs)**2);f2::$21=$18/$19;f2::$22=$20*$21**2*3.0;f2::$23=$20*1.3*$mp*(3.0*$cs)**2;s3::$24=($Mdot*$Vw)/(4*$pi*($17*$pc)**2*(1-$15)**2);s3::$25=$23/$24;f2::$26=$22*$cs + 0.12*($9 +/- $10)*1e14*$alpha*$22**2;s3::$27=$Qh*(1-$fd)/(4*$pi*($17*$pc)**2);s3::$28=$26/$27;f2
 
 ** Tabla definitiva que aparecerá en la Tesis
 
