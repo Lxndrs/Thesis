@@ -171,15 +171,15 @@ Las mediciones de los radios característicos y las inclinaciones obtenidas para
   \begin{tabular}{cccc} \toprule
     OW      & Nombre & $r_{\mathrm{IF}, 14}$*     & $N_6$* \\
     \midrule
-    168-328 &        & $2.5 \pm 0.3$  & $4.22^{+2.71}_{-0.51}$ \\
-    169-338 &        & $2.5 \pm 0.3$  & $1.48^{+1.13}_{-0.22}$ \\
-    177-314 & HST1   & $18.4 \pm 1.7$ & $0.43^{+0.15}_{-0.07}$ \\ 
-    180-331 &        & $11.0 \pm 1.3$ & $0.51^{+0.32}_{-0.11}$ \\
-    167-317 & LV2    & $7.1 \pm 0.4$  & $2.67^{+1.24}_{-0.30}$ \\
-    166-316 & LV2b   & $2.2 \pm 0.6$  & $4.35^{+3.03}_{-1.34}$ \\
-    163-317 & LV3    & $4.5 \pm 0.6$  & $3.28^{+1.98}_{-0.88}$ \\
-    161-324 & LV4    & $3.1 \pm 0.3$  & $4.35^{+2.49}_{-0.77}$ \\
-    158-323 & LV5    & $5.7 \pm 0.6$  & $2.46^{+1.45}_{-0.60}$ \\
+    168-328 &        & $2.7 \pm 0.3$  & $4.08 \pm 0.48$ \\
+    169-338 &        & $2.7 \pm 0.3$  & $1.43 \pm 1.09$ \\
+    177-314 & HST1   & $19.6 \pm 1.9$ & $0.42 \pm 0.06$ \\ 
+    180-331 &        & $11.7 \pm 1.3$ & $0.49 \pm 0.08$ \\
+    167-317 & LV2    & $7.6 \pm 0.4$  & $2.65 \pm 0.23$ \\
+    166-316 & LV2b   & $2.4 \pm 0.6$  & $4.21 \pm 1.21$ \\
+    163-317 & LV3    & $4.8 \pm 0.7$  & $3.19 \pm 0.71$ \\
+    161-324 & LV4    & $3.4 \pm 0.3$  & $4.21 \pm 0.63$ \\
+    158-323 & LV5    & $6.1 \pm 0.7$  & $2.37 \pm 0.47$ \\
   \bottomrule
   \end{tabular}
   \begin{minipage}{0.9\linewidth}
@@ -195,7 +195,7 @@ Las mediciones de los radios característicos y las inclinaciones obtenidas para
 %
   Col.~(4): Densidad máxima del IF, en unidades de \SI{e6}{cm^{-3}}
 %
-  * En la Col.~(3) la corrección por distancia se da como sigue: $r_{\mathrm{IF}, 14} = r_{\mathrm{IF}, 14}^{\mathrm{HA}}\frac{\SI{414}{pc}}{\SI{460}{pc}}$, mientras que en la Col.~(4) la corrección es $N_6 = N_6^{\mathrm{HA}}\left(\frac{\SI{414}{pc}}{\SI{460}{pc}}\right)^{-1/2}$, donde además la cantidad $N_6^{\mathrm{HA}}$ está reducida a solo las dos terceras parte de lo que se reporta en \citet{HA:1998}.
+  * En la Col.~(3) la corrección por distancia se da como sigue: $r_{\mathrm{IF}, 14} = r_{\mathrm{IF}, 14}^{\mathrm{GAH}}\frac{\SI{414}{pc}}{\SI{430}{pc}}$, mientras que en la Col.~(4) la corrección es $N_6 = N_6^{\mathrm{GAH}}\left(\frac{\SI{414}{pc}}{\SI{430}{pc}}\right)^{-1/2}$, donde $r_{\mathrm{IF}, 14}^{\mathrm{GAH}}$ y $N_6^{\mathrm{GAH}}$ son el radio del frente de ionización medido en unidades de \SI{e14}{cm} y su densidad medida en unidades de \SI{e6}{cm^{-3}} extraídos de \citet{Garcia-Arredondo:2001}.
   \end{minipage}
 \end{table}
 
@@ -273,19 +273,19 @@ Por último, la presión ram del viento de \thC{} en función de la distancia ra
 
 En la figura \ref{fig:wind-fits} mostramos diagramas log-log de flujo vs distancia y presión vs distancia de los proplyds (mostrados en colores) junto con el flujo y presión del viento de \thC{} (mostrados con la líneas gruesas semi-transparentes). En el diagrama de la presión, la línea azul representan dos modelos para el viento estelar de \thC{} utilizados en \citet{Gagne:2005}: el modelo \textit{frío} (azul), apropiado para una estrella O7, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ y una velocidad terminal del viento de $v_{w1} = \SI{2760}{km.s^{-1}}$, también existe el modelo \textit{caliente}, apropiado para una estrella tipo O5.5, utiliza una tasa de pérdida de masa de $\dot{M}^0_{w1} = \SI{1.4e-6}{M_\odot.yr^{-1}}$ y una velocidad del viento de $v_{w1} = \SI{2980}{km.s^{-1}}$ (en la línea gris la tasa de pérdida de masa es de $\dot{M}^0_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ y la velocidad terminal del viento es de $v_{w1} = \SI{1400}{km.s^{-1}}$, \citet{GAH:2002}). Sin embargo, los diferentes métodos para determinar los parámetros del viento de \thC{} llevan a calcular el cociente $\dot{M}_{w1}/v_{w1}$ en vez de dichos parámetros en particular. Entonces se asume un valor plausible para la velocidad terminal $v_{w1}$ del viento y en consecuencia se estima la tasa de pérdida de masa \citep{Garcia-Arredondo:2001}. Midiendo el ancho equivalente de la línea de \Ion{H}{\alpha}, se encuentra un cociente de $\dot{M}_{-7}/v_{3} = 3.85$, donde $\dot{M}_{-7}$ es la tasa de pérdida de masa medida en unidades de \SI{e-7}{M_\odot.yr^{-1}}, y $v_3$ es la velocidad terminal del viento en unidades de \SI{e3}{km.s^{-1}} \citep{Garcia-Arredondo:2001}. Sin embargo, existe una variabilidad en el viento de \thC{} y probablemente el valor de  $\dot{M}_{-7}/v_{3}$ encontrado mediante el ancho equivalente de \Ion{H}{\alpha} sea un límite superior, y que el valor promedio de este cociente sea aproximadamente la mitad, es decir, $\dot{M}_{-7}/v_{3} \simeq 1.9$. En \citet{Garcia-Arredondo:2001} se aplica el criterio adicional de que $\dot{M}_{w1}v_{w1} = 4.2$ para que se cumpla la condición de equilibrio de presión ram de LV2 a una inclinación de $i=50^\circ$ (equivalente a $40^\circ$ en este trabajo, siendo que el ángulo de inclinación utilizado en \citet{Garcia-Arredondo:2001} es el ángulo complementario de la inclinación utilizada en este trabajo). De esta forma la tasa de pérdida de masa $\dot{M}^0_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ y la velocidad terminal $v_{w1} = \SI{1400}{km.s^{-1}}$ cumplen estos criterios. Por otro lado, en el modelo \textit{caliente} de \citet{Gagne:2005} se encuentra que $\dot{M}_{-7}/v_{3} \simeq 4.7$, demasiado alto respecto a lo que predice el ancho equivalente de la línea de \Ion{H}{\alpha}, por lo tanto, es poco realista utilizarlo para modelar el viento de \thC{}. Sin embargo, el modelo \textit{frío} predice que $\dot{M}_{-7}/v_{3} \simeq 2$, ligeramente por encima del $1.9$ que predice el ancho equivalente de la línea de \Ion{H}{\alpha}, por lo que si relajamos el criterio de que $\dot{M}_{w1}v_{w1} = 4.2$ entonces este modelo no es totalmente descartable.
 
-En todos los casos utilizamos el radio del frente de ionización reportado en \citet{HA:1998}, tabla 2, pero escalados a la distancia a ONC utilizada en este trabajo ($414 \pm \SI{6.8}{pc}$, \citet{Menten:2007}), y mostrados en la columna 3 de la tabla \ref{tab:Prop-IF-par}, para la densidad utilizamos dos modelos diferentes:
+En todos los casos utilizamos el radio del frente de ionización reportado en \citet{Garcia-Arredondo:2001}, tabla 1, pero escalados a la distancia a ONC utilizada en este trabajo ($414 \pm \SI{6.8}{pc}$, \citet{Menten:2007}), y mostrados en la columna 3 de la tabla \ref{tab:Prop-IF-par}, para la densidad utilizamos dos modelos diferentes:
 
 \begin{enumerate}[A.]
-\item Utilizando los perfiles de brillo y la densidad máxima del frente de ionización obtenidos en \citet{HA:1998}, pero escalando por la distancia a \thC{} (columna 4 de la tabla \ref{tab:Prop-IF-par})
+\item Utilizando los perfiles de brillo y la densidad máxima del frente de ionización obtenidos en \citet{Garcia-Arredondo:2001}, pero escalando por la distancia a \thC{} (columna 4 de la tabla \ref{tab:Prop-IF-par})
 \item A partir de nuestras propias mediciones de la tasa de momentos $\beta$, y utilizando las ecuaciones (\ref{eq:beta-def}, \ref{eq:inner-dot-M}) la densidad se calcula como sigue:
 
   \begin{align}
     n_{ps} = \frac{\beta\left(\dot{M}^0_{w1}v_{w1}\right)\left(k + 1\right)}{2\pi R^2_0 \bar{m}\left(M c_{\mathrm{II}}\right)^2} \label{eq:b-density}
   \end{align}
-\item Como referencia mostramos el modelo HA, donde utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998}, tabla 2.
+\item Como referencia mostramos el modelo GAH, donde utilizamos las densidades de la columna 4 de la tabla \ref{tab:Prop-IF-par} y las inclinaciones reportadas en \citet{HA:1998}, tabla 2, excepto por LV2, donde la inclinación es corregida a $i=40^\circ \pm 10^\circ$ \citep{Henney:2002, Garcia-Arredondo:2001}.
 \end{enumerate}
 
 
-Para todos los modelos, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de Mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión pero sí con el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Otra observación importante es que en los modelos A y HA no parece existir una correlación entre las presiones ram de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B sí existe una dependencia con distancia, que ajusta muy bien con el modelo \textit{frío} de \citet{Gagne:2005}, aunque es cuestionable si los valores utilizados en este modelo para $\dot{M}_{w1}$ y $v_{w1}$ son válidos. También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
+Para todos los modelos, suponemos que el número de Mach del flujo fotoevaporado en la posición del choque es de $M=[2, 3]$, que es un intervalo plausible para la velocidad del flujo fotoevaporado. Algunas observaciones cualitativas son las siguientes: la variación con el número de Mach en la presión en los Modelos A y HA es pequeña (la diferencia entre los diagramas con $M=3$ y $M=2$ es de $\log\left(\frac{P_{\mathrm{in}}(M=2)}{P_{\mathrm{in}}(M=3)}\right)\simeq -0.35$) mientras que en el modelo B no existe variación en la presión con velocidad pero sí en el flujo, a través de las ecuaciones (\ref{eq:F-ph}, \ref{eq:density-scale} y \ref{eq:b-density}). Debido a la dependencia de la densidad del viento interior con los parámetros del viento exterior en el modelo B, éste está subdividido en modelo B.1, donde se usan los parámetros del viento exterior de \citet{GAH:2002}, y modelo B.2, donde se utilizan los parámetros del modelo \textit{frío} de \citet{Gagne:2005} (ver continuación de la figura \ref{fig:wind-fits}). Otra observación importante es que en los modelos A y GAH no parece existir una correlación entre las presiones ram de los proplyds con su distancia a \thC{}, aunque algunos proplyds se encuentran en equilibrio de presión con el viento de \thC{}. Por otro lado, en el modelo B la presión ram del viento interior es proporcional a $D^{-2}$, pero está por encima de la presión ram del viento de \thC{}. %También se observa que los proplyds más lejanos, 177-341 y 180-331 están por encima de equilibrio de presión en los tres modelos para la densidad. Esto puede deberse a que a estas distancias la presión del viento estelar deja de ser dominante y otros factores empiezan a ser importantes (ver por ejemplo \citet{GAH:2002}). Esto también puede atribuirse a que el viento de \thC{} no sea isotrópico.
 
 Los resultados de este capítulo serán enviados a una revista próximamente.

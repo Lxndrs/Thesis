@@ -62,7 +62,8 @@ if "beta" in table:
     model = "B.1"
     if "Gagne" in table:
         model = "B.2"
-
+if "HA98" in table:
+    model = "HA"
 
 # Read parameters table
 tab = Table.read('../'+table, format='ascii.tab')
@@ -116,10 +117,10 @@ fd = 0.5 # Asortion by dust factor
 Fs = Qh*(1-fd)/(4*np.pi*(D_arr*PC)**2)
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 ax1.loglog(D_arr, Fs, c='k', alpha=0.1, lw=10, label='')
-if model == "A": # in model A and HA can display both outer winds: GAH:2002 and cool model
+if model == "A": # in model A can display both outer winds: GAH:2002 and cool model
     ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
     ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')
-elif model == "B.1": # in model B.1 only the GAH:2002 must be displayed
+elif (model == "B.1") or (model=="HA"): # in model B.1 or HA only the GAH:2002 must be displayed
     ax2.loglog(D_arr, Pw/k_Boltzmann, c='k', alpha=0.1, lw=10, label='')
 else: # in the B.2 model, only the cool model must be displayed
     ax2.loglog(D_arr, Pw_cool/k_Boltzmann, c='b', alpha=0.1, lw=10, label='')  
