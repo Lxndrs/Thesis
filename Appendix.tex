@@ -3,14 +3,14 @@
 % \addappheadtotoc
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-\chapter[Regiones \Ion{H}{II}]{Regiones \boldmath{\Ion{H}{II}} \citep{Stahler:2004}}
+\chapter[Regiones \Ion{H}{II}]{Regiones \Ion{H}{II} \citep{Stahler:2004}}
 \label{app:HII}
 
 %\newcommand\N{\ensuremath{\mathcal{N}}}
 
 Consideremos el caso en que se forma una estrella masiva dentro de una nube molecular, que por simplicidad está compuesta exclusivamente de hidrógeno molecular $\mathrm{H_2}$. La estrella masiva emite fotones ultravioleta que tienen la energía suficiente para disociar el $\mathrm{H_2}$  como para ionizar el hidrógeno atómico resultante. Luego el plasma ionizado se recombina para volver a ser \Ion{H}{I} emitiendo líneas espectrales de diversas energías, siendo la más energética la línea de \Ion{Ly}{\alpha}. Como al realizar una ionización se pierde un fotón ionizante y el flujo de radiación proveniente de la estrella es finito, entonces la estrella solo puede ionizar la región de la nube más próxima a ésta. Si suponemos que la nube tiene densidad uniforme, entonces esta región tendrá forma esférica, conocida como \textit{esfera de Strömgren}.
 
-\section{Esfera de Strömgren}
+\section{Esfera de Strömgren \citep{Stahler:2004}}
 
 El plasma ionizado dentro de la esfera de Strömgren se encuentra en balance de ionización, esto es, que la tasas de ionización y la de recombinación son iguales. La tasa de ionizaciones es igual a la cantidad de fotones ionizantes que emite la estrella central por segundo. Esto es, los fotones que poseen una energía mayor al límite de Lymann, que corresponde a  $E = \SI{13.6}{eV}$, o bien $\lambda = \SI{912}{\angstrom}$. En la tabla \ref{tab:ionizing-radiation} se muestra la tasa de fotones ionizantes $\Nio_*$ para estrellas masivas de tipo espectral O y B temprano.
 
@@ -56,10 +56,20 @@ Donde $\sigma_{\nu_1}$ es la sección recta de un átomo de hidrógeno en el est
 
 Sin embargo, las esferas de Strömgren no son objetos estáticos, sino que se expanden con el tiempo. Este proceso ocurre en dos etapas: en la primera inicialmente no existe ninguna región \Ion{H}{II} pero que la radiación ultravioleta de la estrella hace que se expanda de manera exponencial al disociar e ionizar el gas a su alrededor hasta alcanzar el radio de Strömgren. Posteriormente la diferencia de presiones entre el gas ionizado de la región \Ion{H}{II} y del gas neutro circundante, provoca una segunda expansión con forma de ley de potencias hasta alcanzar equilibrio de presiones.
 
-\section{Flujos de Champaña}
-La segunda expansión lleva a que la región \Ion{H}{II} se expanda dos órdenes de magnitud por encima del radio de Strömgren, pero el tiempo que toma alcanzar dichas dimensiones es tan largo que la estrella central muere antes de se alcanze el equilibrio de presiones. Sin embargo, es más probable que el frente de ionización rebase el borde de la nube molecular donde se formó, y en este caso el gas ionizado altamente presurizado escapa directamente hacia el medio interestelar que lo rodea (que tiene una presión aún menor que la de la nube molecular), creando el \textit{Flujo de champaña}.
+\section{Flujos de Champaña}% (\citet{Stahler:2004}, \citet{Tenorio:1979})}
+La segunda expansión lleva a que la región \Ion{H}{II} se expanda dos órdenes de magnitud por encima del radio de Strömgren, pero el tiempo que toma alcanzar dichas dimensiones es tan largo que la estrella central muere antes de se alcanze el equilibrio de presiones. Sin embargo, es más probable que el frente de ionización rebase el borde de la nube molecular donde se formó, y en este caso el gas ionizado altamente presurizado escapa directamente hacia el medio interestelar que lo rodea (que tiene una presión aún menor que la de la nube molecular), creando el \textit{Flujo de champaña} \citep{Stahler:2004}. El escenario se muestra en la figura \ref{fig:champagne-Tenorio}.
 
-\section{Características de la emisión}
+\begin{figure}
+  \centering
+  \begin{tabular}{c}
+  \includegraphics[width=0.71\linewidth]{./Figures/Tenorio-Tagle-champagne-1} \\ \includegraphics[width=0.71\linewidth]{./Figures/Tenorio-Tagle-champagne-2} \\
+    \includegraphics[width=0.71\linewidth]{./Figures/Tenorio-Tagle-champagne-3} \\ \includegraphics[width=0.71\linewidth]{./Figures/Tenorio-Tagle-champagne-4}
+  \end{tabular}
+  \caption{Formación de un flujo de champaña \citep{Tenorio:1979}}
+  \label{fig:champagne-Tenorio}
+\end{figure}
+
+\section{Características de la emisión} %\citep{Stahler:2004}}
 
 Tradicionalmente la línea de \Ion{H}{\alpha} es la que se utiliza para detectar regiones \Ion{H}{II} en el óptico, sin embargo, otras líneas espectrales, tales como iones de carbono, oxígeno y nitrógeno también son importantes. Es más, aunque estos iones son relativamente poco abundantes, poseen estados meta-estables que pueden ser excitados por electrones del ambiente que tengan solo unos pocos eV de energía, y posteriormente emitir líneas prohibidas de emisión. La sección transversal para la excitación de la línea es relativamente grande, aun más que la de la recombinación electrón-protón, por lo que la emisión de líneas prohibidas es un proceso de enfriamiento más eficaz que la recombinación en cascada del hidrógeno. Los iones más comunes de estos metales son los que están ionizados varias veces, tales como el [\Ion{O}{II}], que emite en óptico el doblete $\lambda\lambda 3726-\SI{3729}{\angstrom}$, el [\Ion{O}{III}], que emite en óptico el doblete $\lambda\lambda 4959-\SI{5007}{\angstrom}$, el [\Ion{N}{II}] que tiene dos transiciones que emiten a las longitudes de onda de $\lambda \SI{6583}{\angstrom}$ y $\lambda \SI{6548}{\angstrom}}$, y el [\Ion{C}{IV}] a $\lambda \SI{1549}{\angstrom}$ en ultravioleta.
 Por otro lado, en radio continuo observamos radiación libre-libre. A bajas frecuencias, donde la aproximación de Rayleigh-Jeans es válida, el coeficiente de absorción es proporcional a $\nu^{-2}$. Por tanto, a bajas frecuencias la región \Ion{H}{II} es ópticamente gruesa respecto a frecuencias más altas. En el régimen ópticamente grueso, la emisividad es proporcional a $\nu^{2}$ y la pendiente nos da una estimación directa de la temperatura. Por otro lado, en el régimen ópticamente delgado, el flujo es proporcional a la medida de emisión, por lo que teniendo la región \Ion{H}{II} espacialmente resuelta, podemos tener una estimación de la densidad electrónica.
@@ -70,7 +80,7 @@ Por otro lado, en radio continuo observamos radiación libre-libre. A bajas frec
 \label{app:shocks}
 \thispagestyle{empty}
 Algunas veces en un medio gaseoso pueden existir discontinuidades importantes en alguna de sus propiedades físicas, cuando estas propiedades son la presión, densidad y temperatura del gas nos estamos refiriendo a un choque, que es producido cuando el gas sufre una perturbación a una velocidad superior a la del sonido, mientras que si la discontinuidad ocurre en el grado de ionización del gas, entonces esta discontinuidad es conocida como frente de ionización. En esta sección analizaremos las condiciones de salto tanto de los choques como de los frentes de ionización para conocer las propiedades del gas en las dos interfaces de la discontinuidad.
-\section{Choques}
+\section{Choques (condiciones de salto)}
 
 Consideremos un fluído que tiene densidad $\rho_1$, presión $P_1$ y se mueve en la dirección de eje $+x$ con velocidad $u_1$. En la posición $x = s(t)$ existe un choque que se mueve a velocidad $u_0\equiv \frac{ds}{dt}$. Delante del choque el fluído tiene densidad $\rho_2$, presión $P_2$ y se mueve a velocidad $u_2$.
 
@@ -79,7 +89,7 @@ Antes y después del choque escogemos dos puntos arbitrarios, $x_1$ y $x_2$, res
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{./Figures/shock}
-  \caption{Representación esquemática de un fluido con una discontinuidad situada en $x=s(t)$. Detrás y delante del choque en las posiciones $x=x_1$ y $x=x_2$, respectivamente, situamos dos superficies paralelas al choque y que están en co-movimiento con éste.}
+  \caption[Esquema de discontinuidad de contacto.]{Representación esquemática de un fluido con una discontinuidad situada en $x=s(t)$. Detrás y delante del choque en las posiciones $x=x_1$ y $x=x_2$, respectivamente, situamos dos superficies paralelas al choque y que están en co-movimiento con éste.}
   \label{fig:shock}
 \end{figure}
 
@@ -139,7 +149,7 @@ Utilizando la ecuación (\ref{eq:dj-dt-lim}) en (\ref{eq:rho-dx}) obtenemos la p
 Aplicando a su vez en la ecuación (\ref{eq:u-rho-dx}) con ayuda de la ecuación (\ref{eq:jump-1}) obtenemos la siguiente condición de salto:
 
 \begin{align}
-  \rho_1v^2_1 = \rho_2v^2_2 \label{eq:jump-2}
+  \rho_1v^2_1 + P_1 = \rho_2v^2_2 + P_2\label{eq:jump-2}
 \end{align}
 
 Por último, la última condición de salto, solo válida para sistemas adiabáticos es, utilizando la ecuación (\ref{eq:rho-u2-epsilon-dx}) es:
@@ -164,20 +174,21 @@ De esta forma, la nueva condición de salto en caso de un choque radiativo es:
 
 
 \section{Frentes de Ionización}
-Para esta sección, utilizaremos el subíndice ``0'' para las propiedades del gas en la interfaz neutra, mientras que para la interfaz ionizada utilizaremos el subídice ``i'' (ver figura \ref{fig:IF}). Bajo esta nomenclatura, combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:jump-2}) para las condiciones de salto en el Frente de ionización y reescribiendo la presión en términos de la velocidad del sonido:
+\label{app:ionization-front}
+Para esta sección, utilizaremos el subíndice ``0'' para las propiedades del gas en la interfaz neutra, mientras que para la interfaz ionizada utilizaremos el subídice ``i'' (ver figura \ref{fig:IF}). Bajo esta nomenclatura, combinamos las ecuaciones (\ref{eq:jump-1}, \ref{eq:jump-2}) para las condiciones de salto en el frente de ionización y reescribiendo la presión en términos de la velocidad del sonido:
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.8\linewidth]{./Figures/IF}
-  \caption{Representación esquemática de la estuctura de un frente de ionización. En un medio gaseoso, con densidad $\rho_0$, presión $P_0$ y que se mueve velocidad $v_1$ está expuesto a radiación ionizante con flujo $\Nio_*$. El gas ionizado tiene densidad $\rho_i$, presión $P_i$ y se mueve a velocidad $v_i$. Las velocidades están medidas en el sistema de referencia del frente de ionización.}
+  \caption[Esquema de la esructura de un frente de ionización.]{Representación esquemática de la estuctura de un frente de ionización. En un medio gaseoso, con densidad $\rho_0$, presión $P_0$ y que se mueve velocidad $v_1$ está expuesto a radiación ionizante con una tasa de fotnes ionizantes $\Nio_*$. El gas ionizado tiene densidad $\rho_i$, presión $P_i$ y se mueve a velocidad $v_i$. Las velocidades están medidas en el sistema de referencia del frente de ionización.}
   \label{fig:IF}
 \end{figure*}
 
 \begin{align}
   P_x = c^2_x\rho_x
 \end{align}
-
-Donde el subíndice ``x'' puede hacer referencia tanto al medio neutro o ionizado, encontramos el salto en densidad del frente de ionización:
+donde el subíndice ``x'' puede hacer referencia tanto al medio neutro o ionizado.
+En la ecuación para la energía, son los fotones estelares los que determinan la temperatura del gas y se asume que la temperatura del frente de ionización se calienta a la temperatura de la región \Ion{H}{II} de manera instantánea. Con esto, encontramos el salto en densidad del frente de ionización:
 
 \begin{align}
   \frac{\rho_i}{\rho_0} = \frac{1}{2c^2_i}\left[v^2_0 + c^2_0 \pm \left(\left(v^2_0 + c^2_0\right)^2 -4v^2_0c^2_i\right)^{1/2}\right]
@@ -216,10 +227,11 @@ Cuando $\mathcal{M} \geq \mathcal{M}_R$, el frente de ionización se denomina ti
     \includegraphics[width=0.5\linewidth]{./Figures/IF-types} &
     \includegraphics[width=0.5\linewidth]{./Figures/IF-vel-jump}
   \end{tabular}
-  \caption{Soluciones para el salto en (a) densidad y (b) velocidad de un frente de ionización. La línea punteada representa la solución a la ecuación (\ref{eq:IF-jump-density})cuando se utiliza el signo negativo, mientras que la línea contínua a la solución con signo positivo. En la región sombreada en verde se muestran los frentes tipo D y en la región azul los frentes tipo R. Los frentes tipo D crítico y R crítico ocurren donde se intersectan las soluciones con las líneas punteadas verticales.}
+  \caption[Soluciones del salto de densidad y velocidad en un frente de ionización en función del número de Mach del medio neutro.]{Soluciones para el salto en (a) densidad y (b) velocidad de un frente de ionización. La línea punteada representa la solución a la ecuación (\ref{eq:IF-jump-density}) cuando se utiliza el signo negativo, mientras que la línea contínua a la solución con signo positivo. En la región sombreada en verde se muestran los frentes tipo D y en la región azul los frentes tipo R. Los frentes tipo D crítico y R crítico ocurren donde se intersectan las soluciones con las líneas punteadas verticales.}
   \label{fig:IF-jump}
 \end{figure}
 Por otro lado, el salto en velocidad lo podemos derivar combinando las ecuaciones (\ref{eq:jump-1}, \ref{eq:IF-jump-density}). El resultado se muestra en la figura \ref{fig:IF-jump}b. En el caso de los frentes R crítico y D crítico, la velocidad del gas en el medio ionizado es igual a la velocidad del sonido.
+
 
 \chapter[Radio de Curvatura]{Derivación Matemática del Radio de Curvatura}
 \label{app:math-curvature-radius}
@@ -336,6 +348,47 @@ Sustituyendo en la ecuación (\ref{eq:Rc-generic}) obtenemos la planitud en el �
 
 Por esto en el apéndice \ref{app:derivation-radii} para encontrar el radio de curvatura nos enfocamos en encontrar
 el coeficiente de segundo orden en la expansión en serie de $R(\theta)$.
+
+\chapter[Paraboloide]{Planitud y alatud aparente del paraboloide}
+\label{app:paraboloid}
+Las ecuaciones (\ref{eq:x-quadric}, \ref{eq:y-quadric}) en el plano $\phi = 0$ no funcionan para el caso particular de la paraboloide, donde $\Q=0$. En su lugar, utilizamos la siguiente parametrización:
+
+\begin{align}
+  x &= R_0\left(1 - \frac{1}{2}\Pi t^2\right) \label{eq:x-parabola}\\
+  y &= R_0 \Pi t \label{eq:y-parabola}
+\end{align}
+
+En este caso, tenemos conocimiento previo de la planitud, y por definición, la alatud $(\Lambda=\left(2\Pi\right)^{1/2})$, ver ecuación \ref{eq:quadric-parameter-pi-lambda}. Utilizando la ecuación \ref{eq:rotation} sobre las ecuaciones (\ref{eq:x-parabola}, \ref{eq:y-parabola}) previamente aplicando la matriz de rotación $A_x(\phi)$, encontramos la forma proyectada de la línea tangente:
+
+\begin{align}
+  x'_T /R_0 &= \left(1 - \frac{1}{2}\Pi t^2\right)\cos{i} - \Pi t\sin\phi_T\sin{i} \\
+  y'_T/R_0 &= \Pi t\cos\phi_T
+\end{align}
+
+De las ecuaciones (\ref{eq:tan-alpha}, \ref{eq:phi-tan}) encontramos que $\sin\phi_T = -t^{-1}\tan{i}$, por lo tanto:
+\begin{align}
+    x'_T /R_0 &= \cos{i}\left[1 + \frac{1}{2}\Pi t \tan^2i - \frac{1}{2}\Pi\left(t^2 - \tan^2i\right)\right] \label{eq:xp-parabola}\\
+  y'_T/R_0 &= \Pi\left(t^2 - \tan^2i\right)^{1/2}\label{eq:yp-parabola}
+\end{align}
+
+El radio proyectado en el ápex es el valor de $x'_T$ cuando $y'_T = 0$, lo que nos lleva a:
+\begin{align}
+  R'_0/R_0 = \cos{i}\left(1 + \frac{1}{2}\Pi\tan^2i\right)
+\end{align}
+esta expresión también se puede obtener al obtener el límite de la ecuación (\ref{eq:R0p-R0-quad}) cuando $\Q\to 0$.
+
+Las ecuaciones (\ref{eq:xp-parabola}, \ref{eq:yp-parabola}) pueden reescribirse como:
+\begin{align}
+  x'_T &= R'_0\left(1 - \frac{1}{2}\Pi' t'^2\right) \\
+  y'_T &= R'_0\Pi' t'
+\end{align}
+donde:
+\begin{align}
+  \Pi' &= \frac{2\Pi}{2\cos^2i + \Pi\sin^2i} \label{eq:proj-planitude-parabola}\\
+  t' &= \cos{i}\left(t^2 - \tan^2i\right)^{1/2}
+\end{align}
+
+La ecuación (\ref{eq:proj-planitude-parabola}) también puede obtenerse al aplicar el límite $\Q\to 0$ a la ecuación (\ref{eq:quadrics-planitude-prime}). Ésto nos muestra que la forma proyectada es efectivamente una parábola para todas las inclinaciones. Entonces la alatud proyectada se puede calcular como $\Lambda' = \left(2\Pi'\right)^{1/2}$, se puede demostrar que en el límite $i\to 90^\circ$ la planitud y la alatud proyectadas tienden a 2 y que la estas cantidades son independientes de la inclinación para el paraboloide confocal $(\Pi=\Lambda=2)$.
 
 \chapter[Matrices de Rotación]{Matrices de Rotación y Proyección en el Plano del Cielo.}
 \label{app:matrix}
@@ -549,6 +602,18 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
   \Pi = \frac{5}{3}
 \end{align}
 
+\chapter{Otros modelos donde se forman arcos similares}
+\label{app:future-work}
+Consideramos el escenario donde una estrella con luminosidad bolométrica $L$ interactuando con una corriente de gas y polvo formando una emisión en forma de arco. Esta corriente puede ser por ejemplo un flujo de champaña dentro de una región \Ion{H}{II}, o bien puede deberse al movimiento relativo de la estrella con el medio interestelar, incluso el viento de otra estrella. A menudo estas estructuras se interpretan como choques de proa, como los que hemos descrito en este trabajo, pero existen otras interpretaciones que pueden ser más acertadas en otros casos, como las \textit{ondas de proa} conducidas por presión de radiación, propuesta inicialmente por \citet{Van-Buren:1988}. Los fotones estelares en este caso son absorbidos por el polvo. La transferencia de momento es suficiente como para desviar al polvo y formar una cavidad libre de polvo a una determinada distancia de la estrella y en el borde la densidad del polvo está incrementada. Dependiendo del acoplamiento entre gas y polvo pueden existir dos regímenes: cuando el acoplamiento es fuerte, tanto el gas como el polvo son desviados por la presión de radiación formando un arco similar a los choques de proa formados por la interacción de vientos, y cuando el acoplamiento es débil, solo el polvo es desviado por la presión de radiación, formando una \textit{onda de polvo} desacoplándose del gas. Estos escenarios son descritos en la figura \ref{fig:bow-wave}.
+
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./Figures/bows-and-waves}
+  \caption[Choques de proa, ondas de proa, ondas de polvo y choques de proa de radiación.]{Choques de proa, ondas de proa, ondas de polvo y choques de proa de radiación. Estos últimos se forman cuando la opacidad de la corriente externa es alta y la radiación de la estrella le transfiere todo su momento al polvo.}
+  \label{fig:bow-wave}
+\end{figure}
+
+
 
 \chapter{True Versus Apparent Shapes of Bowshocks}
 \label{app:article}
@@ -556,7 +621,7 @@ sustituyendo este valor en la ecuación (\ref{eq:Rc-nose}) encontramos que
 
 Este artículo contiene gran parte de esta Tesis, actualmente publicado en la revista Monthly Notices of the Royal Astronomical Society (MNRAS) en Marzo de 2018 \citep{Tarango-Yong:2018a}. 
 \setkeys{pdfpages}{pages=-}
-\includepdf{quadrics-bowshock.pdf}
+\includepdf{sty669.pdf}
 
 \listoffigures
 \listoftables

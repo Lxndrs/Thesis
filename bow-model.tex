@@ -1,12 +1,12 @@
 \chapter{Conceptos fundamentales}
 \label{chap:Modelo-generico}
 \thispagestyle{empty}
- Para este trabajo consideramos en general tres modelos de interacción de vientos, actualmente publicado \citep{Tarango-Yong:2018a}, y anexado en esta tesis en el apéndice \ref{app:article}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. Los modelos considerados en este trabajo se describen brevemente a continuación:
+ Para este trabajo consideramos en general tres modelos de interacción de vientos en estado estacionario, actualmente publicado \citep{Tarango-Yong:2018a}, y anexado en esta tesis en el apéndice \ref{app:article}. Sin embargo, solamente la sección \ref{sec:fundamental-parameters} está basada en \citet{Canto:1996}. La suposición de estado estacionario es buena siempre y cuando las variaciones temporales de alguno de los vientos en interacción ocurran por lo menos en escalas de tiempo suficientemente largas como para que no haya cambios notables en la forma de los choques a lo largo de diferentes épocas. Dicho esto, los modelos considerados en este trabajo se describen brevemente a continuación:
 
 \begin{itemize}
-\item Una fuente localizada en el origen que emite un viento esférico con densidad isotrópica (figura \ref{fig:isotropic-aniso}, esquina superior izquierda) no acelerado que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Cantoides''\footnote{En referencia a J. Cantó, quien encontró la solución al problema de dos vientos en la aproximación de capa delgada en \citet{Canto:1996}}. 
-\item  Una fuente localizada en el origen que emite un viento esférico no acelerado cuya densidad varía como una ley de potencias de $\cos\theta$, cuyo índice denotamos como $k$, y $\theta$ es el ángulo polar de las coordenadas esféricas (figura \ref{fig:isotropic-aniso}, esquina superior derecha y páneles inferiores), que interactúa con el viento esférico isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Ancantoides''\footnote{En inglés Ancantoid, abreviación de ``Anisotropic Cantoid''}.
-\item Una fuente localizada en el origen que emite un viento esférico isotrópico no acelerado que interactúa con un viento plano paralelo no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides''\footnote{En referencia a F.P. Wilkin, quien en \citet{Wilkin:1996} resolvió el problema de dos vientos entre un viento esférico isotrópico y un viento plano-paralelo de densidad uniforme en la aproximación de capa delgada. El término fue acuñado en \citet{Cox:2012} y en este trabajo fue adoptado.}.
+\item Una fuente localizada en el origen que emite un viento esférico supersónico con densidad isotrópica (figura \ref{fig:isotropic-aniso}, esquina superior izquierda) no acelerado que interactúa con el viento esférico supersónico e isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Cantoides''\footnote{En referencia a J. Cantó, quien encontró la solución al problema de dos vientos en la aproximación de capa delgada en \citet{Canto:1996}}. 
+\item  Una fuente localizada en el origen que emite un viento esférico supersónico no acelerado cuya densidad varía como una ley de potencias de $\cos\theta$, cuyo índice denotamos como $k$, y $\theta$ es el ángulo polar de las coordenadas esféricas (figura \ref{fig:isotropic-aniso}, esquina superior derecha y páneles inferiores), que interactúa con el viento esférico supersónico e isotrópico de otra fuente que se encuentra a una distancia $D$ de la primera (figura \ref{fig:crw-esquema}a). A los choques de proa resultantes se conocen como ``Ancantoides''\footnote{En inglés Ancantoid, abreviación de ``Anisotropic Cantoid''}.
+\item Una fuente localizada en el origen que emite un viento esférico supersónico, isotrópico y no acelerado que interactúa con un viento plano paralelo supersónico, no acelerado y densidad constante (figura \ref{fig:crw-esquema}b). Los choques resultantes en este caso se conocen como ``Wilkinoides''\footnote{En referencia a F.P. Wilkin, quien en \citet{Wilkin:1996} resolvió el problema de dos vientos entre un viento esférico isotrópico y un viento plano-paralelo de densidad uniforme en la aproximación de capa delgada. El término fue acuñado en \citet{Cox:2012} y en este trabajo fue adoptado.}.
 \end{itemize}
 Para caracterizar al choque de proa utilizaremos coordenadas esféricas, siguiendo la simetría del viento interior. La forma del choque de proa medido a partir del origen es $R(\theta, \phi)$, donde $\theta$ y $\phi$ son el ángulo polar y azimutal, respectivamente. Asumiendo simetría cilíndrica en el sistema, esta función se simplifica a $R(\theta)$, y la forma del choque se puede representar con una curva bidimensional, donde el ángulo azimutal $\phi$ es constante. De esta manera, la forma del choque en coordenadas cartesianas se obtiene mediante la conocida tranformación de coordenadas polares a cartesianas:
 
@@ -39,7 +39,7 @@ El valor mínimo de $R(\theta)$, bajo las condiciones ya mencionadas, ocurre en 
   \frac{R_0}{D} = \frac{\beta^{1/2}}{1 + \beta^{1/2}}
 \end{align}
 
-Donde $\beta$ es el cociente de la tasa de momentos entre los vientos en interacción. La tasa de pérdida de masa del viento interior es $\dot{M}_w$ y su velocidad terminal es $v_w$ y para el viento exterior estas cantidades son $\dot{M}_{w1}$ y $v_{w1}$. De esta forma, la tasa de momentos es:
+Donde $\beta$ es el cociente de la tasa de momentos entre los vientos en interacción. La tasa de pérdida de masa del viento interior es $\dot{M}_w$ y su velocidad terminal es $v_w$ y para el viento exterior estas cantidades son $\dot{M}_{w1}$ y $v_{w1}$. De esta forma, la tasa de momentos suponiendo que ambos vientos sean esféricos e isotrópicos es:
 
 \begin{align}
   \beta = \frac{\dot{M}_w v_w}{\dot{M}_{w1} v_{w1}} \label{eq:beta-def}
@@ -112,8 +112,8 @@ La forma de la cuádrica en el plano $xy$ se muestra en la figura \ref{fig:conic
 %\end{itemize}
 De esta manera hacemos la representación paramétrica de las curvas cónicas en términos de un parámetro adimensional denotado con la letra $t$:
 \begin{align}
-  x &= x_0 + \sigma a\Cos(t) \\
-  y &= b\Sin(t) 
+  x &= x_0 + \sigma a\Cos(t) \label{eq:x-quadric}\\
+  y &= b\Sin(t) \label{eq:y-quadric}
 \end{align}
 Donde:
 \begin{align}
@@ -140,7 +140,7 @@ El tipo de cónica lo podemos caracterizar mediante el parámetro $\Q$, donde:
 \begin{align}
   \Q \equiv \sigma\frac{b^2}{a^2} \label{eq:conic-parameter-a-b}
 \end{align}
-Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q = 1$ y el paraboloide $\Q = 0$. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
+Para las superficies abiertas (hiperboloides) tenemos que $\Q < 0$, mientras que para las superficies cerradas tenemos que $\Q > 0$. Casos particulares son la esfera $\Q = 1$ y el paraboloide $\Q = 0$\footnote{En el apéndice \ref{app:paraboloid} examinamos los resultados de esta sección y de la \S \ref{sec:tangent-line} para el caso particular del paraboloide.}. De manera equivalente se puede definir el ángulo $\theta_Q$ como sigue:
 \begin{align}
   \tan\theta_Q = \sigma \frac{b}{a} \label{eq:thc}
 \end{align}
@@ -264,7 +264,7 @@ Definimos los vectores $\hat{n}$ y $\hat{t}$, como los vectores normal y tangent
 \end{align}
 Donde:
 \begin{align}
-  \tan\alpha = -\frac{dy}{dx} = \frac{1+\omega\tan\theta}{\tan\theta-\omega}
+  \tan\alpha = -\frac{dy}{dx} = \frac{1+\omega\tan\theta}{\tan\theta-\omega} \label{eq:tan-alpha}
 \end{align}
 y:
 \begin{align}
