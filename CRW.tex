@@ -74,7 +74,7 @@ Resolviendo (\ref{eq:general-inner-dot-M}) para vientos con densidades dadas por
 \begin{align}
   \dot{M}_w = \dot{M}^0_w\left\lbrace
   \begin{array}{lr}
-    \left(1 - \cos^k\theta\right) & \mathrm{Ancantoides} \\
+	  \left(1 - \cos^{k+1}\theta\right) & \mathrm{Ancantoides} \\
     \frac{1}{2} \left(1 - \cos\theta\right) & \mathrm{Cantoides}
   \end{array}\right. \label{eq:inner-dot-M}
 \end{align}
@@ -89,16 +89,18 @@ Donde:
 
 Con esto, obtenemos las tasas de momento y momento angular. Para los choques cantoides, los resultados corresponden a las ecuaciones (9-11) de \CRW{}, sin embargo, para los choques ancantoides, las tasas de momento (axial y radial) y momento angular están dados por:
 \begin{align}
-  \dot{\Pi}_{wz} &= \int^{\mathrm{min}(\theta, \pi/2)}_0 v_w\cos\theta~d\dot{M}_w = \frac{v_w \dot{M}^0_w}{2\left(k+2\right)}\mathrm{max}\left(1 - \cos^{k+2}\theta, 1\right) \label{eq:Pi-wz} \\
-  \dot{\Pi}_{wr} &= \int^{\mathrm{min}(\theta, \pi/2)}_0 v_w\sin\theta~d\dot{M}_w = \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
-  \dot{J}_w &= \int^{\mathrm{min}(\theta, \pi/2)}_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0 \label{eq:inner-dot-J}
+	\dot{\Pi}_{wz} &= \int^{\mathrm{max}(\theta, \pi/2)}_0 v_w\cos\theta~d\dot{M}_w = \frac{\dot{M}^0_wv_w(k+1)}{k+2}\mathrm{max}\left(1 - \cos^{k+2}\theta, 1\right) \label{eq:Pi-wz} \\
+  \dot{\Pi}_{wr} &= \int^{\mathrm{max}(\theta, \pi/2)}_0 v_w\sin\theta~d\dot{M}_w = \frac{1}{2}\dot{M}^0_w v_w I_k(\theta) \\
+  \dot{J}_w &= \int^{\mathrm{max}(\theta, \pi/2)}_0 |\vec{R} \times \vec{v}_w|d\dot{M}_w = 0 \label{eq:inner-dot-J}
 \end{align}
 
 Donde:
 \begin{align}
   I_k(\theta) = \int^{\mathrm{min}(\theta, \pi/2)}_0 \cos^k\theta \sin^2\theta~d\theta \label{eq:Ikt}
 \end{align}
- Esta última integral tiene una solución analítica en términos de una función hipergeométrica de la forma ${}_2F_1\left(-\frac{1}{2}; \frac{1+k}{2}; \frac{3+k}{2}; \cos^2\theta\right)$. En el caso particular $k=1/2$, este resultado se ``simplifica'' a una integral de segundo tipo de la forma $E\left(\frac{\theta}{2} | 2\right)$, pero es más sencillo calcular estas integrales de manera numérica. La tasa de momento angular para el viento interior es cero debido a que éste se mide respecto al origen, donde se localiza la fuente con menor momento. En este punto los vectores de posición y velocidad para un valor de $\theta$ dado son paralelos.
+y $\mathrm{max}(x,y)$ significa que el valor máximo que puede tomar la variable $x$ es $y$.
+
+ La integral (\ref{eq:Ikt}) tiene una solución analítica en términos de una función hipergeométrica de la forma ${}_2F_1\left(-\frac{1}{2}; \frac{1+k}{2}; \frac{3+k}{2}; \cos^2\theta\right)$. En el caso particular $k=1/2$, este resultado se ``simplifica'' a una integral de segundo tipo de la forma $E\left(\frac{\theta}{2} | 2\right)$, pero es más sencillo calcular estas integrales de manera numérica. La tasa de momento angular para el viento interior es cero debido a que éste se mide respecto al origen, donde se localiza la fuente con menor momento. En este punto los vectores de posición y velocidad para un valor de $\theta$ dado son paralelos.
 
 Para el viento exterior utilizamos las ecuaciones (12-15) y (19-22) de \CRW{} sin cambiar, que corresponden a las ecuaciones (\ref{eq:w-dotm} - \ref{eq:w-jw1}) y (\ref{eq:c-dotm}-\ref{eq:J1}) respectivamente, pero las incluímos en las siguientes secciones por completez.
 
@@ -217,7 +219,7 @@ Este resultado se muestra en la figura \ref{fig:wilkinoid-solution}, junto con c
 
 \begin{figure*}
   \centering
-  \includegraphics[\linewidth]{./Figures/Pi-vs-Lambda}
+  \includegraphics[width=\linewidth]{./Figures/Pi-vs-Lambda}
   \caption[Diagrama $\Lambda-\Pi$ para choques cantoides, ancantoides y wilkinoides.]{Diagrama $\Lambda-\Pi$ para choques cantoides, ancantoides y wilkinoides. En cada curva tenemos un valor diferente para el parámetro de anisotropía $k$. En cada línea, $\beta$ varía en el rango $[0, 1]$, y los parámetros $(\Pi, \Lambda)$ fueron calculados de acuerdo a los resultados del apéndice \ref{app:derivation-radii}. Los círculos del color de las líneas representan valores particulares de $\beta$: $10^{-3}$, $10^{-2}$, 0.1 y 0.5, y con la diferencia de que el coeficiente de segundo orden de la ecuación \ref{eq:CRW-Rc} para la planitud $\Pi$ fue obtenido de manera numérica con el fin de utilizar este método para encontrar la planitud aparente con la ecuación \ref{eq:Rc-prime}.}
   \label{fig:true-Pi-Lambda}
 \end{figure*}
