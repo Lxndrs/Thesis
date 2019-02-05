@@ -3,6 +3,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{color}
 \usepackage{natbib}
@@ -297,7 +298,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   \twocols{\begin{block}{}
       To characterize the shape of a given bow shock we use a set of parameters:
       \begin{itemize}
-      \item \textbf<2>{The radius at the apex, called $R_0$, which gives us the bow shock physical scale, and is computed as the minimum of $R(\theta)$}
+      \item \textbf<2>{The radius at the apex, called $R_0$, which gives us the bow shock physical scale, and is defined as the minimum of $R(\theta)$}
       \item \textbf<3>{The assymptotic angle $\theta_\infty$ of the far wings (which usually is not measurable)}
       \item \textbf<4>{The planitude $\Pi\equiv R_c/R_0$, which measures how flat is the apex}
         \item \textbf<5>{The alatude $\Lambda\equiv R_{90}/R_0$, which measures how open the wings are}
@@ -619,7 +620,7 @@ For ``open'' shapes, when $i$ is large enough, there is no tangent line for any 
 \frame[label=shape]{\frametitle{Discontinuity Contact Shape}
   \twocols{\begin{block}{}
 	  \small
-      The shape of the dicontinuity contact $R(\theta)$ is give by equation (6) of \citep{Canto:1996}:\\
+      The shape of the dicontinuity contact $R(\theta)$ is given by equation (6) of \citep{Canto:1996}:\\
       \includegraphics[width=\linewidth]{../Figures/eq-6-CRW} \\
 	  Where the algebraic form of these quantities for the ancantoid inner winds (without the ``1'' suffix) are described \hyperlink{integrals}{\beamergotobutton{HERE}. For the outer winds (suffix ``1'') (equations (12-15) and (19-22) of \citet{Canto:1996} click \hyperlink{outer-wind}{\beamergotobutton{HERE}}) and for the inner wind for the cantoid and wilkinoid case (equations (8-11) of \citet{Canto:1996}, click \hyperlink{cantoid-int}{\beamergotobutton{HERE}}}
     \end{block}}{\begin{block}{}
@@ -712,7 +713,7 @@ Where:
 	\only<2-3>{Cantoids:
 	\begin{align*}
 		\frac{\sqrt{3}}{\left(1+\frac{1}{5}\beta\right)^{1/2}\left(1-\beta^{1/2}\right)}
-	\end{align}}
+	\end{align*}}
 	\only<3>{Wilkinoids:
 	\begin{align*}
 		\Lambda = \sqrt{3}
@@ -748,10 +749,10 @@ Where:
 	\end{block}}
 }
 
-\frame{\frametitle{Projected Planitude and Alatude: $\Lambda-\Pi$ diagram}
-\twocols{\begin{block}{}
+\frame[label=thin-shell-diagram]{\frametitle{Projected Planitude and Alatude: $\Lambda-\Pi$ diagram}
+\twocols{\begin{block}{Main notes}
 	\only<1>{The circle shows the shape of the bow shock in the body frame $(i=0)$ and the inclination grows along the curve. For low $\beta$ the apparent shape changes from ellipsoid to hyperboloid.}
-	\only<2>{The ancantoids show a ``kink'' at an inclination shuch that the apparent apex passes through the inner wind discontinuity, where the second derivative of $R(\theta)$ has a slope deviation. This kink softens as the anisotropy parameter increases.}
+	\only<2>{The ancantoids show a ``kink'' at an inclination shuch that the apparent apex passes through the inner wind discontinuity, where the second derivative of $R(\theta)$ has a slope deviation. This kink softens as the anisotropy parameter increases. \hyperlink{2-derivative}{\beamergotobutton{Click HERE}}}
 	\only<3>{The wilkinoid track does not show sustancial variations.}
 \end{block}}{\begin{block}{}
 	\includegraphics<1>[width=\linewidth]{../Figures/ancantoid-R90-vs-Rc-a}
@@ -805,10 +806,190 @@ Where:
 	\includegraphics<3>[width=\linewidth]{../Figures/obs-diagnostic-Pi-R0-k30}
 \end{block}}
 }
-\frame{\frametitle{ionization and ram pressure balance}
+\frame[label=i-balance]{\frametitle{Ionization and ram pressure balance}
+\begin{block}{}
+	Having the true distance $D$ estimated, we may evaluate ionization equilibrium in the photoevaporated flux.
+\end{block}
+\twocolspic{\begin{block}{Ionization equilibrium condition}
+	\small
+	\begin{align*}
+		F_* = u_{IF}n_{IF} + \omega r_{IF}\alpha'_{rec}n_{IF}^2
+	\end{align*}
+\end{block}
+\begin{block}{Ionizing flux from the star.}
+	\begin{align*}
+		F_* = \frac{(1-f_d)\mathcal{N}_*}{4\pi D^2}
+	\end{align*}
+\end{block}
+}{\begin{block}{}
+	\includegraphics[width=\linewidth]{../Figures/ionization-balance}
+\end{block}}
+}
 
+\frame{\frametitle{Ionization and ram pressure balance}
+\twocols{\begin{block}{Inner wind pressure in the shell.}
+	\begin{align*}
+		P_{in} = \rho_{ps}v_w^2
+	\end{align*}
+\end{block}
+\begin{block}{Star's ram pressure}
+	\begin{align*}
+		P_*(r) = \frac{\dot{M}_{w1}v_{w1}}{4\pi r^2}
+	\end{align*}
+\end{block}}{\begin{block}{}
+	\includegraphics[width=\linewidth]{../Figures/pressure-equilibrium}
+\end{block}}
+}
+\frame{\frametitle{\thC{} wind parameters}
+\begin{block}{}
+	For the outer wind coming from \thC{} we have the observational constrain \citep{Garcia-Arredondo:2001} that the ratio $\dot{M}_{-7}/v_3$ must be about 2. The two models which fullfill this condition are the following:
+	\twocols{\begin{block}{\citep{GAH:2002}}
+		\begin{align*}
+			\dot{M}_{w1} &= \SI{3.5e-7}{M_\odot.yr^{-1}} \\
+			v_{w1} &= \SI{1200}{km.s^{-1}}
+		\end{align*}
+		This model fullfills the aditional constrain that $\dot{M}_{-7}v_3 = 4.2$.
+	\end{block}}{\begin{block}{\citep{Gagne:2005}}
+		\begin{align*}
+			\dot{M}_{w1} &= \SI{5.5e-7}{M_\odot.yr^{-1}}\\
+			v_{w1} &= \SI{2760}{km.s^{-1}}
+		\end{align*}
+		These values are obtained with X-ray spectroscopy and MHD simulations.
+	\end{block}}
+\end{block}
+}
+\frame{\frametitle{Inner wind density}
+\begin{block}{}
+	For the inner wind density we compare two assumptions. In both cases, we use the ionization front radius reported by \citet{Garcia-Arredondo:2001} but corrected  by a factor of $\simeq 0.96$ due to the distance to orion nebula.
+ \end{block}
+ \twocols{\begin{block}{\small Importing ionization front densities from \citet{Garcia-Arredondo:2001}}
+     \small
+  \begin{tabular}{ccc} \toprule
+    Source  & $r_{\mathrm{IF}, 14}$     & $N_6$ \\
+    \midrule
+    168-328   & $2.7 \pm 0.3$  & $4.08 \pm 0.48$ \\
+    169-338   & $2.7 \pm 0.3$  & $1.43 \pm 1.09$ \\
+    177-314   & $19.6 \pm 1.9$ & $0.42 \pm 0.06$ \\ 
+    180-331   & $11.7 \pm 1.3$ & $0.49 \pm 0.08$ \\
+    LV2       & $7.6 \pm 0.4$  & $2.65 \pm 0.23$ \\
+    LV2b      & $2.4 \pm 0.6$  & $4.21 \pm 1.21$ \\
+    LV3       & $4.8 \pm 0.7$  & $3.19 \pm 0.71$ \\
+    LV4       & $3.4 \pm 0.3$  & $4.21 \pm 0.63$ \\
+    LV5       & $6.1 \pm 0.7$  & $2.37 \pm 0.47$ \\
+  \end{tabular}
+
+\end{block}}{\begin{block}{\small Derivated from our estimations of $\beta$}
+	\small
+We may derive the pre shock wind density as follows:
+	\begin{align*}
+		n_{ps} = \frac{\beta\left(\dot{M}_{w1}v_{w1}\right)}{4\pi R_0^2\mu m_Hv_w^2}
+	\end{align*}
+	Where $\mu=1.3$ for a gas with a sound speed of $\simeq \SI{11}{km.s^{-1}}$. This assumption implies that pressure equilibrium is archived.
+\end{block}}
+}
+
+\frame{\frametitle{Ionization balance and ram pressure equilibrium}
+\twocols{\begin{block}{\only<1-2>{Importing inner wind densities from \citet{Garcia-Arredondo:2001}}\only<3-5>{Derivated inner wind density from estimations of $\beta$}}
+	\only<1-2>{Finally, for the inner wind velocity $v_w$ we tried the range $M=[2,3]$, where $M$ is the Mach number of the inner wind: $M\equiv\frac{v_w}{c_{II}}$.}
+	\only<3-4>{The gray line is the ram pressure of \thC{} obtained by \citet{Garcia-Arredondo:2001, GAH:2002}}
+	\only<5>{The green line is the ram pressure of \thC{} obtained by \citet{Gagne:2005}}
+	\only<6-7>{Finally, we compare with previous work \citep{HA:1998, Garcia-Arredondo:2001, Henney:2002}}
+\end{block}\only<5>{\begin{block}{}
+	Here we note how the ram pressure equilibrium assumption is accomplished.
+\end{block}}}{\begin{block}{\only<1,3,6>{M=2}\only<2,4-5,7>{M=3}}
+	\centering
+	\includegraphics<1>[width=0.75\linewidth]{../Figures/plot-wind-fits-2}
+	\includegraphics<2>[width=0.75\linewidth]{../Figures/plot-wind-fits}
+	\includegraphics<3>[width=0.75\linewidth]{../Figures/plot-wind-fits-beta-2}
+	\includegraphics<4>[width=0.75\linewidth]{../Figures/plot-wind-fits-beta}
+	\includegraphics<5>[width=0.75\linewidth]{../Figures/plot-wind-fits-beta-Gagne}
+	\includegraphics<6>[width=0.75\linewidth]{../Figures/plot-wind-fits-HA98-2}
+	\includegraphics<7>[width=0.75\linewidth]{../Figures/plot-wind-fits-HA98}
+\end{block}}
 }
 \section{Summary and Conclusions}
+
+\frame{\frametitle{Summary and conclusions}
+\begin{block}{}
+	\small
+\begin{itemize}
+	\item The shape of an (ideally) cylindrically symmetric bow shock can be characterized by two adimensional parameters: the planitude $\Pi$ and the alatude $\Lambda$ that can be obtained from theoretical models (such as the thin shell model but not restricted to) or observations.
+	\item We develop a general method to find the projected shape (i.e, the limb brightened edge) or tangent line, described with the parameters $(\Pi', \lambda')$, of a bow shock idealized as a cylindrical surface as a function of the inclination angle $i$.
+	\item This method was applied to find inclination depending curves into the $\Lambda'-\Pi'$ plane for two sets of surfaces:
+		\begin{itemize}
+			\item \textbf{Quadric surfaces}, which are the surfaces of revolution of the conic sections.
+			\item The solutions of the \textbf{Thin Shell Model} \citep{Canto:1996}
+		\end{itemize}
+	\item Open quadrics (hyperboloids) and close quadrics (ellipsoids) occupy different regions of the plane, and the interface between them is occupy by paraboloids. Any given curve does not move from one region to other.
+\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Summary and conclusions}
+\begin{block}{}
+	\small
+	\begin{itemize}{}
+		\item In the $|i|\to 90^\circ$ limit, the apparent shape of all the ellipsoids tend to $\Pi'=\Lambda'=1$,the paraboloids tend to $\Pi'=\Lambda'=2$ and for the hyperboloids $(\Pi', \Lambda')\to(\infty, \infty)$ for a critical inclination $i_{crit}$ where the tangent line only exists for $|i| < i_{crit}$.
+		\item This implies that the apparent shape of the confocal sphere $(\Pi=\Lambda=1)$ and paraboloid $(\Pi=\Lambda=2)$ is independent of inclination.
+	\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Summary and Conclusions}
+\begin{block}{}
+	\begin{itemize}
+		\item For the Thin Shell Model we found the inclination dependent curves for the shape of the discontinuty contact under three scenarios:
+			\begin{itemize}
+				\item A spherically symmetric, isotropic and non accelerated wind interacting with another spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Cantoid}.
+				\item A spherically symmetric, isotropic and non accelerated wind interacting with a plane -- parallel stream of constant velocity and density. The resultant bow shock is called \textit{Wilkinoid}.
+				\item An spherically symmetric, anisotropic and non accelerated wind, where its density follows a power law of $\cos\theta$ interacts with a spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Ancantoid}. 
+			\end{itemize}
+	\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Summary and Conclusions}
+\begin{block}{}
+	\begin{itemize}
+		\item The shape of the discontinuity contact $R(\theta)$ of the wilkinoid shapes is fully characterized with the apex radius $R_0$. For the cantoids the shape is fully characterized with the winds momentum ratio $\beta$. And the ancantoids require additionally the anisotropy index $k$.
+		\item The wilkioid shape acts as the limit of the cantoids when $\beta\to 0$.
+		\item For low $\beta$ and regardless of $k$, the shape of the head fits to an ellipsoid and for higher values it fits better to an hyperboloid. This can be estimated calculating the planitude and alatude for a given $(k, \beta)$.
+		\item The shape of the tail always fits with an hyperboloid, and can be estimated from the assymptotic angle $\theta_\infty$.
+		\item The inclination dependent curves of the thin shell model solutions move from the prolate ellipsoid region to the hyperboloid region as the inclination increases (with the exception of the wilkinoid curve).
+			\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{Summary and Conclusions}
+\begin{block}{}
+	\begin{itemize}
+		\item The inclination dependent curves of the ancantoids show a kink at an inclination such that the aparent apex passes through the point where the inner wind is cut off.
+		\item We apply this work to the bow shocks observed in the core of the Orion Nebula due to the wind/wind interaction between proplyd's photoevaporated flow and \thC{} wind. 
+		\item We measured the projected distance $D'$ to \thC{} for a set of proplyds and the projected planitude $\Pi'$ of their respective bow shock. The projected alatude was not measured due to the decay of emmision with $\theta$.
+		\item We compared visually each measurement of planitude against the thin model predictions. Assuming a given anisotropy index $k$, we obtain may plausible values for the inclination and the winds momentum ratio $\beta$, leading us to estimate the intrinsic dimensions of each bow shock and the intrinsic distance to \thC{}.
+	\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{Summary and Conclusions}
+\begin{block}{}
+	\begin{itemize}
+		\item Following the observational constriction $\dot{M}_{-7}/v_3 \simeq 2$ for the wind of \thC{} \citep{Garcia-Arredondo:2001}, we compared two models for this wind: $\dot{M}_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{1200}{km.s^{-1}}$ \citep{Garcia-Arredondo:2001, GAH:2002}. And $\dot{M}_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{2760}{km.s^{-1}}$ \citep{Gagne:2005}.
+		\item We assume the inner wind velocity lies in the range $M=[2, 3]$, and for the density we may assume that ram pressure balance prevails, so we can derive the density from our estimations of $\beta$, and evaluate only the ionization balance condition. Or import the densities from \citet{Garcia-Arredondo:2001} and evaluate both conditions simultaneously.
+	\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Future work}
+\begin{block}{}
+	\begin{itemize}
+		\item For the Orion Nebula proplyds, improve methodology to obtain $\beta$ and inclinations in order to get a better resolution in the $(\beta, k, i)$ grid. 
+		\item Improve methodology to evaluate balance conditions.
+		\item Develop other models where bow shocks occur besides the thin shell model (Henney et al. in prep)
+		\item Apply the techique developed in this work to other classes of stellar bow shocks: OB runaway stars \citep{Kobulnicky:2016} and red giant and supergiant stars \citep{Cox:2012}. And for LL objects in the outskirts of Orion Nebula \citep{Henney:2013}.
+	\end{itemize}
+\end{block}
+}
+
+\frame{
+	\includegraphics[width=\linewidth]{../Figures/Thanks}
+}
 \frame[allowframebreaks]{\frametitle{References}
 \bibliographystyle{mnras}
 \bibliography{defense_biblio}
@@ -820,7 +1001,6 @@ Where:
     \includegraphics[width=0.5\linewidth]{../Figures/just-in-case}
     \end{block}
 }
-\frame{\frametitle{MPAQ (Most Probably Asked Questions)}}
 
 \frame[label=Rob-image]{
   \begin{block}{}
@@ -903,7 +1083,7 @@ Where:
 	\includegraphics<4>[width=\linewidth]{../Figures/bertholdi-cartoon-3}
 \end{block}}
 }
-\frame{\frametitle{Anosotropy index for proplyds}
+\frame{\frametitle{Anisotropy index for proplyds}
 \begin{block}{}
 	\only<1>{The extreme case $q \gg 1$ implies that most of the incident radiation is absorbed when re-ionizing the recombining gas and only a small fraction reaches the ionizing front and ionizes the neutral gas. In this case we have a thin ionization front, so we have $\phi_q \simeq 1$. That implies that $\ss \simeq -1/2$. \\
 	In the other extreme case $q \ll 1$ we have $q \simeq \phi_q$ that implies $\ss \simeq 0$.
@@ -973,6 +1153,29 @@ Where:
 \end{block}}
 \hyperlink{shape}{\beamergotobutton{Return Button}}
 }
+\frame[label=2-derivative]{\frametitle{$R_{\theta\theta}(\theta)$ vs $\theta$}
+\twocolspic{\begin{block}{}
+	When the inclination is such that the apparent apex passes through the shaded zone, the ``kink'' of the planitude appears
+\end{block}}{\begin{block}{}
+	\includegraphics[width=\linewidth]{../Figures/second-derivative-py}
+\end{block}}
+\hyperlink{thin-shell-diagram}{\beamergotobutton{Return Button}}
+}
+%\frame[label=i-balance-terms]{\frametitle{Ionization balance condition terms}
+%\twocols{\begin{block}{Ionization balance condition}
+%	We have two terms of the ionization balance \citep{Henney:2001}:
+%	\begin{align*}
+%		F_* = v_w(r_{IF})n_{IF} + \omega r_{IF}\alpha'_{rec}n_{IF}^2
+%	\end{align*i}
+	%The first term is the number of particles per unitary surface and per second streaming off the IF and the second term quantifies the recombinations per unitary area and per second of the photoevaporated flux.
+%\end{block}}{\begin{block}{Where:}
+%	$r_{IF}$ is the IF radius.\\
+%	For a D critical IF, we have $v_w(r_{IF})=c_{II} \simeq \SI{11}{km.s^{-1}}$\\
+%	$n_{IF}$ is the maximum density of the IF \\
+
+
+%\end{block}}
+%}
 \end{document}
 
 >
