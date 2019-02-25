@@ -25,6 +25,8 @@
 \setbeamertemplate{section in toc}[square]
 \newcommand\thC{\(\theta^1\)\,Ori~C}
 \newcommand\Ion[2]{\ensuremath{\mathrm{#1\,\scriptstyle #2}}} %Used when naming different ions. Credit: William J. Henney
+\newcommand\Sin{\ensuremath{\mathcal{S}}}
+\newcommand\Cos{\ensuremath{\mathcal{C}}}
 \newcommand{\twocols}[2]{
   \begin{columns}
     \begin{column}{5.8cm}
@@ -46,6 +48,8 @@
     \end{column}
   \end{columns} 
 }
+\newcommand\Q{\ensuremath{\mathcal{Q}}}
+\newcommand\fQi{\ensuremath{f_{\scriptscriptstyle \Q, i}}}
 
 \AtBeginSection[]{%
 \begin{frame}
@@ -72,7 +76,7 @@
 }
 
 \frame{\frametitle{Motivation of this work}
-\twocols{We do this by measuring two adimensional parameters: the planitude $\Pi=R_c/R_0$ and the alatude $\Lambda=R_{90}/R_0$ easily measurables from observations and comparing each other.}{\includegraphics[width=\linewidth]{../Figures/radii-scheme}}
+\twocols{We do this by measuring two non-dimensional parameters: the planitude $\Pi=R_c/R_0$ and the alatude $\Lambda=R_{90}/R_0$, easily measurable from observations.}{\includegraphics[width=\linewidth]{../Figures/radii-scheme}}
 }
 
 \frame{
@@ -103,7 +107,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   \twocols{\begin{block}{}
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
-      \item \textbf{Jets Surface Work}
+      \item \textbf{Jets working surfaces}
       \item Magnetosphere interaction with stellar wind
       \item Stellar Bow shocks
         \begin{itemize}
@@ -124,7 +128,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   \twocols{\begin{block}{}
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
-      \item Jets Surface Work
+      \item Jets working surfaces
       \item \textbf{Magnetosphere interaction with stellar wind}
       \item Stellar Bow shocks
         \begin{itemize}
@@ -145,7 +149,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   \twocols{\begin{block}{}
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
-      \item Jets Surface Work
+      \item Jets working surfaces
       \item Magnetosphere interaction with stellar wind
       \item Stellar Bow shocks
         \begin{itemize}
@@ -166,7 +170,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   \twocols{\begin{block}{}
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
-      \item Jets Surface Work
+      \item Jets working surfaces
       \item Magnetosphere interaction with stellar wind
       \item Stellar Bow shocks
         \begin{itemize}
@@ -188,7 +192,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
       \small
       Bow shocks are emmision arcs produced when some fluid interacts at supersonic speeds with another object. Some astrophysical examples seen in the Interstellar Medium (ISM) are:
       \begin{itemize}
-      \item Jets Surface Work
+      \item Jets working surfaces
       \item Magnetosphere interaction with stellar wind
       \item Stellar Bow shocks
         \begin{itemize}
@@ -264,7 +268,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 }
 \frame{
   \twocolspic{\begin{block}{}
-      The head is shaped by the incident UV radiation from the massive star, forming a D type Ionization Front, while the tail is shaped by diffuse and ionizing radiation.
+      The head is shaped by the incident UV radiation from the massive star, forming a D type Ionization Front, while the tail is shaped by diffuse radiation.
     \end{block}
 }{ \begin{block}{}
     \includegraphics[width=\linewidth]{../Figures/Johnstone-shape} \\
@@ -277,15 +281,15 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 \section{Fundamental Concepts}
 \frame[label=generic-bow]{\frametitle{General Considerations}
   \begin{block}{}
-    For our model for the two winds interaction which forms a bow shock we consider two main scenarios:
+    For our model for the two-winds interaction which forms a bow shock we consider two main scenarios:
   \end{block}
-  \twocols{\begin{block}{}
-      \only<1>{Two wind sources separated by a distance $D$ from each other. The weaker wind is placed at the origin and has any of the profiles of \hyperlink{k-index}{\beamergotobutton{slide 16}}, while the stronger wind is spherical and isotropic.}
-      \includegraphics<2>[width=\linewidth]{../Figures/wilkinoid}
+  \twocolspic{\begin{block}{}
+      \only<1>{A weaker wind placed at the origin, and a stronger wind separated by a distance $D$ from the former one.}
+      \only<2>{The second scenario is a spherical, isotropic wind placed at the origin interacting with a plane-parallel flow with constant density}
       \end{block}
     }{\begin{block}{}
         \includegraphics<1>[width=\linewidth]{../Figures/bowshock-crw-variables}
-        \only<2>{The second scenario is a spherical, isotropic wind placed at the origin interacting with a plane-parallel flow with constant density}
+	\includegraphics<2>[width=\linewidth]{../Figures/wilkinoid} 
       \end{block}
   }
 }
@@ -310,7 +314,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
       To characterize the shape of a given bow shock we use a set of parameters:
       \begin{itemize}
       \item \textbf<2>{The radius at the apex, called $R_0$, which gives us the bow shock physical scale, and is defined as the minimum of $R(\theta)$}
-      \item \textbf<3>{The assymptotic angle $\theta_\infty$ of the far wings (which usually is not measurable)}
+      \item \textbf<3>{The asymptotic angle $\theta_\infty$ of the far wings (which usually is not measurable)}
       \item \textbf<4>{The planitude $\Pi\equiv R_c/R_0$, which measures how flat is the apex}
         \item \textbf<5>{The alatude $\Lambda\equiv R_{90}/R_0$, which measures how open the wings are}
       \end{itemize}
@@ -349,43 +353,15 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
   }
 }
 
-\frame{\frametitle{Quadrics of Revolution: basic definitions}
+\frame[label=quadrics]{\frametitle{Quadrics of Revolution: basic definitions}
   \begin{block}{}
     Our conic section symmetry axis is aligned with the $x$ axis, and the center is displaced from the origin by distance called $x_0$. The physical scale of the conic section is set using the semi-major and semi-minor axis $a$ and $b$.
   \twocols{\includegraphics[width=0.7\linewidth]{../Figures/ellipse_edited}}
   {\includegraphics[width=\linewidth]{../Figures/hyperbola_edited}}
-  \end{block}
+\end{block}
+\hyperlink{parametrization}{\beamergotobutton{To see the parametrization of quadrics click HERE}}
 }
-\newcommand\Sin{\ensuremath{\mathcal{S}}}
-\newcommand\Cos{\ensuremath{\mathcal{C}}}
-\frame{\frametitle{Quadrics of Revolution: basic definitions}
-  \twocols{\begin{block}{Parametrization}
-      \footnotesize
-      \begin{align*}
-        x &= x_0 + \sigma a\Cos(t)\\
-        y &= b\Sin(t) \\
-        \tan\theta &= \frac{b\Sin(t)}{x_0 + \sigma a\Cos(t)}\\
-        R &= \left[\left(x_0 + \sigma a\Cos(t)\right)^2 + b^2\Sin^2(t)\right]^{1/2}
-      \end{align*} 
-    \end{block}}{\begin{block}{where:}
-      \footnotesize
-      \begin{align*}
-        t ~&\forall~ \mathbb{R} \\
-  \Cos(t), \Sin(t) &=\left\lbrace
-  \begin{array}{lr}
-    \cos{t}, \sin t & \mathrm{ellipses}\\
-    \cosh{t}, \sinh{t} & \mathrm{hyperbolas}       
-  \end{array}\right. \\
-  \sigma &= \left\lbrace
-  \begin{array}{lr}
-    +1 & \mathrm{ellipses} \\
-    -1 & \mathrm{hyperbolas}
-  \end{array}\right. \\
-        x_0 &= R_0 -\sigma a %\label{eq:x0}
-      \end{align*}
-    \end{block}}
-}
-\newcommand\Q{\ensuremath{\mathcal{Q}}}
+
 \frame{\frametitle{Quadrics of Revolution: basic definitions}
   \twocols{\begin{block}{}
       The eccentricity is replaced with the quadrics parameter \Q{} defined as:
@@ -523,7 +499,7 @@ For ``open'' shapes, when $i$ is large enough, there is no tangent line for any 
 \end{block}}
 }
 
-\newcommand\fQi{\ensuremath{f_{\scriptscriptstyle \Q, i}}}
+
 \frame[label=proj-shape-quad]{\frametitle{Projected Shape of Quadrics of Revolution}
 \twocols{\begin{block}{In terms of $(a, b, t)$}
 	\includegraphics[width=\linewidth]{../Figures/projection-quad-shape-final-eq}
@@ -1052,7 +1028,37 @@ We may derive the pre shock wind density as follows:
 		\end{align*}
 	\end{block}}
 	\hyperlink{Pi-Lambda}{\beamergotobutton{Return Button}}
+      }
+
+\frame[label=parametrization]{\frametitle{Quadrics of Revolution: Parametrization}
+  \twocols{\begin{block}{Parametrization}
+      \footnotesize
+      \begin{align*}
+        x &= x_0 + \sigma a\Cos(t)\\
+        y &= b\Sin(t) \\
+        \tan\theta &= \frac{b\Sin(t)}{x_0 + \sigma a\Cos(t)}\\
+        R &= \left[\left(x_0 + \sigma a\Cos(t)\right)^2 + b^2\Sin^2(t)\right]^{1/2}
+      \end{align*} 
+    \end{block}}{\begin{block}{where:}
+      \footnotesize
+      \begin{align*}
+        t ~&\forall~ \mathbb{R} \\
+  \Cos(t), \Sin(t) &=\left\lbrace
+  \begin{array}{lr}
+    \cos{t}, \sin t & \mathrm{ellipses}\\
+    \cosh{t}, \sinh{t} & \mathrm{hyperbolas}       
+  \end{array}\right. \\
+  \sigma &= \left\lbrace
+  \begin{array}{lr}
+    +1 & \mathrm{ellipses} \\
+    -1 & \mathrm{hyperbolas}
+  \end{array}\right. \\
+        x_0 &= R_0 -\sigma a %\label{eq:x0}
+      \end{align*}
+    \end{block}}
+  \hyperlink{quadrics}{\beamergotobutton{Return Button}}
 }
+
 \frame[label=matrices]{\frametitle{Useful Matrices}
   \centering
   \includegraphics[width=0.6\linewidth]{../Figures/projection-3d-mat-eq}\\
