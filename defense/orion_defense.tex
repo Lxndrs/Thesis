@@ -444,7 +444,7 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 %}
 \frame[label=tangent-line]{\frametitle{Projection Onto the Plane of Sky}
   \twocols{\begin{block}{Normal and tangent unit vectors}
-      We define the unit vectors $\hat{t}$ and $\hat{n}$ as the tangent and normal vectors to the surface at certain point (to check the expression of each one go to \hyperlink{unit-vec}{\beamergotobutton{this slide}}). The tangent line of the surface at the inclination $i$ is such that the next condition is fullfilled:
+      We define the unit vectors $\hat{t}$ and $\hat{n}$ as the tangent and normal vectors to the surface at certain point (to check the expression of each one go to \hyperlink{unit-vec}{\beamergotobutton{this slide}}). The tangent line of the surface at the inclination $i$ is such that the line of sight is othogonal to the normal unitary vector:
       \begin{align*}
         \hat{n}\cdot\hat{z}' = 0
       \end{align*}
@@ -468,11 +468,11 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 	  \includegraphics[width=\linewidth]{../Figures/projection-3d-shape-final-eq}
     \end{block}}
     \begin{block}{}
-	    Since $z'_T$ is not constant, then the projected shape does not lie in a plane.
+	    Since $z'_T$ is not a linear function of $\theta$, then the projected shape does not lie in a plane.
     \end{block}
 }
 
-\frame{\frametitle{Projected Alatude and Planitude}
+\frame[label=proj-pi-lambda]{\frametitle{Projected Alatude and Planitude}
 \begin{block}{}
 	For an arbitraty inclination, the tangent line does not exist for $\theta < \theta_0$, where:
 \begin{align*}
@@ -481,78 +481,55 @@ Then we apply this tool to the simplest mathematical surfaces: the quadrics of r
 For ``open'' shapes, when $i$ is large enough, there is no tangent line for any $\theta$.
 \end{block}
 \begin{block}{}
-	The projected radius at the apex $R'_0$ is computed as $x'_T$ such that $y'_T=0$:
-	\begin{align*}
-		R'_0 = R(\theta_0)\cos(\theta_0 - |i|)
-	\end{align*}
+  \begin{itemize}
+  \item The projected radius at the apex $R'_0$ is computed as $x'_T$ such that $y'_T=0$:
+  \item $R'_{90}$ is computed as $y'_T$ such that $x'_T=0$
+  \item And the projected radius of curvature is computed as the intrinsic planitude but in the observer frame.
+    \hyperlink{proj-radii}{\beamergotobutton{To see the equations for each radii, click HERE}}
+  \end{itemize}
 \end{block}}
 
-\frame{\frametitle{Projected Alatude and Planitude}
-\twocols{\begin{block}{}$R'_{90}$ is computed as $y'_T$ such that $x'_T=0$:
-	\includegraphics[width=\linewidth]{../Figures/projection-3d-R90-eq}\\
-	Where:\\
-	\includegraphics[width=\linewidth]{../Figures/projection-3d-t90-eq}\\
-	Finally $\Lambda = R'_{90}/R'_0$
-\end{block}}{\begin{block}{}
-	The apparent planitude is computed as the intrinsic planitude but in the observer frame:\\
-	\includegraphics[width=\linewidth]{../Figures/projection-3d-planitude-eq}
-\end{block}}
-}
 
 
-\frame[label=proj-shape-quad]{\frametitle{Projected Shape of Quadrics of Revolution}
-\twocols{\begin{block}{In terms of $(a, b, t)$}
-	\includegraphics[width=\linewidth]{../Figures/projection-quad-shape-final-eq}
-\end{block}}{\begin{block}{In terms of $(a', b', t')$}
-	\begin{align*}
-		x'_T &= a'\Cos(t') + x'_0\\
-		y'_T &= b'\Sin(t')
-	\end{align*}
-\end{block}}
-\twocols{\begin{block}{Where:}
-	\begin{align*}
-		a' &= a\cos i~\fQi \\
-		b' &= b \\
-		\Cos(t') &= \fQi\Cos(t)\\
-		\fQi &= \left(1 + \Q\tan^2i\right)^{1/2}
-	\end{align*}
-\end{block}}{\begin{block}{}
-	With this we show that the projected shape of a quadric is another quadric of the same type. The particular case of the paraboloid is shown \hyperlink{paraboloid}{\beamergotobutton{HERE}}.
-\end{block}}
+
+\frame{\frametitle{Projected Alatude and Planitude of Quadrics of Revolution}
+%\twocols{\begin{block}{Projected apex radius}
+%	\begin{align*}
+%		R'_0/R_0 = \cos i\left[1 + \frac{\Pi}{\Q}(1-\fQi)\right]
+%	\end{align*}
+%\end{block}}{
+  \begin{block}{Projected apex radius}
+    \centering
+	\includegraphics[width=0.6\linewidth]{../Figures/projected-R0-vs-i}
+      \end{block}%}
 }
 
 \frame{\frametitle{Projected Alatude and Planitude of Quadrics of Revolution}
-\twocols{\begin{block}{Projected apex radius}
-	\begin{align*}
-		R'_0/R_0 = \cos i\left[1 + \frac{\Pi}{\Q}(1-\fQi)\right]
-	\end{align*}
-\end{block}}{\begin{block}{}
-	\includegraphics[width=\linewidth]{../Figures/projected-R0-vs-i}
-\end{block}}
-}
-
-\frame{\frametitle{Projected Alatude and Planitude of Quadrics of Revolution}
-\twocolspic{\begin{block}{Projected Planitude}
-	\begin{align*}
-		\Pi' = \frac{\Pi}{(R'_0/R_0)\fQi\cos i}
-	\end{align*}
-\end{block}}{\begin{block}{}
-	\includegraphics[width=\linewidth]{../Figures/projected-Rc-vs-i}
-\end{block}}
+%\twocolspic{\begin{block}{Projected Planitude}
+%	\begin{align*}
+%		\Pi' = \frac{\Pi}{(R'_0/R_0)\fQi\cos i}
+%	\end{align*}
+% \end{block}}{
+  \begin{block}{Projected planitude}
+    \centering
+	\includegraphics[width=0.6\linewidth]{../Figures/projected-Rc-vs-i}
+\end{block}%}
 }
 \frame{\frametitle{Projected Alatude and Planitude of Quadrics of Revolution}
-\twocolspic{\begin{block}{Projected Alatude}
-	\begin{align*}
-		\Lambda' = \left(2\Pi' - \Q'\right)^{1/2}
-	\end{align*}
-	where:
-	\begin{align*}
-		\Q' = \frac{\Q}{\fQi\cos^2i}
-	\end{align*}
-	\includegraphics[width=\linewidth]{../Figures/footnote}
-\end{block}}{\begin{block}{}
-	\includegraphics[width=\linewidth]{../Figures/projected-R90-vs-i}
-\end{block}}
+%\twocolspic{\begin{block}{Projected Alatude}
+%	\begin{align*}
+%		\Lambda' = \left(2\Pi' - \Q'\right)^{1/2}
+%	\end{align*}
+%	where:
+%	\begin{align*}
+%		\Q' = \frac{\Q}{\fQi\cos^2i}
+%	\end{align*}
+%	\includegraphics[width=\linewidth]{../Figures/footnote}
+% \end{block}}{
+  \begin{block}{Projected alatude}
+    \centering
+	\includegraphics[width=0.6\linewidth]{../Figures/projected-R90-vs-i}
+\end{block}%}
 }
 
 \frame{\frametitle{The $\Lambda-\Pi$ Diagram}
@@ -687,56 +664,63 @@ Where:
 	\includegraphics[width=\linewidth]{../Figures/ancantoid-shape}
 \end{block}}
 }
-\frame{\frametitle{Planitude and Alatude}
-\twocols{\begin{block}{Planitude}
-	\only<1>{Ancantoids:
-	\begin{align*}
-		\Pi = \left|1-2\frac{R_{\theta\theta, 0}}{R_0}\right|^{-1}
-	\end{align*}
-	Where:
-	\begin{align*}
-		R_{\theta\theta, 0} &= \frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1+2\beta^{1/2}}{3} \\
-		C_{k\beta} &= \frac{1}{15} - \frac{3k}{20} - \frac{\beta}{15}
-	\end{align*}}
-	\only<2-3>{
-		Cantoids:
-		\begin{align*}
-			\Pi = \frac{5}{3\left(1-\beta^{1/2}\right)}
-		\end{align*}}
-	\only<3>{Wilkinoids:
-	\begin{align*}
-		\Pi = \frac{5}{3}
-	\end{align*}}
-\end{block}}{\begin{block}{Alatude}
-	\only<1>{Ancantoids:
-	\begin{align*}
-		\Lambda = \frac{\left(3\xi\right)^{1/2}(1+\beta^{1/2})}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}(1-\xi\beta)}
-	\end{align*}
-	Where:
-	\begin{align*}
-		\xi = \frac{2}{k+2}
-	\end{align*}}
-	\only<2-3>{Cantoids:
-	\begin{align*}
-		\frac{\sqrt{3}}{\left(1+\frac{1}{5}\beta\right)^{1/2}\left(1-\beta^{1/2}\right)}
-	\end{align*}}
-	\only<3>{Wilkinoids:
-	\begin{align*}
-		\Lambda = \sqrt{3}
-	\end{align*}}
-\end{block}}
+
+\frame{\frametitle{Planitude and alatude}
+  \begin{block}{True $\Lambda-\Pi$ diagram}
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Figures/Pi-vs-Lambda}
+  \end{block}
 }
-\frame{\frametitle{Planitude and Alatude}
-\twocols{\begin{block}{}
-	\begin{align*}
-		\Pi &= \frac{5}{3} \\
-		\Lambda &= \sqrt{3}  
-	\end{align*}
-	Is to note that the Wilkinoid case works as the assymptotic limit of cantoids when $\beta\to 0$
-\end{block}}{\begin{block}{}
-	\includegraphics[width=\linewidth]{../Figures/cantoid-wilkinoid-shape}
-\end{block}}
-}
+%\frame{\frametitle{Planitude and Alatude}
+%\twocols{\begin{block}{Planitude}
+%	\only<1>{Ancantoids:
+%	\begin{align*}
+%		\Pi = \left|1-2\frac{R_{\theta\theta, 0}}{R_0}\right|^{-1}
+%	\end{align*}
+%	Where:
+%	\begin{align*}
+%		R_{\theta\theta, 0} &= \frac{C_{k\beta}}{1+\beta^{1/2}} + \frac{1+2\beta^{1/2}}{3} \\
+%		C_{k\beta} &= \frac{1}{15} - \frac{3k}{20} - \frac{\beta}{15}
+%	\end{align*}}
+%	\only<2-3>{
+%		Cantoids:
+%		\begin{align*}
+%			\Pi = \frac{5}{3\left(1-\beta^{1/2}\right)}
+%		\end{align*}}
+%	\only<3>{Wilkinoids:
+%	\begin{align*}
+%		\Pi = \frac{5}{3}
+%	\end{align*}}
+%\end{block}}{\begin{block}{Alatude}
+%	\only<1>{Ancantoids:
+%	\begin{align*}
+%		\Lambda = \frac{\left(3\xi\right)^{1/2}(1+\beta^{1/2})}{\left(1+\frac{1}{5}\xi\beta\right)^{1/2}(1-\xi\beta)}
+%	\end{align*}
+%	Where:
+%	\begin{align*}
+%		\xi = \frac{2}{k+2}
+%	\end{align*}}
+%	\only<2-3>{Cantoids:
+%	\begin{align*}
+%		\frac{\sqrt{3}}{\left(1+\frac{1}{5}\beta\right)^{1/2}\left(1-\beta^{1/2}\right)}
+%	\end{align*}}
+%	\only<3>{Wilkinoids:
+%	\begin{align*}
+%		\Lambda = \sqrt{3}
+%	\end{align*}}
+%\end{block}}
+%}
+%\frame{\frametitle{Planitude and Alatude}
+%\twocols{\begin{block}{}
+%	\begin{align*}
+%		\Pi &= \frac{5}{3} \\
+%		\Lambda &= \sqrt{3}  
+%	\end{align*}
+%	Is to note that the Wilkinoid case works as the assymptotic limit of cantoids when $\beta\to 0$
+%\end{block}}{\begin{block}{}
+%	\includegraphics[width=\linewidth]{../Figures/cantoid-wilkinoid-shape}
+%\end{block}}
+%}
 \frame{\frametitle{Thin Shell model fits to quadrics of Revolution}
 \twocols{\begin{block}{}
 	\only<1>{Once computed the planitude and alatude, we may estimate the quadrics parameter $\Q$ or the equivalent $\theta_Q$ which approximates the shape of the bow shock head. As well the assymptotic angle $\theta_\infty$ is used to estimate the same parameters for the bow shock tail.}
@@ -913,85 +897,98 @@ We may derive the pre shock wind density as follows:
 	\includegraphics<7>[width=0.75\linewidth]{../Figures/plot-wind-fits-HA98}
 \end{block}}
 }
-\section{Summary and Conclusions}
 
-\frame{\frametitle{Summary and conclusions}
-\begin{block}{}
-	\small
-\begin{itemize}
-	\item The shape of an (ideally) cylindrically symmetric bow shock can be characterized by two adimensional parameters: the planitude $\Pi$ and the alatude $\Lambda$ that can be obtained from theoretical models (such as the thin shell model but not restricted to) or observations.
-	\item We develop a general method to find the projected shape (i.e, the limb brightened edge) or tangent line, described with the parameters $(\Pi', \lambda')$, of a bow shock idealized as a cylindrical surface as a function of the inclination angle $i$.
-	\item This method was applied to find inclination depending curves into the $\Lambda'-\Pi'$ plane for two sets of surfaces:
-		\begin{itemize}
-			\item \textbf{Quadric surfaces}, which are the surfaces of revolution of the conic sections.
-			\item The solutions of the \textbf{Thin Shell Model} \citep{Canto:1996}
-		\end{itemize}
-	\item Open quadrics (hyperboloids) and close quadrics (ellipsoids) occupy different regions of the plane, and the interface between them is occupy by paraboloids. Any given curve does not move from one region to other.
-\end{itemize}
-\end{block}
-}
-\frame{\frametitle{Summary and conclusions}
-\begin{block}{}
-	\small
-	\begin{itemize}{}
-		\item In the $|i|\to 90^\circ$ limit, the apparent shape of all the ellipsoids tend to $\Pi'=\Lambda'=1$,the paraboloids tend to $\Pi'=\Lambda'=2$ and for the hyperboloids $(\Pi', \Lambda')\to(\infty, \infty)$ for a critical inclination $i_{crit}$ where the tangent line only exists for $|i| < i_{crit}$.
-		\item This implies that the apparent shape of the confocal sphere $(\Pi=\Lambda=1)$ and paraboloid $(\Pi=\Lambda=2)$ is independent of inclination.
-	\end{itemize}
-\end{block}
-}
-\frame{\frametitle{Summary and Conclusions}
-\begin{block}{}
-	\begin{itemize}
-		\item For the Thin Shell Model we found the inclination dependent curves for the shape of the discontinuty contact under three scenarios:
-			\begin{itemize}
-				\item A spherically symmetric, isotropic and non accelerated wind interacting with another spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Cantoid}.
-				\item A spherically symmetric, isotropic and non accelerated wind interacting with a plane -- parallel stream of constant velocity and density. The resultant bow shock is called \textit{Wilkinoid}.
-				\item An spherically symmetric, anisotropic and non accelerated wind, where its density follows a power law of $\cos\theta$ interacts with a spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Ancantoid}. 
-			\end{itemize}
-	\end{itemize}
-\end{block}
-}
-\frame{\frametitle{Summary and Conclusions}
-\begin{block}{}
-	\begin{itemize}
-		\item The shape of the discontinuity contact $R(\theta)$ of the wilkinoid shapes is fully characterized with the apex radius $R_0$. For the cantoids the shape is fully characterized with the winds momentum ratio $\beta$. And the ancantoids require additionally the anisotropy index $k$.
-		\item The wilkioid shape acts as the limit of the cantoids when $\beta\to 0$.
-		\item For low $\beta$ and regardless of $k$, the shape of the head fits to an ellipsoid and for higher values it fits better to an hyperboloid. This can be estimated calculating the planitude and alatude for a given $(k, \beta)$.
-		\item The shape of the tail always fits with an hyperboloid, and can be estimated from the assymptotic angle $\theta_\infty$.
-		\item The inclination dependent curves of the thin shell model solutions move from the prolate ellipsoid region to the hyperboloid region as the inclination increases (with the exception of the wilkinoid curve).
-			\end{itemize}
-\end{block}
-}
-
-\frame{\frametitle{Summary and Conclusions}
-\begin{block}{}
-	\begin{itemize}
-		\item The inclination dependent curves of the ancantoids show a kink at an inclination such that the aparent apex passes through the point where the inner wind is cut off.
-		\item We apply this work to the bow shocks observed in the core of the Orion Nebula due to the wind/wind interaction between proplyd's photoevaporated flow and \thC{} wind. 
-		\item We measured the projected distance $D'$ to \thC{} for a set of proplyds and the projected planitude $\Pi'$ of their respective bow shock. The projected alatude was not measured due to the decay of emmision with $\theta$.
-		\item We compared visually each measurement of planitude against the thin model predictions. Assuming a given anisotropy index $k$, we obtain may plausible values for the inclination and the winds momentum ratio $\beta$, leading us to estimate the intrinsic dimensions of each bow shock and the intrinsic distance to \thC{}.
-	\end{itemize}
-\end{block}
-}
-
-\frame{\frametitle{Summary and Conclusions}
-\begin{block}{}
-	\begin{itemize}
-		\item Following the observational constriction $\dot{M}_{-7}/v_3 \simeq 2$ for the wind of \thC{} \citep{Garcia-Arredondo:2001}, we compared two models for this wind: $\dot{M}_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{1200}{km.s^{-1}}$ \citep{Garcia-Arredondo:2001, GAH:2002}. And $\dot{M}_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{2760}{km.s^{-1}}$ \citep{Gagne:2005}.
-		\item We assume the inner wind velocity lies in the range $M=[2, 3]$, and for the density we may assume that ram pressure balance prevails, so we can derive the density from our estimations of $\beta$, and evaluate only the ionization balance condition. Or import the densities from \citet{Garcia-Arredondo:2001} and evaluate both conditions simultaneously.
-	\end{itemize}
-\end{block}
-}
 \frame{\frametitle{Future work}
 \begin{block}{}
 	\begin{itemize}
 		\item For the Orion Nebula proplyds, improve methodology to obtain $\beta$ and inclinations in order to get a better resolution in the $(\beta, k, i)$ grid. 
 		\item Improve methodology to evaluate balance conditions.
+                  \item Analyze the $\beta\to 0$ limit for ancantoids which may apply for jets working surfaces.
 		\item Develop other models where bow shocks occur besides the thin shell model (Henney et al. in prep)
 		\item Apply the techique developed in this work to other classes of stellar bow shocks: OB runaway stars \citep{Kobulnicky:2016} and red giant and supergiant stars \citep{Cox:2012}. And for LL objects in the outskirts of Orion Nebula \citep{Henney:2013}.
 	\end{itemize}
 \end{block}
 }
+\section{Summary and Conclusions}
+
+\frame{\frametitle{Summary and conclusions}
+%\begin{block}{}
+	\small
+\begin{itemize}
+	\item The shape of an (ideally) cylindrically symmetric bow shock can be characterized by two adimensional parameters: the planitude $\Pi$ and the alatude $\Lambda$ that can be obtained from theoretical models (such as the thin shell model but not restricted to) or observations.
+	\item We develop a general method to find the projected shape (i.e, the limb brightened edge) or tangent line, described with the parameters $(\Pi', \Lambda')$, of a bow shock idealized as a cylindrical surface as a function of the inclination angle $i$.
+	\item This method was applied to find inclination depending curves into the $\Lambda'-\Pi'$ plane for two sets of surfaces:
+		\begin{itemize}
+			\item \textbf{Quadric surfaces}, which are the surfaces of revolution of the conic sections.
+			\item The solutions of the \textbf{Thin Shell Model} \citep{Canto:1996}
+		\end{itemize}
+	%\item Open quadrics (hyperboloids) and close quadrics (ellipsoids) occupy different regions of the plane, and the interface between them is occupy by paraboloids. Any given curve does not move from one region to other.
+\end{itemize}
+%\end{block}
+}
+%\frame{\frametitle{Summary and conclusions}
+%\begin{block}{}
+%	\small
+%	\begin{itemize}{}
+%		\item In the $|i|\to 90^\circ$ limit, the apparent shape of all the ellipsoids tend to $\Pi'=\Lambda'=1$,the paraboloids tend to $\Pi'=\Lambda'=2$ and for the hyperboloids $(\Pi', \Lambda')\to(\infty, \infty)$ for a critical inclination $i_{crit}$ where the tangent line only exists for $|i| < i_{crit}$.
+%		\item This implies that the apparent shape of the confocal sphere $(\Pi=\Lambda=1)$ and paraboloid $(\Pi=\Lambda=2)$ is independent of inclination.
+%	\end{itemize}
+%\end{block}
+%}
+%\frame{\frametitle{Summary and Conclusions}
+%\begin{block}{}
+%	\begin{itemize}
+%		\item For the Thin Shell Model we found the inclination dependent curves for the shape of the discontinuty contact under three scenarios:
+%			\begin{itemize}
+%				\item A spherically symmetric, isotropic and non accelerated wind interacting with another spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Cantoid}.
+%				\item A spherically symmetric, isotropic and non accelerated wind interacting with a plane -- parallel stream of constant velocity and density. The resultant bow shock is called \textit{Wilkinoid}.
+%				\item An spherically symmetric, anisotropic and non accelerated wind, where its density follows a power law of $\cos\theta$ interacts with a spherically symmetric, isotropic and non accelerated wind. The resultant bow shock is called \textit{Ancantoid}. 
+%			\end{itemize}
+%	\end{itemize}
+%\end{block}
+%}
+%\frame{\frametitle{Summary and Conclusions}
+%\begin{block}{}
+%	\begin{itemize}
+%		\item The shape of the discontinuity contact $R(\theta)$ of the wilkinoid shapes is fully characterized with the apex radius $R_0$. For the cantoids the shape is fully characterized with the winds momentum ratio $\beta$. And the ancantoids require additionally the anisotropy index $k$.
+%		\item The wilkioid shape acts as the limit of the cantoids when $\beta\to 0$.
+%		\item For low $\beta$ and regardless of $k$, the shape of the head fits to an ellipsoid and for higher values it fits better to an hyperboloid. This can be estimated calculating the planitude and alatude for a given $(k, \beta)$.
+%		\item The shape of the tail always fits with an hyperboloid, and can be estimated from the assymptotic angle $\theta_\infty$.
+%		\item The inclination dependent curves of the thin shell model solutions move from the prolate ellipsoid region to the hyperboloid region as the inclination increases (with the exception of the wilkinoid curve).
+%			\end{itemize}
+%\end{block}
+%}
+
+\frame{\frametitle{Summary and Conclusions}
+  % \begin{block}{}
+  \small
+	\begin{itemize}
+%		\item The inclination dependent curves of the ancantoids show a kink at an inclination such that the aparent apex passes through the point where the inner wind is cut off.
+		\item We apply this work to the bow shocks observed in the core of the Orion Nebula due to the wind-wind interaction between proplyd's photoevaporated flow and \thC{} wind. 
+		\item We measured the projected distance $D'$ to \thC{} for a set of proplyds and the projected planitude $\Pi'$ of their respective bow shock. The projected alatude was not measured due to the decay of emmision with $\theta$.
+		\item We compared visually each measurement of planitude against the thin shell model predictions. Assuming a given anisotropy index $k$, we obtain may plausible values for the inclination and the winds momentum ratio $\beta$, leading us to estimate the intrinsic dimensions of each bow shock and the intrinsic distance to \thC{}.
+	\end{itemize}
+%\end{block}
+}
+
+\frame{\frametitle{Summary and conclusions}
+  \small
+  \begin{itemize}
+  \item We evaluated ionization balance and ram pressure balance under certain assumptions about \thC{} wind properties.
+  \item We assumed that the photoevaporated flow velocity lies in the range $M=[2, 3]$, we didn't see sustancial changes in both balance conditions.
+    \item We compared two different estimations of the photoevaporated flow density and evaluated balance conditions, but we lack of an appropiate method to determine which approximation is better (or if none of them is).
+    \end{itemize}
+}
+
+%\frame{\frametitle{Summary and Conclusions}
+%\begin{block}{}
+%	\begin{itemize}
+%		\item Following the observational constriction $\dot{M}_{-7}/v_3 \simeq 2$ for the wind of \thC{} \citep{Garcia-Arredondo:2001}, we compared two models for this wind: $\dot{M}_{w1} = \SI{3.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{1200}{km.s^{-1}}$ \citep{Garcia-Arredondo:2001, GAH:2002}. And $\dot{M}_{w1} = \SI{5.5e-7}{M_\odot.yr^{-1}}$ and $v_{w1}=\SI{2760}{km.s^{-1}}$ \citep{Gagne:2005}.
+%		\item We assume the inner wind velocity lies in the range $M=[2, 3]$, and for the density we may assume that ram pressure balance prevails, so we can derive the density from our estimations of $\beta$, and evaluate only the ionization balance condition. Or import the densities from \citet{Garcia-Arredondo:2001} and evaluate both conditions simultaneously.
+%	\end{itemize}
+%\end{block}
+%}
+
 
 \frame{
 	\includegraphics[width=\linewidth]{../Figures/Thanks}
@@ -1071,6 +1068,43 @@ We may derive the pre shock wind density as follows:
     \includegraphics[width=0.8\linewidth]{../Figures/projection-3d-vec-eq}\\
     \hyperlink{tangent-line}{\beamergotobutton{Return Button}}
   \end{block}
+}
+
+ \frame[label=proj-radii]{\frametitle{Projected Alatude and Planitude}
+	\begin{align*}
+		R'_0 = R(\theta_0)\cos(\theta_0 - |i|)
+	\end{align*}
+        \twocols{\begin{block}{Projected alatude}
+\small            \includegraphics[width=0.8\linewidth]{../Figures/projection-3d-R90-eq}\\
+	Where:\\
+	\includegraphics[width=0.8\linewidth]{../Figures/projection-3d-t90-eq}\\
+	Finally $\Lambda = R'_{90}/R'_0$
+\end{block}}{\begin{block}{projected planitude}
+  \includegraphics[width=\linewidth]{../Figures/projection-3d-planitude-eq}\\
+  \hyperlink{proj-pi-lambda}{\beamergotobutton{Return Button}}
+ \end{block}}
+
+}
+
+\frame[label=proj-shape-quad]{\frametitle{Projected Shape of Quadrics of Revolution}
+\twocols{\begin{block}{In terms of $(a, b, t)$}
+	\includegraphics[width=\linewidth]{../Figures/projection-quad-shape-final-eq}
+\end{block}}{\begin{block}{In terms of $(a', b', t')$}
+	\begin{align*}
+		x'_T &= a'\Cos(t') + x'_0\\
+		y'_T &= b'\Sin(t')
+	\end{align*}
+\end{block}}
+\twocols{\begin{block}{Where:}
+	\begin{align*}
+		a' &= a\cos i~\fQi \\
+		b' &= b \\
+		\Cos(t') &= \fQi\Cos(t)\\
+		\fQi &= \left(1 + \Q\tan^2i\right)^{1/2}
+	\end{align*}
+\end{block}}{\begin{block}{}
+	With this we show that the projected shape of a quadric is another quadric of the same type. The particular case of the paraboloid is shown \hyperlink{paraboloid}{\beamergotobutton{HERE}}.
+\end{block}}
 }
 
 
